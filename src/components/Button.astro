@@ -1,0 +1,20 @@
+---
+interface Props {
+  onClick: string
+  style?: string
+  type?: "light" | "dark"
+}
+
+const { onClick, style, type = "light" }: Props = Astro.props
+---
+
+<button
+  onclick={onClick}
+  class={` rounded-full px-10 py-2 font-avenir uppercase font-medium border-2 transition duration-300 ${
+    type === "light"
+      ? "text-t-light-green border-t-light-green hover:bg-t-light-green hover:text-t-black "
+      : "text-t-black border-t-black hover:bg-t-black hover:text-t-light-green "
+  } ${style}`}
+>
+  <slot />
+</button>
