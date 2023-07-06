@@ -7,7 +7,7 @@ interface CarouselProps {
 
 export default function Carousel({ children }: CarouselProps) {
   const [activeIndex, setActiveIndex] = useState<number>(0)
-  const [paused, setPaused] = useState<boolean>(false)
+  // const [paused, setPaused] = useState<boolean>(false)
 
   const updateIndex = (newIndex: number) => {
     console.log("updating", newIndex)
@@ -50,36 +50,6 @@ export default function Carousel({ children }: CarouselProps) {
           })}
         </div>
       </div>
-      {/* <div className=" flex justify-center ">
-        <button
-          className="mr-2 text-t-white"
-          onClick={() => {
-            updateIndex(activeIndex - 1)
-          }}
-        >
-          Prev
-        </button>
-        {React.Children.map(children, (child, index) => {
-          return (
-            <button
-              className={`${index === activeIndex ? "active" : ""}`}
-              onClick={() => {
-                updateIndex(index)
-              }}
-            >
-              {index + 1}
-            </button>
-          )
-        })}
-        <button
-          className="mr-2 text-t-white"
-          onClick={() => {
-            updateIndex(activeIndex + 1)
-          }}
-        >
-          Next
-        </button>
-      </div> */}
     </div>
   )
 }

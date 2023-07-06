@@ -2,8 +2,8 @@
 import Layout from "../layouts/Layout.astro"
 import Header from "../components/Header"
 import Hero from "../components/Hero.astro"
-import Carousel, { CarouselItem, Container } from "../components/Carousel"
-import Button from "../components/Button.astro"
+import { Container as CarouselContainer } from "../components/Carousel"
+import ImagesSection from "../components/ImagesSection.astro"
 ---
 
 <Layout title="Welcome to Astro.">
@@ -13,6 +13,7 @@ import Button from "../components/Button.astro"
     <!-- Spacer -->
     <!-- mb-36 -->
     <div class="h-96 mb-4 mobilem:mb-20 mobilel:mb-36"></div>
-    <Container client:load />
+    <CarouselContainer client:load />
+    <ImagesSection />
   </main>
 </Layout>
