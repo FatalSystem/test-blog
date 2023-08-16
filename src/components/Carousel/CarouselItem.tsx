@@ -1,21 +1,35 @@
-interface ICarouselItemProps {
-  img: string
-  alt: string
-  description: string
+export interface ICarouselItem {
+  img?: ImageMetadata
+  alt?: string
+  description: string | JSX.Element
+  containerStyle?: string
+  descriptionStyle?: string
 }
 
 export default function CarouselItem({
   img,
   alt,
   description,
-}: ICarouselItemProps) {
+  containerStyle = "inline-flex items-end h-40 w-full justify-center",
+  descriptionStyle = "max-w-xs font-avenir uppercase mt-5 px-5 text-sm text-center whitespace-normal text-t-white",
+}: ICarouselItem) {
   return (
-    <div className="inline-flex h-40 items-end  w-full justify-center text-t-white">
-      <div className="">
-        <img src={img} alt={alt} className="mx-auto" />
-        <p className=" max-w-xs font-avenir uppercase mt-5 px-5 text-sm text-center whitespace-normal ">
-          {description}
-        </p>
+    <div className={`${containerStyle}`}>
+      <div>
+        {img && (
+          <img
+            src={img.src}
+            width={img.width}
+            height={img.height}
+            alt={alt}
+            className="mx-auto"
+          />
+        )}
+        {typeof description === "string" ? (
+          <p className={descriptionStyle}>{description}</p>
+        ) : (
+          description
+        )}
       </div>
     </div>
   )

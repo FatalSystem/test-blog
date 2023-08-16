@@ -2,8 +2,9 @@
 import Layout from "../layouts/Layout.astro"
 import Header from "../components/Header"
 import Hero from "../components/Hero.astro"
-import Carousel, { CarouselItem, Container } from "../components/Carousel"
-import Button from "../components/Button.astro"
+import { Container as CarouselContainer } from "../components/Carousel"
+import ImagesSection from "../components/ImagesSection.astro"
+import { BackgroundImage } from "astro-imagetools/components"
 ---
 
 <Layout title="Welcome to Astro.">
@@ -11,8 +12,50 @@ import Button from "../components/Button.astro"
   <main>
     <Hero />
     <!-- Spacer -->
-    <!-- mb-36 -->
     <div class="h-96 mb-4 mobilem:mb-20 mobilel:mb-36"></div>
-    <Container client:load />
+    <CarouselContainer client:load type="news" />
+    <ImagesSection />
+    <!-- <CarouselContainer client:load content={howDoesItWorkContent} /> -->
+    <!-- <ScrollableCarousel client:only /> -->
+    <CarouselContainer client:load type="benefits" />
+    <!-- Tennis partner -->
+    <BackgroundImage src="../src/assets/front-page/tennis-partner.jpg">
+      <section
+        class="w-full h-screen flex flex-col p-5 justify-end bg-gradient-to-t from-t-black to-transparent"
+      >
+        <div class="">
+          <h3 class="font-avenir uppercase text-2xl text-t-white">
+            your new<br />favorite
+          </h3>
+          <h2
+            class="font-avenir uppercase text-3xl font-bold text-t-white mt-1 mb-4"
+          >
+            Tennis partner
+          </h2>
+          <p class="font-avenir italic text-t-white mb-5">
+            By taking the downtime out of every lesson, Tennibot allows you to
+            improve at a much faster rate. With a bucket that holds up to 80
+            balls and a clay court sweeper, Tennibot eliminates the worst parts
+            of our favorite sport.
+          </p>
+        </div>
+      </section>
+      <!-- Balls collected -->
+      <section
+        class="bg-t-light-green flex flex-col justify-center align-middle h-screen"
+      >
+        <h3
+          class="font-avenir font-black uppercase text-5xl text-bold text-t-black border-2 border-t-black p-2 w-fit mx-auto"
+        >
+          1,027,945
+        </h3>
+        <p
+          class="font-avenir text-t-black text-xl uppercase text-center mx-auto max-w-xs my-10"
+        >
+          Balls collected by<br /> the tennibot <br />across the US
+        </p>
+        <CarouselContainer client:load type="testimonials" />
+      </section>
+    </BackgroundImage>
   </main>
 </Layout>

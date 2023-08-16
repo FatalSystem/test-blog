@@ -1,13 +1,23 @@
-import React, { useState } from "react"
+import React, { ReactElement, useState } from "react"
 import { useSwipeable } from "react-swipeable"
 
 interface CarouselProps {
   children: React.ReactNode
+  theme?: "dark" | "light"
+  callToAction?: {
+    onClick: string
+    theme: "dark" | "light"
+    text: string
+    style?: string
+  }
 }
 
-export default function Carousel({ children }: CarouselProps) {
+export default function Carousel({
+  children,
+  theme = "dark",
+  callToAction,
+}: CarouselProps) {
   const [activeIndex, setActiveIndex] = useState<number>(0)
-  const [paused, setPaused] = useState<boolean>(false)
 
   const updateIndex = (newIndex: number) => {
     console.log("updating", newIndex)
@@ -25,21 +35,28 @@ export default function Carousel({ children }: CarouselProps) {
   })
 
   return (
-    <div {...swipeHandlers} className=" bg-t-black overflow-hidden">
+    <div
+      {...swipeHandlers}
+      className={`bg-${
+        theme === "dark" ? "t-black" : "t-light-green"
+      } overflow-hidden`}
+    >
       <div
-        className=" whitespace-nowrap   transition transform duration-300 "
+        className=" whitespace-nowrap transition transform duration-300"
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}
       >
-        {React.Children.map(children, (child, index) => {
-          return React.cloneElement(child)
+        {React.Children.map(children, (child) => {
+          return React.cloneElement(child as ReactElement)
         })}
       </div>
-      <div className=" h-10  mt-5">
+      <div className={`h-fit ${callToAction ? "" : "mb-14 mt-5"} `}>
         <div className=" flex gap-3  items-center justify-center">
           {React.Children.map(children, (child, index) => {
             return (
               <a
-                className={`bg-t-light-green rounded-full ${
+                className={`bg-${
+                  theme === "dark" ? "t-light-green" : "t-black"
+                } rounded-full ${
                   index === activeIndex ? "h-3 w-3" : "h-2 w-2"
                 }`}
                 onClick={() => {
@@ -50,36 +67,22 @@ export default function Carousel({ children }: CarouselProps) {
           })}
         </div>
       </div>
-      {/* <div className=" flex justify-center ">
-        <button
-          className="mr-2 text-t-white"
-          onClick={() => {
-            updateIndex(activeIndex - 1)
-          }}
+      {callToAction && (
+        <div
+          className={`w-full flex justify-center mt-5 mb-16 ${callToAction.style}`}
         >
-          Prev
-        </button>
-        {React.Children.map(children, (child, index) => {
-          return (
-            <button
-              className={`${index === activeIndex ? "active" : ""}`}
-              onClick={() => {
-                updateIndex(index)
-              }}
-            >
-              {index + 1}
-            </button>
-          )
-        })}
-        <button
-          className="mr-2 text-t-white"
-          onClick={() => {
-            updateIndex(activeIndex + 1)
-          }}
-        >
-          Next
-        </button>
-      </div> */}
+          <a
+            href="/"
+            className={`rounded-full px-5 py-2 font-avenir uppercase font-medium border-2 transition duration-300 ${
+              callToAction.theme === "light"
+                ? "text-t-light-green border-t-light-green hover:bg-t-light-green hover:text-t-black "
+                : "text-t-black border-t-black hover:bg-t-black hover:text-t-light-green "
+            } `}
+          >
+            {callToAction.text}
+          </a>
+        </div>
+      )}
     </div>
   )
 }

@@ -5,10 +5,8 @@ const links = ["How does it work?", "About us", "Clubs and Coaches", "Preorder"]
 
 export default function Header() {
   const [open, setOpen] = useState<boolean>(false)
-  const handleOpen = () => {
-    console.log("wow")
-    setOpen(!open)
-  }
+  const handleOpen = () => setOpen(!open)
+  
   return (
     <header>
       <nav
@@ -31,7 +29,7 @@ export default function Header() {
       </nav>
       <div className="bg-t-black px-5 py-4 flex flex-row max-h-96 justify-between z-20">
         <a href="/" className="align-middle flex z-20">
-          <img src={tennibotLogo} alt="Tennibot Logo" width="40" height="40" />
+          <img src={tennibotLogo.src} width={40}  alt="Tennibot Logo" />
         </a>
         <div className="relative my-auto">
           <button onClick={handleOpen} className="w-12 h-10 ">
