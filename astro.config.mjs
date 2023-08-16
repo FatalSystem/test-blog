@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config"
 import tailwind from "@astrojs/tailwind"
+import { astroImageTools } from "astro-imagetools"
 
 import react from "@astrojs/react"
 
@@ -8,5 +9,5 @@ export default defineConfig({
   experimental: {
     assets: true,
   },
-  integrations: [tailwind(), react()],
+  integrations: [tailwind(), react(), astroImageTools],
 })

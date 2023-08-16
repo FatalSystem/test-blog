@@ -49,7 +49,7 @@ export default function Carousel({
           return React.cloneElement(child as ReactElement)
         })}
       </div>
-      <div className={`h-fit ${callToAction ? "" : "mb-14"} `}>
+      <div className={`h-fit ${callToAction ? "" : "mb-14 mt-5"} `}>
         <div className=" flex gap-3  items-center justify-center">
           {React.Children.map(children, (child, index) => {
             return (

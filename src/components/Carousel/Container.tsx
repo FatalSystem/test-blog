@@ -7,7 +7,7 @@ import mashable from "../../assets/mashable.svg"
 import digitaltrends from "../../assets/digital-trends.svg"
 
 interface ICarouselContainer {
-  type: "news" | "benefit"
+  type: "news" | "benefits" | "testimonials"
 }
 
 const newsContent = [
@@ -41,9 +41,7 @@ const newsContent = [
 const benefitContent = [
   {
     description: (
-      <p className="max-w-sm font-avenir uppercase px-5 text-xl text-center whitespace-normal text-t-black">
-        {" "}
-        {/* text-4xl */}
+      <p className="max-w-xs font-avenir uppercase px-5 text-xl whitespace-normal  text-center text-t-black ">
         <strong>20%</strong> OF YOUR TIME ON THE COURT IS SPENT PICKING UP BALLS
       </p>
     ),
@@ -51,8 +49,6 @@ const benefitContent = [
   {
     description: (
       <p className=" max-w-xs font-avenir uppercase px-5 text-xl text-center whitespace-normal text-t-black">
-        {" "}
-        {/* text-4xl */}
         WITH TENNIBOT, THAT NUMBER IS ALMOST <strong>ZERO</strong>
       </p>
     ),
@@ -60,8 +56,6 @@ const benefitContent = [
   {
     description: (
       <p className=" max-w-lg font-avenir uppercase px-5 text-xl pb-5 text-center whitespace-normal text-t-black">
-        {" "}
-        {/* text-3xl */}
         YOU COULD BE HITTING HUNDREDS MORE SHOTS,{" "}
         <strong>EVERY TIME YOU PRACTICE</strong>
       </p>
@@ -69,15 +63,48 @@ const benefitContent = [
   },
 ]
 
+const testimonialContent = [
+  {
+    description: (
+      <p className=" max-w-xs font-avenir uppercase px-5 text-xl text-center whitespace-normal text-t-black">
+        "I think every tennis coach should have one of these."
+      </p>
+    ),
+  },
+  {
+    description: (
+      <p className=" max-w-xs font-avenir uppercase px-5 text-xl text-center whitespace-normal text-t-black">
+        "I think every tennis coach should have one of these."
+      </p>
+    ),
+  },
+  {
+    description: (
+      <p className=" max-w-xs font-avenir uppercase px-5 text-xl text-center whitespace-normal text-t-black">
+        "I think every tennis coach should have one of these."
+      </p>
+    ),
+  },
+]
+
 export default function Container({ type }: ICarouselContainer) {
-  const content: ICarouselItem[] =
-    type === "news" ? newsContent : benefitContent
+  const handleCarouselContainer = (): ICarouselItem[] => {
+    switch (type) {
+      case "news":
+        return newsContent
+      case "benefits":
+        return benefitContent
+      case "testimonials":
+        return testimonialContent
+    }
+  }
+  const content: ICarouselItem[] = handleCarouselContainer()
   if (content)
     return (
       <Carousel
         theme={type === "news" ? "dark" : "light"}
         callToAction={
-          type === "benefit"
+          type === "benefits"
             ? { onClick: "/", theme: "dark", text: "How does it work?" }
             : undefined
         }
@@ -88,7 +115,7 @@ export default function Container({ type }: ICarouselContainer) {
             alt={contentItem.alt}
             description={contentItem.description}
             containerStyle={
-              type === "benefit"
+              type === "benefits"
                 ? "inline-flex items-end h-28 w-full justify-center"
                 : undefined
             }
