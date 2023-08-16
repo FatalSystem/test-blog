@@ -2,8 +2,17 @@
 import Layout from "../layouts/Layout.astro"
 import Header from "../components/Header"
 import Hero from "../components/Hero.astro"
-import { Container as CarouselContainer } from "../components/Carousel"
+import {
+  Container as CarouselContainer,
+  CarouselItem,
+  ScrollableCarousel,
+} from "../components/Carousel"
 import ImagesSection from "../components/ImagesSection.astro"
+import time from "../assets/time.svg"
+import bbc from "../assets/bbc.svg"
+import latimes from "../assets/latimes.svg"
+import mashable from "../assets/mashable.svg"
+import digitaltrends from "../assets/digital-trends.svg"
 ---
 
 <Layout title="Welcome to Astro.">
@@ -11,9 +20,11 @@ import ImagesSection from "../components/ImagesSection.astro"
   <main>
     <Hero />
     <!-- Spacer -->
-    <!-- mb-36 -->
     <div class="h-96 mb-4 mobilem:mb-20 mobilel:mb-36"></div>
-    <CarouselContainer client:load />
+    <CarouselContainer client:load type="news" />
     <ImagesSection />
+    <!-- <CarouselContainer client:load content={howDoesItWorkContent} /> -->
+    <!-- <ScrollableCarousel client:only /> -->
+    <CarouselContainer client:load type="benefit" />
   </main>
 </Layout>

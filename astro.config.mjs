@@ -1,12 +1,12 @@
-import { defineConfig } from 'astro/config';
-import tailwind from "@astrojs/tailwind";
+import { defineConfig } from "astro/config"
+import tailwind from "@astrojs/tailwind"
 
-import react from "@astrojs/react";
+import react from "@astrojs/react"
 
 // https://astro.build/config
 export default defineConfig({
   experimental: {
-    assets: true
+    assets: true,
   },
-  integrations: [tailwind(), react()]
-});
+  integrations: [tailwind(), react()],
+})

@@ -9,6 +9,10 @@ module.exports = {
         mobiles: "320px",
       },
       colors: {
+        "t-red": 'red',
+        "t-blue": 'blue',
+        "t-green": 'green',
+        "t-yellow": 'yellow',
         "t-black": "#202023",
         "t-white": "#E9E5F0",
         "t-light-green": "#ECF0E5",
