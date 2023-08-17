@@ -12,7 +12,7 @@ import { BackgroundImage } from "astro-imagetools/components"
   <main>
     <Hero />
     <!-- Spacer -->
-    <div class="h-96 mb-4 mobilem:mb-20 mobilel:mb-36"></div>
+    <!-- <div class="h-96 mb-4 mobilem:mb-20 mobilel:mb-36 md:none"></div> -->
     <CarouselContainer client:load type="news" />
     <ImagesSection />
     <!-- <CarouselContainer client:load content={howDoesItWorkContent} /> -->
@@ -23,7 +23,7 @@ import { BackgroundImage } from "astro-imagetools/components"
       <section
         class="w-full h-screen flex flex-col p-5 justify-end bg-gradient-to-t from-t-black to-transparent"
       >
-        <div class="">
+        <div class="tablet:max-w-xl mx-auto">
           <h3 class="font-avenir uppercase text-2xl text-t-white">
             your new<br />favorite
           </h3>
@@ -32,7 +32,7 @@ import { BackgroundImage } from "astro-imagetools/components"
           >
             Tennis partner
           </h2>
-          <p class="font-avenir italic text-t-white mb-5">
+          <p class="font-avenir italic text-t-white mb-10">
             By taking the downtime out of every lesson, Tennibot allows you to
             improve at a much faster rate. With a bucket that holds up to 80
             balls and a clay court sweeper, Tennibot eliminates the worst parts

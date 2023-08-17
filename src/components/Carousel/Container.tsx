@@ -41,7 +41,7 @@ const newsContent = [
 const benefitContent = [
   {
     description: (
-      <p className="max-w-xs font-avenir uppercase px-5 text-xl whitespace-normal  text-center text-t-black ">
+      <p className="max-w-xs font-avenir uppercase px-5 text-xl whitespace-normal  text-center text-t-black | tablet:max-w-md">
         <strong>20%</strong> OF YOUR TIME ON THE COURT IS SPENT PICKING UP BALLS
       </p>
     ),

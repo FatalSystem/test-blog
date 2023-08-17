@@ -2,17 +2,46 @@
 import Button from "./Button.astro"
 ---
 
-<section>
+<!-- class="w-screen h-[100vw] flex flex-wrap content-around overflow-hidden | md:h-screen" -->
+<section
+  class="w-screen h-[100vw] flex flex-wrap content-around overflow-hidden | md:h-screen"
+>
+  <!--  class="bg-t-black absolute w-screen left-1/2 top-20 -mt-2 transform -translate-x-1/2 p-0 pt-[125%] | tablet:-translate-x-0 tablet:top-0 tablet:left-0 tablet:pt-0 tablet:static tablet:h-screen tablet:flex tablet:flex-wrap tablet:content-around tablet:overflow-hidden" -->
+  <iframe
+    src="https://player.vimeo.com/video/780515008?background=1"
+    frameborder="0"
+    allow="autoplay; fullscreen;"
+    allowfullscreen
+    class="w-full opacity-75 | static h-[150%]"
+  >
+  </iframe>
+  <!-- class="w-full opacity-75 | static h-[150%]"></iframe> -->
+  <!-- class="bg-t-green absolute top-0 left-0 w-full h-full opacity-75 | tablet:static tablet:h-[150%]" -->
+
   <div
-    class="absolute bg-t-black w-screen left-1/2 top-20 -mt-2 transform -translate-x-1/2"
-    style="padding:125% 0 0 0"
+    class="z-10 absolute left-0 w-screen flex flex-col justify-center items-center top-[20%] | mobilem:top-[25%] | tablet:top-[50%]"
+  >
+    <h1
+      class="text-t-light-green text-3xl font-avenir font-black uppercase text-center"
+    >
+      Tennis, meet robot.
+    </h1>
+    <Button onClick="/" style="mt-4">See it in action</Button>
+  </div>
+</section>
+
+<!-- Working on mobile -->
+<!-- <section>
+  <div
+    class="absolute bg-t-black w-screen left-1/2 top-20 -mt-2 transform -translate-x-1/2 p-0 pt-[125%] | md:pt-[125%]"
   >
     <iframe
       src="https://player.vimeo.com/video/780515008?background=1"
       frameborder="0"
       allow="autoplay; fullscreen;"
       allowfullscreen
-      class="absolute top-0 left-0 w-full h-full opacity-75"></iframe>
+      class="absolute top-0 left-0 w-full h-full opacity-75 | md:h-[100%]"
+    ></iframe>
   </div>
   <div class="z-10 absolute top-1/3 left-0 w-screen flex flex-col items-center">
     <h1
@@ -22,4 +51,4 @@ import Button from "./Button.astro"
     </h1>
     <Button onClick="/" style="mt-4">See it in action</Button>
   </div>
-</section>
+</section> -->
