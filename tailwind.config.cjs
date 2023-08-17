@@ -7,6 +7,7 @@ module.exports = {
         mobilel: "425px",
         mobilem: "375px",
         mobiles: "320px",
+        tablet: "450px",
       },
       colors: {
         "t-red": "red",

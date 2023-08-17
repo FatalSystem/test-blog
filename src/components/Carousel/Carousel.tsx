@@ -1,5 +1,6 @@
 import React, { ReactElement, useState } from "react"
 import { useSwipeable } from "react-swipeable"
+import { useTimer } from "../../hooks"
 
 interface CarouselProps {
   children: React.ReactNode
@@ -20,7 +21,6 @@ export default function Carousel({
   const [activeIndex, setActiveIndex] = useState<number>(0)
 
   const updateIndex = (newIndex: number) => {
-    console.log("updating", newIndex)
     if (newIndex < 0) {
       newIndex = React.Children.count(children) - 1
     } else if (newIndex >= React.Children.count(children)) {
@@ -32,6 +32,17 @@ export default function Carousel({
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () => updateIndex(activeIndex + 1),
     onSwipedRight: () => updateIndex(activeIndex - 1),
+  })
+
+  useTimer({
+    key: "newsAutoscroll",
+    type: "interval",
+    activateWhen: theme === "dark",
+    duration: 5000,
+    onComplete: () => {
+      updateIndex(activeIndex + 1)
+    },
+    deps: [activeIndex],
   })
 
   return (

@@ -1,3 +1,4 @@
-import useHorizontalScroll from "./useHorizontalScroll";
+import useHorizontalScroll from "./useHorizontalScroll"
+import useTimer from "./useTimer"
 
-export {useHorizontalScroll}
+export { useHorizontalScroll, useTimer }
