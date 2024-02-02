@@ -49,8 +49,8 @@ export default function Carousel({
     <div
       {...swipeHandlers}
       className={`bg-${
-        theme === "dark" ? "t-black" : "t-light-green"
-      } overflow-hidden`}
+        theme === "dark" ? "t-black min-[950px]:hidden" : "t-light-green"
+      } overflow-hidden  `}
     >
       <div
         className=" whitespace-nowrap transition transform duration-300"

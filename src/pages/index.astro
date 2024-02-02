@@ -5,6 +5,7 @@ import Hero from "../components/Hero.astro"
 import { Container as CarouselContainer } from "../components/Carousel"
 import ImagesSection from "../components/ImagesSection.astro"
 import { BackgroundImage } from "astro-imagetools/components"
+import NewsTab from "../components/NewsTab"
 ---
 
 <Layout title="Welcome to Astro.">
@@ -13,7 +14,9 @@ import { BackgroundImage } from "astro-imagetools/components"
     <Hero />
     <!-- Spacer -->
     <!-- <div class="h-96 mb-4 mobilem:mb-20 mobilel:mb-36 md:none"></div> -->
+
     <CarouselContainer client:load type="news" />
+    <NewsTab client:load />
     <ImagesSection />
     <!-- <CarouselContainer client:load content={howDoesItWorkContent} /> -->
     <!-- <ScrollableCarousel client:only /> -->
