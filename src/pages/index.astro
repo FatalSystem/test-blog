@@ -12,15 +12,19 @@ import NewsTab from "../components/NewsTab"
   <Header client:visible />
   <main>
     <Hero />
+    <!-- Was there -->
     <!-- Spacer -->
     <!-- <div class="h-96 mb-4 mobilem:mb-20 mobilel:mb-36 md:none"></div> -->
 
-    <CarouselContainer client:load type="news" />
-    <NewsTab client:load />
+    <CarouselContainer client:only type="news" />
+    <NewsTab client:only />
     <ImagesSection />
+    
+    <!-- Was there -->
     <!-- <CarouselContainer client:load content={howDoesItWorkContent} /> -->
     <!-- <ScrollableCarousel client:only /> -->
-    <CarouselContainer client:load type="benefits" />
+
+    <CarouselContainer client:only type="benefits" />
     <!-- Tennis partner -->
     <BackgroundImage src="../src/assets/front-page/tennis-partner.jpg">
       <section
@@ -43,7 +47,6 @@ import NewsTab from "../components/NewsTab"
           </p>
         </div>
       </section>
-      <!-- Balls collected -->
       <section
         class="bg-t-light-green flex flex-col justify-center align-middle h-screen"
       >
@@ -57,7 +60,7 @@ import NewsTab from "../components/NewsTab"
         >
           Balls collected by<br /> the tennibot <br />across the US
         </p>
-        <CarouselContainer client:load type="testimonials" />
+        <CarouselContainer client:only type="testimonials" />
       </section>
     </BackgroundImage>
   </main>
