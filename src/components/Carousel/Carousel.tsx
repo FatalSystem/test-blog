@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from "react"
+import React, { type ReactElement, useState } from "react"
 import { useSwipeable } from "react-swipeable"
 import { useTimer } from "../../hooks"
 

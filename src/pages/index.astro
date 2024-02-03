@@ -1,11 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import Header from "../components/Header"
-import Hero from "../components/Hero.astro"
-import { Container as CarouselContainer } from "../components/Carousel"
-import ImagesSection from "../components/ImagesSection.astro"
+import Header from "@components/Header.tsx"
+import Hero from "@components/Hero.astro"
+import { Container as CarouselContainer } from "@components/Carousel"
+import ImagesSection from "@components/ImagesSection.astro"
+// @ts-ignore
 import { BackgroundImage } from "astro-imagetools/components"
 import NewsTab from "../components/NewsTab"
+import { Image } from 'astro:assets'
+
+import ballCollection from "@assets/front-page/ball-collection.webp"
+import lineJudging from "@assets/front-page/line-judging.webp"
+import courtSweeping from "@assets/front-page/courtsweeping.webp"
+import matchAnalysis from "@assets/front-page/matchanalysis.webp"
 ---
 
 <Layout title="Welcome to Astro.">
@@ -16,15 +23,22 @@ import NewsTab from "../components/NewsTab"
     <!-- Spacer -->
     <!-- <div class="h-96 mb-4 mobilem:mb-20 mobilel:mb-36 md:none"></div> -->
 
-    <CarouselContainer client:only type="news" />
-    <NewsTab client:only />
-    <ImagesSection />
+    <CarouselContainer client:only="react" type="news" />
+    <NewsTab client:only="react" />
+    <!-- <ImagesSection /> -->
+    <section>
+      <Image src={ballCollection} alt="Ball collection image" />
+      <Image src={lineJudging} alt="Line judging image" />
+      <Image src={courtSweeping} alt="Court sweeping image" />
+      <Image src={matchAnalysis} alt="Match analysis image" />
+    </section>
+
     
     <!-- Was there -->
     <!-- <CarouselContainer client:load content={howDoesItWorkContent} /> -->
-    <!-- <ScrollableCarousel client:only /> -->
+    <!-- <ScrollableCarousel client:only="react" /> -->
 
-    <CarouselContainer client:only type="benefits" />
+    <CarouselContainer client:only="react" type="benefits" />
     <!-- Tennis partner -->
     <BackgroundImage src="../src/assets/front-page/tennis-partner.jpg">
       <section
@@ -60,7 +74,7 @@ import NewsTab from "../components/NewsTab"
         >
           Balls collected by<br /> the tennibot <br />across the US
         </p>
-        <CarouselContainer client:only type="testimonials" />
+        <CarouselContainer client:only="react" type="testimonials" />
       </section>
     </BackgroundImage>
   </main>

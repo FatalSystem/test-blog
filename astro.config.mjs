@@ -9,5 +9,5 @@ export default defineConfig({
   // experimental: {
   //   assets: true,
   // },
-  integrations: [tailwind(), react(), astroImageTools],
+  integrations: [tailwind(), react({ experimentalReactChildren: true}), astroImageTools],
 })
