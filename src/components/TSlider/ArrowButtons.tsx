@@ -5,6 +5,7 @@ import React, {
   useState
 } from 'react'
 import { type EmblaCarouselType } from 'embla-carousel'
+import { motion, AnimatePresence } from "framer-motion"
 
 interface UsePrevNextButtonsType {
   prevBtnDisabled: boolean
@@ -50,7 +51,7 @@ export const usePrevNextButtons = (
   }
 }
 
-  type PropType = PropsWithChildren<
+  type PropType = { buttonStlye: string } & PropsWithChildren<
   React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
@@ -58,41 +59,43 @@ export const usePrevNextButtons = (
   >
 
 export const PrevButton: React.FC<PropType> = (props) => {
-  const { children, ...restProps } = props
+  const { children, buttonStlye, ...restOfProps } = props
 
   return (
-      <button
-        className="z-10 flex items-center justify-center cursor-pointer w-[4rem] h-[4rem] embla__button--prev"
+    <AnimatePresence>
+      <motion.button
+        className={`z-10 flex items-center justify-center cursor-pointer w-[4rem] h-[4rem] embla__button--prev ${buttonStlye}`}
         type="button"
-        {...restProps}
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 2 }}
+        {...restOfProps}
       >
-        <svg className="w-[65%] h-[65%]" viewBox="0 0 532 532">
-          <path
-            fill="currentColor"
-            d="M355.66 11.354c13.793-13.805 36.208-13.805 50.001 0 13.785 13.804 13.785 36.238 0 50.034L201.22 266l204.442 204.61c13.785 13.805 13.785 36.239 0 50.044-13.793 13.796-36.208 13.796-50.002 0a5994246.277 5994246.277 0 0 0-229.332-229.454 35.065 35.065 0 0 1-10.326-25.126c0-9.2 3.393-18.26 10.326-25.2C172.192 194.973 332.731 34.31 355.66 11.354Z"
-          />
+        <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" fill="none">
+          <circle cx="48" cy="48" r="46" transform="rotate(-180 48 48)" stroke="#F6F7F2" stroke-width="4"/>
+          <path d="M55.2734 66.9092L32.0007 48.0001L55.2734 29.091" stroke="#F6F7F2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         {children}
-      </button>
+      </motion.button>
+    </AnimatePresence>
   )
 }
 
 export const NextButton: React.FC<PropType> = (props) => {
-  const { children, ...restProps } = props
+  const { children, buttonStlye, ...restOfProps } = props
 
   return (
-      <button
-        className="z-10 flex items-center justify-center cursor-pointer w-[4rem] h-[4rem] embla__button--next"
+    <AnimatePresence>
+      <motion.button
+        className={`z-10 flex items-center justify-center cursor-pointer w-[4rem] h-[4rem] embla__button--next ${buttonStlye}`}
         type="button"
-        {...restProps}
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 2 }}
+        {...restOfProps}
       >
-        <svg className="w-[65%] h-[65%]" viewBox="0 0 532 532">
-          <path
-            fill="currentColor"
-            d="M176.34 520.646c-13.793 13.805-36.208 13.805-50.001 0-13.785-13.804-13.785-36.238 0-50.034L330.78 266 126.34 61.391c-13.785-13.805-13.785-36.239 0-50.044 13.793-13.796 36.208-13.796 50.002 0 22.928 22.947 206.395 206.507 229.332 229.454a35.065 35.065 0 0 1 10.326 25.126c0 9.2-3.393 18.26-10.326 25.2-45.865 45.901-206.404 206.564-229.332 229.52Z"
-          />
+        <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" fill="none">
+          <circle cx="48" cy="48" r="46" stroke="#F6F7F2" stroke-width="4"/>
+          <path d="M40.7266 29.0908L63.9993 47.9999L40.7266 66.909" stroke="#F6F7F2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         {children}
-      </button>
+      </motion.button>
+    </AnimatePresence>
   )
 }

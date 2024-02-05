@@ -15,8 +15,8 @@ import lineJudging from "@assets/front-page/line-judging.webp"
 import courtSweeping from "@assets/front-page/courtsweeping.webp"
 import matchAnalysis from "@assets/front-page/matchanalysis.webp"
 
-const OPTIONS: EmblaOptionsType = { loop: true }
-const SLIDE_COUNT = 5
+const OPTIONS: EmblaOptionsType = { loop: false, watchDrag: false }
+const SLIDE_COUNT = 3
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
 ---
@@ -40,14 +40,9 @@ const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
       <Image src={matchAnalysis} alt="Match analysis image" />
     </section>
 
-    
-    <!-- Was there -->
-    <!-- <CarouselContainer client:load content={howDoesItWorkContent} /> -->
-    <!-- <ScrollableCarousel client:only="react" /> -->
-
-    <CarouselContainer client:only="react" type="benefits" />
+    <!-- <CarouselContainer client:only="react" type="benefits" /> -->
     <!-- Tennis partner -->
-    <BackgroundImage src="../src/assets/front-page/tennis-partner.jpg">
+    <!-- <BackgroundImage src="../src/assets/front-page/tennis-partner.jpg">
       <section
         class="w-full h-screen flex flex-col p-5 justify-end bg-gradient-to-t from-t-black to-transparent"
       >
@@ -83,6 +78,6 @@ const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
         </p>
         <CarouselContainer client:only="react" type="testimonials" />
       </section>
-    </BackgroundImage>
+    </BackgroundImage> -->
   </main>
 </Layout>
