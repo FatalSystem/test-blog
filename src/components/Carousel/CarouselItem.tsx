@@ -1,3 +1,4 @@
+import React from 'react'
 export interface ICarouselItem {
   img?: ImageMetadata
   alt?: string
@@ -6,13 +7,13 @@ export interface ICarouselItem {
   descriptionStyle?: string
 }
 
-export default function CarouselItem({
+export default function CarouselItem ({
   img,
   alt,
   description,
-  containerStyle = "inline-flex items-end h-40 w-full justify-center",
-  descriptionStyle = "max-w-xs font-avenir uppercase mt-5 px-5 text-sm text-center whitespace-normal text-t-white",
-}: ICarouselItem) {
+  containerStyle = 'inline-flex items-end h-40 w-full justify-center',
+  descriptionStyle = 'max-w-xs font-avenir uppercase mt-5 px-5 text-sm text-center whitespace-normal text-t-white'
+}: ICarouselItem): JSX.Element {
   return (
     <div className={`${containerStyle}`}>
       <div>
@@ -25,11 +26,13 @@ export default function CarouselItem({
             className="mx-auto"
           />
         )}
-        {typeof description === "string" ? (
+        {typeof description === 'string'
+          ? (
           <p className={descriptionStyle}>{description}</p>
-        ) : (
-          description
-        )}
+            )
+          : (
+              description
+            )}
       </div>
     </div>
   )

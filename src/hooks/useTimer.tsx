@@ -1,6 +1,6 @@
-import { DependencyList, useEffect } from "react"
+import { type DependencyList, useEffect } from 'react'
 
-type TimerType = "interval" | "timeout"
+type TimerType = 'interval' | 'timeout'
 
 interface IUseTimer {
   type?: TimerType
@@ -15,14 +15,14 @@ interface IUseTimer {
 }
 
 const useTimer = ({
-  type = "timeout",
+  type = 'timeout',
   duration,
   onStart = () => {},
   onComplete,
   onDeactivate = () => {},
   onDestroy = () => {},
   deps,
-  activateWhen = true,
+  activateWhen = true
 }: IUseTimer) => {
   useEffect(() => {
     let timeout: undefined | NodeJS.Timeout
@@ -32,19 +32,19 @@ const useTimer = ({
       : activateWhen
     if (activationCondition) {
       onStart()
-      if (type === "interval") {
+      if (type === 'interval') {
         interval = setInterval(onComplete, duration)
       } else {
         timeout = setTimeout(onComplete, duration)
       }
     } else {
-      if (type === "interval" && interval) clearInterval(interval)
-      else if (type === "timeout" && timeout) clearTimeout(timeout)
+      if (type === 'interval' && interval) clearInterval(interval)
+      else if (type === 'timeout' && timeout) clearTimeout(timeout)
       onDeactivate()
     }
     return () => {
-      if (type === "interval" && interval) clearInterval(interval)
-      else if (type === "timeout" && timeout) clearTimeout(timeout)
+      if (type === 'interval' && interval) clearInterval(interval)
+      else if (type === 'timeout' && timeout) clearTimeout(timeout)
       onDestroy()
     }
   }, [...deps, duration])

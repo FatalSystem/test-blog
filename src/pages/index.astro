@@ -3,28 +3,35 @@ import Layout from "../layouts/Layout.astro"
 import Header from "@components/Header.tsx"
 import Hero from "@components/Hero.astro"
 import { Container as CarouselContainer } from "@components/Carousel"
-import ImagesSection from "@components/ImagesSection.astro"
+import TSlider from "@components/TSlider/TSlider.tsx"
 // @ts-ignore
 import { BackgroundImage } from "astro-imagetools/components"
 import NewsTab from "../components/NewsTab"
 import { Image } from 'astro:assets'
+import { type EmblaOptionsType } from 'embla-carousel'
 
 import ballCollection from "@assets/front-page/ball-collection.webp"
 import lineJudging from "@assets/front-page/line-judging.webp"
 import courtSweeping from "@assets/front-page/courtsweeping.webp"
 import matchAnalysis from "@assets/front-page/matchanalysis.webp"
+
+const OPTIONS: EmblaOptionsType = { loop: true }
+const SLIDE_COUNT = 5
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
+
 ---
 
 <Layout title="Welcome to Astro.">
   <Header client:visible />
   <main>
     <Hero />
-    <!-- Was there -->
-    <!-- Spacer -->
-    <!-- <div class="h-96 mb-4 mobilem:mb-20 mobilel:mb-36 md:none"></div> -->
 
     <CarouselContainer client:only="react" type="news" />
+
     <NewsTab client:only="react" />
+    <section class="relative">
+      <TSlider client:only="react" slides={SLIDES} options={OPTIONS} />
+    </section>
     <!-- <ImagesSection /> -->
     <section>
       <Image src={ballCollection} alt="Ball collection image" />

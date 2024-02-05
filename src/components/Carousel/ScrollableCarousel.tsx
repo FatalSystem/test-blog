@@ -1,10 +1,7 @@
-import { useEffect, useRef } from "react"
-import { useHorizontalScroll } from "../../hooks"
-import ballCollection from "../../assets/front-page/ball-collection.jpg"
-import courtSweeping from "../../assets/front-page/court-sweeping.jpg"
-import lineJudge from "../../assets/front-page/line-judge.jpg"
+import { useRef } from 'react'
+import { useHorizontalScroll } from '../../hooks'
 
-export default function ScrollableCarousel() {
+export default function ScrollableCarousel (): JSX.Element {
   const lastElRef = useRef<HTMLElement>(null)
   const { carouselRef, containerRef } = useHorizontalScroll(lastElRef.current)
 
@@ -16,12 +13,12 @@ export default function ScrollableCarousel() {
   return (
     <div ref={containerRef}>
       <div className="bg-t-light-green">
-        <img
+        {/* <img
           src={ballCollection.src}
           alt="Rover collecting balls near a fence"
         />
         <img src={courtSweeping.src} alt="Rover sweeping a court" />
-        <img src={lineJudge.src} alt="Station" />
+        <img src={lineJudge.src} alt="Station" /> */}
       </div>
       <div
         ref={carouselRef}

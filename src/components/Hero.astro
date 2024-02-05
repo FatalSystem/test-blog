@@ -4,12 +4,13 @@ import Button from "./Button.astro"
 <section
   class="w-screen h-[100vw] bg-t-black flex flex-wrap content-around overflow-hidden | md:h-screen | min-[850px]:h-[51vw]"
 >
+  <!-- <div style="background-image: url('../src/assets/front-page/cover-img.webp')" class="bg-cover bg-center absolute w-full h-[150%]" /> -->
   <!-- desktop -->
   <iframe
     src="https://player.vimeo.com/video/893993983?background=1"
     allow="autoplay; fullscreen;"
     allowfullscreen
-    class="hidden bg-t-black w-full opacity-75 | h-[150%] | min-[850px]:block"
+    class="hidden bg-[url('../src/assets/front-page/cover-img.webp')] bg-contain bg-center w-full opacity-75 | h-[150%] | min-[850px]:block"
   >
   </iframe>
   <!-- mobile -->
@@ -17,7 +18,7 @@ import Button from "./Button.astro"
     src="https://player.vimeo.com/video/894270264?background=1"
     allow="autoplay; fullscreen;"
     allowfullscreen
-    class="w-full opacity-75 bg-t-black | static h-[150%] | min-[850px]:hidden"
+    class=" bg-[url('../src/assets/front-page/cover-img-mobile.webp')] bg-contain bg-center w-full opacity-75 bg-t-black | static h-[150%] | min-[850px]:hidden"
   >
   </iframe>
   <div
