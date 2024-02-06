@@ -61,13 +61,17 @@ const TSlider: React.FC<PropType> = (props) => {
   const handleImage = (index: number): string => {
     switch (index) {
       case 0:
-        return 'bg-[url(\'../src/assets/front-page/slider/slider_one.webp\')]'
+        // eslint-disable-next-line @typescript-eslint/quotes
+        return `bg-[url('../src/assets/front-page/slider/slider_one.webp')]`
       case 1:
-        return 'bg-[url(\'../src/assets/front-page/slider/slider_two.webp\')]'
+        // eslint-disable-next-line @typescript-eslint/quotes
+        return `bg-[url('../src/assets/front-page/slider/slider_two.webp')]`
       case 2:
-        return 'bg-[url(\'../src/assets/front-page/slider/slider_three.webp\')]'
+        // eslint-disable-next-line @typescript-eslint/quotes
+        return `bg-[url('../src/assets/front-page/slider/slider_three.webp')]`
       default:
-        return 'bg-[url(\'../src/assets/front-page/slider/slider_one.webp\')]'
+        // eslint-disable-next-line @typescript-eslint/quotes
+        return `bg-[url('../src/assets/front-page/slider/slider_one.webp')]`
     }
   }
 

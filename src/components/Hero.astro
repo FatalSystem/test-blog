@@ -1,8 +1,9 @@
 ---
-import Button from "./Button.astro"
+import Button from "./core/Button.astro"
+import Text from "./core/Text.astro"
 ---
 <section
-  class="w-screen h-[100vw] bg-t-black flex flex-wrap content-around overflow-hidden | md:h-screen | min-[850px]:h-[51vw]"
+  class=" w-full h-[100vw] bg-t-black flex flex-wrap content-around overflow-hidden | md:h-screen | min-[850px]:h-[51vw]"
 >
   <!-- <div style="background-image: url('../src/assets/front-page/cover-img.webp')" class="bg-cover bg-center absolute w-full h-[150%]" /> -->
   <!-- desktop -->
@@ -22,13 +23,11 @@ import Button from "./Button.astro"
   >
   </iframe>
   <div
-    class="z-10 absolute left-0 w-screen flex flex-col justify-center items-center bg-gradient-to-t from-t-video-gradient to-transparent h-[100vw] | md:h-screen | min-[850px]:h-[51vw]"
+    class=" w-full z-10 absolute left-0 flex flex-col justify-center items-center bg-gradient-to-t from-t-video-gradient to-transparent h-[100vw] | md:h-screen | min-[850px]:h-[51vw]"
   >
-    <h1
-      class="text-t-off-white text-3xl font-avenir font-black uppercase text-center tablet:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl"
-    >
+    <Text tag="h1" weight="black" uppercase className="tablet:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl" >
       Tennis, meet robot.
-    </h1>
+    </Text>
     <div class="flex-row mt-7" >
       <!-- TODO: Add actions -->
       <Button onClick="/" style="mr-3 w-64">Play video</Button>

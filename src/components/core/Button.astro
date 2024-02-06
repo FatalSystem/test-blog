@@ -1,11 +1,11 @@
 ---
-export interface ITButton {
-  onClick?: string 
+interface Props {
+  onClick: string 
   style?: string
-  theme?: "light" | "dark"
+  theme?: "light" | "dark" | "green"
 }
 
-const { onClick, style, theme = "light" }: ITButton = Astro.props
+const { onClick, style, theme = "light" } = Astro.props
 
 const themeClasses = {
   light: "text-t-off-white border-t-off-white hover:bg-t-off-white hover:text-t-off-black",

@@ -4,7 +4,6 @@ import Header from "@components/Header.tsx"
 import Hero from "@components/Hero.astro"
 import { Container as CarouselContainer } from "@components/Carousel"
 import TSlider from "@components/TSlider/TSlider.tsx"
-// @ts-ignore
 import { BackgroundImage } from "astro-imagetools/components"
 import NewsTab from "../components/NewsTab"
 import { Image } from 'astro:assets'
@@ -14,6 +13,8 @@ import ballCollection from "@assets/front-page/ball-collection.webp"
 import lineJudging from "@assets/front-page/line-judging.webp"
 import courtSweeping from "@assets/front-page/courtsweeping.webp"
 import matchAnalysis from "@assets/front-page/matchanalysis.webp"
+import Button from "@components/core/Button.astro"
+import Text from "@components/core/Text.astro"
 
 const OPTIONS: EmblaOptionsType = { loop: false, watchDrag: false }
 const SLIDE_COUNT = 3
@@ -38,6 +39,39 @@ const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
       <Image src={lineJudging} alt="Line judging image" />
       <Image src={courtSweeping} alt="Court sweeping image" />
       <Image src={matchAnalysis} alt="Match analysis image" />
+    </section>
+
+    <section class="flex flex-row" >
+      <div class="size-full bg-t-green">
+        <BackgroundImage src="../src/assets/front-page/rover.webp" >
+          <div class="h-[90vh] flex flex-col items-center justify-between p-10" >
+            <Text tag="h3" uppercase weight="black" >
+              Rover
+            </Tex>
+            <div class="flex flex-col items-center" >
+              <Text tag="p" size="3xl" uppercase weight="thin">
+                Take the <strong class="font-bold" >tedious</strong><br> out of <strong class="font-bold" >tennis</strong>
+              </Text>
+              <Button onClick="/" style="mt-6" >Learn more</Button>
+            </div>
+          </div>
+        </BackgroundImage>
+      </div>
+      <div class="w-full" >
+        <BackgroundImage src="../src/assets/front-page/station.webp" >
+          <div class="h-[90vh] flex flex-col items-center justify-between p-10">
+            <Text tag="h3" uppercase weight="black" >
+              Station
+            </Tex>
+            <div class="flex flex-col items-center" >
+              <Text tag="p" size="3xl" uppercase weight="thin" >
+                Your own personal<br> <strong class="font-bold" >coach, analyst and line judge</strong>
+              </Text>
+              <Button onClick="/" style="mt-6" >Learn more</Button>
+            </div>
+          </div>
+        </BackgroundImage>
+      </div>
     </section>
 
     <!-- <CarouselContainer client:only="react" type="benefits" /> -->
