@@ -37,9 +37,9 @@ export default function Marquee ({
           }
         )}
       >
-        {Children.map(children, (child) => cloneElement(child as any))}
-        {Children.map(children, (child) => cloneElement(child as any))}
-        {Children.map(children, (child) => cloneElement(child as any))}
+        {Children.map(children, (child) => cloneElement(child as JSX.Element))}
+        {Children.map(children, (child) => cloneElement(child as JSX.Element))}
+        {Children.map(children, (child) => cloneElement(child as JSX.Element))}
       </div>
     </div>
   )

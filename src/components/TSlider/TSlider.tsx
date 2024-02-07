@@ -80,7 +80,7 @@ const TSlider: React.FC<PropType> = (props) => {
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex touch-pan-y">
           {slides.map((index) => (
-            <div className={`${handleImage(index)} flex-[0_0_100%] h-[100vh] relative flex items-center justify-center ease-linear duration-500`} key={index}>
+            <div className={`${handleImage(index)} bg-cover flex-[0_0_100%] h-[100vh] relative flex items-center justify-center ease-linear duration-500`} key={index}>
             </div>
           ))}
           </div>
