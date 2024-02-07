@@ -1,10 +1,10 @@
 import Carousel from './Carousel'
 import CarouselItem, { type ICarouselItem } from './CarouselItem'
-import time from '../../assets/time.svg'
-import bbc from '../../assets/bbc.svg'
-import latimes from '../../assets/latimes.svg'
-import mashable from '../../assets/mashable.svg'
-import digitaltrends from '../../assets/digital-trends.svg'
+import time from '@assets/front-page/news/time.svg'
+import bbc from '@assets/front-page/news/bbc.svg'
+import latimes from '@assets/front-page/news/latimes.svg'
+import mashable from '@assets/front-page/news/mashable.svg'
+import digitaltrends from '@assets/front-page/news/digital-trends.svg'
 
 interface ICarouselContainer {
   type: 'news' | 'benefits' | 'testimonials'

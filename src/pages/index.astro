@@ -1,25 +1,50 @@
 ---
+// Astro
 import Layout from "../layouts/Layout.astro"
-import Header from "@components/Header.tsx"
 import Hero from "@components/Hero.astro"
+import { BackgroundImage } from "astro-imagetools/components"
+import { Image } from 'astro:assets'
+import Button from "@components/core/Button.astro"
+import Text from "@components/core/Text.astro"
+
+// React
+import Header from "@components/Header.tsx"
 import { Container as CarouselContainer } from "@components/Carousel"
 import TSlider from "@components/TSlider/TSlider.tsx"
-import { BackgroundImage } from "astro-imagetools/components"
 import NewsTab from "../components/NewsTab"
-import { Image } from 'astro:assets'
 import { type EmblaOptionsType } from 'embla-carousel'
+import {Marquee, MarqueeItem } from "@components/Marquee"
 
+
+// Imgs
 import ballCollection from "@assets/front-page/ball-collection.webp"
 import lineJudging from "@assets/front-page/line-judging.webp"
 import courtSweeping from "@assets/front-page/courtsweeping.webp"
 import matchAnalysis from "@assets/front-page/matchanalysis.webp"
-import Button from "@components/core/Button.astro"
-import Text from "@components/core/Text.astro"
+
+import harvard from "@assets/front-page/marquee/harvard.svg"
+import auburn from "@assets/front-page/marquee/auburn.svg"
+import wakeForest from "@assets/front-page/marquee/wake-forest.svg"
+import stanford from "@assets/front-page/marquee/stanford.svg"
 
 const OPTIONS: EmblaOptionsType = { loop: false, watchDrag: false }
 const SLIDE_COUNT = 3
 const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
+const MARQUEE_CONTENT = [
+  {
+    img: harvard
+  },
+  {
+    img: auburn
+  },
+  {
+    img: wakeForest
+  },
+  {
+    img: stanford
+  }
+]
 ---
 
 <Layout title="Welcome to Astro.">
@@ -74,6 +99,18 @@ const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
       </div>
     </section>
 
+    <section class="bg-t-off-black py-20" >
+      <Text tag="h3" uppercase weight="thin" className="pb-10" >Trusted by...</Text>
+      <div class="relative flex h-full w-full flex-col items-center justify-center overflow-hidden" >
+        <Marquee pauseOnHover className="[--duration:50s]" >
+          {MARQUEE_CONTENT.map((item, index) => {
+            return (
+              <MarqueeItem key={index} img={item.img} />
+            )
+          })}
+        </Marquee>
+      </div>
+    </section>
     <!-- <CarouselContainer client:only="react" type="benefits" /> -->
     <!-- Tennis partner -->
     <!-- <BackgroundImage src="../src/assets/front-page/tennis-partner.jpg">

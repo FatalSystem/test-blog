@@ -1,0 +1,21 @@
+---
+import { cn } from '@utils';
+import { Image } from 'astro:assets'
+
+const { img } = Astro.props; 
+
+---
+
+<figure
+  class={cn(
+    "relative w-64 overflow-hidden rounded-xl border px-10 py-5",
+    // light styles
+    "border-t-off-white bg-transparent/[.01] hover:shadow-lg ease-linear duration-500",
+    // dark styles
+    "dark:border-t-off-white dark:transparent/[.01]",
+  )}
+>
+  <div class="flex flex-col h-full">
+    <Image alt="" height="90" src={img} class="m-auto" />
+  </div>
+</figure>

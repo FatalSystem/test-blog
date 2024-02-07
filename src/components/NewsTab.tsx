@@ -1,11 +1,19 @@
-import React, { useState } from 'react'
-import time from '../assets/time.svg'
-import bbc from '../assets/bbc.svg'
-import latimes from '../assets/latimes.svg'
-import mashable from '../assets/mashable.svg'
-import digitaltrends from '../assets/digital-trends.svg'
+import { useState } from 'react'
+import time from '@assets/front-page/news/time.svg'
+import bbc from '@assets/front-page/news/bbc.svg'
+import latimes from '@assets/front-page/news/latimes.svg'
+import mashable from '@assets/front-page/news/mashable.svg'
+import digitaltrends from '@assets/front-page/news//digital-trends.svg'
 import { useTimer } from '../hooks'
-const newsContent = [
+import type { ImageMetadata } from 'astro'
+
+interface INewsContent {
+  img: ImageMetadata
+  alt: string
+  description: string
+}
+
+const newsContent: INewsContent[] = [
   {
     img: time,
     alt: 'Time',
@@ -33,7 +41,7 @@ const newsContent = [
   }
 ]
 
-function NewsTab () {
+function NewsTab (): JSX.Element {
   const [activeIndex, setActiveIndex] = useState<number>(0)
 
   useTimer({
@@ -52,10 +60,10 @@ function NewsTab () {
   })
 
   return (
-    <section className="bg-t-black py-12 hidden flex-col justify-center content-center flex-wrap | min-[950px]:flex">
+    <section className="bg-t-off-black py-12 hidden flex-col justify-center content-center flex-wrap | min-[950px]:flex">
       <div className="flex mx-auto gap-5 flex-wrap items-baseline | lg:gap-16 ">
         {newsContent.map((item, index) => (
-          <a onClick={() => { setActiveIndex(index) }} className="group ">
+          <a key={index} onClick={() => { setActiveIndex(index) }} className="group ">
             <img
               src={item.img.src}
               width={item.img.width - 80}
@@ -76,7 +84,7 @@ function NewsTab () {
       <p
         className={'font-avenir uppercase text-lg text-center  text-t-white mx-auto mt-10 transform duration-300 '}
       >
-        {newsContent[activeIndex].description}
+        {newsContent?.[activeIndex]?.description}
       </p>
     </section>
   )
