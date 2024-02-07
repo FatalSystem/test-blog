@@ -6,8 +6,8 @@ import react from "@astrojs/react"
 
 // https://astro.build/config
 export default defineConfig({
-  experimental: {
-    assets: true,
-  },
-  integrations: [tailwind(), react(), astroImageTools],
+  // experimental: {
+  //   assets: true,
+  // },
+  integrations: [tailwind(), react({ experimentalReactChildren: true}), astroImageTools],
 })

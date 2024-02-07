@@ -1,61 +1,186 @@
 ---
+// Astro
 import Layout from "../layouts/Layout.astro"
-import Header from "../components/Header"
-import Hero from "../components/Hero.astro"
-import { Container as CarouselContainer } from "../components/Carousel"
-import ImagesSection from "../components/ImagesSection.astro"
+import Hero from "@components/Hero.astro"
 import { BackgroundImage } from "astro-imagetools/components"
+import { Image } from 'astro:assets'
+import Button from "@components/core/Button.astro"
+import Text from "@components/core/Text.astro"
+
+// React
+import Header from "@components/Header.tsx"
+import { Container as CarouselContainer } from "@components/Carousel"
+import TSlider from "@components/TSlider/TSlider.tsx"
+import NewsTab from "../components/NewsTab"
+import { type EmblaOptionsType } from 'embla-carousel'
+import {Marquee, MarqueeItem } from "@components/Marquee"
+import Counter from "@components/Counter"
+import { TestimonialsSlider, } from "@components/TestimonialsSlider"
+
+
+// Imgs
+import ballCollection from "@assets/front-page/ball-collection.webp"
+import lineJudging from "@assets/front-page/line-judging.webp"
+import courtSweeping from "@assets/front-page/courtsweeping.webp"
+import matchAnalysis from "@assets/front-page/matchanalysis.webp"
+
+import harvard from "@assets/front-page/marquee/harvard.svg"
+import auburn from "@assets/front-page/marquee/auburn.svg"
+import wakeForest from "@assets/front-page/marquee/wake-forest.svg"
+import stanford from "@assets/front-page/marquee/stanford.svg"
+
+import usaMap from "@assets/front-page/usa-map.svg"
+
+const MAIN_SLIDER_OPTIONS: EmblaOptionsType = { loop: false, watchDrag: false }
+const MAIN_SLIDE_COUNT = 3
+const MAIN_SLIDES = Array.from(Array(MAIN_SLIDE_COUNT).keys())
+
+const VIDEO_SLIDER_OPTIONS = { loop: true }
+const VIDEO_SLIDE_COUNT = 5
+const VIDEO_SLIDES = [
+  {
+    title: `"I think every tennis coach should have one of these."`,
+    author: {
+      name: "John Smith",
+      location: "San Diego, CA"
+    },
+    url: "/"
+  },
+  {
+    title: `"I think every tennis coach should have one of these."`,
+    author: {
+      name: "John Smith",
+      location: "San Diego, CA"
+    },
+    url: "/"
+  },
+  {
+    title: `"I think every tennis coach should have one of these."`,
+    author: {
+      name: "John Smith",
+      location: "San Diego, CA"
+    },
+    url: "/"
+  },
+  {
+    title: `"I think every tennis coach should have one of these."`,
+    author: {
+      name: "John Smith",
+      location: "San Diego, CA"
+    },
+    url: "/"
+  },
+  {
+    title: `"I think every tennis coach should have one of these."`,
+    author: {
+      name: "John Smith",
+      location: "San Diego, CA"
+    },
+    url: "/"
+  },
+]
+
+const MARQUEE_CONTENT = [
+  {
+    img: harvard
+  },
+  {
+    img: auburn
+  },
+  {
+    img: wakeForest
+  },
+  {
+    img: stanford
+  }
+]
 ---
 
 <Layout title="Welcome to Astro.">
   <Header client:visible />
   <main>
     <Hero />
-    <!-- Spacer -->
-    <!-- <div class="h-96 mb-4 mobilem:mb-20 mobilel:mb-36 md:none"></div> -->
-    <CarouselContainer client:load type="news" />
-    <ImagesSection />
-    <!-- <CarouselContainer client:load content={howDoesItWorkContent} /> -->
-    <!-- <ScrollableCarousel client:only /> -->
-    <CarouselContainer client:load type="benefits" />
-    <!-- Tennis partner -->
-    <BackgroundImage src="../src/assets/front-page/tennis-partner.jpg">
-      <section
-        class="w-full h-screen flex flex-col p-5 justify-end bg-gradient-to-t from-t-black to-transparent"
-      >
-        <div class="tablet:max-w-xl mx-auto">
-          <h3 class="font-avenir uppercase text-2xl text-t-white">
-            your new<br />favorite
-          </h3>
-          <h2
-            class="font-avenir uppercase text-3xl font-bold text-t-white mt-1 mb-4"
-          >
-            Tennis partner
-          </h2>
-          <p class="font-avenir italic text-t-white mb-10">
-            By taking the downtime out of every lesson, Tennibot allows you to
-            improve at a much faster rate. With a bucket that holds up to 80
-            balls and a clay court sweeper, Tennibot eliminates the worst parts
-            of our favorite sport.
-          </p>
+
+    <CarouselContainer client:only="react" type="news" />
+
+    <NewsTab client:only="react" />
+    <section class="relative">
+      <TSlider client:only="react" slides={MAIN_SLIDES} options={MAIN_SLIDER_OPTIONS} />
+    </section>
+
+    <!-- <ImagesSection /> -->
+    <section>
+      <Image src={ballCollection} class="w-full" alt="Ball collection image" />
+      <Image src={lineJudging}  class="w-full" alt="Line judging image" />
+      <Image src={courtSweeping} class="w-full" alt="Court sweeping image" />
+      <Image src={matchAnalysis} class="w-full" alt="Match analysis image" />
+    </section>
+
+    <section class="flex flex-row" >
+      <div class="w-[50%] h-full">
+        <BackgroundImage src="../src/assets/front-page/rover.webp" >
+          <div class="h-[90vh] flex flex-col items-center justify-between p-10" >
+            <Text tag="h3" uppercase weight="black" >
+              Rover
+            </Tex>
+            <div class="flex flex-col items-center" >
+              <Text tag="p" size="3xl" uppercase weight="thin">
+                Take the <strong class="font-bold" >tedious</strong><br> out of <strong class="font-bold" >tennis</strong>
+              </Text>
+              <Button onClick="/" style="mt-6" >Learn more</Button>
+            </div>
+          </div>
+        </BackgroundImage>
+      </div>
+      <div class="w-[50%] h-full" >
+        <BackgroundImage src="../src/assets/front-page/station.webp" >
+          <div class="h-[90vh] flex flex-col items-center justify-between p-10">
+            <Text tag="h3" uppercase weight="black" >
+              Station
+            </Tex>
+            <div class="flex flex-col items-center" >
+              <Text tag="p" size="3xl" uppercase weight="thin" >
+                Your own personal<br> <strong class="font-bold" >coach, analyst and line judge</strong>
+              </Text>
+              <Button onClick="/" style="mt-6" >Learn more</Button>
+            </div>
+          </div>
+        </BackgroundImage>
+      </div>
+    </section>
+
+    <section class="bg-t-off-black pt-20" >
+      <Text tag="h3" uppercase weight="thin" className="pb-10" >Trusted by...</Text>
+      <div class="relative flex h-full w-full flex-col items-center justify-center overflow-hidden" >
+        <Marquee pauseOnHover className="[--duration:50s]" >
+          {MARQUEE_CONTENT.map((item, index) => {
+            return (
+              <MarqueeItem key={index} img={item.img} />
+            )
+          })}
+        </Marquee>
+      </div>
+    </section>
+
+    <section class="bg-t-off-black py-36" >
+      <div class="w-4/5 m-auto flex flex-row justify-center items-center gap-10" >
+        <div class="w-[40%]" >
+          <!-- TODO: Animate highlight on scroll -->
+          <Image src={usaMap} alt="" />
         </div>
-      </section>
-      <!-- Balls collected -->
-      <section
-        class="bg-t-light-green flex flex-col justify-center align-middle h-screen"
-      >
-        <h3
-          class="font-avenir font-black uppercase text-5xl text-bold text-t-black border-2 border-t-black p-2 w-fit mx-auto"
-        >
-          1,027,945
-        </h3>
-        <p
-          class="font-avenir text-t-black text-xl uppercase text-center mx-auto max-w-xs my-10"
-        >
-          Balls collected by<br /> the tennibot <br />across the US
-        </p>
-        <CarouselContainer client:load type="testimonials" />
-      </section>
-    </BackgroundImage>
+        <div>
+          <Text tag="h6" size="5xl" weight="black" >
+            <Counter client:only="react" value={1027945} />
+          </Text>
+          <Text tag="p" size="2xl" weight="thin" className="italic mt-5" >
+            Tennis balls collect by Tennibot,<br> across the United States
+          </Text>
+        </div>
+      </div>
+    </section>
+    
+    <section class="relative bg-t-off-black pb-20 overflow-hidden ">
+      <TestimonialsSlider client:only="react" slides={VIDEO_SLIDES} options={VIDEO_SLIDER_OPTIONS} />
+    </section>
   </main>
 </Layout>

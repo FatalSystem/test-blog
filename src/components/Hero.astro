@@ -1,32 +1,38 @@
 ---
-import Button from "./Button.astro"
+import Button from "./core/Button.astro"
+import Text from "./core/Text.astro"
 ---
-
-<!-- class="w-screen h-[100vw] flex flex-wrap content-around overflow-hidden | md:h-screen" -->
 <section
-  class="w-screen h-[100vw] flex flex-wrap content-around overflow-hidden | md:h-screen"
+  class=" w-full h-[100vw] bg-t-black flex flex-wrap content-around overflow-hidden | md:h-screen | min-[850px]:h-[51vw]"
 >
-  <!--  class="bg-t-black absolute w-screen left-1/2 top-20 -mt-2 transform -translate-x-1/2 p-0 pt-[125%] | tablet:-translate-x-0 tablet:top-0 tablet:left-0 tablet:pt-0 tablet:static tablet:h-screen tablet:flex tablet:flex-wrap tablet:content-around tablet:overflow-hidden" -->
+  <!-- <div style="background-image: url('../src/assets/front-page/cover-img.webp')" class="bg-cover bg-center absolute w-full h-[150%]" /> -->
+  <!-- desktop -->
   <iframe
-    src="https://player.vimeo.com/video/780515008?background=1"
-    frameborder="0"
+    src="https://player.vimeo.com/video/893993983?background=1"
     allow="autoplay; fullscreen;"
     allowfullscreen
-    class="w-full opacity-75 | static h-[150%]"
+    class="hidden bg-[url('../src/assets/front-page/cover-img.webp')] bg-contain bg-center w-full opacity-75 | h-[150%] | min-[850px]:block"
   >
   </iframe>
-  <!-- class="w-full opacity-75 | static h-[150%]"></iframe> -->
-  <!-- class="bg-t-green absolute top-0 left-0 w-full h-full opacity-75 | tablet:static tablet:h-[150%]" -->
-
-  <div
-    class="z-10 absolute left-0 w-screen flex flex-col justify-center items-center top-[20%] | mobilem:top-[25%] | tablet:top-[50%]"
+  <!-- mobile -->
+  <iframe
+    src="https://player.vimeo.com/video/894270264?background=1"
+    allow="autoplay; fullscreen;"
+    allowfullscreen
+    class=" bg-[url('../src/assets/front-page/cover-img-mobile.webp')] bg-contain bg-center w-full opacity-75 bg-t-black | static h-[150%] | min-[850px]:hidden"
   >
-    <h1
-      class="text-t-light-green text-3xl font-avenir font-black uppercase text-center"
-    >
+  </iframe>
+  <div
+    class=" w-full z-10 absolute left-0 flex flex-col justify-center items-center bg-gradient-to-t from-t-video-gradient to-transparent h-[100vw] | md:h-screen | min-[850px]:h-[51vw]"
+  >
+    <Text tag="h1" weight="black" uppercase className="tablet:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl" >
       Tennis, meet robot.
-    </h1>
-    <Button onClick="/" style="mt-4">See it in action</Button>
+    </Text>
+    <div class="flex-row mt-7" >
+      <!-- TODO: Add actions -->
+      <Button onClick="/" style="mr-3 w-64">Play video</Button>
+      <Button onClick="/" style="w-64" theme="green" >Buy now</Button>
+    </div>
   </div>
 </section>
 

@@ -1,0 +1,39 @@
+---
+// Define props for the component, including a new `tag` prop
+interface Props {
+  tag?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  color?: string;
+  weight?: "thin" | "extralight" | "light" | "normal" | "medium" | "semibold" | "bold" | "extrabold"  | "black";
+  className?: string;
+  uppercase?: boolean;
+  size?: "xs" | "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl" | "9xl"; 
+  align?: "left" | "center" | "right" | "justify" | "start" | "end";
+}
+const { tag = "p", color = "t-off-white", weight, className, uppercase, size, align = 'center' } = Astro.props;
+
+// Determine the class name based on size and color props
+const baseStyle = `font-avenir text-${color} ${weight ? `font-${weight}` : ''} ${uppercase ? 'uppercase' : 'normal-case'} text-${align} ${className}` ;
+---
+
+{
+  tag === 'p' && <p class={`${baseStyle} ${size ? `text-${size}` : 'text-base'} ${className}`}><slot /></p>
+}
+{
+  tag === 'h1' && <h1 class={`${baseStyle} ${size ? `text-${size}` : 'text-5xl'} ${className}`}><slot /></h1>
+}
+{
+  tag === 'h2' && <h2 class={`${baseStyle} ${size ? `text-${size}` : 'text-4xl'} ${className}`}><slot /></h2>
+}
+{
+  tag === 'h3' && <h3 class={`${baseStyle} ${size ? `text-${size}` : 'text-3xl'} ${className}`}><slot /></h3>
+}
+{
+  tag === 'h4' && <h4 class={`${baseStyle} ${size ? `text-${size}` : 'text-2xl'} ${className}`}><slot /></h4>
+}
+{
+  tag === 'h5' && <h5 class={`${baseStyle} ${size ? `text-${size}` : 'text-1xl'} ${className}`}><slot /></h5>
+}
+{
+  tag === 'h6' && <h6 class={`${baseStyle} ${size ? `text-${size}` : 'text-lg'} ${className}`}><slot /></h6>
+}
+
