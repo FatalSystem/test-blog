@@ -14,6 +14,7 @@ import TSlider from "@components/TSlider/TSlider.tsx"
 import NewsTab from "../components/NewsTab"
 import { type EmblaOptionsType } from 'embla-carousel'
 import {Marquee, MarqueeItem } from "@components/Marquee"
+import Counter from "@components/Counter"
 
 
 // Imgs
@@ -26,6 +27,8 @@ import harvard from "@assets/front-page/marquee/harvard.svg"
 import auburn from "@assets/front-page/marquee/auburn.svg"
 import wakeForest from "@assets/front-page/marquee/wake-forest.svg"
 import stanford from "@assets/front-page/marquee/stanford.svg"
+
+import usaMap from "@assets/front-page/usa-map.svg"
 
 const OPTIONS: EmblaOptionsType = { loop: false, watchDrag: false }
 const SLIDE_COUNT = 3
@@ -99,7 +102,7 @@ const MARQUEE_CONTENT = [
       </div>
     </section>
 
-    <section class="bg-t-off-black py-20" >
+    <section class="bg-t-off-black pt-20" >
       <Text tag="h3" uppercase weight="thin" className="pb-10" >Trusted by...</Text>
       <div class="relative flex h-full w-full flex-col items-center justify-center overflow-hidden" >
         <Marquee pauseOnHover className="[--duration:50s]" >
@@ -109,6 +112,23 @@ const MARQUEE_CONTENT = [
             )
           })}
         </Marquee>
+      </div>
+    </section>
+
+    <section class="bg-t-off-black py-36" >
+      <div class="w-4/5 m-auto flex flex-row justify-center items-center gap-10" >
+        <div class="w-[40%]" >
+          <!-- TODO: Animate highlight on scroll -->
+          <Image src={usaMap} alt="" />
+        </div>
+        <div>
+          <Text tag="h6" size="5xl" weight="black" >
+            <Counter client:only="react" value={1027945} />
+          </Text>
+          <Text tag="p" size="2xl" weight="thin" className="italic mt-5" >
+            Tennis balls collect by Tennibot,<br> across the United States
+          </Text>
+        </div>
       </div>
     </section>
     <!-- <CarouselContainer client:only="react" type="benefits" /> -->
