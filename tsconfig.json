@@ -14,6 +14,7 @@
     "paths": {
       "@components/*": ["components/*"],
       "@assets/*": ["assets/*"],
+      "@hooks": ["hooks/index.ts"],
       "@utils": ["utils/index.ts"],
     },
     "plugins": [

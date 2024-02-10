@@ -38,90 +38,31 @@ const newsContent = [
   }
 ]
 
-const benefitContent = [
-  {
-    description: (
-      <p className="max-w-xs font-avenir uppercase px-5 text-xl whitespace-normal  text-center text-t-black | tablet:max-w-md">
-        <strong>20%</strong> OF YOUR TIME ON THE COURT IS SPENT PICKING UP BALLS
-      </p>
-    )
-  },
-  {
-    description: (
-      <p className=" max-w-xs font-avenir uppercase px-5 text-xl text-center whitespace-normal text-t-black">
-        WITH TENNIBOT, THAT NUMBER IS ALMOST <strong>ZERO</strong>
-      </p>
-    )
-  },
-  {
-    description: (
-      <p className=" max-w-lg font-avenir uppercase px-5 text-xl pb-5 text-center whitespace-normal text-t-black">
-        YOU COULD BE HITTING HUNDREDS MORE SHOTS,{' '}
-        <strong>EVERY TIME YOU PRACTICE</strong>
-      </p>
-    )
-  }
-]
-
-const testimonialContent = [
-  {
-    description: (
-      <p className=" max-w-xs font-avenir uppercase px-5 text-xl text-center whitespace-normal text-t-black">
-        "I think every tennis coach should have one of these."
-      </p>
-    )
-  },
-  {
-    description: (
-      <p className=" max-w-xs font-avenir uppercase px-5 text-xl text-center whitespace-normal text-t-black">
-        "I think every tennis coach should have one of these."
-      </p>
-    )
-  },
-  {
-    description: (
-      <p className=" max-w-xs font-avenir uppercase px-5 text-xl text-center whitespace-normal text-t-black">
-        "I think every tennis coach should have one of these."
-      </p>
-    )
-  }
-]
-
-export default function Container ({ type }: ICarouselContainer) {
+export default function Container ({ type }: ICarouselContainer): JSX.Element | undefined {
   const handleCarouselContainer = (): ICarouselItem[] => {
     switch (type) {
       case 'news':
         return newsContent
-      case 'benefits':
-        return benefitContent
-      case 'testimonials':
-        return testimonialContent
+      default:
+        return newsContent
     }
   }
   const content: ICarouselItem[] = handleCarouselContainer()
   if (content) {
     return (
       <Carousel
-        theme={type === 'news' ? 'dark' : 'light'}
-        callToAction={
-          type === 'benefits'
-            ? { onClick: '/', theme: 'dark', text: 'How does it work?' }
-            : undefined
-        }
+        theme='dark'
       >
-        {content.map((contentItem) => (
+        {content.map((contentItem, key) => (
           <CarouselItem
+            key={key}
             img={contentItem.img}
             alt={contentItem.alt}
             description={contentItem.description}
-            containerStyle={
-              type === 'benefits'
-                ? 'inline-flex items-end h-28 w-full justify-center'
-                : undefined
-            }
           />
         ))}
       </Carousel>
     )
   }
+  return undefined
 }

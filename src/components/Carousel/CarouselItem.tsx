@@ -1,7 +1,7 @@
-import React from 'react'
 export interface ICarouselItem {
-  img?: ImageMetadata
-  alt?: string
+  key?: number
+  img: ImageMetadata
+  alt: string
   description: string | JSX.Element
   containerStyle?: string
   descriptionStyle?: string

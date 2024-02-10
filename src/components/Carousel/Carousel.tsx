@@ -78,22 +78,6 @@ export default function Carousel ({
           })}
         </div>
       </div>
-      {callToAction && (
-        <div
-          className={`w-full flex justify-center mt-5 mb-16 ${callToAction.style}`}
-        >
-          <a
-            href="/"
-            className={`rounded-full px-5 py-2 font-avenir uppercase font-medium border-2 transition duration-300 ${
-              callToAction.theme === 'light'
-                ? 'text-t-light-green border-t-light-green hover:bg-t-light-green hover:text-t-black '
-                : 'text-t-black border-t-black hover:bg-t-black hover:text-t-light-green '
-            } `}
-          >
-            {callToAction.text}
-          </a>
-        </div>
-      )}
     </div>
   )
 }

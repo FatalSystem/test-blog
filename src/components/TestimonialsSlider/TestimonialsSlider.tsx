@@ -1,11 +1,8 @@
 import React from 'react'
 import { type EmblaOptionsType } from 'embla-carousel'
 import useEmblaCarousel from 'embla-carousel-react'
-import {
-  PrevButton,
-  NextButton,
-  usePrevNextButtons
-} from './ArrowButtons'
+import { useArrowButtons } from '@hooks'
+import { NextButton, PrevButton } from '@components/SliderControls'
 
 interface ITestimonialSlide {
   title: string
@@ -20,6 +17,18 @@ interface PropType {
   slides: ITestimonialSlide[]
   options?: EmblaOptionsType
 }
+
+const prevSVG = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="115" height="31" viewBox="0 0 115 31" fill="none">
+      <path d="M113 15.5L2 15.5M2 15.5L17.5122 1.99999M2 15.5L17.5122 29" stroke="#F6F7F2" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+
+const nextSVG = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="115" height="31" viewBox="0 0 115 31" fill="none">
+    <path d="M2 15.5H113M113 15.5L97.4878 29M113 15.5L97.4878 2" stroke="#F6F7F2" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
 
 const renderItem = (index: number, item: ITestimonialSlide, slidesLength: number): JSX.Element => {
   return (
@@ -53,7 +62,7 @@ const TestimonialsSlider: React.FC<PropType> = (props) => {
     nextBtnDisabled,
     onPrevButtonClick,
     onNextButtonClick
-  } = usePrevNextButtons(emblaApi)
+  } = useArrowButtons(emblaApi)
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -66,8 +75,8 @@ const TestimonialsSlider: React.FC<PropType> = (props) => {
       </div>
 
       <div className="flex items-center gap-10 mt-5 ">
-        <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-        <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+        <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} svg={prevSVG} />
+        <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} svg={nextSVG} />
       </div>
     </div>
   )

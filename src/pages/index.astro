@@ -30,6 +30,7 @@ import wakeForest from "@assets/front-page/marquee/wake-forest.svg"
 import stanford from "@assets/front-page/marquee/stanford.svg"
 
 import usaMap from "@assets/front-page/usa-map.svg"
+import { MediaQuotes } from "@components/MediaQuotes"
 
 const MAIN_SLIDER_OPTIONS: EmblaOptionsType = { loop: false, watchDrag: false }
 const MAIN_SLIDE_COUNT = 3
@@ -98,17 +99,15 @@ const MARQUEE_CONTENT = [
 
 <Layout title="Welcome to Astro.">
   <Header client:visible />
-  <main>
+  <main class="bg-t-off-black" >
     <Hero />
 
-    <CarouselContainer client:only="react" type="news" />
+    <MediaQuotes client:only="visible"/>
 
-    <NewsTab client:only="react" />
     <section class="relative">
       <TSlider client:only="react" slides={MAIN_SLIDES} options={MAIN_SLIDER_OPTIONS} />
     </section>
 
-    <!-- <ImagesSection /> -->
     <section>
       <Image src={ballCollection} class="w-full" alt="Ball collection image" />
       <Image src={lineJudging}  class="w-full" alt="Line judging image" />
