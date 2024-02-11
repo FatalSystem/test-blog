@@ -2,7 +2,7 @@ import { type PropsWithChildren } from 'react'
 
 export type TArrowButton = PropsWithChildren<
 React.DetailedHTMLProps<
-{ svg?: React.ReactNode } & React.ButtonHTMLAttributes<HTMLButtonElement>,
+{ svg?: React.ReactNode, animated?: boolean } & React.ButtonHTMLAttributes<HTMLButtonElement>,
 HTMLButtonElement
 >
 >

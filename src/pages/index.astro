@@ -9,9 +9,7 @@ import Text from "@components/core/Text.astro"
 
 // React
 import Header from "@components/Header.tsx"
-import { Container as CarouselContainer } from "@components/Carousel"
 import TSlider from "@components/TSlider/TSlider.tsx"
-import NewsTab from "../components/NewsTab"
 import { type EmblaOptionsType } from 'embla-carousel'
 import {Marquee, MarqueeItem } from "@components/Marquee"
 import Counter from "@components/Counter"
@@ -37,7 +35,6 @@ const MAIN_SLIDE_COUNT = 3
 const MAIN_SLIDES = Array.from(Array(MAIN_SLIDE_COUNT).keys())
 
 const VIDEO_SLIDER_OPTIONS = { loop: true }
-const VIDEO_SLIDE_COUNT = 5
 const VIDEO_SLIDES = [
   {
     title: `"I think every tennis coach should have one of these."`,
@@ -115,10 +112,10 @@ const MARQUEE_CONTENT = [
       <Image src={matchAnalysis} class="w-full" alt="Match analysis image" />
     </section>
 
-    <section class="flex flex-row" >
-      <div class="w-[50%] h-full">
+    <section class="flex flex-col md:flex-row" >
+      <div class="w-full md:w-[50%] md:h-full">
         <BackgroundImage src="../src/assets/front-page/rover.webp" >
-          <div class="h-[90vh] flex flex-col items-center justify-between p-10" >
+          <div class="h-[60vh] md:h-[90vh] flex flex-col items-center justify-between p-10" >
             <Text tag="h3" uppercase weight="black" >
               Rover
             </Tex>
@@ -131,9 +128,9 @@ const MARQUEE_CONTENT = [
           </div>
         </BackgroundImage>
       </div>
-      <div class="w-[50%] h-full" >
+      <div class="w-full md:w-[50%] md:h-full" >
         <BackgroundImage src="../src/assets/front-page/station.webp" >
-          <div class="h-[90vh] flex flex-col items-center justify-between p-10">
+          <div class="h-[60vh] md:h-[90vh] flex flex-col items-center justify-between p-10">
             <Text tag="h3" uppercase weight="black" >
               Station
             </Tex>
@@ -162,8 +159,8 @@ const MARQUEE_CONTENT = [
     </section>
 
     <section class="bg-t-off-black py-36" >
-      <div class="w-4/5 m-auto flex flex-row justify-center items-center gap-10" >
-        <div class="w-[40%]" >
+      <div class="w-4/5 m-auto flex flex-col-reverse md:flex-row justify-center items-center gap-10" >
+        <div class="w-[80%] md:w-[40%]" >
           <!-- TODO: Animate highlight on scroll -->
           <Image src={usaMap} alt="" />
         </div>
