@@ -12,14 +12,14 @@ interface PropType {
 }
 
 const prevSVG = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" fill="none">
+  <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 96 96" fill="none">
     <circle cx="48" cy="48" r="46" transform="rotate(-180 48 48)" stroke="#F6F7F2" strokeWidth="4"/>
     <path d="M55.2734 66.9092L32.0007 48.0001L55.2734 29.091" stroke="#F6F7F2" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 )
 
 const nextSVG = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" fill="none">
+  <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 96 96" fill="none">
     <circle cx="48" cy="48" r="46" stroke="#F6F7F2" strokeWidth="4"/>
     <path d="M40.7266 29.0908L63.9993 47.9999L40.7266 66.909" stroke="#F6F7F2" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
@@ -28,7 +28,7 @@ const nextSVG = (
 const TSlider: React.FC<PropType> = (props) => {
   const { slides, options } = props
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
-  const isDesktop = useMediaQuery('(min-width: 950px)')
+  const isDesktop = useMediaQuery('(min-width: 640px)')
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
     useDotButton(emblaApi)
@@ -41,7 +41,7 @@ const TSlider: React.FC<PropType> = (props) => {
   } = useArrowButtons(emblaApi)
 
   const handleText = (index: number): JSX.Element => {
-    const textStyle = 'bg-avenir font-thin text-t-off-white text-pretty text-3xl md:text-6xl'
+    const textStyle = 'bg-avenir font-thin text-t-off-white text-pretty text-3xl sm:text-6xl'
     switch (index) {
       case 0:
         return <AnimatePresence>
@@ -93,7 +93,7 @@ const TSlider: React.FC<PropType> = (props) => {
     <div className="flex touch-pan-y">
       {slides.map((index) => (
         <div className={`${handleImage(index)} bg-cover flex-[0_0_100%] h-[100vh] relative flex items-center justify-center ease-linear duration-500`} key={index}>
-          <div className='p-10 h-full md:hidden' >
+          <div className='p-10 h-full sm:hidden' >
             {selectedIndex === 0 && handleText(0)}
             {selectedIndex === 1 && handleText(1)}
             {selectedIndex === 2 && handleText(2)}
@@ -102,13 +102,13 @@ const TSlider: React.FC<PropType> = (props) => {
       ))}
     </div>
 
-    <div className="text-center w-[70%] flex-col absolute inset-x-0 inset-y-[25%] m-auto hidden md:flex ">
+    <div className="text-center w-[70%] flex-col absolute inset-x-0 inset-y-[25%] m-auto hidden sm:flex ">
       {selectedIndex === 0 && handleText(0)}
       {selectedIndex === 1 && handleText(1)}
       {selectedIndex === 2 && handleText(2)}
     </div>
 
-    <div className="flex justify-center items-center mt-10 absolute inset-x-0 bottom-20 md:inset-y-[35%] md:bottom-20 m-auto">
+    <div className="flex justify-center items-center mt-10 absolute inset-x-0 bottom-20 sm:inset-y-[35%] sm:bottom-20 m-auto">
       {scrollSnaps.map((_, index) => (
         <DotButton
           key={index}
@@ -119,8 +119,8 @@ const TSlider: React.FC<PropType> = (props) => {
     </div>
   </div>
 
-  {selectedIndex !== 0 && <PrevButton onClick={onPrevButtonClick} animated svg={isDesktop ? prevSVG : undefined} className='absolute bottom-[10%] left-[8%] md:bottom-[15%] md:left-[5%] drop-shadow-2xl' disabled={prevBtnDisabled} /> }
-  {selectedIndex !== 2 && <NextButton onClick={onNextButtonClick} animated svg={isDesktop ? nextSVG : undefined} className='absolute bottom-[10%] right-[8%] md:bottom-[15%] md:right-[5%] drop-shadow-2xl' disabled={nextBtnDisabled} />}
+  {selectedIndex !== 0 && <PrevButton onClick={onPrevButtonClick} animated svg={isDesktop ? prevSVG : undefined} className='absolute bottom-[10%] left-[8%] sm:bottom-[15%] sm:left-[5%] drop-shadow-2xl' disabled={prevBtnDisabled} /> }
+  {selectedIndex !== 2 && <NextButton onClick={onNextButtonClick} animated svg={isDesktop ? nextSVG : undefined} className='absolute bottom-[10%] right-[8%] sm:bottom-[15%] sm:right-[5%] drop-shadow-2xl' disabled={nextBtnDisabled} />}
 </div>
   )
 }

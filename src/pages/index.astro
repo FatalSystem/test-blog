@@ -3,7 +3,7 @@
 import Layout from "../layouts/Layout.astro"
 import Hero from "@components/Hero.astro"
 import { BackgroundImage } from "astro-imagetools/components"
-import { Image } from 'astro:assets'
+import { Image, Picture } from 'astro:assets'
 import Button from "@components/core/Button.astro"
 import Text from "@components/core/Text.astro"
 
@@ -14,13 +14,18 @@ import { type EmblaOptionsType } from 'embla-carousel'
 import {Marquee, MarqueeItem } from "@components/Marquee"
 import Counter from "@components/Counter"
 import { TestimonialsSlider, } from "@components/TestimonialsSlider"
+// import Globe from "@components/Globe"
 
 
 // Imgs
 import ballCollection from "@assets/front-page/ball-collection.webp"
+import ballCollectionMobile from "@assets/front-page/ball-collection-mobile.webp"
 import lineJudging from "@assets/front-page/line-judging.webp"
+import lineJudgingMobile from "@assets/front-page/line-judging-mobile.webp"
 import courtSweeping from "@assets/front-page/courtsweeping.webp"
+import courtSweepingMobile from "@assets/front-page/court-sweeping-mobile.webp"
 import matchAnalysis from "@assets/front-page/matchanalysis.webp"
+import matchAnalysisMobile from "@assets/front-page/match-analysis-mobile.webp"
 
 import harvard from "@assets/front-page/marquee/harvard.svg"
 import auburn from "@assets/front-page/marquee/auburn.svg"
@@ -106,10 +111,22 @@ const MARQUEE_CONTENT = [
     </section>
 
     <section>
-      <Image src={ballCollection} class="w-full" alt="Ball collection image" />
-      <Image src={lineJudging}  class="w-full" alt="Line judging image" />
-      <Image src={courtSweeping} class="w-full" alt="Court sweeping image" />
-      <Image src={matchAnalysis} class="w-full" alt="Match analysis image" />
+      <picture >
+        <source srcset={ballCollectionMobile.src} media="(max-width: 425px)" />
+        <Image src={ballCollection} class="w-full" alt="Ball collection image" />
+      </picture>
+      <picture>
+        <source srcset={lineJudgingMobile.src} media="(max-width: 425px)" />
+        <Image src={lineJudging}  class="w-full" alt="Line judging image" />
+      </picture>
+      <picture>
+        <source srcset={courtSweepingMobile.src} media="(max-width: 425px)" />
+        <Image src={courtSweeping} class="w-full" alt="Court sweeping image" />
+      </picture>
+      <picture>
+        <source srcset={matchAnalysisMobile.src} media="(max-width: 425px)" />
+        <Image src={matchAnalysis} class="w-full" alt="Match analysis image" />
+      </picture>
     </section>
 
     <section class="flex flex-col md:flex-row" >
@@ -161,6 +178,12 @@ const MARQUEE_CONTENT = [
     <section class="bg-t-off-black py-36" >
       <div class="w-4/5 m-auto flex flex-col-reverse md:flex-row justify-center items-center gap-10" >
         <div class="w-[80%] md:w-[40%]" >
+          <div class="w-[80%] md:w-[100%]" >
+            <!-- <div class="bg-t-off-black h-[50vh] relative flex w-full items-center justify-center overflow-hidden">
+              <Globe client:only="react" className=" bg-t-off-black" />
+              <div class="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]" />
+            </div> -->
+          </div>
           <!-- TODO: Animate highlight on scroll -->
           <Image src={usaMap} alt="" />
         </div>
