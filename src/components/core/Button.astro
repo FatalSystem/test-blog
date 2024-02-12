@@ -8,15 +8,15 @@ interface Props {
 const { onClick, style, theme = "light" } = Astro.props
 
 const themeClasses = {
-  light: "text-t-off-white border-t-off-white hover:bg-t-off-white hover:text-t-off-black",
-  dark: "text-t-off-black border-t-off-black hover:bg-t-off-black hover:text-t-off-white",
-  green: "text-t-green border-t-green hover:bg-t-green hover:text-t-off-black",
+  light: "text-t-off-black bg-t-off-white border-t-off-white md:text-t-off-white md:bg-transparent hover:bg-t-off-white hover:text-t-off-black",
+  dark: "text-t-off-white bg-t-off-black border-t-off-black md:text-t-off-black md:bg-transparent hover:bg-t-off-black hover:text-t-off-white",
+  green: "text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black",
 }
 ---
 
 <button
   onclick={onClick}
-  class={`text-lg font-thin rounded-full px-16 py-2 font-avenir uppercase border-2 transition duration-300 ${themeClasses[theme]} ${style}`}
+  class={`text-lg font-thin rounded-full mobilem:px-16 px-10 py-2 font-avenir uppercase border-2 transition duration-300 ${themeClasses[theme]} ${style}`}
 >
   <slot />
 </button>

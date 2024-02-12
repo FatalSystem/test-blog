@@ -1,10 +1,5 @@
-import React, {
-  type PropsWithChildren,
-  useCallback,
-  useEffect,
-  useState
-} from 'react'
-import { type EmblaCarouselType } from 'embla-carousel'
+import type { EmblaCarouselType } from 'embla-carousel'
+import { useState, useCallback, useEffect } from 'react'
 
 interface UseDotButtonType {
   selectedIndex: number
@@ -12,7 +7,7 @@ interface UseDotButtonType {
   onDotButtonClick: (index: number) => void
 }
 
-export const useDotButton = (
+const useDotButton = (
   emblaApi: EmblaCarouselType | undefined
 ): UseDotButtonType => {
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -51,19 +46,4 @@ export const useDotButton = (
   }
 }
 
-  type PropType = PropsWithChildren<
-  React.DetailedHTMLProps<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
-  >
-  >
-
-export const DotButton: React.FC<PropType> = (props) => {
-  const { children, ...restProps } = props
-
-  return (
-      <button type="button" {...restProps}>
-        {children}
-      </button>
-  )
-}
+export default useDotButton
