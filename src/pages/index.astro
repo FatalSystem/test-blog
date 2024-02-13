@@ -3,7 +3,7 @@
 import Layout from "../layouts/Layout.astro"
 import Hero from "@components/Hero.astro"
 import { BackgroundImage } from "astro-imagetools/components"
-import { Image, Picture } from 'astro:assets'
+import { Image } from 'astro:assets'
 import Button from "@components/core/Button.astro"
 import Text from "@components/core/Text.astro"
 
@@ -200,6 +200,13 @@ const MARQUEE_CONTENT = [
     
     <section class="relative bg-t-off-black pb-20 overflow-hidden ">
       <TestimonialsSlider client:only="react" slides={VIDEO_SLIDES} options={VIDEO_SLIDER_OPTIONS} />
+    </section>
+    <section class="flex flex-row justify-center items-center lg:pb-10 pb-5">
+      <hr class="sm:w-full  w-[30%] " >
+      <div class="sm:mx-10 mx-2">
+        <Text tag="h6" uppercase weight="black" align="center" className="w-full text-pretty text-sm mobilel:text-lg mobilem:text-base sm:text-nowrap sm:text-2xl" >Designed and assembled in the USA</Text>
+      </div>
+      <hr class="sm:w-full  w-[30%] " >
     </section>
   </main>
 </Layout>
