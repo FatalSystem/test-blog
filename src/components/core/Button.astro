@@ -1,11 +1,11 @@
 ---
 interface Props {
   onClick: string 
-  style?: string
+  className?: string
   theme?: "light" | "dark" | "green"
 }
 
-const { onClick, style, theme = "light" } = Astro.props
+const { onClick, className, theme = "light" } = Astro.props
 
 const themeClasses = {
   light: "text-t-off-black bg-t-off-white border-t-off-white md:text-t-off-white md:bg-transparent hover:bg-t-off-white hover:text-t-off-black",
@@ -16,7 +16,7 @@ const themeClasses = {
 
 <button
   onclick={onClick}
-  class={`text-lg font-thin rounded-full mobilem:px-16 px-10 py-2 font-avenir uppercase border-2 transition duration-300 ${themeClasses[theme]} ${style}`}
+  class={`text-lg font-thin rounded-full mobilem:px-16 px-10 py-2 font-avenir uppercase border-2 transition duration-300 ${themeClasses[theme]} ${className}`}
 >
   <slot />
 </button>

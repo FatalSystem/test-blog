@@ -1,38 +1,47 @@
-import React from 'react'
-import { type EmblaOptionsType } from 'embla-carousel'
-import useEmblaCarousel from 'embla-carousel-react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { useArrowButtons, useDotButton } from '@hooks'
-import { DotButton, NextButton, PrevButton } from '@components/SliderControls'
+import useEmblaCarousel from 'embla-carousel-react'
+import { DotButton, NextButton, PrevButton } from '../SliderControls'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useMediaQuery } from 'usehooks-ts'
 
-interface PropType {
-  slides: number[]
-  options?: EmblaOptionsType
+export function TSlide ({ selectedIndex, index, className, containerStyle, children }): JSX.Element {
+  return (
+    <>
+      <div className={`${className} bg-cover bg-center flex-[0_0_100%] h-[100vh] relative flex items-center justify-center ease-linear duration-500`}>
+        <div className="absolute w-full h-[100%] bg-gradient-to-b from-[#232320]/[0.7] from-10% via-transparent via-70% to-[#232320]/[0.7] to-90%" >
+          {
+              selectedIndex === index && (
+                  <AnimatePresence>
+                      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 3 }} className={containerStyle} >
+                          {children}
+                      </motion.div>
+                  </AnimatePresence>
+              )
+          }
+          </div>
+      </div>
+    </>
+  )
 }
 
 const prevSVG = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 96 96" fill="none">
-    <circle cx="48" cy="48" r="46" transform="rotate(-180 48 48)" stroke="#F6F7F2" strokeWidth="4"/>
-    <path d="M55.2734 66.9092L32.0007 48.0001L55.2734 29.091" stroke="#F6F7F2" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 96 96" fill="none">
+      <circle cx="48" cy="48" r="46" transform="rotate(-180 48 48)" stroke="#F6F7F2" strokeWidth="4"/>
+      <path d="M55.2734 66.9092L32.0007 48.0001L55.2734 29.091" stroke="#F6F7F2" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
 )
 
 const nextSVG = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 96 96" fill="none">
-    <circle cx="48" cy="48" r="46" stroke="#F6F7F2" strokeWidth="4"/>
-    <path d="M40.7266 29.0908L63.9993 47.9999L40.7266 66.909" stroke="#F6F7F2" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 96 96" fill="none">
+      <circle cx="48" cy="48" r="46" stroke="#F6F7F2" strokeWidth="4"/>
+      <path d="M40.7266 29.0908L63.9993 47.9999L40.7266 66.909" stroke="#F6F7F2" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
 )
 
-const TSlider: React.FC<PropType> = (props) => {
-  const { slides, options } = props
-  const [emblaRef, emblaApi] = useEmblaCarousel(options)
-  const isDesktop = useMediaQuery('(min-width: 640px)')
-
+export function TSlider ({ slides, contentContainerStyle, dotContainerStyle, arrowsStyle }): JSX.Element {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, watchDrag: false })
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
-    useDotButton(emblaApi)
-
+      useDotButton(emblaApi)
   const {
     prevBtnDisabled,
     nextBtnDisabled,
@@ -40,89 +49,34 @@ const TSlider: React.FC<PropType> = (props) => {
     onNextButtonClick
   } = useArrowButtons(emblaApi)
 
-  const handleText = (index: number): JSX.Element => {
-    const textStyle = 'bg-avenir font-thin text-t-off-white text-pretty text-3xl sm:text-6xl'
-    switch (index) {
-      case 0:
-        return <AnimatePresence>
-                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 3 }} className={textStyle} >
-                    Up to <strong>30%</strong> of your time on the court is spent <strong>picking up tennis balls</strong>
-                </motion.p>
-            </AnimatePresence>
-      case 1:
-        return <AnimatePresence>
-                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 3 }} className={textStyle} >
-                    With <strong>Tennibot</strong>, that number goes down to <strong>almost zero</strong>
-                </motion.p>
-            </AnimatePresence>
-      case 2:
-        return <AnimatePresence>
-                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 3 }} className={textStyle} >
-                    This means you could be hitting <strong>hundreds more shots</strong>, every time you practice
-                </motion.p>
-            </AnimatePresence>
-      default:
-        return <AnimatePresence>
-                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 3 }} className={textStyle} >
-                    Up to <strong>30%</strong> of your time on the court is spent <strong>picking up tennis balls</strong></motion.p>
-            </AnimatePresence>
-    }
-  }
-
-  // TODO: Adjust to correct image frame
-  const handleImage = (index: number): string => {
-    switch (index) {
-      case 0:
-        // eslint-disable-next-line @typescript-eslint/quotes
-        return `bg-[url('../src/assets/front-page/slider/slider_one.webp')]`
-      case 1:
-        // eslint-disable-next-line @typescript-eslint/quotes
-        return `bg-[url('../src/assets/front-page/slider/slider_two.webp')]`
-      case 2:
-        // eslint-disable-next-line @typescript-eslint/quotes
-        return `bg-[url('../src/assets/front-page/slider/slider_three.webp')]`
-      default:
-        // eslint-disable-next-line @typescript-eslint/quotes
-        return `bg-[url('../src/assets/front-page/slider/slider_one.webp')]`
-    }
-  }
+  const isDesktop = useMediaQuery('(min-width: 640px)')
 
   return (
-<div className="bg-t-black">
-  <div className="overflow-hidden" ref={emblaRef}>
-    <div className="flex touch-pan-y">
-      {slides.map((index) => (
-        <div className={`${handleImage(index)} bg-cover flex-[0_0_100%] h-[100vh] relative flex items-center justify-center ease-linear duration-500`} key={index}>
-          <div className='p-10 h-full sm:hidden' >
-            {selectedIndex === 0 && handleText(0)}
-            {selectedIndex === 1 && handleText(1)}
-            {selectedIndex === 2 && handleText(2)}
-          </div>
+    <div className="bg-t-black">
+        <div className="overflow-hidden" ref={emblaRef} >
+            <div className="flex touch-pan-y">
+                {slides.map((slide, index) => {
+                  return (
+                    <TSlide className={`${slide.style}`} key={index} index={index} selectedIndex={selectedIndex} containerStyle={contentContainerStyle} >
+                        {slide.content}
+                    </TSlide>
+                  )
+                })}
+            </div>
         </div>
-      ))}
-    </div>
 
-    <div className="text-center w-[70%] flex-col absolute inset-x-0 inset-y-[25%] m-auto hidden sm:flex ">
-      {selectedIndex === 0 && handleText(0)}
-      {selectedIndex === 1 && handleText(1)}
-      {selectedIndex === 2 && handleText(2)}
-    </div>
+        <div className={`flex justify-center items-center mt-10 absolute inset-x-0 bottom-20 sm:inset-y-[35%] sm:bottom-20 m-auto ${dotContainerStyle}`}>
+            {scrollSnaps.map((_, index) => (
+            <DotButton
+                key={index}
+                onClick={() => { onDotButtonClick(index) }}
+                className={`bg-t-off-white rounded-full flex items-center mx-[0.75rem] shadow-2xl ${index === selectedIndex ? 'size-[1.5rem]' : 'size-[1rem]'} ease-linear duration-500`}
+            />
+            ))}
+        </div>
 
-    <div className="flex justify-center items-center mt-10 absolute inset-x-0 bottom-20 sm:inset-y-[35%] sm:bottom-20 m-auto">
-      {scrollSnaps.map((_, index) => (
-        <DotButton
-          key={index}
-          onClick={() => { onDotButtonClick(index) }}
-          className={`bg-t-off-white rounded-full flex items-center mx-[0.75rem] ${index === selectedIndex ? 'size-[1.5rem]' : 'size-[1rem]'} ease-linear duration-500`}
-        />
-      ))}
+        {selectedIndex !== 0 && <PrevButton onClick={onPrevButtonClick} animated svg={isDesktop ? prevSVG : undefined} className={`absolute bottom-[10%] z-20 left-[8%] sm:bottom-[15%] sm:left-[5%] drop-shadow-2xl ${arrowsStyle}`} disabled={prevBtnDisabled} /> }
+        {selectedIndex !== 2 && <NextButton onClick={onNextButtonClick} animated svg={isDesktop ? nextSVG : undefined} className={`absolute bottom-[10%] z-20 right-[8%] sm:bottom-[15%] sm:right-[5%] drop-shadow-2xl ${arrowsStyle}`} disabled={nextBtnDisabled} />}
     </div>
-  </div>
-
-  {selectedIndex !== 0 && <PrevButton onClick={onPrevButtonClick} animated svg={isDesktop ? prevSVG : undefined} className='absolute bottom-[10%] left-[8%] sm:bottom-[15%] sm:left-[5%] drop-shadow-2xl' disabled={prevBtnDisabled} /> }
-  {selectedIndex !== 2 && <NextButton onClick={onNextButtonClick} animated svg={isDesktop ? nextSVG : undefined} className='absolute bottom-[10%] right-[8%] sm:bottom-[15%] sm:right-[5%] drop-shadow-2xl' disabled={nextBtnDisabled} />}
-</div>
   )
 }
-
-export default TSlider
