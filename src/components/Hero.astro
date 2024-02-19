@@ -1,6 +1,6 @@
 ---
-import Button from "./core/Button.astro"
-import Text from "./core/Text.astro"
+import Button from "./Core/Button.astro"
+import Text from "./Core/Text.astro"
 ---
 <section
   class=" w-full h-[100vw] bg-t-black flex flex-wrap content-around overflow-hidden | md:h-screen | min-[850px]:h-[51vw]"
@@ -25,7 +25,7 @@ import Text from "./core/Text.astro"
   <div
     class=" w-full z-10 absolute left-0 flex flex-col justify-center items-center bg-gradient-to-t from-t-video-gradient to-transparent h-[100vw] | md:h-screen | min-[850px]:h-[51vw]"
   >
-    <Text tag="h1" weight="black" uppercase className="text-pretty text-[2rem] px-5 mobilem:text-4xl tablet:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl" >
+    <Text tag="h1" className="font-black uppercase text-center text-pretty text-[2rem] px-5 mobilem:text-4xl tablet:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl" >
       Tennis, meet robot.
     </Text>
     <div class="mt-7 flex flex-col sm:flex-row gap-5" >
