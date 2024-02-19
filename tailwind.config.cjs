@@ -20,7 +20,8 @@ module.exports = {
         't-white': '#E9E5F0',
         't-light-green': '#ECF0E5',
         't-video-gradient': 'rgb(32, 32, 35, 0.6)',
-        't-shade': '#161714'
+        't-shade': '#161714',
+        't-gray': '#AFAFAE'
       },
       fontFamily: {
         avenir: ['Avenir', 'sans-serif']

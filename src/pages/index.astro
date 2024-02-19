@@ -98,12 +98,12 @@ const MARQUEE_CONTENT = [
 ---
 
 <Layout title="Welcome to Tennibot.">
-  <main class="bg-t-off-black" >
+  <main class="bg-t-off-black text-t-off-white" >
     <Hero />
 
     <MediaQuotes client:only="visible"/>
 
-    <section class="relative">
+    <section class="relative text-t-off-white">
       <FrontPageSlider client:only="react" />
     </section>
 
@@ -134,10 +134,10 @@ const MARQUEE_CONTENT = [
               Rover
             </Tex>
             <div class="flex flex-col items-center" >
-              <Text tag="p" className="uppercase text-3xl font-thin" >
+              <Text tag="p" className="uppercase text-2xl text-center font-thin" >
                 Take the <strong class="font-bold" >tedious</strong><br> out of <strong class="font-bold" >tennis</strong>
               </Text>
-              <Button onClick="/" style="mt-6" >Learn more</Button>
+              <Button onClick="/" className="mt-6" >Learn more</Button>
             </div>
           </div>
         </BackgroundImage>
@@ -149,10 +149,10 @@ const MARQUEE_CONTENT = [
               Station
             </Tex>
             <div class="flex flex-col items-center" >
-              <Text tag="p" className="uppercase text-3xl font-thin" >
+              <Text tag="p" className="uppercase text-2xl text-center font-thin" >
                 Your own personal<br> <strong class="font-bold" >coach, analyst and line judge</strong>
               </Text>
-              <Button onClick="/" style="mt-6" >Learn more</Button>
+              <Button onClick="/" className="mt-6" >Learn more</Button>
             </div>
           </div>
         </BackgroundImage>
@@ -201,7 +201,7 @@ const MARQUEE_CONTENT = [
     <section class="flex flex-row justify-center items-center lg:pb-10 pb-5">
       <hr class="sm:w-full  w-[30%] " >
       <div class="sm:mx-10 mx-2">
-        <Text tag="h6" uppercase weight="black" align="center" className="w-full text-pretty text-sm mobilel:text-lg mobilem:text-base sm:text-nowrap sm:text-2xl" >Designed and assembled in the USA</Text>
+        <Text tag="h6" className="w-full uppercase font-black text-center text-pretty text-sm mobilel:text-lg mobilem:text-base sm:text-nowrap sm:text-2xl" >Designed and assembled in the USA</Text>
       </div>
       <hr class="sm:w-full  w-[30%] " >
     </section>

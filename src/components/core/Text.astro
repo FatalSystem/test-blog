@@ -9,10 +9,10 @@ interface Props {
   size?: "xs" | "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl" | "8xl" | "9xl"; 
   align?: "left" | "center" | "right" | "justify" | "start" | "end";
 }
-const { tag = "p", color = "t-off-white", weight, className, uppercase, size, align = 'center' } = Astro.props;
+const { tag = "p", className } = Astro.props;
 
 // Determine the class name based on size and color props
-const baseStyle = `text-pretty font-avenir text-${color} ${weight ? `font-${weight}` : ''} ${className}` ;
+const baseStyle = `text-pretty font-avenir ${className}` ;
 ---
 
 {
