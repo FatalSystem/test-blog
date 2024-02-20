@@ -1,0 +1,21 @@
+---
+import Text from "@components/Core/Text.astro"
+import Button from "@components/Core/Button.astro"
+
+interface Props {
+    title: string;
+    link: string;
+}
+
+const { title, link } = Astro.props
+
+---
+<div class="py-5 flex flex-col md:flex-row md:justify-between md:items-center " >
+    <div class="md:w-[50%]" >
+        <Text tag="h5" className="uppercase text-xl md:text-lg font-black" >{title}</Text>
+        <Text tag="p" className="mb-5 mt-3" >Auburn, AL, United States</Text>
+    </div>
+    <div class="text-center" >
+        <Button onClick={link} className="w-full tablet:w-fit" >See details</Button>
+    </div>
+</div>
