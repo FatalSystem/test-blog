@@ -3,15 +3,15 @@ import { TSlider } from './TSlider/TSlider'
 const slides = [
   {
     content: <div className='flex flex-row font-avenir text-t-off-white justify-center items-center w-52 '><p className='text-7xl font-black mr-1 ' >1</p> <p className='mobilem:text-2xl text-xl font-bold uppercase ' >Roll onto<br/> the court</p></div>,
-    style: `bg-[url('../src/assets/rover/roverstepone.webp')]`
+    style: `bg-[url('../src/assets/rover/roverstepone.webp')] h-[100vh]`
   },
   {
     content: <div className='flex flex-row font-avenir text-t-off-white justify-center items-center w-52 '><p className='text-7xl font-black mr-3' >2</p> <p className='mobilem:text-2xl text-xl font-bold uppercase ' >Place the<br/> station</p></div>,
-    style: `bg-[url('../src/assets/rover/station.webp')]`
+    style: `bg-[url('../src/assets/rover/station.webp')] h-[100vh]`
   },
   {
     content: <div className='flex flex-row font-avenir text-t-off-white justify-center items-center w-52 '><p className='text-7xl font-black mr-3' >3</p> <p className='mobilem:text-2xl text-xl font-bold uppercase ' >Focus on<br/> your game</p></div>,
-    style: `bg-[url('../src/assets/rover/game.webp')]`
+    style: `bg-[url('../src/assets/rover/game.webp')] h-[100vh]`
   }
 
 ]

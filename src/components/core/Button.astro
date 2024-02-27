@@ -1,22 +1,37 @@
 ---
 interface Props {
-  onClick: string 
+  href?: string 
+  onClick?: string
   className?: string
-  theme?: "light" | "dark" | "green"
+  theme?: "light" | "dark" | "green" | "ghostGreen" | "ghostLight"
 }
 
-const { onClick, className, theme = "light" } = Astro.props
+const { onClick, href, className, theme = "light" } = Astro.props
 
 const themeClasses = {
   light: "text-t-off-black bg-t-off-white border-t-off-white md:text-t-off-white md:bg-transparent hover:bg-t-off-white hover:text-t-off-black",
   dark: "text-t-off-white bg-t-off-black border-t-off-black md:text-t-off-black md:bg-transparent hover:bg-t-off-black hover:text-t-off-white",
   green: "text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black",
+  ghostGreen: "text-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black",
+  ghostLight: "text-t-off-white border-t-off-white md:text-t-off-white md:bg-transparent hover:bg-t-off-white hover:text-t-off-black"
 }
 ---
 
-<button
+{
+  onClick ? (
+  <button
   onclick={onClick}
   class={`text-lg font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 ${themeClasses[theme]} ${className}`}
 >
   <slot />
 </button>
+  ) : (
+    <a
+      href={href}
+      class={`text-lg font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-center ${themeClasses[theme]} ${className}`}
+    >
+      <slot />
+    </a>
+  )
+}
+

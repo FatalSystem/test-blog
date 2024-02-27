@@ -8,12 +8,12 @@ import Button from "@components/Core/Button.astro"
 import Text from "@components/Core/Text.astro"
 
 // React
-import { type EmblaOptionsType } from 'embla-carousel'
 import { Marquee, MarqueeItem } from "@components/Marquee"
 import Counter from "@components/Counter"
 import { TestimonialsSlider, } from "@components/TestimonialsSlider"
 import { MediaQuotes } from "@components/MediaQuotes"
 import FrontPageSlider from "@components/FrontPageSlider"
+import { Pages } from "@utils"
 
 // Imgs
 import ballCollection from "@assets/front-page/ball-collection.webp"
@@ -33,9 +33,9 @@ import stanford from "@assets/front-page/marquee/stanford.svg"
 import usaMap from "@assets/front-page/usa-map.svg"
 import Globe from "@components/Globe"
 
-const MAIN_SLIDER_OPTIONS: EmblaOptionsType = { loop: false, watchDrag: false }
-const MAIN_SLIDE_COUNT = 3
-const MAIN_SLIDES = Array.from(Array(MAIN_SLIDE_COUNT).keys())
+// const MAIN_SLIDER_OPTIONS: EmblaOptionsType = { loop: false, watchDrag: false }
+// const MAIN_SLIDE_COUNT = 3
+// const MAIN_SLIDES = Array.from(Array(MAIN_SLIDE_COUNT).keys())
 
 const VIDEO_SLIDER_OPTIONS = { loop: true }
 const VIDEO_SLIDES = [
@@ -137,7 +137,7 @@ const MARQUEE_CONTENT = [
               <Text tag="p" className="uppercase text-2xl text-center font-thin" >
                 Take the <strong class="font-bold" >tedious</strong><br> out of <strong class="font-bold" >tennis</strong>
               </Text>
-              <Button onClick="/" className="mt-6" >Learn more</Button>
+              <Button href={Pages.ROVER} className="mt-6 w-64" >Learn more</Button>
             </div>
           </div>
         </BackgroundImage>
@@ -152,7 +152,7 @@ const MARQUEE_CONTENT = [
               <Text tag="p" className="uppercase text-2xl text-center font-thin" >
                 Your own personal<br> <strong class="font-bold" >coach, analyst and line judge</strong>
               </Text>
-              <Button onClick="/" className="mt-6" >Learn more</Button>
+              <Button href={Pages.STATION} className="mt-6 w-64 " >Learn more</Button>
             </div>
           </div>
         </BackgroundImage>

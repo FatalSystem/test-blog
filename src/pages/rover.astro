@@ -64,7 +64,7 @@ import downloadAndroid from '@assets/rover/downloadandroid.svg'
                 </Text>
                 <div class="order-last flex flex-col justify-center items-center min-[600px]:items-start min-[600px]:w-[60%] md:w-[50%] z-[1] " >
                     <Text tag="p" className="lg:text-lg text-base text-pretty my-7 tracking-tight" >Using computer vision and machine learning, the Tennibot detects tennis balls and picks them up autonomously. Its advanced navigation algorithms allow it to move smoothly on the court (including fence & net areas) while avoiding obstacles and humans.</Text>
-                    <Button onClick="/" theme="green" className="w-full tablet:w-fit"  >Buy now</Button>
+                    <Button href="/buy" theme="ghostGreen" className="w-full  tablet:w-64 "  >Buy now</Button>
                 </div>
                 <div class="position min-[600px]:absolute min-[600px]:right-[0%] min-[600px]:w-[60%]" >
                     <picture>
@@ -103,8 +103,8 @@ import downloadAndroid from '@assets/rover/downloadandroid.svg'
                     <Text tag="h2" className="font-bold text-pretty text-3xl lg:text-4xl text-center min-[550px]:text-left uppercase"  >Take control</Text>
                     <Text tag="p" className="text-lg text-pretty text-center min-[550px]:text-left my-7 tracking-tight" >The Tennibot app enables you to select specific regions for the Rover to focus on, designate restricted zones for the Rover to avoid, or drive it yourself.</Text>
                     <div class="flex flex-row gap-5 lg:pr-10 min-[550px]:pl-0 px-8" >
-                        <a class="cursor-pointer"  ><Image src={downloadIOS}  alt="Download Tennibot on iOS" /></a>
-                        <a class="cursor-pointer" ><Image src={downloadAndroid}   alt="Download Tennibot on iOS" /></a>
+                        <a href="https://apps.apple.com/us/app/tennibot/id1438424530" target="_blank" class="cursor-pointer"  ><Image src={downloadIOS}  alt="Download Tennibot on iOS" /></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.tennibot&hl=en&gl=US" target="_blank" class="cursor-pointer" ><Image src={downloadAndroid}   alt="Download Tennibot on iOS" /></a>
                     </div>
                 </div>
                 <div class="min-[550px]:w-[50%] lg:ml-20 min-[550px]:ml-10" >
@@ -133,7 +133,7 @@ import downloadAndroid from '@assets/rover/downloadandroid.svg'
                     <RadialGradient from="#1C1C1F" to="#141416" />
                 </div>
                 <div class="flex flex-row justify-center md:hidden mt-10" >
-                    <Button onClick="/" className="tablet:w-fit w-full" >View video gallery</Button>
+                    <Button onClick="/" theme="ghostLight" className="tablet:w-64 w-full" >View video gallery</Button>
                 </div>
             </div>
         </section>
@@ -145,7 +145,7 @@ import downloadAndroid from '@assets/rover/downloadandroid.svg'
                     <Text tag="p" className="" >If you have a question about the Tennibot or how it operates, visit our FAQ's page for more information.</Text>
                 </div>
                 <div class="lg:w-[50%] lg:mt-0 mt-10 w-full flex lg:justify-end justify-center" >
-                    <Button onClick="/" className="tablet:w-fit w-full" >View FAQ's</Button>
+                    <Button onClick="/" theme="ghostLight" className="tablet:w-64 w-full" >View FAQ's</Button>
                 </div>
             </div>
         </section>
