@@ -1,6 +1,7 @@
 ---
 import Button from "./Core/Button.astro"
 import Text from "./Core/Text.astro"
+import { Pages } from "@utils";
 ---
 <section
   class=" w-full h-[100vw] bg-t-black flex flex-wrap content-around overflow-hidden | md:h-screen | min-[850px]:h-[51vw] text-t-off-white"
@@ -30,8 +31,8 @@ import Text from "./Core/Text.astro"
     </Text>
     <div class="mt-7 flex flex-col sm:flex-row gap-5" >
       <!-- TODO: Add actions -->
-      <Button onClick="/" style="mr-3 w-64">Play video</Button>
-      <Button onClick="/" style="w-64" theme="green" >Buy now</Button>
+      <Button onClick="/" className="mr-3 w-64">Play video</Button>
+      <Button href={Pages.BUY} className="w-64" theme="green" >Buy now</Button>
     </div>
   </div>
 </section>

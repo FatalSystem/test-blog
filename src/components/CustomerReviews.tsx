@@ -141,7 +141,6 @@ export function TSlider ({ contentContainerStyle, slides, arrowsStyle }): JSX.El
 
 export function CustomerReviews (): JSX.Element {
   const isDesktop = useMediaQuery('(min-width: 768px)')
-  
   return (
     <TSlider slides={isDesktop ? slidesDesktop : slidesMobile} />
   )

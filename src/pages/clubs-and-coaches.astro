@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro"
 import Text from "@components/Core/Text.astro"
 import DeviceGridItem from "@components/DeviceGridItem.astro"
 import { Image } from 'astro:assets'
+import CCSlider from "@components/CCSlider.tsx"
 
 const perksStyle = 'flex flex-col lg:flex-row justify-center items-center md:gap-3 gap-5'
 const perksTextStyle = 'uppercase text-center min-[870px]:text-nowrap lg:text-wrap'
@@ -21,8 +22,8 @@ const perksTextStyle = 'uppercase text-center min-[870px]:text-nowrap lg:text-wr
                     <Text tag="p" className="text-center py-5 tablet:text-left tablet:w-[80%]">
                         Everyone offers ball machines. It's time to stand out, by offering a fleet of autonomous ball collectors. 
                     </Text>
-                    <div class="" >
-                        <Button onClick="/" theme="white" className="tablet:px-20 w-full tablet:w-fit" >Buy now</Button>
+                    <div class="flex" >
+                        <Button href="/buy" theme="light" className="tablet:w-64 w-full" >Buy now</Button>
                     </div>
                 </div>
                 <div class="absolute w-full h-[90%] bg-gradient-to-b from-t-shade from-10%  to-90% opacity-70" />
@@ -70,6 +71,16 @@ const perksTextStyle = 'uppercase text-center min-[870px]:text-nowrap lg:text-wr
                     </Text>
                 </div>
             </div>
+        </section>
+
+        <section class="relative" >
+            <CCSlider client:only="react" type="coaches" />
+        </section>
+        <section class="relative" >
+            <CCSlider client:only="react" type="clubs" />
+        </section>
+        <section class="relative" >
+            <CCSlider client:only="react" type="school" />
         </section>
     </main>
 </Layout>

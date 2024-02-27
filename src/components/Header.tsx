@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import tennibotLogo from '../assets/tennibot-logo.svg'
 
-const links = ['How does it work?', 'About us', 'Clubs and Coaches', 'Preorder']
+const links = [{ label: 'How does it work?', href: '/rover' }, { label: 'About us', href: '/about-us' }, { label: 'Clubs and Coaches', href: '/clubs-and-coaches' }, { label: 'Buy', href: '/buy' }]
 
 export default function Header () {
   const [open, setOpen] = useState<boolean>(false)
@@ -16,14 +16,15 @@ export default function Header () {
       >
         <ul className="px-10 flex flex-col pt-10 ">
           {links.map((link, index) => (
-            <li
+            <a
               key={index}
-              className={`text-xl text-t-white font-bold mb-10 transform transition duration-${
+              href={link.href}
+              className={`text-xl text-t-white font-bold mb-10 transform cursor-pointer transition duration-${
                 (index + 1) * 100
               } ${open ? 'opacity-100' : 'opacity-0'} ease-in-out`}
             >
-              {link}
-            </li>
+              {link.label}
+            </a>
           ))}
         </ul>
       </nav>

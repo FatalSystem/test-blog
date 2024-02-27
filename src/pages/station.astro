@@ -13,6 +13,7 @@ import downloadAndroid from '@assets/rover/downloadandroid.svg'
 import VideoPlayer from "@components/VideoPlayer"
 import RadialGradient from "@components/RadialGradient"
 import stationAppDesktop from '@assets/station/stationappdesktop.webp'
+import { Pages } from "@utils"
 
 ---
 <Layout title="Welcome to Tennibot.">
@@ -21,8 +22,8 @@ import stationAppDesktop from '@assets/station/stationappdesktop.webp'
             <div class="flex flex-col items-center h-full justify-center lg:justify-start lg:items-start" >
                 <Text tag="h1" className="z-[1] text-t-off-white uppercase font-black text-2xl mobilem:text-3xl px-3 tablet:px-0 tablet:w-[75%] text-center lg:text-left lg:w-[40%] lg:ml-[10%] mt-[10%]" >The <span class="text-t-green" >station</span>:</br> a coach that fits in your tennis bag</Text>
                 <div class="z-[1] mx-auto min-[520px]:flex-row justify-center  gap-5 flex flex-col items-center mt-5 lg:ml-[10%]" >
-                    <Button onClick="/" theme="light" className=" tablet:w-fit w-fit  " >Play video</Button>
-                    <Button onClick="/" theme="green" className="tablet:w-fit w-fit " >Buy now</Button>
+                    <Button onClick="/" theme="light" className="tablet:w-64 w-full px-16" >Play video</Button>
+                    <Button href={Pages.BUY} theme="green" className="tablet:w-64 w-full px-16" >Buy now</Button>
                 </div>
                 <div class="absolute w-full h-[90%] bg-gradient-to-b from-t-shade from-10% via-transparent via-70% to-t-shade to-90% opacity-70" />
             </div>
@@ -43,19 +44,19 @@ import stationAppDesktop from '@assets/station/stationappdesktop.webp'
         <section class="bg-t-off-black lg:h-[70vh] min-[670px]:h-fit min-[670px]:pt-16 " >
             <div class="min-[670px]:w-[80%] w-full lg:h-[60vh] h-fit grid lg:grid-cols-4 min-[670px]:grid-cols-2 min-[670px]:mx-auto min-[670px]:gap-3">
                 <DeviceGridItem containerClass="lg:bg-[url('../src/assets/rover/rovercloseup.webp')] min-[670px]:bg-[url('../src/assets/rover/rovercloseuptablet.webp')] bg-[url('../src/assets/station/placedstation.webp')] " >
-                    <Text tag="h6" className="z-[1] text-t-off-white uppercase text-2xl min-[670px]:text-xl text-center font-bold min-[670px]:font-thin min-[670px]:text-left mb-3" >Hold 80 balls</Text>
+                    <Text tag="h6" className="z-[1] text-t-off-white uppercase text-2xl min-[670px]:text-xl text-center font-bold min-[670px]:font-thin min-[670px]:text-left mb-3" >Match recording</Text>
                     <Text tag="p" className="z-[1] text-t-off-white min-[670px]:w-full w-[80%] text-center min-[670px]:text-left text-pretty overflow-hidden h-fit lg:h-0 lg:opacity-0 pb-5 tablet:pb-10 min-[670px]:pb-3 lg:group-hover:opacity-100 xl:group-hover:h-[18%] lg:group-hover:h-[30%] transition-all duration-500" >The Tennibot bucket holds up to 80 tennis balls, in an easy-to remove net bag.</Text>
                 </DeviceGridItem>
                 <DeviceGridItem containerClass="lg:bg-[url('../src/assets/rover/roverballs.webp')] min-[670px]:bg-[url('../src/assets/rover/roverballstablet.webp')] bg-[url('../src/assets/station/stationlinejudge.webp')]" >
-                    <Text tag="h6" className="z-[1] text-t-off-white uppercase text-2xl min-[670px]:text-xl text-center font-bold min-[670px]:font-thin min-[670px]:text-left mb-3 mobilem:w-[70%] tablet:w-[60%] min-[670px]:w-full " >Up to 5 hours of battery life</Text>
+                    <Text tag="h6" className="z-[1] text-t-off-white uppercase text-2xl min-[670px]:text-xl text-center font-bold min-[670px]:font-thin min-[670px]:text-left mb-3 mobilem:w-[70%] tablet:w-[60%] min-[670px]:w-full " >Line judging</Text>
                     <Text tag="p" className="z-[1] text-t-off-white min-[670px]:w-full w-[80%] text-center min-[670px]:text-left text-pretty overflow-hidden h-fit lg:h-0 lg:opacity-0 pb-5 tablet:pb-10 min-[670px]:pb-3 lg:group-hover:opacity-100 xl:group-hover:h-[18%] lg:group-hover:h-[30%] transition-all duration-500" >The Tennibot can easily handle multiple lessons before needing to recharge.</Text>
                 </DeviceGridItem>
                 <DeviceGridItem containerClass="lg:bg-[url('../src/assets/rover/roverterrain.webp')] min-[670px]:bg-[url('../src/assets/rover/roverterraintablet.webp')] bg-[url('../src/assets/station/placingstation.webp')]" >
-                    <Text tag="h6" className="z-[1] text-t-off-white uppercase text-2xl min-[670px]:text-xl text-center font-bold min-[670px]:font-thin min-[670px]:text-left mb-3 mobilem:w-[70%] tablet:w-[60%] min-[670px]:w-full" >Works on clay and hard courts</Text>
+                    <Text tag="h6" className="z-[1] text-t-off-white uppercase text-2xl min-[670px]:text-xl text-center font-bold min-[670px]:font-thin min-[670px]:text-left mb-3 mobilem:w-[70%] tablet:w-[60%] min-[670px]:w-full" >No installation</Text>
                     <Text tag="p" className="z-[1] min-[670px]:w-full w-[80%] text-center min-[670px]:text-left text-pretty overflow-hidden h-fit lg:h-0 lg:opacity-0 pb-5 tablet:pb-10 min-[670px]:pb-3 lg:group-hover:opacity-100 xl:group-hover:h-[18%] lg:group-hover:h-[30%] transition-all duration-500" >Whether you prefer the speed of hard courts or sliding on clay, Tennibot has got you covered.</Text>
                 </DeviceGridItem>
                 <DeviceGridItem containerClass="lg:bg-[url('../src/assets/rover/roversize.webp')] min-[670px]:bg-[url('../src/assets/rover/roversizetablet.webp')] bg-[url('../src/assets/station/stationcontrol.webp')] " >
-                    <Text tag="h6" className="z-[1] text-t-off-white uppercase text-2xl min-[670px]:text-xl text-center font-bold min-[670px]:font-thin min-[670px]:text-left mb-3" >The size of a suitcase</Text>
+                    <Text tag="h6" className="z-[1] text-t-off-white uppercase text-2xl min-[670px]:text-xl text-center font-bold min-[670px]:font-thin min-[670px]:text-left mb-3" >Useful stats</Text>
                     <Text tag="p" className="z-[1] text-t-off-white min-[670px]:w-full w-[80%] text-center min-[670px]:text-left text-pretty overflow-hidden h-fit lg:h-0 lg:opacity-0 pb-5 tablet:pb-10 min-[670px]:pb-3 lg:group-hover:opacity-100 xl:group-hover:h-[18%] lg:group-hover:h-[30%] transition-all duration-500" >The Tennibot fits in most car trunks and at only 25lbs, it it easy to roll on and off the court.</Text>
                 </DeviceGridItem>
             </div>
@@ -67,8 +68,8 @@ import stationAppDesktop from '@assets/station/stationappdesktop.webp'
                     <Text tag="h2" className="font-bold text-pretty text-3xl lg:text-4xl min-[550px]:text-left uppercase"  >Play smarter</Text>
                     <Text tag="p" className="text-lg text-pretty min-[550px]:text-left my-7 tracking-tight" >Using the Tennibot app, you can record your highlights and keep a record of all of your matches and practices. The Station gives you actionable feedback so you can...</Text>
                     <div class="flex flex-row gap-5 lg:pr-10 min-[550px]:pl-0 px-8" >
-                        <a class="cursor-pointer"  ><Image src={downloadIOS}  alt="Download Tennibot on iOS" /></a>
-                        <a class="cursor-pointer" ><Image src={downloadAndroid}   alt="Download Tennibot on iOS" /></a>
+                        <a href="https://apps.apple.com/us/app/tennibot/id1438424530" target="_blank" class="cursor-pointer"  ><Image src={downloadIOS}  alt="Download Tennibot on iOS" /></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.tennibot&hl=en&gl=US" target="_blank" class="cursor-pointer" ><Image src={downloadAndroid}   alt="Download Tennibot on iOS" /></a>
                     </div>
                 </div>
                 <div class="min-[550px]:w-[50%] lg:ml-20 min-[550px]:ml-10" >

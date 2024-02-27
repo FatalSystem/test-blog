@@ -7,7 +7,7 @@ import { useMediaQuery } from 'usehooks-ts'
 export function TSlide ({ selectedIndex, index, className, containerStyle, children }): JSX.Element {
   return (
     <>
-      <div className={`${className} bg-cover bg-center flex-[0_0_100%] h-[100vh] relative flex items-center justify-center ease-linear duration-500`}>
+      <div className={`${className} bg-cover bg-center flex-[0_0_100%] relative flex items-center justify-center ease-linear duration-500`}>
         <div className="absolute w-full h-[100%] bg-gradient-to-b from-[#232320]/[0.7] from-10% via-transparent via-70% to-[#232320]/[0.7] to-90%" >
           {
               selectedIndex === index && (
@@ -76,7 +76,7 @@ export function TSlider ({ slides, contentContainerStyle, dotContainerStyle, arr
         </div>
 
         {selectedIndex !== 0 && <PrevButton onClick={onPrevButtonClick} animated svg={isDesktop ? prevSVG : undefined} className={`absolute bottom-[10%] z-20 left-[8%] sm:bottom-[15%] sm:left-[5%] drop-shadow-2xl ${arrowsStyle}`} disabled={prevBtnDisabled} /> }
-        {selectedIndex !== 2 && <NextButton onClick={onNextButtonClick} animated svg={isDesktop ? nextSVG : undefined} className={`absolute bottom-[10%] z-20 right-[8%] sm:bottom-[15%] sm:right-[5%] drop-shadow-2xl ${arrowsStyle}`} disabled={nextBtnDisabled} />}
+        {selectedIndex !== slides.length - 1 && <NextButton onClick={onNextButtonClick} animated svg={isDesktop ? nextSVG : undefined} className={`absolute bottom-[10%] z-20 right-[8%] sm:bottom-[15%] sm:right-[5%] drop-shadow-2xl ${arrowsStyle}`} disabled={nextBtnDisabled} />}
     </div>
   )
 }
