@@ -159,7 +159,7 @@ const MARQUEE_CONTENT = [
       </div>
     </section>
 
-    <section class="bg-t-off-black pt-20" >
+    <section class="bg-t-off-black pt-20 mb-20" >
       <Text tag="h3" className="pb-10 uppercase text-3xl font-thin text-center" >Trusted by...</Text>
       <div class="relative flex h-full w-full flex-col items-center justify-center overflow-hidden" >
         <Marquee pauseOnHover className="[--duration:50s]" >
@@ -172,11 +172,12 @@ const MARQUEE_CONTENT = [
       </div>
     </section>
 
-    <section class="bg-t-off-black py-36" >
+    <section class="bg-t-off-black md:h-[80vh] sm:h-[100vh] h-[90vh] flex" >
       <div class="w-4/5 m-auto flex flex-col-reverse md:flex-row justify-center items-center gap-10" >
-        <div class="w-[80%] md:w-[40%]" >
-          <div class="w-[80%] md:w-[100%]" >
-            <div class="bg-t-off-black h-[50vh] relative flex w-full items-center justify-center overflow-hidden">
+        <div class="md:w-[50%] w-full" >
+          <div class="w-full flex flex-col justify-end" >
+            <!-- overflow-hidden here -->
+            <div class="bg-t-off-black relative flex h-full flex-col w-full items-center justify-center">  
               <Globe client:only="react" className=" bg-t-off-black" />
               <!-- <div class="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]" /> -->
             </div>
@@ -189,13 +190,13 @@ const MARQUEE_CONTENT = [
             <Counter client:only="react" value={1027945} />
           </Text>
           <Text tag="p" className="text-center text-2xl font-thin italic mt-5" >
-            Tennis balls collect by Tennibot,<br> across the United States
+            Tennis balls collect by Tennibot,<br class="hidden sm:block" /> across the United States
           </Text>
         </div>
       </div>
     </section>
     
-    <section class="relative bg-t-off-black pb-20 overflow-hidden ">
+    <section class="relative bg-t-off-black mt-20 pb-20 overflow-hidden ">
       <TestimonialsSlider client:only="react" slides={VIDEO_SLIDES} options={VIDEO_SLIDER_OPTIONS} />
     </section>
     <section class="flex flex-row justify-center items-center lg:pb-10 pb-5">

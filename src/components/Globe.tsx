@@ -65,7 +65,7 @@ const GLOBE_CONFIG: COBEOptions = {
     { location: [40.0583, -74.4057], size: 0.1 },
     { location: [39.0458, -76.6413], size: 0.1 }
   ],
-  scale: 1
+  scale: 1.15
 }
 
 export default function Globe ({
@@ -74,8 +74,8 @@ export default function Globe ({
 }: {
   className?: string
   config?: COBEOptions
-}) {
-  let phi = 0
+}): JSX.Element {
+  const phi = 0
   let width = 0
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const pointerInteracting = useRef(null)
@@ -134,55 +134,56 @@ export default function Globe ({
     return () => { globe.destroy() }
   }, [])
 
-//   return (
-//     <div
-//       className={cn(
-//         'absolute inset-0 mx-auto aspect-[-1/1] w-full ',
-//         className
-//       )}
-//     >
-//       <canvas
-//         className={cn(
-//           'h-full w-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]'
-//         )}
-//         ref={canvasRef}
-//         onPointerDown={(e) => {
-//           updatePointerInteraction(
-//             e.clientX - pointerInteractionMovement.current
-//           )
-//         }
-//         }
-//         onPointerUp={() => { updatePointerInteraction(null) }}
-//         onPointerOut={() => { updatePointerInteraction(null) }}
-//         onMouseMove={(e) => { updateMovement(e.clientX) }}
-//         onTouchMove={(e) => {
-//           e.touches[0] && updateMovement(e.touches[0].clientX)
-//         }
-//         }
-//       />
-//     </div>
-//   )
+  //   return (
+  //     <div
+  //       className={cn(
+  //         'absolute inset-0 mx-auto aspect-[-1/1] w-full ',
+  //         className
+  //       )}
+  //     >
+  //       <canvas
+  //         className={cn(
+  //           'h-full w-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]'
+  //         )}
+  //         ref={canvasRef}
+  //         onPointerDown={(e) => {
+  //           updatePointerInteraction(
+  //             e.clientX - pointerInteractionMovement.current
+  //           )
+  //         }
+  //         }
+  //         onPointerUp={() => { updatePointerInteraction(null) }}
+  //         onPointerOut={() => { updatePointerInteraction(null) }}
+  //         onMouseMove={(e) => { updateMovement(e.clientX) }}
+  //         onTouchMove={(e) => {
+  //           e.touches[0] && updateMovement(e.touches[0].clientX)
+  //         }
+  //         }
+  //       />
+  //     </div>
+  //   )
 
   return (
     <div
     className={cn(
-      "absolute inset-0 mx-auto aspect-[1/1] w-full",
-      className,
+      ' h-full mx-auto aspect-[1/1] w-full ',
+      className
     )}
   >
     <canvas
       className={cn(
-        "h-full w-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]",
+        'h-full w-full opacity-0 transition-opacity duration-500  [contain:layout_paint_size]'
       )}
       ref={canvasRef}
-      onPointerDown={(e) =>
+      onPointerDown={(e) => {
         updatePointerInteraction(
-          e.clientX - pointerInteractionMovement.current,
+          e.clientX - pointerInteractionMovement.current
         )
       }
-      onPointerUp={() => updatePointerInteraction(null)}
-      onPointerOut={() => updatePointerInteraction(null)}
-      onMouseMove={(e) => updateMovement(e.clientX)}
+      }
+      onPointerUp={() => { updatePointerInteraction(null) }}
+      onPointerOut={() => { updatePointerInteraction(null) }}
+      onMouseMove={(e) => { updateMovement(e.clientX) }}
       onTouchMove={(e) =>
         e.touches[0] && updateMovement(e.touches[0].clientX)
       }
