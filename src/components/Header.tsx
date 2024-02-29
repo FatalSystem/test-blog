@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import tennibotLogo from '../assets/tennibot-logo.svg'
 import { Pages } from '@utils'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const links = [
   { label: 'Home', href: Pages.HOME },
@@ -8,34 +9,41 @@ const links = [
   { label: 'The rover', href: Pages.ROVER },
   { label: 'The station', href: Pages.STATION },
   { label: 'About us', href: Pages.ABOUT },
-  { label: 'Clubs and Coaches', href: Pages.CLUBS }
+  { label: 'Clubs and Coaches', href: Pages.CLUBS },
+  { label: 'FAQs', href: Pages.FAQ }
 ]
-
+// TODO: Remake with framer motion
 export default function Header (): JSX.Element {
   const [open, setOpen] = useState<boolean>(false)
   const handleOpen = (): void => { setOpen(!open) }
 
   return (
     <header className='sticky top-0 z-50'>
-      <nav
-        className={`absolute bg-t-off-black rounded-b-lg shadow-lg backdrop-blur-xl md:w-fit w-full md:h-[100vh] h-[70vh] right-0 transform top-16 transition ease-in-out duration-500 ${
-          open ? 'opacity-100 z-20' : ' -translate-y-1/4 opacity-0'
-        } `}
-      >
-        <ul className="px-10 flex flex-col pt-10 ">
-          {links.map((link, index) => (
-            <a
-              key={index}
-              href={link.href}
-              className={`text-xl text-t-white font-bold uppercase mb-10 transform cursor-pointer hover:text-t-green transition duration-${
-                (index + 1) * 100
-              } ${open ? 'opacity-100' : 'opacity-0'} ease-in-out`}
+      <AnimatePresence >
+        {open && (
+            <motion.nav
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -50, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className='absolute md:h-[100vh] h-[70vh] bg-t-off-black rounded-b-lg shadow-lg backdrop-blur-xl md:w-fit w-full right-0 transform top-16 -translate-y-1/4 transition ease-in-out duration-500'
             >
-              {link.label}
-            </a>
-          ))}
-        </ul>
-      </nav>
+              <ul className='px-10 flex flex-col pt-10'>
+                {links.map((link, index) => (
+                  <a
+                    key={index}
+                    href={link.href}
+                    className={`text-xl text-t-white font-bold uppercase mb-10 transform cursor-pointer hover:text-t-green transition duration-${
+                      (index + 1) * 100
+                    } ${open ? 'opacity-100' : 'opacity-0'} ease-in-out`}
+                  >
+                    {link.label}
+                  </a>
+                ))}r
+              </ul>
+            </motion.nav>
+        )}
+      </AnimatePresence>
       <div className="bg-t-off-black px-5 py-4 flex flex-row max-h-96 justify-between z-20">
         <a href="/" className="align-middle flex z-20">
           <img src={tennibotLogo.src} width={40} alt="Tennibot Logo" />
