@@ -14,25 +14,10 @@ interface PaginationProps {
 }
 
 const Pagination = ({ items, itemsPerPage, tab, currentPage, goToPage, goToNextPage, goToPreviousPage, className, search = false }: PaginationProps): JSX.Element => {
-  // const [currentPage, setCurrentPage] = useState(1)
   const totalPages = Math.ceil(items.length / itemsPerPage)
-
   const startIndex = (currentPage - 1) * itemsPerPage
   const endIndex = startIndex + itemsPerPage
   const itemsToShow = items.slice(startIndex, endIndex)
-
-  // const goToPage = (pageNumber: number): void => {
-  //   setCurrentPage(pageNumber)
-  // }
-
-  // const goToNextPage = (): void => {
-  //   setCurrentPage((current) => (current < totalPages ? current + 1 : current))
-  // }
-
-  // const goToPreviousPage = (): void => {
-  //   setCurrentPage((current) => (current > 1 ? current - 1 : current))
-  // }
-
   const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1)
 
   return (
