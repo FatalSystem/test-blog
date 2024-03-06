@@ -7,4 +7,5 @@ export enum Pages {
   CLUBS = '/clubs-and-coaches',
   ROVER = '/rover',
   STATION = '/station',
+  FAQ = '/faq'
 }

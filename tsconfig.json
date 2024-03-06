@@ -16,6 +16,7 @@
       "@assets/*": ["assets/*"],
       "@hooks": ["hooks/index.ts"],
       "@utils": ["utils/index.ts"],
+      "@schemas": ["schemas/index.ts"],
     },
     "plugins": [
       {

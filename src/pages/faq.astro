@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Text from "@components/Core/Text.astro"
+import { sanityClient } from "sanity:client";
+import TabContainer from "@components/TabContainer.tsx"
+ 
+const questions = await sanityClient.fetch(`*[_type == "questions"] | order(_createdAt asc)`);
+const problems = await sanityClient.fetch(`*[_type == "problems"] | order(_createdAt asc)`);
+---
+
+<Layout title="Welcome to Tennibot.">
+    <main class="bg-t-off-white overflow-hidden text-t-off-black" >
+        <section class="w-[80%] mx-auto pt-20" >
+            <Text tag="h1" className="uppercase font-black lg:text-4xl text-3xl text-pretty" >Have a question?</Text>
+            <Text tag="h3" className="uppercase font-thin lg:text-4xl text-3xl " >You're in the right place</Text>
+        </section>
+        <section class="md:w-[80%] w-full relative mx-auto my-10 group " >
+            <TabContainer client:only="react" questions={questions} problems={problems} />
+        </section>
+        <section class="py-20">
+            <h1>Hello</h1>
+        </section>
+    </main>
+</Layout>

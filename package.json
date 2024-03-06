@@ -13,6 +13,9 @@
   "dependencies": {
     "@astrojs/react": "^3.0.9",
     "@astrojs/tailwind": "^5.1.0",
+    "@sanity/astro": "^2.2.1",
+    "@sanity/client": "^6.15.0",
+    "@sanity/vision": "^3.30.1",
     "@types/react": "^18.2.51",
     "@types/react-dom": "^18.2.15",
     "astro": "^4.3.1",
@@ -20,10 +23,12 @@
     "embla-carousel": "^8.0.0-rc22",
     "embla-carousel-react": "^8.0.0-rc22",
     "framer-motion": "^11.0.3",
+    "fuse.js": "^7.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-player": "^2.14.1",
     "react-swipeable": "^7.0.1",
+    "sanity": "^3.30.1",
     "usehooks-ts": "^2.14.0"
   },
   "devDependencies": {
