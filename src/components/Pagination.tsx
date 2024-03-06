@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
+import { renderItem } from './TabContainer'
 
 interface PaginationProps {
   items: any[]
@@ -9,9 +10,10 @@ interface PaginationProps {
   goToNextPage: () => void
   goToPreviousPage: () => void
   className?: React.ComponentProps<'div'>['className']
+  search?: boolean
 }
 
-const Pagination = ({ items, itemsPerPage, tab, currentPage, goToPage, goToNextPage, goToPreviousPage, className }: PaginationProps): JSX.Element => {
+const Pagination = ({ items, itemsPerPage, tab, currentPage, goToPage, goToNextPage, goToPreviousPage, className, search = false }: PaginationProps): JSX.Element => {
   // const [currentPage, setCurrentPage] = useState(1)
   const totalPages = Math.ceil(items.length / itemsPerPage)
 
@@ -38,38 +40,8 @@ const Pagination = ({ items, itemsPerPage, tab, currentPage, goToPage, goToNextP
       <motion.div className={className} >
         <AnimatePresence >
         {itemsToShow.map((item, index) => {
-          if (tab === 0) {
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="my-8 ">
-                <h5 className="font-black font-avenir text-xl text-t-off-black text-pretty mb-2" ><span className="mr-2" >Q: </span>{item.Question}</h5>
-                <p className="font-thin font-avenir text-xl text-t-off-black text-pretty " ><span className="text-2xl mr-2" >A: </span>{item.Answer}</p>
-              </motion.div>
-            )
-          }
-          return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="my-8">
-                <h6 className="font-bold font-avenir text-xl text-t-off-black text-pretty mb-1" >Problem</h6>
-                <h5 className="font-bold font-avenir text-xl text-t-off-black text-pretty mb-6" >{item.problem}</h5>
-                <h6 className="font-bold font-avenir text-xl text-t-off-black text-pretty mb-2" >Potential Causes and Solutions</h6>
-                <ul className="font-thin font-avenir text-xl text-t-off-black text-pretty list-disc list-inside mb-2 " >{item.solutions.map((solution, index) => {
-                  return (
-                        <li key={index} className='mb-2 font-avenir' >{solution}</li>
-                  )
-                })}</ul>
-            </motion.div>
-          )
+          if (search) { return renderItem({ item: item.item, index, type: item.item._type }) }
+          return renderItem({ item, index, type: tab === 0 ? 'questions' : 'problems' })
         }
         )}
         </AnimatePresence>
