@@ -4,6 +4,10 @@ import { astroImageTools } from 'astro-imagetools'
 import react from '@astrojs/react'
 
 import { sanityIntegration } from '@sanity/astro'
+import 'dotenv/config'
+
+const sanityProjectId = process.env.SANITY_PROJECT_ID
+const sanityDataset = process.env.SANITY_DATASET
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,8 +18,8 @@ export default defineConfig({
   integrations: [tailwind(), react({
     experimentalReactChildren: true
   }), astroImageTools, sanityIntegration({
-    projectId: '3nx5ege4',
-    dataset: 'production',
+    projectId: sanityProjectId,
+    dataset: sanityDataset,
     useCdn: false,
     studioBasePath: '/admin'
   })]
