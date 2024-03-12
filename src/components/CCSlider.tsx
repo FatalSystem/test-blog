@@ -45,7 +45,7 @@ const slides = {
     {
       content:
       <div className={containerStyle} >
-        <h3 className={titleStyle} >For clubs</h3>
+        <h3 className={titleStyle} >For schools</h3>
         <p>
         Gain an edge over other programs by maximizing training time for each athlete. During one-on-one practice sessions, players will be able to hit hundreds more shots per hour compared to training without the Tennibot.<br /><br />Players can hydrate and refresh while coaches give them their feedback instead of wasting valuable time and energy retrieving balls.
         </p>

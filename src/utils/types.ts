@@ -1,6 +1,6 @@
 export enum Pages {
   HOME = '/',
-  ABOUT = '/about=us',
+  ABOUT = '/about-us',
   BUY = '/buy',
   NOT_FOUND = '/404',
   CAREERS = '/careers',
