@@ -17,13 +17,14 @@ const { title } = Astro.props
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" href="https://player.vimeo.com/video/893993983?background=1" as="document">
-    <link rel="stylesheet" href="../src/styles/global.css">
+    <link rel="preload" href="https://player.vimeo.com/video/894270264?background=1" as="document">
+    <link rel="stylesheet" type="text/css" href="/styles/global.css">
     <meta name="generator" content={Astro.generator} />
     <ImageSupportDetection />
     <title>{title}</title>
   </head>
-  <body>
-    <Header client:visible />
+  <body class="bg-t-off-black" >
+    <Header client:load />
     <slot />
     <Footer />
   </body>

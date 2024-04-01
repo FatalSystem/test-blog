@@ -1,9 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import Text from "@components/Core/Text.astro"
+import Text from "@components/core/Text.astro"
 import { Image } from 'astro:assets'
-import Button from "@components/Core/Button.astro"
-import BuyImageGallery from "@components/BuyImageGallery/BuyImageGallery.tsx"
+// import Button from "@components/core/Button.astro"
+// import BuyImageGallery from "@components/BuyImageGallery/BuyImageGallery.tsx"
 import {CustomerReviews} from "@components/CustomerReviews.tsx"
 
 import shopPay from "@assets/buy/shoppay.svg"
@@ -47,7 +47,51 @@ const payStyle = 'w-[30%]'
 
 <Layout title="Welcome to Tennibot.">
     <main class="bg-t-off-black overflow-hidden text-t-off-white" >
-        <div class="flex flex-col md:flex-row-reverse mobilem:w-[85%] w-[90%] mx-auto md:gap-8 md:mt-10" >
+      <section class="bg-[url('/images/buy/courtbg.webp')] bg-center bg-cover py-10 md:h-[90vh] h-[110vh]" >
+        <div class="w-[80%] h-full md:h-fit md:grid md:grid-cols-2 md:gap-10 flex flex-col justify-between mx-auto" >
+          <div>
+            <Text tag="h1" className="text-3xl md:text-2xl text-pretty uppercase mb-5" >Try risk free with a<br> <span class="font-black" >100 day money-back guarantee</span></Text>
+            <Text className="md:text-lg" >Jump into the future of sports with Tennibot, the world’s first autonomous tennis assistant. Save time on the court and hit hundreds of extra shots in every practice session.</Text>
+          </div>
+
+          <div class="bg-t-off-black border border-t-off-white rounded-lg p-5" >
+            
+              <div class="flex flex-row justify-between mb-2" >
+                  <Text tag="h2" className="text-2xl font-black" >Tennibot</Text>
+                  <Text tag="p" className="text-xl font-black text-center" >$2,195</Text>
+              </div>
+              <Text tag="p" className="mb-5" >Or monthly payments as low as <strong class="text-t-green" >$112</strong> with Shop Pay!</Text>
+              <ul class="list-disc list-inside font-avenir text-t-off-white text-pretty" >
+                <li>New orders ship April 2024!</li>
+                <li>Limited quantity available</li>
+              </ul>
+
+              <div class="flex flex-col md:items-start md:flex-col-reverse items-center mt-4 mb-5 ">
+                <div class="flex flex-col items-center " >
+                    <div id='product-component-1697596901031' class="self-center md:self-start" />
+                </div>
+              </div>
+
+              <div>
+                <div class="flex flex-row justify-between w-" >
+                    <Image src={shopPay} alt="Shop Pay" class={payStyle} />
+                    <Image src={googlePay} alt="Google Pay" class={payStyle} />
+                    <Image src={metaPay} alt="Meta Pay" class={payStyle} />
+                </div>
+                <div class="mt-3 flex flex-row gap-3 " >
+                    <Image src={visa} alt="Visa" class="w-[10%]" />
+                    <Image src={mastercard} alt="Mastercard" class="w-[10%]" />
+                    <Image src={amex} alt="Amex" class="w-[10%]" />
+                    <Image src={discover} alt="Discover" class="w-[10%]" />
+                    <Text tag="p" >+4</Text>
+                </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+        <!-- <div class="flex flex-col md:flex-row-reverse mobilem:w-[85%] w-[90%] mx-auto md:gap-8 md:mt-10" >
             <section class="md:w-[50%]" >
                 <div class="mx-auto py-10" >
                     <div>
@@ -83,20 +127,18 @@ const payStyle = 'w-[30%]'
                     </div>
                 </div>
             </section>
-    
             <section class="relative md:w-[50%] ">
                 <BuyImageGallery client:only="react" slides={slides} options={OPTIONS} />
             </section>
-        </div>
+        </div> -->
 
-        <section>
+        <!-- <section>
             <div class="w-[90%] mobilem:w-[85%] md:w-[80]% mx-auto lg:hidden mt-10" >
                 <Text tag="p" >Jump into the future of sports with Tennibot, the world’s first autonomous tennis assistant. Save time on the court and hit hundreds of extra shots in every practice session.</Text>
             </div>
-        </section>
+        </section> -->
 
-        <section class="relative my-20">
-            <Text tag="h3" className="w-[80%] mx-auto font-black text-2xl mb-5" >Customer Reviews</Text>
+        <section class="relative my-20 md:border md:mt-[-10%] bg-t-off-black md:w-[80%] w-full mx-auto rounded-lg overflow-hidden p-5 ">
             <CustomerReviews client:only="react" />
         </section>
 
@@ -132,54 +174,59 @@ const payStyle = 'w-[30%]'
                     moneyFormat: '%24%7B%7Bamount%7D%7D',
                     options: {
               "product": {
+                "iframe": "false",
                 "styles": {
                   "product": {
-                    "@media (min-width: 601px)": {
-                      "max-width": "calc(25% - 20px)",
+                    "@media and (min-width: 601px)": {
+                      // "max-width": "calc(25% - 20px)",
                       "margin-left": "20px",
                       "margin-bottom": "50px"
                     }
                   },
                   "button": {
-                                                "width": "100%",
-                                                "display": "block",
-                                                "font-family": "Arial, sans-serif",
-                                                "font-size": "1.5rem",
-                                                "padding-top": "16px",
-                                                "padding-bottom": "16px",
-                                                "color": "#111111",
-                                                ":hover": {
-                                                    "color": "#111111",
-                                                    "background-color": "#b5f20c"
-                                                },
-                                                "background-color": "#b5f20c",
-                                                ":focus": {
-                                                    "background-color": "#b5f20c"
-                                                },
-                                                "border-radius": "40px"
-                                            },
-                                            "quantityInput": {
-                                                "font-size": "16px",
-                                                "border-radius": "0px",
-                                                "border-width": "1.5px",
-                                                "margin": "0px",
-                                                "padding": "14.5px 0px"
-                                            },
-                                            "quantityDecrement": {
-                                                "border-radius": "25px 0px 0px 25px",
-                                                "border-width": "2px 0px 2px 2px",
-                                                "color": "white",
-                                                "width": "30px",
-                                                "padding": "14.5px 0px"
-                                            },
-                                            "quantityIncrement": {
-                                                "border-radius": "0px 25px 25px 0px",
-                                                "border-width": "2px 2px 2px 0px",
-                                                "color": "white",
-                                                "width": "30px",
-                                                "padding": "14.5px 0px"
-                                            }
-                                        },
+                    "iframe": "false",
+                        "width": "100%",
+                        "display": "block",
+                        "font-family": "Avenir, sans-serif",
+                        "font-size": "1.2rem",
+                        "@media screen and (min-width: 375px)": {
+                          "font-size": "3.5rem !important",
+                        },
+                        "padding-top": "16px",
+                        "padding-bottom": "16px",
+                        "color": "#111111",
+                        ":hover": {
+                            "color": "#111111",
+                            "background-color": "#b5f20c"
+                        },
+                        "background-color": "#b5f20c",
+                        ":focus": {
+                            "background-color": "#b5f20c"
+                        },
+                        "border-radius": "40px",
+                    },
+                    "quantityInput": {
+                        // "font-size": "16px",
+                        "border-radius": "0px",
+                        "border-width": "1.5px",
+                        "margin": "0px",
+                        "padding": "14.5px 0px"
+                    },
+                    "quantityDecrement": {
+                        "border-radius": "25px 0px 0px 25px",
+                        "border-width": "2px 0px 2px 2px",
+                        "color": "white",
+                        "width": "30px",
+                        "padding": "14.5px 0px"
+                    },
+                    "quantityIncrement": {
+                        "border-radius": "0px 25px 25px 0px",
+                        "border-width": "2px 2px 2px 0px",
+                        "color": "white",
+                        "width": "30px",
+                        "padding": "14.5px 0px"
+                    }
+                },
                 "buttonDestination": "checkout",
                 "contents": {
                   "img": false,
@@ -194,7 +241,7 @@ const payStyle = 'w-[30%]'
                 "styles": {
                   "products": {
                     "@media (min-width: 601px)": {
-                      "margin-left": "-20px"
+                      // "margin-left": "-20px"
                     }
                   }
                 }
@@ -215,7 +262,7 @@ const payStyle = 'w-[30%]'
                     }
                   },
                   "button": {
-                    "font-size": "1.5rem",
+                    // "font-size": "1.5rem",
                     "padding-top": "16px",
                     "padding-bottom": "16px",
                     "color": "#111111",
@@ -232,7 +279,7 @@ const payStyle = 'w-[30%]'
                     "padding-right": "56px"
                   },
                   "quantityInput": {
-                    "font-size": "16px",
+                    // "font-size": "16px",
                     "padding-top": "16px",
                     "padding-bottom": "16px"
                   }
@@ -245,7 +292,7 @@ const payStyle = 'w-[30%]'
               "cart": {
                 "styles": {
                   "button": {
-                    "font-size": "1.5rem",
+                    // "font-size": "1.5rem",
                     "padding-top": "16px",
                     "padding-bottom": "16px",
                     "color": "#111111",
@@ -278,7 +325,7 @@ const payStyle = 'w-[30%]'
                     }
                   },
                   "count": {
-                    "font-size": "16px",
+                    // "font-size": "16px",
                     "color": "#111111",
                     ":hover": {
                       "color": "#111111"

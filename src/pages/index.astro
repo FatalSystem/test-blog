@@ -1,16 +1,16 @@
 ---
 // Astro
 import Layout from "../layouts/Layout.astro"
-import Hero from "@components/Hero.astro"
+import Hero from "@components/Hero"
 import { BackgroundImage } from "astro-imagetools/components"
 import { Image } from 'astro:assets'
-import Button from "@components/Core/Button.astro"
-import Text from "@components/Core/Text.astro"
+import Button from "@components/core/Button.astro"
+import Text from "@components/core/Text.astro"
 
 // React
-import { Marquee, MarqueeItem } from "@components/Marquee"
+// import { Marquee, MarqueeItem } from "@components/Marquee"
 import Counter from "@components/Counter"
-import { TestimonialsSlider, } from "@components/TestimonialsSlider"
+// import { TestimonialsSlider, } from "@components/TestimonialsSlider"
 import { MediaQuotes } from "@components/MediaQuotes"
 import FrontPageSlider from "@components/FrontPageSlider"
 import { Pages } from "@utils"
@@ -31,7 +31,7 @@ import wakeForest from "@assets/front-page/marquee/wake-forest.svg"
 import stanford from "@assets/front-page/marquee/stanford.svg"
 
 import usaMap from "@assets/front-page/usa-map.svg"
-import Globe from "@components/Globe"
+// import Globe from "@components/Globe"
 
 // const MAIN_SLIDER_OPTIONS: EmblaOptionsType = { loop: false, watchDrag: false }
 // const MAIN_SLIDE_COUNT = 3
@@ -99,12 +99,12 @@ const MARQUEE_CONTENT = [
 
 <Layout title="Welcome to Tennibot.">
   <main class="bg-t-off-black text-t-off-white" >
-    <Hero />
+    <Hero client:load />
 
-    <MediaQuotes client:only="visible"/>
+    <MediaQuotes client:load />
 
     <section class="relative text-t-off-white">
-      <FrontPageSlider client:only="react" />
+      <FrontPageSlider client:idle />
     </section>
 
     <section>
@@ -126,16 +126,16 @@ const MARQUEE_CONTENT = [
       </picture>
     </section>
 
-    <section class="flex flex-col md:flex-row" >
+    <section class="flex flex-col md:flex-row tablet:mt-0 mt-[-0.5px]" >
       <div class="w-full md:w-[50%] md:h-full">
-        <BackgroundImage src="../src/assets/front-page/rover.webp" >
-          <div class="h-[60vh] md:h-[90vh] flex flex-col items-center justify-between p-10" >
-            <Text tag="h3" className="uppercase font-black text-3xl" >
+        <BackgroundImage src="../src/assets/front-page/front-rover.webp" >
+          <div class="h-[60vh] lg:h-[70vh] flex flex-col items-center justify-between p-10" >
+            <Text tag="h3" className="uppercase font-avenirBold xl:text-4xl text-3xl" >
               Rover
             </Tex>
             <div class="flex flex-col items-center" >
-              <Text tag="p" className="uppercase text-2xl text-center font-thin" >
-                Take the <strong class="font-bold" >tedious</strong><br> out of <strong class="font-bold" >tennis</strong>
+              <Text tag="p" className="font-avenir uppercase xl:text-3xl text-xl text-center font-thin" >
+                Take the <strong class="font-avenirBold" >tedious</strong><br> out of <strong class="font-avenirBold" >tennis</strong>
               </Text>
               <Button href={Pages.ROVER} className="mt-6 w-64" >Learn more</Button>
             </div>
@@ -144,13 +144,13 @@ const MARQUEE_CONTENT = [
       </div>
       <div class="w-full md:w-[50%] md:h-full" >
         <BackgroundImage src="../src/assets/front-page/station.webp" >
-          <div class="h-[60vh] md:h-[90vh] flex flex-col items-center justify-between p-10">
-            <Text tag="h3" className="uppercase font-black text-3xl" >
+          <div class="h-[60vh] lg:h-[70vh] flex flex-col items-center justify-between py-10">
+            <Text tag="h3" className="uppercase font-avenirBold xl:text-4xl text-3xl" >
               Station
             </Tex>
             <div class="flex flex-col items-center" >
-              <Text tag="p" className="uppercase text-2xl text-center font-thin" >
-                Your own personal<br> <strong class="font-bold" >coach, analyst and line judge</strong>
+              <Text tag="p" className="uppercase text-pretty font-avenir xl:text-3xl text-xl text-center" >
+                Your own personal<br> <strong class="font-avenirBold" >coach, analyst and line judge</strong>
               </Text>
               <Button href={Pages.STATION} className="mt-6 w-64 " >Learn more</Button>
             </div>
@@ -159,7 +159,7 @@ const MARQUEE_CONTENT = [
       </div>
     </section>
 
-    <section class="bg-t-off-black pt-20 mb-20" >
+    <!-- <section class="bg-t-off-black pt-20 mb-20" >
       <Text tag="h3" className="pb-10 uppercase text-3xl font-thin text-center" >Trusted by...</Text>
       <div class="relative flex h-full w-full flex-col items-center justify-center overflow-hidden" >
         <Marquee pauseOnHover className="[--duration:50s]" >
@@ -170,41 +170,40 @@ const MARQUEE_CONTENT = [
           })}
         </Marquee>
       </div>
-    </section>
+    </section> -->
 
-    <section class="bg-t-off-black md:h-[80vh] sm:h-[100vh] h-[90vh] flex" >
-      <div class="w-4/5 m-auto flex flex-col-reverse md:flex-row justify-center items-center gap-10" >
+    <section class="bg-t-off-black md:h-[80vh] sm:h-[100vh] h-[90vh] flex xl:h-fit xl:py-56 2xl:py-64" >
+      <div class="w-4/5 m-auto flex flex-col-reverse lg:flex-row justify-center items-center gap-10" >
         <div class="md:w-[50%] w-full" >
           <div class="w-full flex flex-col justify-end" >
             <!-- overflow-hidden here -->
             <div class="bg-t-off-black relative flex h-full flex-col w-full items-center justify-center">  
-              <Globe client:only="react" className=" bg-t-off-black" />
+              <!-- <Globe client:only="react" className=" bg-t-off-black" /> -->
               <!-- <div class="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]" /> -->
             </div>
           </div>
           <!-- TODO: Animate highlight on scroll -->
-          <!-- <Image src={usaMap} alt="" /> -->
+          <Image src={usaMap} alt="" />
         </div>
-        <div>
+        <div >
           <Text tag="h6" className="font-black text-center text-5xl" >
             <Counter client:only="react" value={1027945} />
           </Text>
-          <Text tag="p" className="text-center text-2xl font-thin italic mt-5" >
+          <Text tag="p" className="font-avenir text-pretty text-center text-xl md:text-2xl xl:text-3xl font-thin italic mt-5" >
             Tennis balls collect by Tennibot,<br class="hidden sm:block" /> across the United States
           </Text>
         </div>
       </div>
     </section>
     
-    <section class="relative bg-t-off-black mt-20 pb-20 overflow-hidden ">
+    <!-- <section class="relative bg-t-off-black mt-20 pb-20 overflow-hidden ">
       <TestimonialsSlider client:only="react" slides={VIDEO_SLIDES} options={VIDEO_SLIDER_OPTIONS} />
-    </section>
+    </section> -->
     <section class="flex flex-row justify-center items-center lg:pb-10 pb-5">
-      <hr class="sm:w-full  w-[30%] " >
-      <div class="sm:mx-10 mx-2">
-        <Text tag="h6" className="w-full uppercase font-black text-center text-pretty text-sm mobilel:text-lg mobilem:text-base sm:text-nowrap sm:text-2xl" >Designed and assembled in the USA</Text>
+      <hr class="w-full absolute" >
+      <div class="sm:mx-10 mx-2 sm:p-2 bg-t-off-black z-[1]">
+        <Text tag="h6" className=" w-full font-avenirBold uppercase text-center text-pretty text-xl mobilel:text-xl mobilem:text-xl sm:text-nowrap sm:text-2xl lg:text-3xl" >Designed and<br class="sm:hidden" > assembled in the USA</Text>
       </div>
-      <hr class="sm:w-full  w-[30%] " >
     </section>
   </main>
 </Layout>

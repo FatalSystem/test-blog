@@ -1,14 +1,15 @@
 ---
-import { cn } from '@utils';
+import { cn } from '@utils'
 import { Image } from 'astro:assets'
+import Text from "@components/core/Text.astro"
 
-const { img } = Astro.props; 
+const { img, label } = Astro.props; 
 
 ---
 
 <figure
   class={cn(
-    "relative w-64 overflow-hidden rounded-xl border px-10 py-5",
+    "relative w-72 2xl:w-96 overflow-hidden rounded-xl border px-10 py-5",
     // light styles
     "border-t-off-white bg-transparent/[.01] hover:shadow-lg ease-linear duration-500",
     // dark styles
@@ -16,6 +17,8 @@ const { img } = Astro.props;
   )}
 >
   <div class="flex flex-col h-full">
-    <Image alt="" height="90" src={img} class="m-auto" />
+    <Image alt="" height="75" src={img} class="m-auto 2xl:hidden" />
+    <Image alt="" height="95" src={img} class="m-auto hidden 2xl:block" />
+    <Text className='text-center italic mt-3 uppercase 2xl:text-xl' >{label}</Text>
   </div>
 </figure>

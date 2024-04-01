@@ -1,13 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue,css}'],
   theme: {
     extend: {
       screens: {
         mobilel: '425px',
         mobilem: '375px',
         mobiles: '320px',
-        tablet: '450px'
+        tablet: '450px',
+        desktopxl: '1920px',
+        desktopl: '1440px'
       },
       colors: {
         't-red': 'red',
@@ -20,11 +22,16 @@ module.exports = {
         't-white': '#E9E5F0',
         't-light-green': '#ECF0E5',
         't-video-gradient': 'rgb(32, 32, 35, 0.6)',
-        't-shade': '#161714',
+        't-shade': '#232320',
         't-gray': '#AFAFAE'
       },
       fontFamily: {
-        avenir: ['Avenir', 'sans-serif']
+        avenir: ['AvenirNLPRegular', 'sans-serif'],
+        avenirBold: ['AvenirNLPBold', 'sans-serif'],
+        pluto: ['PlutoSansRegular', 'sans-serif'],
+        plutoLight: ['PlutoSansLight', 'sans-serif'],
+        plutoThin: ['PlutoSansThin', 'sans-serif'],
+        plutoBold: ['PlutoSansBold', 'sans-serif']
       },
       animation: {
         marquee: 'marquee var(--duration) linear infinite',

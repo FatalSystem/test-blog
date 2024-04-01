@@ -1,15 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import FrontPageSlider from "@components/FrontPageSlider"
-import Text from "@components/Core/Text.astro"
+import AboutSlider from "@components/AboutSlider"
+import Text from "@components/core/Text.astro"
 import {Marquee, MarqueeItem } from "@components/Marquee"
 import { Image } from 'astro:assets'
-import Button from "@components/Core/Button.astro"
+import Button from "@components/core/Button.astro"
 
-import harvard from "@assets/front-page/marquee/harvard.svg"
-import auburn from "@assets/front-page/marquee/auburn.svg"
-import wakeForest from "@assets/front-page/marquee/wake-forest.svg"
-import stanford from "@assets/front-page/marquee/stanford.svg"
+import muse from "@assets/about-us/muse.svg"
+import svr from "@assets/about-us/svr.svg"
+import tbd from "@assets/about-us/tbd.svg"
+import tia from "@assets/about-us/tia.svg"
+import disrupt from "@assets/about-us/disrupt.svg"
+import ces from "@assets/about-us/ces.svg"
+import sogal from "@assets/about-us/sogal.svg"
+import europro from "@assets/about-us/europro.svg"
+import allaunchpad from "@assets/about-us/allaunchpad.svg"
 
 import haitham from "@assets/about-us/haitham.webp"
 import haithamTablet from "@assets/about-us/haithamtablet.webp"
@@ -22,18 +27,46 @@ import tennibotStoryTablet from "@assets/about-us/tennibotstorytablet.webp"
 import tennibotStoryDesktop from "@assets/about-us/tennibotstorydesktop.webp"
 import tennibotStoryDesktopXl from "@assets/about-us/tennibotstorydesktopxl.webp"
 
+import tennibotStoryShadowTablet from "@assets/about-us/tennibotstoryshadowtablet.webp"
+import tennibotStoryShadowDesktop from "@assets/about-us/tennibotstoryshadowdesktop.webp"
+import tennibotStoryShadowDesktopXl from "@assets/about-us/tennibotstoryshadowdesktopxl.webp"
+
 const MARQUEE_CONTENT = [
   {
-    img: harvard
+    img: muse,
+    label: 'Gold winner'
   },
   {
-    img: auburn
+    img: svr,
+    label: 'Finalist'
   },
   {
-    img: wakeForest
+    img: tbd,
+    label: 'Innovation award'
   },
   {
-    img: stanford
+    img: tia,
+    label: 'Winner'
+  },
+  {
+    img: disrupt,
+    label: 'Innovation winner'
+  },
+  {
+    img: ces,
+    label: 'Honoree'
+  },
+  {
+    img: sogal,
+    label: 'Gold winner'
+  },
+  {
+    img: europro,
+    label: 'Top design winner'
+  },
+  {
+    img: allaunchpad,
+    label: 'Winner'
   }
 ]
 
@@ -42,32 +75,32 @@ const MARQUEE_CONTENT = [
 <Layout title="Welcome to Tennibot.">
     <main class="bg-t-off-black overflow-hidden text-t-off-white" >
         <section class="relative" >
-            <FrontPageSlider client:only="react" />
+            <AboutSlider client:load />
         </section>
 
         <section>
-            <div class="w-[80%] mx-auto flex flex-col justify-center items-center gap-14 py-36 " >
-                <Text tag="h2" className="font-thin uppercase text-3xl md:text-4xl lg:text-5xl tablet:text-left w-full" >Our <strong class="font-black" >founders</strong></Text>
-                <div class="flex flex-col justify-center gap-10 items-center tablet:w-[70%] md:w-[100%] md:justify-between md:flex-row-reverse" >
-                    <picture >
-                        <source srcset={haithamTablet.src} media="(min-width: 450px)" />
-                        <source srcset={haithamDesktop.src} media="(min-width: 768px)" />
-                        <Image src={haitham} alt="Haitham Eletrabi" class="w-full mx-auto" />
+            <div class="w-[80%] 2xl:w-[60%] mx-auto flex flex-col justify-center items-center gap-14 py-16 min-[933px]:pt-32 min-[933px]:pb-40 " >
+                <Text tag="h2" className="font-avenir uppercase text-3xl md:text-4xl lg:text-5xl tablet:text-left w-full" >Our <strong class="font-avenirBold" >founders</strong></Text>
+                <div class="flex flex-col justify-center gap-10 items-center tablet:w-[70%] min-[933px]:w-[100%] md:justify-between min-[933px]:flex-row-reverse" >
+                    <picture class="rounded-full group/haithamImg relative bg-t-off-white md:hover:bg-transparent transition-all duration-500 ease-in-out" >
+                        <source srcset={haitham.src} media="(max-width: 450px)" />
+                        <source srcset={haithamTablet.src} media="(max-width: 768px)" />
+                        <Image src={haithamDesktop} alt="Haitham Eletrabi" class="relative w-full z-10 tablet:bottom-5 tablet:right-5 bottom-3 right-3 md:group-hover/haithamImg:bottom-0 md:group-hover/haithamImg:right-0 mx-auto transition-all duration-500 ease-in-out" />
                     </picture>
-                    <div class="md:w-[60%]" >
-                        <Text tag="h3" className="uppercase font-bold text-2xl lg:text-3xl mt-8 mb-3"  >Haitham Eletrabi</Text>
-                        <Text tag="p" className="" >Haitham is the co-founder & CEO at Tennibot. Haitham is a competitive tennis player and hardware hacker. He oversees the operations and supply chain.  Fun fact: Haitham has a Netherland Dwarf bunny called Oreo :)</Text>
+                    <div class="min-[933px]:w-[60%]" >
+                        <Text tag="h3" className="uppercase font-avenirBold text-2xl sm:text-3xl mt-8 mb-3"  >Haitham Eletrabi</Text>
+                        <Text tag="p" className="font-plutoLight sm:text-lg 2xl:text-xl " >Haitham is the co-founder & CEO at Tennibot. Haitham is a competitive tennis player and hardware hacker. He oversees the operations and supply chain.  Fun fact: Haitham has a Netherland Dwarf bunny called Oreo :)</Text>
                     </div>
                 </div>
-                <div class="flex flex-col justify-center gap-10 items-center tablet:w-[70%] md:w-[100%] md:justify-between md:flex-row" >
-                    <picture>
-                        <source srcset={lincolnTablet.src} media="(min-width: 450px)" />
-                        <source srcset={lincolnDesktop.src} media="(min-width: 768px)" />
-                        <Image src={lincoln} alt="Lincoln Wang" class="w-full mx-auto " />
+                <div class="flex flex-col justify-center gap-10 items-center tablet:w-[70%] min-[933px]:w-[100%] md:justify-between min-[933px]:flex-row" >
+                    <picture class="rounded-full group/lincolnImg relative bg-t-off-white md:hover:bg-transparent transition-all duration-500 ease-in-out" >
+                        <source srcset={lincoln.src} media="(max-width: 450px)" />
+                        <source srcset={lincolnTablet.src} media="(max-width: 768px)" />
+                        <Image src={lincolnDesktop} alt="Lincoln Wang" class="relative w-full z-10 mx-auto tablet:bottom-5 tablet:right-5 bottom-3 right-3 md:group-hover/lincolnImg:bottom-0 md:group-hover/lincolnImg:right-0 transition-all duration-500 ease-in-out" />
                     </picture>
-                    <div class="md:w-[60%]" >
-                        <Text tag="h3" className="uppercase font-bold text-2xl lg:text-3xl mt-8 mb-3"  >Lincoln Wang</Text>
-                        <Text tag="p" className="pb-10" >Lincoln is the co-founder & CTO at Tennibot. Lincoln is a robotics & computer vision guru. He oversees engineering, software and electronics. Fun fact: Lincoln hits un-returnable cross-court forehands!</Text>
+                    <div class="min-[933px]:w-[60%] min-[933px]:ml-5" >
+                        <Text tag="h3" className="uppercase font-avenirBold text-2xl sm:text-3xl mt-8 mb-3"  >Lincoln Wang</Text>
+                        <Text tag="p" className="pb-10 font-plutoLight sm:text-lg 2xl:text-xl" >Lincoln is the co-founder & CTO at Tennibot. Lincoln is a robotics & computer vision guru. He oversees engineering, software and electronics. Fun fact: Lincoln hits un-returnable cross-court forehands!</Text>
                     </div>
                 </div>
             </div>
@@ -75,29 +108,36 @@ const MARQUEE_CONTENT = [
 
         <section class="w-full" >
             <div class="" >
-                <Text tag="h2" className="w-[80%] mx-auto font-thin uppercase text-3xl md:text-4xl lg:text-5xl mb-10" >Our <strong class="font-black" >story</strong></Text>
-                <picture>
-                    <source srcset={tennibotStoryTablet.src} media="(min-width: 450px)" />
-                    <source srcset={tennibotStoryDesktop.src} media="(min-width: 650px)" />
-                    <source srcset={tennibotStoryDesktopXl.src} media="(min-width: 1000px)" />
-                    <Image src={tennibotStory} alt="Tennibot Story" class="w-full tablet:w-[80%] tablet:mx-auto" />
+                <Text tag="h2" className="w-[80%] 2xl:w-[60%] mx-auto font-avenir uppercase text-3xl md:text-4xl lg:text-5xl mb-10 min-[933px]:text-right" >Our <strong class="font-avenirBold" >story</strong></Text>
+                <picture class="group/tennibotStory absolute z-[1] w-full" >
+                    <source srcset={tennibotStory.src} media="(max-width: 450px)" />
+                    <source srcset={tennibotStoryTablet.src} media="(max-width: 680px)" />
+                    <source srcset={tennibotStoryDesktop.src} media="(max-width: 1000px)" />
+                    <Image src={tennibotStoryDesktopXl} alt="Tennibot Story" class=" w-full 2xl:w-[60%] mx-auto tablet:w-[80%] tablet:mx-auto relative tablet:bottom-3 tablet:right-3 group-hover/tennibotStory:bottom-0 group-hover/tennibotStory:right-0 transition-all duration-500 ease-in-out " />
                 </picture>
-                <div class="w-[80%] flex flex-col lg:flex-row mx-auto gap-8 pt-10" >
-                    <Text tag="p" >Tennibot was born one night as Haitham, practicing with a ball machine, realized that he spent more time picking up balls than actually hitting them. So he set out to fix the worst part of his favorite sport. That was when Haitham was introduced to Lincoln through an Auburn business professor. Lincoln had just finished his Master's degree and happened to be a tennis enthusiast himself.</Text>
-                    <Text tag="p">Soon after meeting, whenever the duo wasn’t playing doubles, they were working on the Tennibot. After years of designing, prototyping, testing and tweaking, the team was able to take Tennibot from a mere concept to the most innovative product to hit the tennis industry in years. Now the Tennibot is ready to be put on every tennis court in the world and make tedious ball-collecting a thing of the past.</Text>
+                <picture>
+                    <!-- <source srcset={tennibotStory.src} media="(max-width: 450px)" /> -->
+                    <source srcset={tennibotStoryShadowTablet.src} media="(max-width: 680px)" />
+                    <source srcset={tennibotStoryShadowDesktop.src} media="(max-width: 1000px)" />
+                    <Image src={tennibotStoryShadowDesktopXl} alt="Tennibot Story" class="w-full 2xl:w-[60%] tablet:w-[80%] tablet:mx-auto relative" />
+                </picture>
+
+                <div class="w-[80%] 2xl:w-[60%] flex flex-col lg:flex-row mx-auto gap-8 pt-10" >
+                    <Text tag="p" className="font-plutoLight sm:text-lg 2xl:text-xl"  >Tennibot was born one night as Haitham, practicing with a ball machine, realized that he spent more time picking up balls than actually hitting them. So he set out to fix the worst part of his favorite sport. That was when Haitham was introduced to Lincoln through an Auburn business professor. Lincoln had just finished his Master's degree and happened to be a tennis enthusiast himself.</Text>
+                    <Text tag="p" className="font-plutoLight sm:text-lg 2xl:text-xl" >Soon after meeting, whenever the duo wasn’t playing doubles, they were working on the Tennibot. After years of designing, prototyping, testing and tweaking, the team was able to take Tennibot from a mere concept to the most innovative product to hit the tennis industry in years. Now the Tennibot is ready to be put on every tennis court in the world and make tedious ball-collecting a thing of the past.</Text>
                 </div>
-                <Text h="p" className="w-[70%] text-3xl italic font-thin mt-14 text-center mx-auto" >"Revolutionize the way you train, one robot at a time."</Text>
+                <Text className="text-3xl sm:text-4xl italic font-avenir font-thin mt-14 md:mt-20 text-center mx-auto lg:mb-14" >Revolutionize the<br class="tablet:hidden" /> way you train,<br class="hidden tablet:block lg:hidden" /> one<br class="tablet:hidden" /> robot at a time.</Text>
             </div>
         </section>
 
         <section>
-            <section class="bg-t-off-black py-36" >
-                <Text tag="h2" className="font-thin uppercase text-center mb-10 text-3xl md:text-4xl lg:text-5xl" >Our <strong class="font-black" >trophy case</strong></Text>
+            <section class="bg-t-off-black pt-36 pb-24" >
+                <Text tag="h2" className="w-[80%] 2xl:w-[60%] mx-auto font-avenir uppercase text-center min-[933px]:text-left mb-10 text-3xl md:text-4xl lg:text-5xl" >Our <strong class="font-avenirBold" >trophy case</strong></Text>
                 <div class="relative flex h-full w-full flex-col items-center justify-center overflow-hidden" >
                   <Marquee pauseOnHover className="[--duration:50s]" >
                     {MARQUEE_CONTENT.map((item, index) => {
                       return (
-                        <MarqueeItem key={index} img={item.img} />
+                        <MarqueeItem key={index} img={item.img} label={item.label} />
                       )
                     })}
                   </Marquee>
@@ -106,17 +146,15 @@ const MARQUEE_CONTENT = [
         </section>
 
         <section>
-            <div class="bg-[url('../src/assets/about-us/careersbg.webp')] bg-cover bg-center h-[100vh] " >
+            <div class="" >
                 <div class="flex flex-col justify-end h-full min-[830px]:justify-between " >
-                    <div class="absolute min-[830px]:hidden w-full h-[100%] bg-gradient-to-t from-t-shade from-25% to-80% opacity-80" />
-                    <div class="absolute hidden min-[830px]:block  w-full h-[100%] bg-gradient-to-b from-t-shade from-10% via-transparent via-70% to-t-shade to-90% opacity-70" ></div>  
-                    <Text tag="h2" className=" z-[1] lg:w-[75%] lg:mt-[5%] w-[90%] mx-auto font-thin uppercase pb-5 pt-10 text-3xl md:text-4xl lg:text-5xl text-left" >Our <strong class="font-black" >careers</strong></Text>
-                    <div class="w-[90%] lg:w-[75%]  z-[1] flex min-[830px]:flex-row flex-col items-center pb-14 mx-auto" >
+                    <Text tag="h2" className=" z-[1] w-[80%] 2xl:w-[60%] mx-auto font-avenir uppercase pb-5 pt-10 text-3xl md:text-4xl lg:text-5xl text-left" >Our <strong class="font-avenirBold" >careers</strong></Text>
+                    <div class="w-[80%] 2xl:w-[60%] z-[1] flex min-[830px]:flex-row flex-col items-end pb-24 mx-auto" >
                         <div>
-                            <Text tag="p" className="min-[830px]:w-[90%]" >Do you love robots and sports? Tennibot might be the perfect fit. We are a diverse group of night owls and coffee drinkers who are extremely passionate about what we do.</Text>
+                            <Text tag="p" className="min-[830px]:w-[90%] font-plutoLight sm:text-lg 2xl:text-xl" >Do you love robots and sports? Tennibot might be the perfect fit. We are a diverse group of night owls and coffee drinkers who are extremely passionate about what we do.</Text>
                         </div>
                         <div class="min-[830px]:w-full lg:mt-0 mt-10 w-full flex min-[830px]:justify-end justify-center" >
-                            <Button href="/careers" className="tablet:w-64 w-full mx-0 px-0" >View open positions</Button>
+                            <Button href="/careers" theme="ghostLight" className="tablet:w-64 w-full mx-0 px-0" >View open positions</Button>
                         </div>
                     </div>
                 </div>

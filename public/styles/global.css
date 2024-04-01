@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'AvenirNLPRegular';
+    font-style: normal;
+    leading-trim: both;
+    text-edge: cap;
+    line-height: normal;
+    font-display: swap;
+    src: url(/fonts/AvenirNextLTPro-Regular.woff2) format('woff2');
+  }
+
+  @font-face {
+    font-family: 'AvenirNLPBold';
+    font-style: normal;
+    leading-trim: both;
+    text-edge: cap;
+    line-height: normal;
+    font-display: swap;
+    src: url(/fonts/AvenirNextLTPro-Bold.woff2) format('woff2');
+  }
+
+  @font-face {
+    font-family: 'PlutoSansRegular';
+    font-style: normal;
+    leading-trim: both;
+    text-edge: cap;
+    line-height: normal;
+    font-display: swap;
+    src: url(/fonts/PlutoSansRegular.woff2) format('woff2');
+  }
+
+  @font-face {
+    font-family: 'PlutoSansLight';
+    font-style: normal;
+    leading-trim: both;
+    text-edge: cap;
+    line-height: normal;
+    font-display: swap;
+    src: url(/fonts/PlutoSansLight.woff2) format('woff2');
+  }
+
+  @font-face {
+    font-family: 'PlutoSansThin';
+    font-style: normal;
+    leading-trim: both;
+    text-edge: cap;
+    line-height: normal;
+    font-display: swap;
+    src: url(/fonts/PlutoSansThin.woff2) format('woff2');
+  }
+
+  @font-face {
+    font-family: 'PlutoSansBold';
+    font-style: normal;
+    leading-trim: both;
+    text-edge: cap;
+    line-height: normal;
+    font-display: swap;
+    src: url(/fonts/PlutoSansBold.woff2) format('woff2');
+  }
+}
+
+/* TailwindCSS file or a custom CSS file */
+
+/* Target the scrollbar track */
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent; /* Makes the background transparent */
+  }
+  
+  /* Target the scrollbar thumb */
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #9CA3AF; /* A neutral color from Tailwind's gray palette */
+    border-radius: 2rem; /* Makes the thumb rounded */
+  }
+  
+  /* Target the scrollbar itself (optional styling) */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px; /* Makes the scrollbar thinner */
+  }
+  

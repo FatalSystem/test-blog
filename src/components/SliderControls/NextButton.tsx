@@ -15,7 +15,7 @@ const NextButton: React.FC<TArrowButton> = (props) => {
           {...restProps}
         >
            {svg ?? (
-            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="32" viewBox="0 0 19 32" fill="none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="41" viewBox="0 0 19 32" fill="none">
               <path d="M2 2L17 16L2 30" stroke="#F6F7F2" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
            )}
@@ -32,7 +32,7 @@ const NextButton: React.FC<TArrowButton> = (props) => {
         {...restProps}
     >
         {svg ?? (
-        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="32" viewBox="0 0 19 32" fill="none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="41" viewBox="0 0 19 32" fill="none">
           <path d="M2 2L17 16L2 30" stroke="#F6F7F2" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
         )}

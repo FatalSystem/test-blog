@@ -5,7 +5,7 @@ import { useMediaQuery } from 'usehooks-ts'
 
 const reviewStyle = 'font-avenir text-pretty'
 const customerStyle = 'font-avenir text-pretty italic mt-3'
-const containerStyle = 'grid grid-cols-2 gap-8'
+const containerStyle = 'grid grid-cols-2 gap-5'
 
 const slidesMobile = [
   {
@@ -121,6 +121,7 @@ export function TSlider ({ contentContainerStyle, slides, arrowsStyle }): JSX.El
 
   return (
     <div className="bg-t-off-black">
+      <h3 className="w-[75%] mx-auto font-avenir text-pretty font-black text-2xl mb-5" >Customer Reviews</h3>
         <div className="overflow-hidden" ref={emblaRef} >
             <div className="flex touch-pan-y">
                 {slides.map((slide, index) => {
@@ -133,8 +134,8 @@ export function TSlider ({ contentContainerStyle, slides, arrowsStyle }): JSX.El
             </div>
         </div>
 
-        <PrevButton onClick={onPrevButtonClick} animated className={`absolute inset-y-[50%] z-20 left-[3%] sm:bottom-[15%] drop-shadow-2xl ${arrowsStyle}`} disabled={prevBtnDisabled} />
-        <NextButton onClick={onNextButtonClick} animated className={`absolute inset-y-[50%] z-20 right-[3%] sm:bottom-[15%] drop-shadow-2xl ${arrowsStyle}`} disabled={nextBtnDisabled} />
+        <PrevButton onClick={onPrevButtonClick} animated className={`absolute top-[45%] z-20 left-[3%] drop-shadow-2xl ${arrowsStyle}`} disabled={prevBtnDisabled} />
+        <NextButton onClick={onNextButtonClick} animated className={`absolute top-[45%] z-20 right-[3%] drop-shadow-2xl ${arrowsStyle}`} disabled={nextBtnDisabled} />
     </div>
   )
 }

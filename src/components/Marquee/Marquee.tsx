@@ -31,7 +31,7 @@ export default function Marquee ({
           'flex h-max w-max transform-gpu items-stretch gap-[--gap] p-2',
           {
             '[animation-direction:reverse]': reverse,
-            'hover:[animation-play-state:paused]': pauseOnHover,
+            'md:hover:[animation-play-state:paused]': pauseOnHover,
             'animate-marquee-vertical flex-col': vertical,
             'animate-marquee flex-row': !vertical
           }

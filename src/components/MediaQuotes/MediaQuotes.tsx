@@ -46,6 +46,8 @@ const mediaQuotesContent: IMediaQuotesContent[] = [
 
 const MediaQuotesDesktop: React.FC = (): JSX.Element => {
   const [activeIndex, setActiveIndex] = useState<number>(0)
+  const isDesktopXl = useMediaQuery('(min-width: 1920px)')
+  const imageOffset = isDesktopXl ? 10 : 80
 
   useTimer({
     key: 'mediaQuotesAutoscroll',
@@ -66,11 +68,11 @@ const MediaQuotesDesktop: React.FC = (): JSX.Element => {
     <section className="bg-t-off-black py-12 hidden flex-col justify-center content-center flex-wrap | min-[950px]:flex">
       <div className="flex mx-auto gap-5 flex-wrap items-baseline | lg:gap-16 ">
         {mediaQuotesContent.map((item, index) => (
-          <a key={index} onClick={() => { setActiveIndex(index) }} className="group ">
+          <a key={index} onClick={() => { setActiveIndex(index) }} className="group cursor-pointer">
             <img
               src={item.img.src}
-              width={item.img.width - 80}
-              height={item.img.height - 80}
+              width={item.img.width - imageOffset}
+              height={item.img.height - imageOffset}
               alt={item.alt}
               className={`${
                 activeIndex === index ? 'opacity-100' : 'opacity-60'
@@ -85,9 +87,10 @@ const MediaQuotesDesktop: React.FC = (): JSX.Element => {
         ))}
       </div>
       <p
-        className={'font-avenir uppercase text-lg text-center  text-t-white mx-auto mt-10 transform duration-300 '}
+        className={'font-avenirBold w-[85%] xl:w-[65%] lg:text-3xl md:text-3xl text-center text-t-off-white mx-auto mt-10 transform duration-300 '}
       >
         {mediaQuotesContent?.[activeIndex]?.description}
+        {activeIndex !== 1 && (<><br /><br /></>)}
       </p>
     </section>
   )
@@ -98,7 +101,7 @@ const renderItem = (index: number, item: IMediaQuotesContent): JSX.Element => {
     <div className={'flex-[0_0_100%] h-[30vh] w-full relative flex items-center justify-center'} key={index}>
       <div className='flex flex-col justify-center h-full w-[80%]' >
         <img src={item.img.src} className='max-h-[20%]' />
-        <p className={'font-avenir text-xl text-center text-pretty font-black text-t-off-white mx-auto mt-10'}>
+        <p className={'font-avenirBold text-xl mobilel:text-2xl text-center text-pretty font-black text-t-off-white mx-auto mt-10'}>
           {item.description}
         </p>
       </div>
@@ -132,8 +135,8 @@ const MediaQuotesMobile: React.FC = (): JSX.Element => {
   })
 
   return (
-    <section className="relative ">
-      <div className="bg-t-black">
+    <section className="relative min-[950px]:hidden">
+      <div className="bg-t-off-black">
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex touch-pan-y pt-5">
           {slides.map((item, index) => (
@@ -161,12 +164,11 @@ const MediaQuotesMobile: React.FC = (): JSX.Element => {
 }
 
 function MediaQuotes (): JSX.Element {
-  const isDesktop = useMediaQuery('(min-width: 950px)')
-
-  if (isDesktop) { return <MediaQuotesDesktop /> }
-
   return (
-    <MediaQuotesMobile />
+    <div>
+      <MediaQuotesDesktop />
+      <MediaQuotesMobile />
+    </div>
   )
 }
 

@@ -1,26 +1,28 @@
 ---
-import Button from "@components/Core/Button.astro"
+import Button from "@components/core/Button.astro"
 import Layout from "../layouts/Layout.astro"
-import Text from "@components/Core/Text.astro"
-import DeviceGridItem from "@components/DeviceGridItem.astro"
-import { Image } from 'astro:assets'
+import Text from "@components/core/Text.astro"
+// import DeviceGridItem from "@components/DeviceGridItem.astro"
+// import { Image } from 'astro:assets'
 import CCSlider from "@components/CCSlider.tsx"
 
 const perksStyle = 'flex flex-col lg:flex-row justify-center items-center md:gap-3 gap-5'
-const perksTextStyle = 'uppercase text-center min-[870px]:text-nowrap lg:text-wrap'
+const perksTextStyle = 'uppercase font-avenir text-center min-[870px]:text-nowrap lg:text-wrap'
+const inputStyle = 'bg-transparent border-2 p-2.5 border-t-off-white rounded-md sm:p-1.5 focus:outline-none focus:ring-indigo-500 focus:border-t-green'
+const labelStyle = 'lg:text-lg xl:text-xl'
 
 ---
 
 <Layout title="Welcome to Tennibot.">
     <main class="bg-t-off-black overflow-hidden text-t-off-white">
-        <section class="bg-cover bg-center h-[90vh] bg-[url('../src/assets/clubs-and-coaches/heromobile.webp')] min-[450px]:bg-[url('../src/assets/clubs-and-coaches/herotablet.webp')] min-[800px]:bg-[url('../src/assets/clubs-and-coaches/herodesktop.webp')] xl:bg-[url('../src/assets/clubs-and-coaches/herodesktopxl.webp')] " >
+        <section class="bg-cover bg-center h-screen bg-[url('/images/commercial/heromobile_t.webp')] min-[450px]:bg-[url('/images/commercial/heromobile_t.webp')] min-[800px]:bg-[url('/images/commercial/herodesktop.webp')] xl:bg-[url('/images/commercial/herodesktopxl.webp')] " >
             <div class="flex flex-col items-center tablet:items-start h-full justify-start lg:items-start " >
-                <div class="z-[1] w-[80%] flex flex-col tablet:mt-[10%] mt-10 tablet:w-[65%] tablet:ml-[10%]" >
-                    <Text tag="h1" className=" text-t-off-white uppercase text-2xl mobilem:text-3xl md:text-4xl xl:text-5xl tablet:px-0 text-center tablet:text-left" >
-                        Take your club<br class="lg:hidden" /> <strong>to the next level</strong>
+                <div class="z-[1] w-[80%] flex flex-col lg: tablet:mt-[5%] mt-10 lg:w-[100%] tablet:w-[65%] tablet:ml-[10%]" >
+                    <Text tag="h1" className="font-avenir text-t-off-white uppercase text-2xl mobilem:text-3xl md:text-5xl sm:text-4xl xl:text-5xl 2xl:text-6xl tablet:px-0" >
+                        Take your club<br class="xl:hidden" /> <strong class="font-avenirBold" >to the next level</strong>
                     </Text>
-                    <Text tag="p" className="text-center py-5 tablet:text-left tablet:w-[80%]">
-                        Everyone offers ball machines. It's time to stand out, by offering a fleet of autonomous ball collectors. 
+                    <Text tag="p" className="py-5 font-plutoLight sm:text-lg xl:text-xl 2xl:text-2xl tablet:w-[80%]">
+                        Everyone offers ball machines. It's time to stand out, by offering<br class="hidden lg:block" /> a fleet of autonomous ball collectors. 
                     </Text>
                     <div class="flex" >
                         <Button href="/buy" theme="light" className="tablet:w-64 w-full" >Buy now</Button>
@@ -82,5 +84,57 @@ const perksTextStyle = 'uppercase text-center min-[870px]:text-nowrap lg:text-wr
         <section class="relative" >
             <CCSlider client:only="react" type="school" />
         </section>
+
+        <section>
+            <div class="w-[80%] mx-auto pb-20" >
+                <div class="mt-20 mb-10" >
+                    <Text tag="h2" className="font-avenir font-light uppercase text-t-off-white text-3xl sm:text-4xl lg:text-5xl" ><span class="font-avenirBold">Tennibot</span> commercial</Text>
+                    <Text tag="p" className="font-plutoLight sm:text-lg lg:text-xl md:w-[80%] xl:w-[60%] mt-3 text-t-off-white" >Whether you’re interested in placing an order or you’d just like to learn more, we’d love to connect with you.</Text>
+                </div>
+
+                <div>
+                    <form class="font-plutoLight text-t-off-white grid grid-cols-1 gap-5" >
+                        <div class="flex flex-row sm:gap-5 gap-10 flex-wrap" >
+                            <div class="flex flex-col md:w-[45%] w-full gap-1">
+                                <label for="name" class={labelStyle} >Name</label>
+                                <input id="name" name="name" type="text" required class={inputStyle} />
+                            </div>
+
+                            <div class="flex flex-col md:w-[45%] w-full gap-1">
+                                <label for="email" class={labelStyle} >Email Address</label>
+                                <input id="email" name="email" type="email" required class={inputStyle} />
+                            </div>
+
+                            <div class="flex flex-col md:w-[45%] w-full gap-1">
+                                <label for="phone" class={labelStyle} >Phone Number</label>
+                                <input id="phone" name="name" required type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class={inputStyle} />
+                            </div>
+
+                            <div class="flex flex-col md:w-[45%] w-full gap-1 ">
+                                <label for="facility" class={labelStyle} >Facility Name</label>
+                                <input id="facility" name="facility" type="text" class={inputStyle} />
+                            </div>
+
+                            <div class="flex flex-col md:w-[45%] w-full gap-1">
+                                <label for="about" class={labelStyle} >Tell us about your facility...</label>
+                                <textarea id="about" name="about" rows="6" placeholder="Number of courts, lessons per day, etc." class={inputStyle} />
+                            </div>
+
+                            <div class="flex flex-col md:w-[45%] gap-1 w-full">
+                                <label class={labelStyle}>Zip Code</label>
+                                <input type="text" pattern="^\d{5}(-\d{4})?$" aria-label="Zip Code" class={inputStyle} />
+                                <input type="submit" value="Submit" class="mt-5 cursor-pointer focus:outline-none focus:ring-indigo-500 focus:border-t-green text-lg w-full tablet:w-64 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-t-off-black bg-t-off-white border-t-off-white md:text-t-off-white md:bg-transparent hover:bg-t-off-white hover:text-t-off-black" />
+                                <div class="flex items-center gap-3 mt-3" >
+                                    <input id="newsletter" name="newsletter" type="checkbox" class="appearance-none border-2 border-t-off-white size-4 rounded-sm checked:bg-t-green focus:outline-none focus:ring-indigo-500 focus:border-t-green" />
+                                    <label for="newsletter" class={labelStyle} >I'd like to receive Tennibot email updates</label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
     </main>
 </Layout>

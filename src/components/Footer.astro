@@ -1,24 +1,38 @@
+---
+import { Pages } from "@utils"
+
+
+const contactLink = {
+  mail: 'mailto:info@tennibot.com',
+  phone: 'tel:334-449-7347',
+}
+
+const linkStyle = "xl:text-xl lg:text-lg font-avenir uppercase text-t-off-white hover:text-t-green transition-colors duration-200"
+const dividerStyle = "h-96 border-l-2 border-t-off-white lg:mx-[3.5%] min-[1122px]:mx-[5%] "
+
+---
+<!-- TODO: Turn this into a single layout... -->
 <footer class="bg-t-off-black ">
   <!-- Desktop -->
   <div class="hidden lg:flex md:flex-row md:justify-center md:mx-auto md:pt-10" >
     <!-- Newsletter -->
-    <div class="pl-10 py-10">
+    <div class="py-10 pl-10 flex flex-col justify-center">
       <h4
-        class="font-avenir text-pretty italic text-t-white max-w-xs mx-auto uppercase mb-5 tablet:text-center md:text-left"
+        class="font-avenir xl:text-xl lg:text-lg text-pretty italic text-t-white max-w-xs mx-auto uppercase mb-5 tablet:text-center md:text-left"
       >
         Sign up for the latest tennibot news
       </h4>
       <div class="flex flex-wrap">
-        <div class="w-[80%]">
-          <form class="flex flex-row">
+        <div class="xl:w-[110%] w-full">
+          <form class="flex w-full flex-row">
             <input
-              class="w-full py-3 bg-t-off-black border z-10 rounded-l-md pl-5 border-r-0 border-t-green text-t-white font-avenir"
+              class="font-plutoLight w-full py-3 bg-t-off-black z-10 rounded-l-md pl-5 border-r-0 border-2 border-t-green text-t-white"
               type="text"
               name="email"
               placeholder="Email Address"
             />
             <button
-              class="border-t-green border rounded-r-md p-3 fill-current stroke-t-green text-t-green"
+              class="border-t-green border-2 rounded-r-md p-3 fill-current stroke-t-green text-t-green"
               type="submit">
               <svg xmlns="http://www.w3.org/2000/svg"  width="35" height="16" viewBox="0 0 45 26" fill="none">
                 <path opacity="0.5" d="M0 13H43M43 13L30.4146 25M43 13L30.4146 1" stroke-width="3"/>
@@ -30,68 +44,71 @@
       </div>
     </div>
     <!--  -->
-    <hr class="mx-auto h-0.5 bg-t-white w-5/6 | md:hidden" />
+
+    <div class={dividerStyle} ></div>
+
     <div
-      class="px-10 py-10 w-fit md:border-x-2 | md:text-left md:mx-10 md:px-20 | tablet:max-w-sm tablet:text-center tablet:mx-auto"
+      class="flex flex-col justify-center"
     >
-      <h4 class="font-avenir font-black text-lg text-t-white mb-4">Contact Us:</h4>
-      <ul>
-        <li class="mb-4">
-          <a class="font-avenir text-t-white">info@tennibot.com</a>
-        </li>
-        <li class="mb-4">
-          <a class="font-avenir text-t-white">(334)-449-7347</a>
+      <div class=" w-fit mx-auto">
+        <h4 class="font-plutoBold xl:text-2xl lg:text-xl text-t-white mb-8 ">Contact Us:</h4>
+        <ul class="flex flex-col gap-8">
+          <li>
+            <a href={contactLink.mail} class="font-plutoLight xl:text-xl lg:text-lg text-t-white hover:text-t-green transition-colors duration-200">info@tennibot.com</a>
+          </li>
+          <li>
+            <a href={contactLink.phone} class="font-plutoLight xl:text-xl lg:text-lg text-t-white hover:text-t-green transition-colors duration-200">(334)-449-7347</a>
+          </li>
+          <li>
+            <a class="font-plutoLight xl:text-xl lg:text-lg text-t-white"
+              >2175 Pumphrey Ave.<br />Auburn, AL 36832</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class={dividerStyle} ></div>
+
+    <div
+      class="py-10 flex items-center flex-row xl:gap-x-16 lg:gap-x-8  "
+    >
+      <ul class="flex flex-col gap-6">
+        <li>
+          <a href={Pages.HOME} class={linkStyle} >Home</a>
         </li>
         <li>
-          <a class="font-avenir text-t-white"
-            >2175 Pumphrey Ave.<br />Auburn, AL 36832</a
-          >
+          <a href={Pages.BUY} class={linkStyle} >Buy</a>
+        </li>
+        <li>
+          <a href={Pages.ROVER} class={linkStyle}>The Rover</a>
+        </li>
+        <li>
+          <a href={Pages.STATION} class={linkStyle}>The Station</a>
         </li>
       </ul>
-    </div>
-    <hr class="mx-auto h-0.5 bg-t-white w-5/6 | md:hidden" />
-    <div
-      class="px-10 py-10 flex flex-row gap-x-5"
-    >
-      <ul>
-        <li class="mb-2">
-          <a class="font-avenir uppercase text-t-white">Home</a>
+      <ul class="flex flex-col gap-6">
+        <li>
+          <a href={Pages.ABOUT} class={linkStyle}>About us</a>
         </li>
-        <li class="mb-2">
-          <a class="font-avenir uppercase text-t-white">Buy</a>
+        <li>
+          <a href={Pages.CLUBS} class={linkStyle}>Clubs and Coaches</a>
         </li>
-        <li class="mb-2">
-          <a class="font-avenir uppercase text-t-white">The Rover</a>
+        <li>
+          <a href={Pages.CAREERS} class={linkStyle}>Careers</a>
         </li>
-        <li class="mb-2">
-          <a class="font-avenir uppercase text-t-white">The Station</a>
-        </li>
-        <li class="mb-2">
-          <a class="font-avenir uppercase text-t-white">About us</a>
-        </li>
-      </ul>
-      <ul>
-        <li class="mb-2">
-          <a class="font-avenir uppercase text-t-white">Clubs and Coaches</a>
-        </li>
-        <li class="mb-2">
-          <a class="font-avenir uppercase text-t-white">Video Gallery</a>
-        </li>
-        <li class="mb-2">
-          <a class="font-avenir uppercase text-t-white">Careers</a>
-        </li>
-        <li class="mb-2">
-          <a class="font-avenir uppercase text-t-white">FAQs</a>
+        <li>
+          <a href={Pages.FAQ} class={linkStyle}>FAQs</a>
         </li>
       </ul>
     </div>
   </div>
 
   <!-- Tablet -->
-  <div class="hidden md:flex w-[100%] mx-auto  lg:hidden flex-row justify-center md:pt-10" >
+  <div class="hidden md:flex w-[100%] mx-auto lg:hidden flex-row items-center justify-center md:pt-10" >
     <!-- Newsletter -->
-    <div class="pl-10 py-10 w-[100%] border-r-2 border-t-off-white">
-      <h4 class="font-avenir text-pretty italic text-t-white mx-auto uppercase mb-5 pr-5" >
+    <div class="pl-14 py-10 w-[100%]">
+      <h4 class="font-avenir text-base text-pretty italic text-t-white mx-auto uppercase mb-5 pr-5" >
         Sign up for the latest tennibot news
       </h4>
       <div class="flex flex-wrap">
@@ -104,7 +121,7 @@
               placeholder="Email Address"
             />
             <button
-              class="border-t-green border rounded-r-md p-3 fill-current stroke-t-green text-t-green"
+              class="border-t-green border rounded-r-md p-3 fill-current bg-t-green stroke-t-off-black text-t-green"
               type="submit">
               <svg xmlns="http://www.w3.org/2000/svg"  width="35" height="16" viewBox="0 0 45 26" fill="none">
                 <path opacity="0.5" d="M0 13H43M43 13L30.4146 25M43 13L30.4146 1" stroke-width="3"/>
@@ -115,68 +132,68 @@
         </div>
       </div>
       <div class="pt-10 w-fit pr-5">
-        <h4 class="font-avenir font-black text-t-white mb-4">Contact Us:</h4>
-        <ul class="grid grid-cols-2">
-          <li class="mb-4">
-            <a class="font-avenir text-t-white">info@tennibot.com</a>
+        <h4 class="font-plutoBold font-black text-t-white mb-4">Contact Us:</h4>
+        <ul class="flex flex-row flex-wrap gap-x-8">
+          <li class="mb-4 flex flex-col  w-[45%]">
+            <a href={contactLink.mail} class="font-plutoLight text-md text-t-white  hover:text-t-green transition-colors duration-200">info@tennibot.com</a>
           </li>
-          <li>
-            <a class="font-avenir text-t-white">2175 Pumphrey Ave.<br />Auburn, AL 36832</a>
+          <li class="mb-4  w-[45%] flex-col flex">
+            <a class="font-plutoLight text-md text-t-white hover:text-t-green transition-colors duration-200">(334)-449-7347</a>
           </li>
-          <li class="mb-4">
-            <a class="font-avenir text-t-white">(334)-449-7347</a>
+          <li class="w-full" >
+            <a href={contactLink.phone} class="font-plutoLight text-md text-t-white ">2175 Pumphrey Ave.<br />Auburn, AL 36832</a>
           </li>
         </ul>
     </div>
     </div>
     <!--  -->
+
+    <div class={`${dividerStyle} h-80`} ></div>
+
     <div
-      class="px-10 py-10 flex flex-row gap-x-5 w-[100%]"
+      class="pl-10 py-10 flex flex-row gap-x-12 w-[100%]"
     >
-      <ul class="flex flex-col" >
-        <li class="mb-7">
-          <a class="font-avenir uppercase text-t-white">Home</a>
-        </li>
-        <li class="mb-7">
-          <a class="font-avenir uppercase text-t-white">Buy</a>
-        </li>
-        <li class="mb-7">
-          <a class="font-avenir uppercase text-t-white">The Rover</a>
-        </li>
-        <li class="mb-7">
-          <a class="font-avenir uppercase text-t-white">The Station</a>
-        </li>
-        <li class="mb-7">
-          <a class="font-avenir uppercase text-t-white">About us</a>
-        </li>
-      </ul>
-      <ul class="flex flex-col" >
-        <li class="mb-7">
-          <a class="font-avenir uppercase text-t-white">Clubs and Coaches</a>
-        </li>
-        <li class="mb-7">
-          <a class="font-avenir uppercase text-t-white">Video Gallery</a>
-        </li>
-        <li class="mb-7">
-          <a class="font-avenir uppercase text-t-white">Careers</a>
-        </li>
-        <li class="mb-7">
-          <a class="font-avenir uppercase text-t-white">FAQs</a>
-        </li>
-      </ul>
+    <ul class="flex flex-col" >
+      <li class="mb-7">
+        <a href={Pages.HOME} class="font-avenir uppercase text-t-white hover:text-t-green transition-colors duration-200">Home</a>
+      </li>
+      <li class="mb-7">
+        <a href={Pages.BUY} class="font-avenir uppercase text-t-white hover:text-t-green transition-colors duration-200">Buy</a>
+      </li>
+      <li class="mb-7">
+        <a href={Pages.ROVER} class="font-avenir uppercase text-t-white hover:text-t-green transition-colors duration-200">The Rover</a>
+      </li>
+      <li class="mb-7">
+        <a href={Pages.STATION} class="font-avenir uppercase text-t-white hover:text-t-green transition-colors duration-200">The Station</a>
+      </li>
+    </ul>
+    <ul class="flex flex-col" >
+      <li class="mb-7">
+        <a href={Pages.ABOUT} class="font-avenir uppercase text-t-white hover:text-t-green transition-colors duration-200">About us</a>
+      </li>
+      <li class="mb-7">
+        <a href={Pages.CLUBS} class="font-avenir uppercase text-t-white hover:text-t-green transition-colors duration-200">Clubs and Coaches</a>
+      </li>
+      <li class="mb-7">
+        <a href={Pages.CAREERS} class="font-avenir uppercase text-t-white hover:text-t-green transition-colors duration-200 ">Careers</a>
+      </li>
+      <li class="mb-7">
+        <a href={Pages.FAQ} class="font-avenir uppercase text-t-white hover:text-t-green transition-colors duration-200">FAQs</a>
+      </li>
+    </ul>
     </div>
   </div>
   
   <!-- Mobile -->
-  <div class="flex md:hidden flex-col justify-center mx-auto pt-10" >
+  <div class="flex md:hidden tablet:w-[80%] flex-col justify-center mx-auto pt-10" >
     <!-- Newsletter -->
-    <div class="px-5 pb-10">
-      <h4 class="font-avenir text-pretty italic text-t-white text-center mx-auto uppercase mb-5" >
+    <div class="px-5 w-[95%] tablet:w-fit mx-auto pb-10">
+      <h4 class="font-avenir text-xl text-pretty italic text-t-white text-left w-fit  mx-auto uppercase mb-5" >
         Sign up for the latest tennibot news
       </h4>
       <div class="flex flex-wrap justify-center">
         <div class="w-full">
-          <form class="flex flex-row mobilel:w-80 mx-auto">
+          <form class="flex flex-row  mx-auto">
             <input
               class="w-full py-3 bg-t-off-black border z-10 rounded-l-md pl-5 border-r-0 border-t-green text-t-white font-avenir"
               type="text"
@@ -184,7 +201,7 @@
               placeholder="Email Address"
             />
             <button
-              class="border-t-green border rounded-r-md p-3 fill-current stroke-t-green text-t-green"
+              class="border-t-green border rounded-r-md p-3 fill-current bg-t-green stroke-t-off-black text-t-green"
               type="submit">
               <svg xmlns="http://www.w3.org/2000/svg"  width="35" height="16" viewBox="0 0 45 26" fill="none">
                 <path opacity="0.5" d="M0 13H43M43 13L30.4146 25M43 13L30.4146 1" stroke-width="3"/>
@@ -196,52 +213,48 @@
       </div>
     </div>
     <!--  -->
-    <hr class="mx-auto h-0.5 tablet:w-[50%] bg-t-white w-5/6 | md:hidden" />
-    <div class="px-10 py-10 flex flex-col w-fit tablet:self-center mobilem:gap-x-8 gap-x-4 " >
-      <ul >
-        <li class="mb-4">
-          <a class="font-avenir uppercase text-t-white">Home</a>
+    <hr class="mx-auto h-0.5 tablet:w-[80%] bg-t-white w-5/6 | md:hidden" />
+    <div class="px-10 tablet:px-5 py-10 tablet:gap-x-10 tablet:flex-row flex flex-col w-fit tablet:self-center mobilem:gap-x-8 gap-x-4 " >
+      <ul class="flex flex-col gap-10 mb-10" >
+        <li>
+          <a href={Pages.HOME} class="font-avenir uppercase text-t-white hover:text-t-green transition-colors duration-200">Home</a>
         </li>
-        <li class="mb-4">
-          <a class="font-avenir uppercase text-t-white">Buy</a>
+        <li>
+          <a href={Pages.BUY} class="font-avenir uppercase text-t-white hover:text-t-green transition-colors duration-200">Buy</a>
         </li>
-        <li class="mb-4">
-          <a class="font-avenir uppercase text-t-white">The Rover</a>
+        <li>
+          <a href={Pages.ROVER} class="font-avenir uppercase text-t-white hover:text-t-green transition-colors duration-200">The Rover</a>
         </li>
-        <li class="mb-4">
-          <a class="font-avenir uppercase text-t-white">The Station</a>
+        <li>
+          <a href={Pages.STATION} class="font-avenir uppercase text-t-white hover:text-t-green transition-colors duration-200">The Station</a>
         </li>
-        <li class="mb-4">
-          <a class="font-avenir uppercase text-t-white">About us</a>
+        </ul>
+        <ul class="flex flex-col gap-10" >
+        <li>
+          <a href={Pages.ABOUT} class="font-avenir uppercase text-t-white hover:text-t-green transition-colors duration-200">About us</a>
         </li>
-      </ul>
-      <ul>
-        <li class="mb-4">
-          <a class="font-avenir uppercase text-t-white">Clubs and Coaches</a>
+        <li>
+          <a href={Pages.CLUBS} class="font-avenir uppercase text-t-white hover:text-t-green transition-colors duration-200">Clubs and Coaches</a>
         </li>
-        <li class="mb-4">
-          <a class="font-avenir uppercase text-t-white">Video Gallery</a>
+        <li>
+          <a href={Pages.CAREERS} class="font-avenir uppercase text-t-white hover:text-t-green transition-colors duration-200">Careers</a>
         </li>
-        <li class="mb-4">
-          <a class="font-avenir uppercase text-t-white">Careers</a>
-        </li>
-        <li class="mb-4">
-          <a class="font-avenir uppercase text-t-white">FAQs</a>
+        <li>
+          <a href={Pages.FAQ} class="font-avenir uppercase text-t-white hover:text-t-green transition-colors duration-200">FAQs</a>
         </li>
       </ul>
     </div>
-    <hr class="mx-auto h-0.5 bg-t-white tablet:w-[50%] w-5/6 | md:hidden" />
+    <hr class="mx-auto h-0.5 bg-t-white tablet:w-[80%] w-5/6 | md:hidden" />
     <div class="px-10 py-10 w-fit tablet:self-center" >
       <ul>
         <li class="mb-4">
-          <a class="font-avenir text-t-white">info@tennibot.com</a>
+          <a href={contactLink.mail} class="font-avenir text-t-white hover:text-t-green transition-colors duration-200">info@tennibot.com</a>
         </li>
         <li class="mb-4">
-          <a class="font-avenir text-t-white">(334)-449-7347</a>
+          <a href={contactLink.phone} class="font-avenir text-t-white hover:text-t-green transition-colors duration-200">(334)-449-7347</a>
         </li>
         <li>
-          <a class="font-avenir text-t-white"
-            >2175 Pumphrey Ave.<br />Auburn, AL 36832</a
+          <a class="font-avenir text-t-white">2175 Pumphrey Ave.<br />Auburn, AL 36832</a
           >
         </li>
       </ul>
@@ -249,10 +262,10 @@
   </div>
   <!--  -->
   <div
-    class="flex px-10 pb-5 gap-5 bg-t-off-black md:w-full flex-wrap md:justify-between md:pt-10 mt-2"
+    class="flex px-10 items-baseline justify-around pb-5 gap-5 bg-t-off-black md:w-full flex-wrap xl:justify-around md:justify-between md:pt-10 mt-2"
   >
-    <a class="font-avenir text-xs text-t-white text-right underline italic">Terms and Conditions</a>
-    <p class="font-avenir text-sm text-t-white order-3 tablet:order-none">Copyright © 2023 Tennibot, Inc.</p>
-    <a class="font-avenir text-xs text-t-white text-right underline italic">Privacy Policy</a>
+    <a class="font-plutoLight xl:text-lg lg:text-lg hover:text-t-green transition-colors duration-200 text-xs text-t-off-white text-right underline italic order-1">Terms and Conditions</a>
+    <p class="font-plutoLight xl:text-lg lg:text-lg hover:text-t-green transition-colors duration-200 text-t-off-white order-3 sm:order-2">Copyright © 2023 Tennibot, Inc.</p>
+    <a class="font-plutoLight xl:text-lg lg:text-lg hover:text-t-green transition-colors duration-200 text-xs text-t-off-white text-right underline italic sm:order-3 order-2">Privacy Policy</a>
   </div>
 </footer>

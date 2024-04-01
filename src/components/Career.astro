@@ -1,6 +1,6 @@
 ---
-import Text from "@components/Core/Text.astro"
-import Button from "@components/Core/Button.astro"
+import Text from "@components/core/Text.astro"
+import Button from "@components/core/Button.astro"
 
 interface Props {
     title: string;
@@ -10,12 +10,12 @@ interface Props {
 const { title, link } = Astro.props
 
 ---
-<div class="py-5 flex flex-col md:flex-row md:justify-between md:items-center " >
+<div class="py-8 flex flex-col md:flex-row md:justify-between md:items-center " >
     <div class="md:w-[50%] w-full" >
         <Text tag="h5" className="uppercase text-xl md:text-lg font-black" >{title}</Text>
         <Text tag="p" className="mb-5 mt-3" >Auburn, AL, United States</Text>
     </div>
     <div class="text-center flex" >
-        <Button href={link} className="w-full tablet:w-64 mobilem:px-16" >See details</Button>
+        <Button href={link} theme="ghostLight" className="w-full tablet:w-64 mobilem:px-16" >See details</Button>
     </div>
 </div>

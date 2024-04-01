@@ -62,11 +62,11 @@ export const renderItem = ({ item, index, type }: IRenderItem): JSX.Element | nu
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="my-8 ">
-                <h5 className="font-black font-avenir text-xl text-t-off-black text-pretty mb-2" >
+                className="my-8 2xl:my-14">
+                <h5 className="font-plutoBold text-xl 2xl:text-3xl text-t-off-black text-pretty mb-2" >
                     <span className="mr-2" >Q: </span>{item.Question}
                 </h5>
-                <p className="font-thin font-avenir text-xl text-t-off-black text-pretty " >
+                <p className="font-plutoLight text-xl 2xl:text-2xl text-t-off-black text-pretty " >
                     <span className="text-2xl mr-2" >A: </span>{item.Answer}
                 </p>
             </motion.div>
@@ -81,11 +81,11 @@ export const renderItem = ({ item, index, type }: IRenderItem): JSX.Element | nu
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="my-8">
-                <h6 className="font-bold font-avenir text-xl text-t-off-black text-pretty mb-1" >Problem</h6>
-                <h5 className="font-bold font-avenir text-xl text-t-off-black text-pretty mb-6" >{item.problem}</h5>
-                <h6 className="font-bold font-avenir text-xl text-t-off-black text-pretty mb-2" >Potential Causes and Solutions</h6>
-                <ul className="font-thin font-avenir text-xl text-t-off-black text-pretty list-disc list-inside mb-2 " >{item.solutions.map((solution, index) => {
+                className="my-8 2xl:my-14">
+                <h6 className="font-plutoBold text-xl 2xl:text-3xl text-t-off-black text-pretty mb-1" >Problem</h6>
+                <h5 className="font-plutoBold text-xl 2xl:text-3xl text-t-off-black text-pretty mb-6" >{item.problem}</h5>
+                <h6 className="font-plutoBold text-xl 2xl:text-3xl text-t-off-black text-pretty mb-2" >Potential Causes and Solutions</h6>
+                <ul className="font-plutoLight text-xl 2xl:text-2xl text-t-off-black text-pretty list-disc list-inside mb-2 " >{item.solutions.map((solution, index) => {
                   return (
                         <li key={index} className='mb-2 font-avenir' >{solution}</li>
                   )
@@ -135,7 +135,7 @@ export default function TabContainer ({ questions, problems }: TabContainerProps
         return (
             <div>
                 <div className='flex flex-row justify-between pl-5 pb-5' >
-                    <p className='font-avenir font-bold text-xl' >No results found for "{searchText}". Try adjusting your keywords or terms!</p>
+                    <p className='font-plutoBold font-bold text-xl' >No results found for "{searchText}". Try adjusting your keywords or terms!</p>
                     <button onClick={() => {
                       setSearchResult(null)
                     }}>
@@ -154,7 +154,7 @@ export default function TabContainer ({ questions, problems }: TabContainerProps
       return (
         <div>
             <div className='flex flex-row justify-between pl-5 pb-5' >
-                <p className='font-avenir font-bold text-xl' >Showing search results for "{searchText}"</p>
+                <p className='font-plutoBold font-bold text-xl' >Showing search results for "{searchText}"</p>
                 <button onClick={() => {
                   setSearchResult(null)
                 }}>
@@ -195,7 +195,7 @@ export default function TabContainer ({ questions, problems }: TabContainerProps
     }
 
     return (
-        <div>
+        <div className='' >
             <ul className='flex w-full md:pb-10 pb-5 flex-row tablet:justify-center justify-around' >
                 {tabs.map((item, index) => {
                   return (
@@ -204,7 +204,7 @@ export default function TabContainer ({ questions, problems }: TabContainerProps
                           setCurrentPage(1)
                         }}>
                             <div className='w-fit' >
-                                <h4 className={`font-avenir uppercase font-black lg:text-3xl md:text-2xl tablet:text-xl mobilem:text-xl text-lg ${index === selectedTab ? 'text-t-off-black' : 'text-gray-500'}`} >{item.label}</h4>
+                                <h4 className={`font-avenirBold uppercase font-black lg:text-3xl md:text-2xl tablet:text-xl mobilem:text-xl text-lg ${index === selectedTab ? 'text-t-off-black' : 'text-gray-500'}`} >{item.label}</h4>
                                 {index === selectedTab
                                   ? (
                                     <motion.div className="bottom-[-1px] rounded-xl w-full h-[4px] bg-t-off-black" layoutId="underline" />
@@ -215,8 +215,8 @@ export default function TabContainer ({ questions, problems }: TabContainerProps
                   )
                 })}
             </ul>
-            <div className="absolute z-10 bottom-0 w-[90%] h-[15%] bg-gradient-to-t from-t-off-white from-0% to-100% hidden md:block" />
-            <div className="md:h-[50vh] h-fit md:overflow-y-scroll relative px-5 py-0" >
+            <div className="absolute z-10 bottom-0 xl:w-[95%] w-[90%] h-[15%] bg-gradient-to-t from-t-off-white from-0% to-100% hidden md:block" />
+            <div className="md:h-[50vh] h-fit custom-scrollbar md:overflow-y-scroll relative px-5 py-0" >
                 <div className='hidden relative md:block'>
                     {
                         selectedTab === 0
@@ -228,12 +228,12 @@ export default function TabContainer ({ questions, problems }: TabContainerProps
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
                                     transition={{ duration: 0.2 }}
-                                    className="my-8 ">
-                                    <h5 className="font-black font-avenir text-xl text-t-off-black text-pretty mb-2" >
-                                        <span className="mr-2" >Q: </span>{question.Question}
+                                    className="my-8 2xl:my-14 ">
+                                    <h5 className="font-plutoBold text-xl 2xl:text-3xl text-t-off-black text-pretty mb-2" >
+                                        <span className="mr-2 font-avenirBold" >Q: </span>{question.Question}
                                     </h5>
-                                    <p className="font-thin font-avenir text-xl text-t-off-black text-pretty " >
-                                        <span className="text-2xl mr-2" >A: </span>{question.Answer}
+                                    <p className="font-thin font-plutoLight text-xl 2xl:text-2xl text-t-off-black text-pretty " >
+                                        <span className="text-2xl 2xl:text-3xl mr-2" >A: </span>{question.Answer}
                                     </p>
                                 </motion.div>
                             </AnimatePresence>
@@ -247,11 +247,11 @@ export default function TabContainer ({ questions, problems }: TabContainerProps
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
                                     transition={{ duration: 0.2 }}
-                                    className="my-8">
-                                    <h6 className="font-bold font-avenir text-xl text-t-off-black text-pretty mb-1" >Problem</h6>
-                                    <h5 className="font-bold font-avenir text-xl text-t-off-black text-pretty mb-6" >{problem.problem}</h5>
-                                    <h6 className="font-bold font-avenir text-xl text-t-off-black text-pretty mb-2" >Potential Causes and Solutions</h6>
-                                    <ul className="font-thin font-avenir text-xl text-t-off-black text-pretty list-disc list-inside mb-2 " >{problem.solutions.map((solution, index) => {
+                                    className="my-8 2xl:my-14">
+                                    <h6 className="font-plutoBold text-xl 2xl:text-3xl text-t-off-black text-pretty mb-1" >Problem</h6>
+                                    <h5 className="font-plutoBold text-xl 2xl:text-3xl text-t-off-black text-pretty mb-6" >{problem.problem}</h5>
+                                    <h6 className="font-plutoBold text-xl 2xl:text-3xl text-t-off-black text-pretty mb-2" >Potential Causes and Solutions</h6>
+                                    <ul className="font-plutoLight text-xl 2xl:text-2xl text-t-off-black text-pretty list-disc list-inside mb-2 " >{problem.solutions.map((solution, index) => {
                                       return (
                                             <li key={index} className='mb-2 font-avenir' >{solution}</li>
                                       )
@@ -288,7 +288,7 @@ export default function TabContainer ({ questions, problems }: TabContainerProps
                 event.preventDefault()
                 handleSearch()
               }
-            }} className='w-full p-5 bg-t-off-white border-2 border-r-0 rounded-l-xl border-t-off-black focus:outline-none focus:border-t-off-black placeholder:italic' placeholder='Try searching keywords like "arms" or "calibration"' />
+            }} className='w-full 2xl:text-xl font-avenir bg-transparent pl-4 py-4 overflow-hidden border-2 border-r-0 rounded-l-xl border-t-off-black focus:outline-none focus:border-t-off-black placeholder:italic placeholder-transparent tablet:placeholder-gray-400' placeholder='Try searching keywords like "arms" or "calibration"' />
             <button onClick={handleSearch} disabled={searchInputValue === ''} className={`group/searchbutton disabled:cursor-not-allowed ${searchInputValue !== '' && 'hover:bg-t-off-black'} uppercase font-avenir text-lg md:text-xl flex flex-row items-center py-2 px-3 rounded-r-xl border-2 border-t-off-black transition-all duration-500 ease-in-out`} >
                 <span className={`${searchInputValue === '' ? 'opacity-50' : 'opacity-100 group-hover/searchbutton:text-t-off-white'} transition-all duration-500 ease-in-out`} >Search</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="42" height="14" viewBox="0 0 42 24" fill="none">
@@ -297,10 +297,10 @@ export default function TabContainer ({ questions, problems }: TabContainerProps
             </button>
         </div>
         <div className='relative group/container' >
-            <div className='w-full bg-t-off-white relative md:border-2 border-0 border-t-off-black rounded-xl md:px-8 md:pt-8 px-4 pt-4  flex flex-col z-[2]' >
+            <div className='md:bottom-2 md:right-2 md:group-hover/container:bottom-0 md:group-hover/container:right-0 transition-all duration-500 ease-in-out w-full bg-t-off-white relative md:border-2 border-0 border-t-off-black rounded-xl md:px-8 md:pt-8 px-4 pt-4  flex flex-col z-[2]' >
                 {handleContent()}
             </div>
-            <div className='bg-t-off-black w-full h-full absolute md:block hidden rounded-xl bottom-[-2%] right-[-1.5%] group-hover/container:bottom-0 group-hover/container:right-[0%] group-hover/container:opacity-0 transition-all duration-500 ease-in-out' />
+            <div className='bg-t-off-black absolute top-0 w-full h-full md:block hidden rounded-xl transition-all duration-500 ease-in-out' />
         </div>
     </div>
   )

@@ -2,10 +2,9 @@ import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
 import { astroImageTools } from 'astro-imagetools'
 import react from '@astrojs/react'
-
 import { sanityIntegration } from '@sanity/astro'
 import 'dotenv/config'
-
+import netlify from '@astrojs/netlify'
 const sanityProjectId = process.env.SANITY_PROJECT_ID
 const sanityDataset = process.env.SANITY_DATASET
 
@@ -22,5 +21,6 @@ export default defineConfig({
     dataset: sanityDataset,
     useCdn: false,
     studioBasePath: '/admin'
-  })]
+  })],
+  adapter: netlify()
 })

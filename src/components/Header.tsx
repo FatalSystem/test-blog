@@ -22,11 +22,11 @@ export default function Header (): JSX.Element {
       <AnimatePresence >
         {open && (
             <motion.nav
-              initial={{ y: -50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -50, opacity: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className='absolute md:h-[100vh] h-[70vh] bg-t-off-black rounded-b-lg shadow-lg backdrop-blur-xl md:w-fit w-full right-0 transform top-16 -translate-y-1/4 transition ease-in-out duration-500'
+              className='absolute md:h-[100vh] h-[70vh] bg-t-off-black rounded-b-lg shadow-lg md:w-fit w-full right-0 top-16'
             >
               <ul className='px-10 flex flex-col pt-10'>
                 {links.map((link, index) => (
@@ -39,7 +39,7 @@ export default function Header (): JSX.Element {
                   >
                     {link.label}
                   </a>
-                ))}r
+                ))}
               </ul>
             </motion.nav>
         )}

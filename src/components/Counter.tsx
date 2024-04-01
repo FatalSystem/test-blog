@@ -40,5 +40,5 @@ export default function Counter ({
     [springValue]
   )
 
-  return <span ref={ref} />
+  return <span ref={ref} className='font-avenirBold xl:text-6xl lg:text-5xl ' />
 }

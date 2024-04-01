@@ -1,10 +1,11 @@
 ---
-import Button from "./Core/Button.astro"
-import Text from "./Core/Text.astro"
-import { Pages } from "@utils";
+import Button from "./core/Button.astro"
+import Text from "./core/Text.astro"
+import { Pages } from "@utils"
+
 ---
 <section
-  class=" w-full h-[100vw] bg-t-black flex flex-wrap content-around overflow-hidden | md:h-screen | min-[850px]:h-[51vw] text-t-off-white"
+  class=" w-full h-[40vh] mobilem:h-[50vh] mobilel:h-[58vh] min-[640px]:h-[85vh] bg-t-off-black flex flex-wrap content-around overflow-hidden | md:h-screen | min-[850px]:h-[51vw] text-t-off-white"
 >
   <!-- <div style="background-image: url('../src/assets/front-page/cover-img.webp')" class="bg-cover bg-center absolute w-full h-[150%]" /> -->
   <!-- desktop -->
@@ -12,7 +13,7 @@ import { Pages } from "@utils";
     src="https://player.vimeo.com/video/893993983?background=1"
     allow="autoplay; fullscreen;"
     allowfullscreen
-    class="hidden bg-[url('../src/assets/front-page/cover-img.webp')] bg-contain bg-center w-full opacity-75 | h-[150%] | min-[850px]:block"
+    class="hidden bg-[url('/images/cover-img.webp')] bg-contain bg-center w-full opacity-75 | h-[150%] | min-[850px]:block"
   >
   </iframe>
   <!-- mobile -->
@@ -20,14 +21,14 @@ import { Pages } from "@utils";
     src="https://player.vimeo.com/video/894270264?background=1"
     allow="autoplay; fullscreen;"
     allowfullscreen
-    class=" bg-[url('../src/assets/front-page/cover-img-mobile.webp')] bg-contain bg-center w-full opacity-75 bg-t-black | static h-[150%] | min-[850px]:hidden"
+    class="bg-[url('/images/cover-img-mobile.webp')] bg-contain bg-center w-full opacity-75 bg-t-black | static h-[150%] | min-[850px]:hidden"
   >
   </iframe>
   <div
-    class=" w-full z-10 absolute left-0 flex flex-col justify-center items-center bg-gradient-to-t from-t-video-gradient to-transparent h-[100vw] | md:h-screen | min-[850px]:h-[51vw]"
+    class="h-[40vh] mobilem:h-[50vh] mobilel:h-[58vh] min-[640px]:h-[85vh] w-full z-10 absolute left-0 flex flex-col justify-start items-center bg-gradient-to-t from-t-video-gradient to-transparent | md:h-screen | min-[850px]:h-[51vw] min-[850px]:justify-start "
   >
-    <Text tag="h1" className="font-black uppercase text-center text-pretty text-[2rem] px-5 mobilem:text-4xl tablet:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl" >
-      Tennis, meet robot.
+    <Text tag="h1" className="font-avenirBold uppercase text-center text-pretty text-[2.1rem] px-5 mobilem:text-4xl sm:text-6xl md:text-6xl lg:text-6xl 2xl:text-7xl sm:mt-[20%] min-[850px]:mt-[12.5%] mt-[12.5%]" >
+      Tennis,<br class="min-[850px]:hidden" > meet robot
     </Text>
     <div class="mt-7 flex flex-col sm:flex-row gap-5" >
       <!-- TODO: Add actions -->
