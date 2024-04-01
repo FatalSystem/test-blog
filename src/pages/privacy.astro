@@ -1,0 +1,108 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Text from "@components/core/Text.astro"
+
+const paragraphStyle = "font-plutoLight 2xl:text-xl lg:text-lg text-pretty mt-5"
+const h2Style = "font-avenirBold text-2xl lg:text-3xl 2xl:text-4xl text-pretty uppercase mt-7"
+const h3Style = "font-avenirBold text-xl 2xl:text-2xl text-pretty uppercase mt-7"
+---
+
+<Layout title="Welcome to Tennibot.">
+    <main class="bg-t-off-black overflow-hidden text-t-off-white">
+        <section class="w-[80%] 2xl:w-[70%]  mx-auto py-20" >
+            <Text tag="h1" className="font-avenirBold text-3xl text-pretty uppercase lg:text-4xl 2xl:text-5xl" >Privacy policy</Text>
+
+            <div class="mt-10" >
+                <Text className="font-plutoBold text-pretty uppercase lg:text-lg 2xl:text-xl" >Tennibot online terms of service</Text>
+                <Text className="font-plutoLight text-pretty lg:text-lg 2xl:text-xl" >Last Revised on January 4, 2022</Text>
+
+                <Text className={paragraphStyle} >This Privacy Policy for Tennibot, Inc. (“Company”, “we”, “us” “our”) describes how we collect, use and disclose information about users of the Company’s website (www.tennibot.com), applications, services, tools and features (collectively, the “Services”). For the purposes of this Privacy Policy, “you” and “your” means you as the user of the Services.
+                    PLEASE READ THIS PRIVACY POLICY CAREFULLY. BY USING, ACCESSING, OR DOWNLOADING ANY OF THE SERVICES, YOU AGREE TO THE USE OF YOUR INFORMATION IT DESCRIBES AND TO THE OTHER TERMS OF THIS PRIVACY POLICY. IF YOU DO NOT AGREE TO THIS PRIVACY POLICY, PLEASE DO NOT ACCESS AND USE THE SERVICES.</Text>
+                
+                <Text tag="h2" className={h2Style} >1. UPDATING THIS PRIVACY POLICY</Text>
+                <Text className={paragraphStyle} >We may modify this Privacy Policy from time to time in which case we will update the “Last Revised” date at the top of this Privacy Policy. If we make changes that are material, we will use reasonable efforts to notify you (e.g. by email sent to the email address specified in your account) and obtain your consent and take additional steps as required by applicable law. Notice may be by email to you at the last email address you provided us, by posting notice of such changes on the Services, or by other means, consistent with applicable law. If you do not agree to any updates to this Privacy Policy PLEASE DO not access or CONTINUE TO use the Service</Text>
+                
+                <Text tag="h2" className={h2Style} >2. COMPANY’S COLLECTION AND USE OF INFORMATION</Text>
+                <Text className={paragraphStyle} >In order to provide you with particular services, we may ask you to provide us with certain details or information about you. Information that you submit through our Services include:</Text>
+                <ul class="list-disc" >
+                    <li><Text className={paragraphStyle} >Basic contact details, as follows: your name, email address, physical address and phone number. We collect basic contact details to communicate with you, recover your account(s) and fulfill orders. If you are applying for a job with us, we also use your resume and cover letter (and the information contained therein, respectively) to review your application and consider you for position(s).</Text></li>
+                    <li><Text className={paragraphStyle} >Account information, as follows: your username and password. We collect account information to provide you with analytics from the app, restore your app settings and verify your identity. If you choose to use the Services and register an account, you are responsible for keeping your account credentials safe. We highly recommend that you do not share your username, password or other access details with anyone else. If you believe your account has been compromised, please contact us immediately.</Text></li>
+                    <li><Text className={paragraphStyle} >Payment information, as follows: your credit or debit card information and your billing address. We collect payment information to fulfill orders with an external payment processor and ensure that you can access any services granted via your subscription.</Text></li>
+                    <li><Text className={paragraphStyle} >Messages sent to our chatbot. We use these messages to follow up on your questions, improve the chatbot and target ads.</Text></li>
+                </ul>
+                <Text className={paragraphStyle} >Some features of the Services may require you to enter certain information about yourself. You may elect not to provide this information, but doing so may prevent you from using or accessing these features.
+                    We also automatically collect certain information about your interaction with the Services (“Usage Data”). To do this, we may use Google Analytics or Amazon Web Services (“Tracking Technologies”). Usage Data may include:</Text>
+                <ul class="list-disc" >
+                    <li><Text className={paragraphStyle} >IP Address</Text></li>
+                    <li><Text className={paragraphStyle} >Operating system</Text></li>
+                    <li><Text className={paragraphStyle} >Device type (desktop, mobile, tablet, etc.)</Text></li>
+                    <li><Text className={paragraphStyle} >Browser and browser version</Text></li>
+                    <li><Text className={paragraphStyle} >Device screen resolution</Text></li>
+                    <li><Text className={paragraphStyle} >Language</Text></li>
+                    <li><Text className={paragraphStyle} >Timezone</Text></li>
+                    <li><Text className={paragraphStyle} >Cookies that track your activity on the site (e.g. how long you stay on a page)</Text></li>
+                    <li><Text className={paragraphStyle} >Other device or browser information</Text></li>
+                    <li><Text className={paragraphStyle} >Usage data from the app (e.g. how many balls your robot has picked up)</Text></li>
+                </ul>
+                <Text className={paragraphStyle} >We use the information we collect automatically to analyze web traffic, create targeted ads, and generate analytics for your own use.</Text>
+                <Text className={paragraphStyle} >In addition to the foregoing, we may use all of the above information to comply with any applicable legal obligations, to enforce any applicable terms of service, and to protect or defend the Services, our rights, the rights of our users, or others.</Text>
+
+                <Text tag="h2" className={h2Style} >3. HOW THE COMPANY SHARES YOUR INFORMATION</Text>
+                <Text className={paragraphStyle} >In certain circumstances, the Company may share your information with third parties. Such circumstances may include:</Text>
+                <ul class="list-disc" >
+                    <li><Text className={paragraphStyle} >With vendors or services providers for marketing purposes, such as:</Text></li>
+                    <li><Text className={paragraphStyle} >Shopify</Text></li>
+                    <li><Text className={paragraphStyle} >Stripe</Text></li>
+                    <li><Text className={paragraphStyle} >Google Analytics</Text></li>
+                    <li><Text className={paragraphStyle} >Amazon Web Services</Text></li>
+                    <li><Text className={paragraphStyle} >Dreamhost</Text></li>
+                    <li><Text className={paragraphStyle} >WordPress</Text></li>
+                    <li><Text className={paragraphStyle} >Mailchimp</Text></li>
+                    <li><Text className={paragraphStyle} >Meta</Text></li>
+                    <li><Text className={paragraphStyle} >Twitter</Text></li>
+                    <li><Text className={paragraphStyle} >LinkedIn</Text></li>
+                    <li><Text className={paragraphStyle} >To comply with applicable law or any obligations thereunder, including cooperation with law enforcement, judicial orders, and regulatory inquiries</Text></li>
+                    <li><Text className={paragraphStyle} >In connection with an asset sale, merger, bankruptcy, or other business transaction</Text></li>
+                    <li><Text className={paragraphStyle} >To enforce any applicable terms of service</Text></li>
+                    <li><Text className={paragraphStyle} >To ensure the safety and security of the Company and/or its users</Text></li>
+                    <li><Text className={paragraphStyle} >When you request us to share certain information with third parties, such as through your use of social media widgets or login integrations</Text></li>
+                </ul>
+                <Text className={paragraphStyle} >You acknowledge that such sharing of information may occur in all of the aforementioned circumstances and is permitted by and subject to this Privacy Policy.</Text>
+
+                <Text tag="h2" className={h2Style} >4. COOKIES AND OTHER TRACKING TECHNOLOGIES</Text>
+                <Text className={paragraphStyle} >Do Not Track Signals
+                    Your browser settings may also allow you to transmit a “Do Not Track” signal when you visit various websites. Like many websites, our website is not designed to respond to “Do Not Track” signals received from browsers. To learn more about “Do Not Track” signals, you can visit http://www.allaboutdnt.com/.
+                    Cookies and Other Tracking Technologies
+                    You may control the way in which your devices permit the use of Tracking Technologies. If you so choose, you may block or delete our cookies from your browser; however, blocking or deleting cookies may cause some of the Services, including any portal features and general functionality, to work incorrectly.
+                    Most browsers accept cookies automatically. However, you may be able to configure your browser settings to use the Services without some cookie functionality. You can delete cookies manually or set your browser to automatically delete cookies on a pre-determined schedule. For example, in the Internet Explorer menu bar, select: Tools Internet Options Browsing HistoryDelete to view manual and automatic options.
+                    To opt out of tracking by Google Analytics, click <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" class="underline" >here</a>.
+                    If you have questions regarding the specific information about you that we process or retain, as well as your choices regarding our collection and use practices, please contact us using the information listed below.</Text>
+
+                <Text tag="h2" className={h2Style} >5. SOCIAL FEATURES</Text>
+                <Text className={paragraphStyle} >Certain features of the Services permit you to initiate interactions between the Services and third-party services or platforms, such as social networks (“Social Features”). Social Features include features that allow you to click and access the Company’s pages on certain third-party platforms, such as Facebook and Twitter, and from there to “like” or “share” our content on those platforms. Use of Social Features may entail a third party’s collection and/or use of your data. If you use Social Features or similar third-party services, information you post or otherwise make accessible may be publicly displayed by the third-party service you are using. Both the Company and the third party may have access to information about you and your use of both the Services and the third-party service. For more information on third-party websites and platforms, see Section 6.</Text>
+                
+                <Text tag="h2" className={h2Style} >6. THIRD PARTY WEBSITES AND LINKS</Text>
+                <Text className={paragraphStyle} >We may provide links third-party websites or other online platforms operated by third parties. If you follow links to sites not affiliated or controlled by us, you should review their privacy and security policies and other terms and conditions. We do not guarantee and are not responsible the privacy or security of these sites, including the accuracy, completeness, or reliability of their information. Information you provide on public or semi-public venues, including information you share on third-party social networking platforms (such as Facebook or Twitter) may also be viewable by other users of the Services and/or users of those third-party online platforms without limitation as to its use by us or by a third party. Our inclusion of such links does not, by itself, imply any endorsement of the content on such platforms or of their owners or operators except as disclosed on the Services. We expressly disclaim any and all liability for the actions of third parties, including but without limitation to actions relating to the use and/or disclosure of personal information by third parties. Any information submitted by you directly to these third parties is subject to that third party’s privacy policy.</Text>
+                
+                <Text tag="h2" className={h2Style} >7. CHILDREN’S PRIVACY</Text>
+                <Text className={paragraphStyle} >Children under the age of 13 are not permitted to use the Services, and we do not seek or knowingly collect any personal information about children under 13 years of age. If we become aware that we have unknowingly collected information about a child under 13 years of age, we will make commercially reasonable efforts to delete such information from our database.
+                    If you are the parent or guardian of a child under 13 years of age who has provided us with their personal information, you may contact us using the below information to request that it be deleted</Text>
+
+                <Text tag="h2" className={h2Style} >8. DATA SECURITY</Text>
+                <Text className={paragraphStyle} >Please note that any information you send to us electronically, while using the Services or otherwise interacting with us, may not be secure when it is transmitted to us. We recommend that you do not use unsecure channels to communicate sensitive or confidential information to us. Please be aware though that, despite our best efforts, no security measures are perfect or impenetrable, and we cannot guarantee “perfect security.” Any information you transmit to us you do at at your own risk.</Text>
+                
+                <Text tag="h2" className={h2Style} >9. CALIFORNIA PRIVACY RIGHTS</Text>
+                <Text className={paragraphStyle} >We do not share personal information as defined by California Civil Code Section 1798.83 (“Shine The Light Law”) with third parties for their direct marketing purposes.</Text>
+                
+                <Text tag="h2" className={h2Style} >10. INTERNATIONAL USERS</Text>
+                <Text className={paragraphStyle} >The Services are designed for users in the United States only and are not intended for users located outside the United States.</Text>
+                
+                <Text tag="h2" className={h2Style} >11. HOW TO CONTACT US</Text>
+                <Text className={paragraphStyle} >Should you have any questions about our privacy practices or this Privacy Policy, please email us at info@tennibot.com or contact us at Tennibot, Inc., 1500 Pumphrey Avenue, Auburn, AL 36832.</Text>
+
+
+
+            </div>
+        </section>
+    </main>
+</Layout>
