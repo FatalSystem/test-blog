@@ -33,7 +33,7 @@ export default function Header (): JSX.Element {
                   <a
                     key={index}
                     href={link.href}
-                    className={`text-xl text-t-white font-bold uppercase mb-10 transform cursor-pointer hover:text-t-green transition duration-${
+                    className={`text-xl text-t-off-white font-avenirBold uppercase mb-10 transform cursor-pointer hover:text-t-green transition duration-${
                       (index + 1) * 100
                     } ${open ? 'opacity-100' : 'opacity-0'} ease-in-out`}
                   >
@@ -52,12 +52,12 @@ export default function Header (): JSX.Element {
           <div className='pr-16 hidden sm:flex flex-row gap-16' >
             <a
             href={Pages.HOME}
-            className={`text-xl text-t-white font-bold uppercase transform cursor-pointer hover:text-t-green transition duration-500 ${open ? 'opacity-0' : 'opacity-100'} ease-in-out`}>
+            className={`text-xl text-t-off-white font-avenirBold uppercase transform cursor-pointer hover:text-t-green transition duration-500 ${open ? 'opacity-0' : 'opacity-100'} ease-in-out`}>
               Home
             </a>
             <a
             href={Pages.BUY}
-            className={`text-xl text-t-white font-bold uppercase transform cursor-pointer hover:text-t-green transition duration-500 ${open ? 'opacity-0' : 'opacity-100'} ease-in-out`}>
+            className={`text-xl text-t-off-white font-avenirBold uppercase transform cursor-pointer hover:text-t-green transition duration-500 ${open ? 'opacity-0' : 'opacity-100'} ease-in-out`}>
               Buy
             </a>
           </div>
@@ -66,19 +66,19 @@ export default function Header (): JSX.Element {
               <div className="block w-10  absolute left-1/2 top-1/2   transform  -translate-x-1/2 -translate-y-1/2">
                 <span
                   aria-hidden="true"
-                  className={`block rounded-md absolute h-0.5 w-10 bg-t-white transform transition duration-500 ease-in-out ${
+                  className={`block rounded-md absolute h-0.5 w-10 bg-t-off-white transform transition duration-500 ease-in-out ${
                     open ? 'rotate-45' : '-translate-y-2.5'
                   }`}
                 ></span>
                 <span
                   aria-hidden="true"
-                  className={`block absolute rounded-md h-0.5 w-10 bg-t-white  transform transition  duration-500  ease-in-out  ${
+                  className={`block absolute rounded-md h-0.5 w-10 bg-t-off-white  transform transition  duration-500  ease-in-out  ${
                     open && 'opacity-0'
                   } `}
                 ></span>
                 <span
                   aria-hidden="true"
-                  className={`block absolute rounded-md h-0.5 w-10  bg-t-white transform  transition duration-500 ease-in-out ${
+                  className={`block absolute rounded-md h-0.5 w-10  bg-t-off-white transform  transition duration-500 ease-in-out ${
                     open ? '-rotate-45' : ' translate-y-2.5'
                   } `}
                 ></span>
