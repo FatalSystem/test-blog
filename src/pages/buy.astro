@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Text from "@components/core/Text.astro"
+import Button from "@components/core/Button.astro"
 import { Image } from 'astro:assets'
 // import Button from "@components/core/Button.astro"
 // import BuyImageGallery from "@components/BuyImageGallery/BuyImageGallery.tsx"
@@ -14,40 +15,213 @@ import visa from "@assets/buy/visa.svg"
 import mastercard from "@assets/buy/mastercard.svg"
 import amex from "@assets/buy/amex.svg"
 import discover from "@assets/buy/discover.svg"
-import type { EmblaOptionsType } from "embla-carousel/components/Options"
+// import type { EmblaOptionsType } from "embla-carousel/components/Options"
 
-const OPTIONS: EmblaOptionsType = {}
-const SLIDE_COUNT = 10
-const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
 import roverOnCourt from "@assets/buy/rovercourt.webp"
+import BuyPageSlider from "@components/BuyPageSlider"
+import BuySelection from "@components/BuySelection"
+import { CustomerReview, Marquee } from "@components/Marquee"
+import FAQItem from "@components/FAQItem"
+import { Pages } from "@utils"
 
-const slides = [
+const MARQUEE_CONTENT = [
   {
-    img: roverOnCourt,
-    alt: "Tennibot on the court."
+    review: 'It works well! My kids love it! It is super light and easy to move around.',
+    author: {
+      name: 'Mike D.',
+      role: 'Player',
+      location: 'Houston, TX'
+    }
   },
   {
-    img: roverOnCourt,
-    alt: "Tennibot on the court."
+    review: 'My back feels better just looking at it!',
+    author: {
+      name: 'Rhonda S.',
+      role: 'Player',
+      location: 'KANSAS CITY, MO'
+    }
   },
   {
-    img: roverOnCourt,
-    alt: "Tennibot on the court."
+    review: 'I can teach 6 to 8 hours a day now if I want to! I think every tennis coach should have one of these.',
+    author: {
+      name: 'Danny K.',
+      role: 'Coach',
+      location: 'San Francisco, CA'
+    }
   },
   {
-    img: roverOnCourt,
-    alt: "Tennibot on the court."
-  }
+    review: 'Great machine! Thank you! I am loving my Tennibot!',
+    author: {
+      name: 'Bob F.',
+      role: 'Player',
+      location: 'Chicago, IL'
+    }
+  },
+  {
+    review: 'The cool factor is undeniable.',
+    author: {
+      name: 'Allen Y.',
+      role: 'Player',
+      location: 'Los Angeles, CA'
+    }
+  },
+  {
+    review: 'I like it so much that I bought a second one for our club!',
+    author: {
+      name: 'Robert M.',
+      role: 'Player',
+      location: 'Flagstaff, AZ'
+    }
+  },
+  {
+    review: 'Man! I waited for years for someone to finally build this!',
+    author: {
+      name: 'Dave M.',
+      role: 'Player',
+      location: 'Los Angeles, CA'
+    }
+  },
 ]
 
-const payStyle = 'w-[30%]'
+const FAQ = [
+  {
+    question: 'Is the Tennibot portable?',
+    answer: 'Yes! The Tennibot weighs only 26lbs and can be easily transported. With the arms stowed, the Rover fits in the trunk of most cars. To get to and from the court, you can use the rear handle to roll the Tennibot like a suitcase.'
+  },
+  {
+    question: 'Do I need an internet connection to operate the Tennibot?',
+    answer: 'The Tennibot has its own Wi-Fi network that you can connect to in order to control it.  You will need an internet connection to create an account and complete the initial setup, but it is not necessary for your court to have internet access in order to operate the Tennibot.'
+  },
+  {
+    question: 'Does the Tennibot really save that much time?',
+    answer: 'In an average hour long session, you may spend up to 20 minutes of your time on the court collecting balls. That’s 30% of your practice time wasted! With Tennibot, that time drops to almost zero, meaning you can use that time to hit hundreds of extra shots every practice.'
+  },
+  {
+    question: 'How do I control the Tennibot?',
+    answer: 'Through the Tennibot app, you can select which zones you want to clear, or even control the Rover manually. The app also allows you to keep track of valuable data, such as match statistics and Station video recordings. The app is available for iOS and Android.'
+  },
+  {
+    question: 'What does the Station do?',
+    answer: 'The Station helps the Rover navigate the court. It can also be used with or without a Rover, to record video and gather valuable match data. It can even recommend areas of your game that need improvement. A Station is included with every purchase of a Rover.'
+  },
+  {
+    question: 'Does it work on clay courts?',
+    answer: 'Yes! The Tennibot works on both clay and hard courts. If you have a question about performance on your court or a unique surface type please reach out at info@tennibot.com'
+  },
+  {
+    question: 'Can I buy out my rental unit?',
+    answer: `Yes, you can choose to buy out and own your Tennibot at any time during your rental. Prices are determined based on how long you have been renting.
+
+Tennibot buyout pricing by date of buyout:
+
+$1,295 at day 0 to 3 months $1,195 at 3 months, 1 day to 6 months $1,095 at 6 months, 1 day to 12 months $895 at 12 months, 1 day to 24 months $500 on or after 24 months, 1 day`
+  },
+]
 
 ---
 
 <Layout title="Welcome to Tennibot.">
     <main class="bg-t-off-black overflow-hidden text-t-off-white" >
-      <section class="bg-[url('/images/buy/courtbg.webp')] bg-center bg-cover py-10 md:h-[90vh] h-[110vh]" >
+      <section class="min-[570px]:w-[80%] w-full 2xl:w-[65%] mx-auto py-20" >
+        <div class="w-[80%] min-[570px]:w-full mx-auto flex min-[570px]:flex-row flex-col justify-between min-[570px]:h-[10vh]" >
+          <div class="flex flex-col justify-between min-[570px]:h-[10vh]" >
+            <Text tag="h1" className="font-avenirBold md:text-4xl xl:text-5xl text-3xl uppercase" >Tennibot</Text>
+            <Text className="font-plutoLight xl:text-xl" >Rover and Station</Text>
+          </div>
+
+          <div class="bg-[#2B400D] px-5 py-2 flex flex-col justify-center rounded-lg h-full w-fit min-[570px]:mt-0 mt-5">
+            <Text className="font-plutoBold text-t-green md:text-lg" >60 Day Free Trial</Text>
+            <Text className="font-plutoLight text-t-off-white lg:text-sm md:text-xs mt-1 text-base" >If you don't love it, you'll get a<br class="hidden tablet:block"/> full refund and a free return.</Text>
+          </div>
+        </div>
+
+        <div class="relative text-t-off-white min-[570px]:rounded-lg rounded-none overflow-hidden min-[570px]:my-7 my-10 " >
+          <BuyPageSlider client:idle />
+        </div>
+      </section>
+
+      <BuySelection client:idle />
+
+      <section>
+        <div class="w-[80%] 2xl:w-[65%] mx-auto py-20">
+          <Text tag="h2" className="font-avenir uppercase text-t-off-white text-3xl xl:text-4xl 2xl:text-5xl pb-5" >Membership</Text>
+          <div class="flex sm:flex-row flex-col flex-wrap gap-5 md:gap-4 justify-center" >
+
+            <div class="flex flex-col border-2 border-t-off-white rounded-lg px-8 py-5 w-full min-[850px]:w-[48.5%] min-[1267px]:w-[32%] bg-[url('/images/buy/guest-bg.webp')] bg-cover bg-center" >
+              <div class="flex flex-row justify-between items-baseline">
+                <Text tag="h4" className="font-avenirBold text-t-off-white uppercase text-xl min-[1267px]:text-3xl ">Guest</Text> 
+                <Text  className="font-avenirBold text-t-green uppercase text-xs min-[850px]:text-base ">Free</Text> 
+              </div>
+              <ul class="list-disc list-inside text-left flex flex-col gap-2 mt-3" >
+                <li class="text-t-off-white font-plutoLight text-sm" >1 Year of session analysis storage</li>
+                <li class="text-t-off-white font-plutoLight text-sm" >20 hours of cloud video storage</li>
+                <li class="text-t-off-white font-plutoLight text-sm" >1 user account</li>
+              </ul>
+            </div>
+
+            <div class="flex flex-col border-2 border-t-off-white rounded-lg px-8 py-5 w-full min-[850px]:w-[48.5%] min-[1267px]:w-[32%] bg-[url('/images/buy/classic-bg.webp')] bg-cover bg-center" >
+              <div class="flex flex-row justify-between items-baseline">
+                <Text tag="h4" className="font-avenirBold text-t-off-white uppercase text-xl min-[1267px]:text-3xl">Classic</Text> 
+                <!-- <Text  className="font-avenirBold text-t-green uppercase text-xs">Free</Text>  -->
+              </div>
+              <ul class="list-disc list-inside text-left flex flex-col gap-2 mt-3" >
+                <li class="text-t-off-white font-plutoLight text-sm " >1 Year of session analysis storage</li>
+                <li class="text-t-off-white font-plutoLight text-sm" >20 hours of cloud video storage</li>
+                <li class="text-t-off-white font-plutoLight text-sm" >1 user account</li>
+              </ul>
+            </div>
+
+            <div class="flex flex-col border-2 border-t-off-white rounded-lg px-8 py-5 w-full min-[850px]:w-[48.5%] min-[1267px]:w-[32%] bg-[url('/images/buy/pro-bg.webp')] bg-cover bg-center" >
+              <div class="flex flex-row justify-between items-baseline">
+                <Text tag="h4" className="font-avenirBold text-t-off-white uppercase text-xl min-[1267px]:text-3xl">Pro</Text> 
+                <Text  className="font-avenirBold text-t-green uppercase text-xs min-[850px]:text-base">$9 / Month</Text> 
+              </div>
+              <ul class="list-disc list-inside text-left flex flex-col gap-2 mt-3" >
+                <li class="text-t-off-white font-plutoLight text-sm " >1 Year of session analysis storage</li>
+                <li class="text-t-off-white font-plutoLight text-sm" >20 hours of cloud video storage</li>
+                <li class="text-t-off-white font-plutoLight text-sm" >1 user account</li>
+              </ul>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-t-off-black pt-36 pb-24" >
+        <div class="relative flex h-full w-full flex-col items-center justify-center overflow-hidden" >
+          <Marquee pauseOnHover className="[--duration:100s]" >
+            {MARQUEE_CONTENT.map((item, index) => {
+              return (
+                <CustomerReview key={index} review={item.review} author={item.author} />
+              )
+            })}
+          </Marquee>
+        </div>
+      </section>
+
+      <section class="w-[80%] 2xl:w-[65%] py-20 mx-auto">
+        <Text tag="h2" className="font-plutoBold text-t-off-white text-xl lg:text-2xl xl:text-3xl mb-7" >Frequently Asked Questions</Text>
+        {FAQ.map((item, index) => {
+          return (
+            <FAQItem key={index} question={item.question} answer={item.answer} client:idle />
+          )
+        })}
+      </section>
+
+      <section class=" bg-t-off-black lg:pb-32 pt-11 pb-20 text-t-off-white" >
+        <div class="w-[80%] 2xl:w-[65%] flex lg:flex-row flex-col items-end mx-auto h-full " >
+            <div>
+                <Text tag="h3" className="uppercase font-avenir text-2xl lg:text-4xl 2xl:text-5xl mb-5" >Still not sure?</Text>
+                <Text tag="p" className="font-plutoLight lg:text-lg 2xl:" >Jump on a call with a team member to answer any questions you have about the Tennibot. If you don’t want to chat, email your question to <a href="mailto:info@tennibot.com" class="text-t-green" >info@tennibot.com</a>.</Text>
+            </div>
+            <div class="lg:w-[50%] lg:mt-0 mt-10 w-full flex lg:justify-end justify-center" >
+                <Button href={Pages.FAQ} theme="ghostLight" >Schedule call</Button>
+            </div>
+        </div>
+    </section>
+
+      <!-- <section class="bg-[url('/images/buy/courtbg.webp')] bg-center bg-cover py-10 md:h-[90vh] h-[110vh]" >
         <div class="w-[80%] h-full md:h-fit md:grid md:grid-cols-2 md:gap-10 flex flex-col justify-between mx-auto" >
           <div>
             <Text tag="h1" className="text-3xl md:text-2xl text-pretty uppercase mb-5" >Try risk free with a<br> <span class="font-black" >100 day money-back guarantee</span></Text>
@@ -89,7 +263,7 @@ const payStyle = 'w-[30%]'
 
           </div>
         </div>
-      </section>
+      </section> -->
 
         <!-- <div class="flex flex-col md:flex-row-reverse mobilem:w-[85%] w-[90%] mx-auto md:gap-8 md:mt-10" >
             <section class="md:w-[50%]" >
@@ -138,7 +312,7 @@ const payStyle = 'w-[30%]'
             </div>
         </section> -->
 
-        <section class="relative my-20 md:border md:mt-[-10%] bg-t-off-black md:w-[80%] w-full mx-auto rounded-lg overflow-hidden p-5 ">
+        <!-- <section class="relative my-20 md:border md:mt-[-10%] bg-t-off-black md:w-[80%] w-full mx-auto rounded-lg overflow-hidden p-5 ">
             <CustomerReviews client:only="react" />
         </section>
 
@@ -342,7 +516,7 @@ const payStyle = 'w-[30%]'
               }
             })();
             /*]]>*/
-        </script>
+        </script> -->
 
     </main>
 </Layout>

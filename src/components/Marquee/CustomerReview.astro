@@ -1,0 +1,28 @@
+---
+import { cn } from '@utils'
+import Text from "@components/core/Text.astro"
+
+const { review, author } = Astro.props; 
+
+---
+
+<figure
+  class={cn(
+    "relative w-96 2xl:w-96 overflow-hidden rounded-xl border px-10 py-5",
+    // light styles
+    "border-t-off-white bg-transparent/[.01] hover:shadow-lg ease-linear duration-500",
+    // dark styles
+    "dark:border-t-off-white dark:transparent/[.01]",
+  )}
+>
+  <div class="flex flex-col h-full justify-between">
+    <Text className="text-left font-avenirBold mb-2 xl:text-xl " >"{review}"</Text>
+    <div class="flex flex-row justify-between items-bottoms ">
+        <Text className="font-avenir uppercase text-t-off-white flex flex-col justify-end" >{author.name}</Text>
+        <div>
+            <Text className="font-avenir text-t-green uppercase italic text-right" >{author.role}</Text>
+            <Text className="font-avenir text-t-off-white uppercase italic" >{author.location}</Text>
+        </div>
+    </div>
+  </div>
+</figure>
