@@ -69,6 +69,8 @@ export default function CCSlider ({ type }: IProps): JSX.Element {
     dotContainerStyle="tablet:hidden flex gap-7"
     dotContainerDesktopStyle="tablet:flex lg:bottom-[10%] bottom-[10%] gap-7"
     arrowBreakpoint={1024}
+    prevArrowStyle="lg:left-[10%] left-[5%]"
+    nextArrowStyle="lg:right-[10%] right-[5%]"
     />
   )
 }

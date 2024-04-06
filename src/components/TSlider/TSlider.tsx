@@ -38,7 +38,7 @@ export function TSlide ({ selectedIndex, index, className, containerStyle, child
   )
 }
 
-export function TSlider ({ slides, contentContainerStyle, dotContainerStyle, dotContainerDesktopStyle, arrowsStyle, slideShades, arrowBreakpoint = 640 }): JSX.Element {
+export function TSlider ({ slides, contentContainerStyle, dotContainerStyle, dotContainerDesktopStyle, arrowsStyle, slideShades, arrowBreakpoint = 640, prevArrowStyle, nextArrowStyle }): JSX.Element {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false })
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
       useDotButton(emblaApi)
@@ -77,7 +77,7 @@ export function TSlider ({ slides, contentContainerStyle, dotContainerStyle, dot
 
         <div className={`absolute w-full ${arrowsStyle}`} >
           <div className='relative w-full flex flex-row justify-center items-center' >
-            {selectedIndex !== 0 && <PrevButton onClick={onPrevButtonClick} animated svg={isDesktop ? prevSVG : undefined} className='absolute left-[10%] drop-shadow-2xl' disabled={prevBtnDisabled} /> }
+            {selectedIndex !== 0 && <PrevButton onClick={onPrevButtonClick} animated svg={isDesktop ? prevSVG : undefined} className={`absolute left-[10%] drop-shadow-2xl ${prevArrowStyle}`} disabled={prevBtnDisabled} /> }
 
             <div className={`flex justify-center items-center m-auto ${dotContainerStyle}`}>
                 {scrollSnaps.map((_, index) => (
@@ -89,7 +89,7 @@ export function TSlider ({ slides, contentContainerStyle, dotContainerStyle, dot
                 ))}
             </div>
 
-            {selectedIndex !== slides.length - 1 && <NextButton onClick={onNextButtonClick} animated svg={isDesktop ? nextSVG : undefined} className='absolute right-[10%] drop-shadow-2xl' disabled={nextBtnDisabled} />}
+            {selectedIndex !== slides.length - 1 && <NextButton onClick={onNextButtonClick} animated svg={isDesktop ? nextSVG : undefined} className={`absolute right-[10%] drop-shadow-2xl ${nextArrowStyle}`} disabled={nextBtnDisabled} />}
           </div>
         </div>
 

@@ -98,9 +98,9 @@ const MediaQuotesDesktop: React.FC = (): JSX.Element => {
 
 const renderItem = (index: number, item: IMediaQuotesContent): JSX.Element => {
   return (
-    <div className={'flex-[0_0_100%] h-[30vh] w-full relative flex items-center justify-center'} key={index}>
+    <div className={'flex-[0_0_100%] w-full relative flex items-center justify-center'} key={index}>
       <div className='flex flex-col justify-center h-full w-[80%]' >
-        <img src={item.img.src} className='max-h-[20%]' />
+        <img src={item.img.src} className='max-h-[15%]' />
         <p className={'font-avenirBold text-xl mobilel:text-2xl text-center text-pretty font-black text-t-off-white mx-auto mt-10'}>
           {item.description}
         </p>

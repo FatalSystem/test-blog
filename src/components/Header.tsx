@@ -26,7 +26,7 @@ export default function Header (): JSX.Element {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className='absolute md:h-[100vh] h-[70vh] bg-t-off-black rounded-b-lg shadow-lg md:w-fit w-full right-0 top-16'
+              className='absolute md:h-[100vh] bg-t-off-black rounded-b-lg shadow-lg md:w-fit w-full right-0 top-16'
             >
               <ul className='px-10 flex flex-col pt-10'>
                 {links.map((link, index) => (

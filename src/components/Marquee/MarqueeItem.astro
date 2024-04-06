@@ -17,8 +17,8 @@ const { img, label } = Astro.props;
   )}
 >
   <div class="flex flex-col h-full">
-    <Image alt="" height="75" src={img} class="m-auto 2xl:hidden" />
-    <Image alt="" height="95" src={img} class="m-auto hidden 2xl:block" />
+    <Image alt="" height="75" loading="eager" src={img} class="m-auto 2xl:hidden" />
+    <Image alt="" height="95" loading="eager" src={img} class="m-auto hidden 2xl:block" />
     <Text className='text-center italic mt-3 uppercase 2xl:text-xl' >{label}</Text>
   </div>
 </figure>

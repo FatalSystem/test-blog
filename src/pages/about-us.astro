@@ -30,6 +30,7 @@ import tennibotStoryDesktopXl from "@assets/about-us/tennibotstorydesktopxl.webp
 import tennibotStoryShadowTablet from "@assets/about-us/tennibotstoryshadowtablet.webp"
 import tennibotStoryShadowDesktop from "@assets/about-us/tennibotstoryshadowdesktop.webp"
 import tennibotStoryShadowDesktopXl from "@assets/about-us/tennibotstoryshadowdesktopxl.webp"
+import { Pages } from "@utils"
 
 const MARQUEE_CONTENT = [
   {
@@ -82,10 +83,10 @@ const MARQUEE_CONTENT = [
             <div class="w-[80%] 2xl:w-[60%] mx-auto flex flex-col justify-center items-center gap-14 py-16 min-[933px]:pt-32 min-[933px]:pb-40 " >
                 <Text tag="h2" className="font-avenir uppercase text-3xl md:text-4xl lg:text-5xl tablet:text-left w-full" >Our <strong class="font-avenirBold" >founders</strong></Text>
                 <div class="flex flex-col justify-center gap-10 items-center tablet:w-[70%] min-[933px]:w-[100%] md:justify-between min-[933px]:flex-row-reverse" >
-                    <picture class="rounded-full group/haithamImg relative bg-t-off-white md:hover:bg-transparent transition-all duration-500 ease-in-out" >
+                    <picture class="rounded-full group/haithamImg relative bg-t-off-white lg:hover:bg-transparent transition-all duration-500 ease-in-out" >
                         <source srcset={haitham.src} media="(max-width: 450px)" />
                         <source srcset={haithamTablet.src} media="(max-width: 768px)" />
-                        <Image src={haithamDesktop} alt="Haitham Eletrabi" class="relative w-full z-10 tablet:bottom-5 tablet:right-5 bottom-3 right-3 md:group-hover/haithamImg:bottom-0 md:group-hover/haithamImg:right-0 mx-auto transition-all duration-500 ease-in-out" />
+                        <Image src={haithamDesktop} alt="Haitham Eletrabi" class="relative w-full z-10 tablet:bottom-5 tablet:right-5 bottom-3 right-3 lg:group-hover/haithamImg:bottom-0 lg:group-hover/haithamImg:right-0 mx-auto transition-all duration-500 ease-in-out" />
                     </picture>
                     <div class="min-[933px]:w-[60%]" >
                         <Text tag="h3" className="uppercase font-avenirBold text-2xl sm:text-3xl mt-8 mb-3"  >Haitham Eletrabi</Text>
@@ -93,10 +94,10 @@ const MARQUEE_CONTENT = [
                     </div>
                 </div>
                 <div class="flex flex-col justify-center gap-10 items-center tablet:w-[70%] min-[933px]:w-[100%] md:justify-between min-[933px]:flex-row" >
-                    <picture class="rounded-full group/lincolnImg relative bg-t-off-white md:hover:bg-transparent transition-all duration-500 ease-in-out" >
+                    <picture class="rounded-full group/lincolnImg relative bg-t-off-white lg:hover:bg-transparent transition-all duration-500 ease-in-out" >
                         <source srcset={lincoln.src} media="(max-width: 450px)" />
                         <source srcset={lincolnTablet.src} media="(max-width: 768px)" />
-                        <Image src={lincolnDesktop} alt="Lincoln Wang" class="relative w-full z-10 mx-auto tablet:bottom-5 tablet:right-5 bottom-3 right-3 md:group-hover/lincolnImg:bottom-0 md:group-hover/lincolnImg:right-0 transition-all duration-500 ease-in-out" />
+                        <Image src={lincolnDesktop} alt="Lincoln Wang" class="relative w-full z-10 mx-auto tablet:bottom-5 tablet:right-5 bottom-3 right-3 lg:group-hover/lincolnImg:bottom-0 lg:group-hover/lincolnImg:right-0 transition-all duration-500 ease-in-out" />
                     </picture>
                     <div class="min-[933px]:w-[60%] min-[933px]:ml-5" >
                         <Text tag="h3" className="uppercase font-avenirBold text-2xl sm:text-3xl mt-8 mb-3"  >Lincoln Wang</Text>
@@ -113,7 +114,7 @@ const MARQUEE_CONTENT = [
                     <source srcset={tennibotStory.src} media="(max-width: 450px)" />
                     <source srcset={tennibotStoryTablet.src} media="(max-width: 680px)" />
                     <source srcset={tennibotStoryDesktop.src} media="(max-width: 1000px)" />
-                    <Image src={tennibotStoryDesktopXl} alt="Tennibot Story" class=" w-full 2xl:w-[60%] mx-auto tablet:w-[80%] tablet:mx-auto relative tablet:bottom-3 tablet:right-3 group-hover/tennibotStory:bottom-0 group-hover/tennibotStory:right-0 transition-all duration-500 ease-in-out " />
+                    <Image src={tennibotStoryDesktopXl} alt="Tennibot Story" class=" w-full 2xl:w-[60%] mx-auto tablet:w-[80%] tablet:mx-auto relative tablet:bottom-3 tablet:right-3 lg:group-hover/tennibotStory:bottom-0 lg:group-hover/tennibotStory:right-0 transition-all duration-500 ease-in-out " />
                 </picture>
                 <picture>
                     <!-- <source srcset={tennibotStory.src} media="(max-width: 450px)" /> -->
@@ -132,7 +133,7 @@ const MARQUEE_CONTENT = [
 
         <section>
             <section class="bg-t-off-black pt-36 pb-24" >
-                <Text tag="h2" className="w-[80%] 2xl:w-[60%] mx-auto font-avenir uppercase text-center min-[933px]:text-left mb-10 text-3xl md:text-4xl lg:text-5xl" >Our <strong class="font-avenirBold" >trophy case</strong></Text>
+                <Text tag="h2" className="w-[80%] 2xl:w-[60%] mx-auto font-avenir uppercase tablet:text-left text-center min-[933px]:text-left mb-10 text-3xl md:text-4xl lg:text-5xl" >Our <strong class="font-avenirBold" >trophy case</strong></Text>
                 <div class="relative flex h-full w-full flex-col items-center justify-center overflow-hidden" >
                   <Marquee pauseOnHover className="[--duration:50s]" >
                     {MARQUEE_CONTENT.map((item, index) => {
@@ -145,21 +146,17 @@ const MARQUEE_CONTENT = [
               </section>
         </section>
 
-        <section>
-            <div class="" >
-                <div class="flex flex-col justify-end h-full min-[830px]:justify-between " >
-                    <Text tag="h2" className=" z-[1] w-[80%] 2xl:w-[60%] mx-auto font-avenir uppercase pb-5 pt-10 text-3xl md:text-4xl lg:text-5xl text-left" >Our <strong class="font-avenirBold" >careers</strong></Text>
-                    <div class="w-[80%] 2xl:w-[60%] z-[1] flex min-[830px]:flex-row flex-col items-end pb-24 mx-auto" >
-                        <div>
-                            <Text tag="p" className="min-[830px]:w-[90%] font-plutoLight sm:text-lg 2xl:text-xl" >Do you love robots and sports? Tennibot might be the perfect fit. We are a diverse group of night owls and coffee drinkers who are extremely passionate about what we do.</Text>
-                        </div>
-                        <div class="min-[830px]:w-full lg:mt-0 mt-10 w-full flex min-[830px]:justify-end justify-center" >
-                            <Button href="/careers" theme="ghostLight" className="tablet:w-64 w-full mx-0 px-0" >View open positions</Button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section class=" bg-t-off-black lg:pb-32 pt-10 pb-20 text-t-off-white" >
+          <div class="w-[80%] 2xl:w-[65%] flex md:flex-row flex-col items-end mx-auto h-full " >
+              <div>
+                <Text tag="h2" className="font-avenir uppercase pb-5 text-3xl md:text-4xl lg:text-5xl text-left" >Our <strong class="font-avenirBold" >careers</strong></Text>
+                <Text tag="p" className="font-plutoLight lg:text-lg 2xl:text-xl md:w-[90%] 2xl:w-[70%]" >Do you love robots and sports? Tennibot might be the perfect fit. We are a diverse group of night owls and coffee drinkers who are extremely passionate about what we do.</Text>
+              </div>
+              <div class="lg:w-[50%] lg:mt-0 mt-10 w-full flex lg:justify-end justify-center" >
+                  <Button href={Pages.CAREERS} theme="ghostLight" >View open positions</Button>
+              </div>
+          </div>
+      </section>
 
     </main>
 </Layout>

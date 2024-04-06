@@ -299,7 +299,7 @@ export default function TabContainer ({ questions, problems }: TabContainerProps
             </button>
         </div>
         <div className='relative group/container' >
-            <div className='md:bottom-2 md:right-2 md:group-hover/container:bottom-0 md:group-hover/container:right-0 transition-all duration-500 ease-in-out w-full bg-t-off-white relative md:border-2 border-0 border-t-off-black rounded-xl md:px-8 md:pt-8 px-4 pt-4  flex flex-col z-[2]' >
+            <div className='lg:bottom-2 lg:right-2 lg:group-hover/container:bottom-0 lg:group-hover/container:right-0 transition-all duration-500 ease-in-out w-full bg-t-off-white relative md:border-2 border-0 border-t-off-black rounded-xl md:px-8 md:pt-8 px-4 pt-4  flex flex-col z-[2]' >
                 {handleContent()}
             </div>
             <div className='bg-t-off-black absolute top-0 w-full h-full md:block hidden rounded-xl transition-all duration-500 ease-in-out' />

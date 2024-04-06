@@ -143,7 +143,7 @@ const MARQUEE_CONTENT = [
         </BackgroundImage>
       </div>
       <div class="w-full md:w-[50%] md:h-full" >
-        <BackgroundImage src="../src/assets/front-page/station.webp" >
+        <BackgroundImage src="../src/assets/front-page/station.webp" backgroundPosition="bottom" >
           <div class="h-[60vh] lg:h-[70vh] flex flex-col items-center justify-between py-10">
             <Text tag="h3" className="uppercase font-avenirBold xl:text-4xl text-3xl" >
               Station
@@ -187,7 +187,7 @@ const MARQUEE_CONTENT = [
         </div>
         <div >
           <Text tag="h6" className="font-black text-center text-5xl" >
-            <Counter client:only="react" value={1027945} />
+            <Counter client:load value={1027945} />
           </Text>
           <Text tag="p" className="font-avenir text-pretty text-center text-xl md:text-2xl xl:text-3xl font-thin italic mt-5" >
             Tennis balls collect by Tennibot,<br class="hidden sm:block" /> across the United States

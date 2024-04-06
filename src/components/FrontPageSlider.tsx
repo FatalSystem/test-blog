@@ -5,15 +5,15 @@ const textStyle = 'font-avenir text-left mt-[30%] text-t-off-white text-pretty t
 const slides = [
   {
     content: <p className={textStyle} >Up to <strong className='font-avenirBold' >30%</strong> of your time on the court<br className='hidden sm:block' /> is spent <strong className='font-avenirBold'>picking up tennis balls</strong></p>,
-    style: "tablet:bg-[url('/images/slider/slider_one.webp')] bg-[url('/images/slider/slider_onemobile.webp')] tablet:h-[100vh] h-screen"
+    style: "tablet:bg-[url('/images/slider/slider_one.webp')] bg-[url('/images/slider/slider_onemobile.webp')] bg-top tablet:h-[100vh] h-screen"
   },
   {
     content: <p className={textStyle} >With <strong className='font-avenirBold'>Tennibot</strong>, that number<br className='hidden sm:block' /> goes down to <strong className='font-avenirBold'>almost zero</strong></p>,
-    style: "tablet:bg-[url('/images/slider/slider_two.webp')] bg-[url('/images/slider/slider_twomobile.webp')] tablet:h-[100vh] h-screen"
+    style: "tablet:bg-[url('/images/slider/slider_two.webp')] bg-[url('/images/slider/slider_twomobile.webp')] bg-top tablet:h-[100vh] h-screen"
   },
   {
     content: <p className={textStyle} >This means you could be hitting<br className='hidden sm:block' /> <strong className='font-avenirBold'>hundreds more shots</strong>, every time you practice</p>,
-    style: "tablet:bg-[url('/images/slider/slider_three.webp')] bg-[url('/images/slider/slider_threemobile.webp')] tablet:h-[100vh] h-screen"
+    style: "tablet:bg-[url('/images/slider/slider_three.webp')] bg-[url('/images/slider/slider_threemobile.webp')] bg-top tablet:h-[100vh] h-screen"
   }
 
 ]
