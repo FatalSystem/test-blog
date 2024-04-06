@@ -6,8 +6,8 @@ interface Props {
 const { containerClass } = Astro.props
 
 ---
-<div class={`relative w-full mx-auto min-[670px]:rounded-lg bg-cover bg-center overflow-hidden group min-[1520px]:h-[74vh] min-[1150px]:h-[55vh] lg:h-[45vh] min-[670px]:h-[40vh] h-[50vh] ${containerClass} `} >
-    <div class="hidden lg:block absolute h-full w-full bg-gradient-to-t from-t-shade from-10% to-60% lg:group-hover:bg-gradient-to-t lg:group-hover:from-t-shade opacity-60 lg:group-hover:opacity-90 lg:group-hover:to-90% transition-all ease-in-out duration-500" />
+<div class={`relative w-full mx-auto min-[670px]:rounded-lg bg-cover bg-center overflow-hidden group min-[1520px]:h-[74vh] min-[1150px]:h-[55vh] lg:h-[45vh] min-[670px]:aspect-square min-[670px]:h-fit h-[50vh] ${containerClass} `} >
+    <div class="hidden aspect-square lg:block absolute h-full w-full bg-gradient-to-t from-t-shade from-10% to-60% lg:group-hover:bg-gradient-to-t lg:group-hover:from-t-shade opacity-60 lg:group-hover:opacity-90 lg:group-hover:to-90% transition-all ease-in-out duration-500" />
     <div class="h-full flex flex-col items-center min-[670px]:items-start text-center justify-end px-3 lg:bg-transparent" >
         <slot />
     </div>

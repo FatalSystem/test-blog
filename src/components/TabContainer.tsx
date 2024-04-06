@@ -288,7 +288,9 @@ export default function TabContainer ({ questions, problems }: TabContainerProps
                 event.preventDefault()
                 handleSearch()
               }
-            }} className='w-full 2xl:text-xl font-avenir bg-transparent pl-4 py-4 overflow-hidden border-2 border-r-0 rounded-l-xl border-t-off-black focus:outline-none focus:border-t-off-black placeholder:italic placeholder-transparent tablet:placeholder-gray-400' placeholder='Try searching keywords like "arms" or "calibration"' />
+            }}
+            style={{ borderRadius: '0.75rem 0 0 0.75rem' }}
+            className='w-full 2xl:text-xl font-avenir bg-transparent pl-4 py-4 overflow-hidden border-2 border-r-0 rounded-l-xl border-t-off-black focus:outline-none focus:border-t-off-black placeholder:italic placeholder-transparent tablet:placeholder-gray-400' placeholder='Try searching keywords like "arms" or "calibration"' />
             <button onClick={handleSearch} disabled={searchInputValue === ''} className={`group/searchbutton disabled:cursor-not-allowed ${searchInputValue !== '' && 'hover:bg-t-off-black'} uppercase font-avenir text-lg md:text-xl flex flex-row items-center py-2 px-3 rounded-r-xl border-2 border-t-off-black transition-all duration-500 ease-in-out`} >
                 <span className={`${searchInputValue === '' ? 'opacity-50' : 'opacity-100 group-hover/searchbutton:text-t-off-white'} transition-all duration-500 ease-in-out`} >Search</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="42" height="14" viewBox="0 0 42 24" fill="none">
