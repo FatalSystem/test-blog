@@ -10,7 +10,7 @@ module.exports = {
         tablet: '450px',
         desktopxl: '1920px',
         desktopl: '1440px',
-        shortScreen: { raw: '(max-height: 670px)' }
+        // shortScreen: { raw: '(max-height: 670px)' }
       },
       colors: {
         't-red': 'red',

@@ -81,4 +81,10 @@
   .custom-scrollbar::-webkit-scrollbar {
     width: 8px; /* Makes the scrollbar thinner */
   }
+
+  @media (max-height: 670px) {
+    .cc-slider {
+        height: 600px !important;
+    }
+}
   

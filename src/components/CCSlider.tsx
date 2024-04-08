@@ -1,6 +1,6 @@
 import { TSlider } from './TSlider/TSlider'
 
-const containerStyle = 'font-avenir text-t-off-white flex flex-col size-full justify-center md:justify-start tablet:mt-0 mt-[-10%] sm:pt-[7vh] 2xl:pt-[7%] lg:max-w-[85%] 2xl:max-w-[75%] mx-auto '
+const containerStyle = 'font-avenir text-t-off-white flex flex-col size-full justify-center md:justify-start tablet:mt-0 mt-[-15%] sm:pt-[7vh] 2xl:pt-[7%] lg:max-w-[85%] 2xl:max-w-[75%] mx-auto '
 const titleStyle = 'uppercase font-avenirBold text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl mb-5'
 const h1Style = 'font-avenirBold text-t-off-white lg:text-8xl mobilel:text-7xl mobilem:text-6xl text-5xl uppercase mt-20'
 const descriptionStyle = 'font-plutoLight text-t-off-white  2xl:text-xl list-disc list-inside flex flex-col gap-5 mt-5'
@@ -9,7 +9,7 @@ const slides = {
   coaches: [
     {
       content: <h1 className={h1Style} >For<br className="md:hidden" /> coaches</h1>,
-      style: "bg-[url('/images/commercial/coaches.webp')] md:h-[60vh] h-[770px] shortScreen:h-[600px]"
+      style: "bg-[url('/images/commercial/coaches.webp')] md:h-[60vh] h-[770px] cc-slider"
     },
     {
       content:
@@ -30,13 +30,13 @@ const slides = {
           </li>
         </ul>
       </div>,
-      style: 'md:h-[60vh] h-[770px] shortScreen:h-[600px]'
+      style: 'cc-slider md:h-[60vh] h-[770px] '
     }
   ],
   clubs: [
     {
       content: <h1 className={h1Style} >For<br className="md:hidden" /> clubs</h1>,
-      style: "bg-[url('/images/commercial/clubs.webp')] md:h-[60vh] h-[770px] shortScreen:h-[600px]"
+      style: "bg-[url('/images/commercial/clubs.webp')] md:h-[60vh] h-[770px] cc-slider"
     },
     {
       content:
@@ -54,13 +54,13 @@ const slides = {
           </li>
         </ul>
       </div>,
-      style: 'md:h-[60vh] h-[770px] shortScreen:h-[600px]'
+      style: 'md:h-[60vh] h-[770px] cc-slider'
     }
   ],
   school: [
     {
       content: <h1 className={h1Style} >For<br className="md:hidden" /> schools</h1>,
-      style: "bg-[url('/images/commercial/school.webp')] md:h-[60vh] h-[770px] shortScreen:h-[600px]"
+      style: "bg-[url('/images/commercial/school.webp')] md:h-[60vh] h-[770px] cc-slider "
     },
     {
       content:
@@ -78,7 +78,7 @@ const slides = {
           </li>
         </ul>
       </div>,
-      style: 'md:h-[60vh] h-[770px] shortScreen:h-[600px]'
+      style: 'md:h-[60vh] h-[770px] cc-slider'
     }
   ]
 }

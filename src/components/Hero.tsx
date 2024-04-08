@@ -18,7 +18,7 @@ export default function Herot (): JSX.Element {
         <h1 className="font-avenirBold uppercase text-center text-pretty text-[2.1rem] px-5 mobilem:text-4xl sm:text-6xl md:text-6xl lg:text-6xl 2xl:text-7xl sm:mt-[20%] min-[850px]:mt-[12.5%] mt-[45%]" >
             Tennis,<br className="min-[850px]:hidden" /> meet robot
         </h1>
-        <div className="mt-7 w-[80%] justify-center flex flex-col sm:flex-row gap-5" >
+        <div className="mt-7 w-[80%] items-center justify-center flex flex-col sm:flex-row gap-5" >
             <button className="sm:mr-3 tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-t-off-black bg-t-off-white border-t-off-white md:text-t-off-white md:bg-transparent hover:bg-t-off-white hover:text-t-off-black " >Play video</button>
             <a href={Pages.BUY} className="tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-center text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" /* theme="green" */ >Buy now</a>
         </div>
