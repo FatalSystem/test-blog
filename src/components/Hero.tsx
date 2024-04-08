@@ -1,10 +1,14 @@
 import { Pages } from '@utils'
+import { useState } from 'react'
 import { useMediaQuery } from 'usehooks-ts'
 
 export default function Herot (): JSX.Element {
   const isTablet = useMediaQuery('(max-width: 720px)')
+  const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const videoSource = isTablet ? '/videos/tennibot-preview-tablet.mp4' : '/videos/tennibot-preview.mp4'
+
+
 
   return (
     <section className="h-screen relative overflow-hidden" >
@@ -19,10 +23,20 @@ export default function Herot (): JSX.Element {
             Tennis,<br className="min-[850px]:hidden" /> meet robot
         </h1>
         <div className="mt-7 w-[80%] items-center justify-center flex flex-col sm:flex-row gap-5" >
-            <button className="sm:mr-3 tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-t-off-black bg-t-off-white border-t-off-white md:text-t-off-white md:bg-transparent hover:bg-t-off-white hover:text-t-off-black " >Play video</button>
+            <button onClick={() => { setIsOpen(true) }} className="sm:mr-3 tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-t-off-black bg-t-off-white border-t-off-white md:text-t-off-white md:bg-transparent hover:bg-t-off-white hover:text-t-off-black " >Play video</button>
             <a href={Pages.BUY} className="tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-center text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" /* theme="green" */ >Buy now</a>
         </div>
       </div>
+      {isOpen && (
+        <div className="fixed inset-0 bg-t-off-black bg-opacity-80 z-50 flex justify-center items-center">
+          <div className="relative bg-transparent p-2 rounded-lg w-[80%] mx-auto">
+            <button className="z-10 absolute top-2 right-5 p-4" onClick={() => { setIsOpen(false) }}>
+              Close
+            </button>
+            <video src={videoSource} controls autoPlay className="w-full rounded-lg"></video>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
