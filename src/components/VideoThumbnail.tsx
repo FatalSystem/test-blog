@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
+import ReactPlayer from 'react-player'
 
 interface IProps {
   title: string
@@ -28,8 +29,8 @@ export default function VideoThumbnail ({ title, className, videoSource }: IProp
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="relative bg-t-off-white p-1 rounded-lg w-[80%] mx-auto">
-                <div className="z-10 absolute top-2 right-5 p-4">
+                className="relative bg-t-off-white p-1 min-h-28 min-w-28 rounded-lg w-[80%] mx-auto transition-all duration-300 ease-in-out">
+                <div className="z-10 absolute top-[2%] right-[2%] p-4">
                   <button onClick={() => { setIsOpen(false) }} className="relative flex flex-row w-12 h-10 ">
                     <div className="block w-10  absolute left-1/2 top-1/2   transform  -translate-x-1/2 -translate-y-1/2">
                       <span
@@ -47,7 +48,27 @@ export default function VideoThumbnail ({ title, className, videoSource }: IProp
                     </div>
                   </button>
               </div>
-                <video src={videoSource} controls autoPlay className="w-full rounded-lg"></video>
+                {/* <video src={videoSource} controls autoPlay className="w-full rounded-lg"></video> */}
+                <ReactPlayer
+                    url="https://player.vimeo.com/video/932265258"
+                    controls={true}
+                    width="100%"
+                    height="100%"
+                    previewTabIndex={0}
+                    // onStart={() => { setHideTitle(true) }}
+                    // onBuffer={() => { setHideTitle(true) }}
+                    config={{
+                      vimeo: {
+                        playerOptions: {
+                          vimeo_logo: false,
+                          colors: ['00000000', 'C0F20C', 'FFFFFF', '000000'],
+                          responsive: true,
+                          autoplay: true
+                        }
+                      }
+                    }}
+                />
+
               </motion.div>
           </div>
         )}
