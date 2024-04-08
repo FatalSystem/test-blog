@@ -1,36 +1,35 @@
+import { useInView, useMotionValue, useSpring } from 'framer-motion'
 import { useEffect, useRef } from 'react'
-import { useInView, useMotionValue, useSpring, useTime } from 'framer-motion'
 
-/**
- *
- * @param root0
- * @param root0.value
- */
-export default function Counter ({
+export default function NumberTicker ({
   value,
-  direction = 'up'
+  direction = 'up',
+  delay = 0,
+  className
 }: {
   value: number
   direction?: 'up' | 'down'
+  className?: string
+  delay?: number // delay in s
 }): JSX.Element {
   const ref = useRef<HTMLSpanElement>(null)
   const motionValue = useMotionValue(direction === 'down' ? value : value - 50)
   const springValue = useSpring(motionValue, {
-    damping: 200,
+    damping: 60,
     stiffness: 100
   })
-
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const isInView = useInView(ref, { once: true, margin: '0px' })
 
   useEffect(() => {
-    if (isInView) {
-      motionValue.set(direction === 'down' ? 0 : value)
-    }
-  }, [motionValue, isInView])
+    isInView &&
+      setTimeout(() => {
+        motionValue.set(direction === 'down' ? 0 : value)
+      }, delay * 1000)
+  }, [motionValue, isInView, delay, value, direction])
 
   useEffect(
     () =>
-      springValue.on('change', (latest: number) => {
+      springValue.on('change', (latest) => {
         if (ref.current) {
           ref.current.textContent = Intl.NumberFormat('en-US').format(
             latest.toFixed(0)
@@ -40,5 +39,10 @@ export default function Counter ({
     [springValue]
   )
 
-  return <span ref={ref} className='font-avenirBold xl:text-6xl lg:text-5xl ' />
+  return (
+    <span
+      className={`font-avenirBold inline-block tabular-nums text-t-off-white xl:text-6xl lg:text-5xl ${className}`}
+      ref={ref}
+    />
+  )
 }

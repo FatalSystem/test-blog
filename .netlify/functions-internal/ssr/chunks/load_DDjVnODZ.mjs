@@ -2,7 +2,7 @@ import path, { resolve } from 'node:path';
 import objectHash from 'object-hash';
 import { fileURLToPath } from 'node:url';
 import fs from 'node:fs';
-import { f as fsCachePath, s as supportedImageTypes, g as getSrcPath, a as sharp } from './prerender_Cxp6qfrF.mjs';
+import { f as fsCachePath, s as supportedImageTypes, g as getSrcPath, a as sharp } from './prerender_Yo6Ing8J.mjs';
 import 'magic-string';
 
 // @ts-check

@@ -9,7 +9,7 @@ const slides = {
   coaches: [
     {
       content: <h1 className={h1Style} >For<br className="md:hidden" /> coaches</h1>,
-      style: "bg-[url('/images/commercial/coaches.webp')] md:h-[60vh] h-[820px]"
+      style: "bg-[url('/images/commercial/coaches.webp')] md:h-[60vh] h-[90vh]"
     },
     {
       content:
@@ -19,13 +19,13 @@ const slides = {
         With Tennibot automating ball collection in the background your students can get up to 30% more practice time. This means more reps, more feedback, and more value. Higher-value lessons translate to higher-paying students.<br /><br />You'll have more energy to coach and the practices will be more enjoyable without the hassle of picking up balls or sweeping courts. Plus, you'll stand out and book more lessons as a coach with the coolest tennis gadget!
         </p>
       </div>,
-      style: 'md:h-[60vh] h-[820px]'
+      style: 'md:h-[60vh] h-[90vh]'
     }
   ],
   clubs: [
     {
       content: <h1 className={h1Style} >For<br className="md:hidden" /> clubs</h1>,
-      style: "bg-[url('/images/commercial/clubs.webp')] md:h-[60vh] h-[820px]"
+      style: "bg-[url('/images/commercial/clubs.webp')] md:h-[60vh] h-[90vh]"
     },
     {
       content:
@@ -35,13 +35,13 @@ const slides = {
         Dazzle your guests and open up new revenue streams for your club. Tennibot is the perfect addition for guests using a ball machine or as a solo rental device for those practicing their serve or training with their kids.<br/><br/>You'll also save your grounds crew time that would have been spent sweeping clay courts. The Tennibot works tirelessly to automate club court chores and leave guests happy and satisfied. Happy guests are much more likely to renew their memberships as well as refer new players.
         </p>
       </div>,
-      style: 'md:h-[60vh] h-[820px]'
+      style: 'md:h-[60vh] h-[90vh]'
     }
   ],
   school: [
     {
       content: <h1 className={h1Style} >For<br className="md:hidden" /> schools</h1>,
-      style: "bg-[url('/images/commercial/school.webp')] md:h-[60vh] h-[820px]"
+      style: "bg-[url('/images/commercial/school.webp')] md:h-[60vh] h-[90vh]"
     },
     {
       content:
@@ -51,7 +51,7 @@ const slides = {
         Gain an edge over other programs by maximizing training time for each athlete. During one-on-one practice sessions, players will be able to hit hundreds more shots per hour compared to training without the Tennibot.<br /><br />Players can hydrate and refresh while coaches give them their feedback instead of wasting valuable time and energy retrieving balls.
         </p>
       </div>,
-      style: 'md:h-[60vh] h-[820px]'
+      style: 'md:h-[60vh] h-[90vh]'
     }
   ]
 }
