@@ -18,6 +18,7 @@ import roverApp from '@assets/rover/roverapp.webp'
 import downloadIOS from '@assets/rover/downloadios.svg'
 import downloadAndroid from '@assets/rover/downloadandroid.svg'
 import { Pages } from "@utils"
+import VideoThumbnail from "@components/VideoThumbnail"
 
 ---
 
@@ -134,23 +135,9 @@ import { Pages } from "@utils"
                     <Text tag="h2" className="text-3xl lg:text-4xl uppercase font-avenirBold" >See it in action</Text>
                 </div>
 
-                <div class="w-full sm:grid sm:grid-cols-2 flex flex-col mt-5 gap-5" >
-                    <div class="rounded-lg bg-[url('/images/rover/setupthumbnail.webp')] bg-center bg-cover overflow-hidden" >
-                        <button class="lg:h-[50vh] w-full relative flex flex-col justify-center items-center md:h-[30vh] h-[30vh]" >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="57" height="72" viewBox="0 0 57 72" fill="none">
-                                <path opacity="0.65" d="M54.5722 31.5497C57.8093 33.722 57.8093 38.278 54.5722 40.4503L9.06586 70.9893C5.25966 73.5437 0 70.9618 0 66.539V5.46099C0 1.03824 5.25965 -1.54367 9.06585 1.01064L54.5722 31.5497Z" fill="#F6F7F2"/>
-                              </svg>
-                              <Text className="font-avenir absolute left-[5%] bottom-[5%] text-t-off-white uppercase text-lg lg:text-2xl 2xl:text-3xl">Setup</Text>
-                        </button>
-                    </div>
-                    <div class="rounded-lg bg-[url('/images/rover/timelapsethumbnail.webp')] bg-center bg-cover overflow-hidden" >
-                        <button class="lg:h-[50vh] w-full  relative flex flex-col justify-center items-center md:h-[30vh] h-[30vh]" >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="57" height="72" viewBox="0 0 57 72" fill="none">
-                                <path opacity="0.65" d="M54.5722 31.5497C57.8093 33.722 57.8093 38.278 54.5722 40.4503L9.06586 70.9893C5.25966 73.5437 0 70.9618 0 66.539V5.46099C0 1.03824 5.25965 -1.54367 9.06585 1.01064L54.5722 31.5497Z" fill="#F6F7F2"/>
-                              </svg>
-                              <Text className="font-avenir absolute left-[5%] bottom-[5%] text-t-off-white uppercase text-lg lg:text-2xl 2xl:text-3xl">Overview</Text>
-                        </button>
-                    </div>
+                 <div class="w-full sm:grid sm:grid-cols-2 flex flex-col mt-5 gap-5" >
+                     <VideoThumbnail client:idle title="setup" videoSource="/videos/t5setup.mp4" className="bg-[url('/images/rover/setupthumbnail.webp')]"  />
+                     <VideoThumbnail client:idle title="overview" videoSource="/videos/t5setup.mp4" className="bg-[url('/images/rover/timelapsethumbnail.webp')]" />
                 </div> 
             </div>
         </section>

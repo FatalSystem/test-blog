@@ -10,8 +10,8 @@ export default defineConfig({
   name: 'default',
   title: 'Tennibot Sanity',
 
-  projectId: sanityProjectId,
-  dataset: sanityDataset,
+  projectId: '3nx5ege4',
+  dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
 
