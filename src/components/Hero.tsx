@@ -1,4 +1,5 @@
 import { Pages } from '@utils'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 import { useMediaQuery } from 'usehooks-ts'
 
@@ -7,8 +8,6 @@ export default function Herot (): JSX.Element {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const videoSource = isTablet ? '/videos/tennibot-preview-tablet.mp4' : '/videos/tennibot-preview.mp4'
-
-
 
   return (
     <section className="h-screen relative overflow-hidden" >
@@ -27,16 +26,37 @@ export default function Herot (): JSX.Element {
             <a href={Pages.BUY} className="tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-center text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" /* theme="green" */ >Buy now</a>
         </div>
       </div>
-      {isOpen && (
-        <div className="fixed inset-0 bg-t-off-black bg-opacity-80 z-50 flex justify-center items-center">
-          <div className="relative bg-transparent p-2 rounded-lg w-[80%] mx-auto">
-            <button className="z-10 absolute top-2 right-5 p-4" onClick={() => { setIsOpen(false) }}>
-              Close
-            </button>
-            <video src={videoSource} controls autoPlay className="w-full rounded-lg"></video>
+      <AnimatePresence>
+        {isOpen && (
+          <div className="fixed inset-0 bg-t-off-black bg-opacity-80 z-50 flex justify-center items-center">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="relative bg-t-off-white p-1 rounded-lg w-[80%] mx-auto">
+                <div className="z-10 absolute top-2 right-5 p-4">
+                  <button onClick={() => { setIsOpen(false) }} className="relative flex flex-row w-12 h-10 ">
+                    <div className="block w-10  absolute left-1/2 top-1/2   transform  -translate-x-1/2 -translate-y-1/2">
+                      <span
+                        aria-hidden="true"
+                        className="block rounded-md absolute h-0.5 w-10 bg-t-off-white transform transition duration-500 ease-in-out rotate-45"
+                      ></span>
+                      <span
+                        aria-hidden="true"
+                        className="block absolute rounded-md h-0.5 w-10 bg-t-off-white  transform transition  duration-500  ease-in-out opacity-0"
+                      ></span>
+                      <span
+                        aria-hidden="true"
+                        className="block absolute rounded-md h-0.5 w-10  bg-t-off-white transform  transition duration-500 ease-in-out -rotate-45"
+                      ></span>
+                    </div>
+                  </button>
+              </div>
+                <video src={videoSource} controls autoPlay className="w-full rounded-lg"></video>
+              </motion.div>
           </div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
     </section>
   )
 }
