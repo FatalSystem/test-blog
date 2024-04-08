@@ -10,8 +10,8 @@ const slides = [
     style: "lg:bg-[url('/images/about/slidetwodesktopxl.webp')] tablet:bg-[25%] min-[550px]:bg-[url('/images/about/slidetwotablet.webp')] tablet:bg-[url('/images/about/slidetwomobilexl.webp')]  bg-[url('/images/about/slidetwo.webp')] tablet:h-[90vh] mobilem:h-[92vh] h-[70vh]"
   },
   {
-    content: <div className='md:max-w-[600px] min-[1440px]:max-w-[750px]  lg:ml-auto lg:mr-[5%] md:mx-auto drop-shadow-2xl' >
-      <h2 className='font-avenirBold uppercase text-2xl mobilem:text-3xl sm:text-5xl lg:text-6xl min-[1440px]:text-7xl drop-shadow-2xl' >Founded in 2016</h2>
+    content: <div className='md:max-w-[800px] min-[1440px]:max-w-[950px]  lg:ml-auto lg:mr-[5%] md:mx-auto drop-shadow-2xl' >
+      <h2 className='font-avenirBold uppercase text-2xl mobilem:text-3xl sm:text-5xl lg:text-6xl min-[1440px]:text-7xl drop-shadow-2xl' >Small but mighty team</h2>
       <p className='font-plutoLight text-md text-pretty mt-3 mb-16 sm:mb-[15%] lg:text-lg min-[1440px]:text-xl drop-shadow-2xl ' >Tennibot is a robotics startup that builds autonomous robots for sports. We focus on creating the best tennis experience for players & coaches around the world. Our team is made up of nerdy engineers, meticulous designers, and "lazy" tennis players.</p>
     </div>,
     style: "xl:bg-[url('/images/about/slidethreedesktopxl.webp')] lg:bg-[url('/images/about/slidethreedesktop.webp')] tablet:bg-[url('/images/about/slidethreetablet.webp')] bg-[url('/images/about/slidethree.webp')] tablet:h-[90vh] mobilem:h-[92vh] h-[70vh] bg-bottom"
