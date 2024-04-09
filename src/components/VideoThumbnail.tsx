@@ -1,3 +1,4 @@
+import { wait } from '@utils'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 import ReactPlayer from 'react-player'
@@ -10,6 +11,7 @@ interface IProps {
 
 export default function VideoThumbnail ({ title, className, videoSource }: IProps): JSX.Element {
   const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [buffering, setBuffering] = useState<boolean>(true)
 
   return (
     <>
@@ -26,12 +28,13 @@ export default function VideoThumbnail ({ title, className, videoSource }: IProp
         {isOpen && (
           <div className="fixed inset-0 bg-t-off-black bg-opacity-80 z-50 flex justify-center items-center">
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                initial={{ opacity: 0, width: '7rem' }}
+                animate={{ opacity: 1, width: '80%' } }
+                transition={{ duration: 0.5 }}
                 exit={{ opacity: 0 }}
-                className="relative bg-t-off-white p-1 min-h-28 min-w-28 rounded-lg w-[80%] mx-auto transition-all duration-300 ease-in-out">
-                <div className="z-10 absolute top-[2%] right-[2%] p-4">
-                  <button onClick={() => { setIsOpen(false) }} className="relative flex flex-row w-12 h-10 ">
+                className="relative bg-t-off-white p-1 lg:min-h-[40vh] min-h-[20vh]  min-w-28 rounded-lg mx-auto transition-all duration-300 ease-in-out">
+                <button onClick={() => { setIsOpen(false) }} className="z-10 absolute top-[2%] right-[2%] p-4">
+                  <div className="relative flex flex-row w-12 h-10 ">
                     <div className="block w-10  absolute left-1/2 top-1/2   transform  -translate-x-1/2 -translate-y-1/2">
                       <span
                         aria-hidden="true"
@@ -46,8 +49,8 @@ export default function VideoThumbnail ({ title, className, videoSource }: IProp
                         className="block absolute rounded-md h-0.5 w-10  bg-t-off-white transform  transition duration-500 ease-in-out -rotate-45"
                       ></span>
                     </div>
-                  </button>
-              </div>
+                  </div>
+              </button>
                 {/* <video src={videoSource} controls autoPlay className="w-full rounded-lg"></video> */}
                 <ReactPlayer
                     url="https://player.vimeo.com/video/932265258"
@@ -55,8 +58,9 @@ export default function VideoThumbnail ({ title, className, videoSource }: IProp
                     width="100%"
                     height="100%"
                     previewTabIndex={0}
-                    // onStart={() => { setHideTitle(true) }}
-                    // onBuffer={() => { setHideTitle(true) }}
+                    // onBufferEnd={() => { setBuffering(false) }}
+                    // onStart={() => { setBuffering(true) }}?
+                    // onBuffer={() => { setBuffering(false) }}
                     config={{
                       vimeo: {
                         playerOptions: {
