@@ -1,7 +1,5 @@
-import { wait } from '@utils'
-import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-import ReactPlayer from 'react-player'
+import VideoPlayer from './VideoPlayer'
 
 interface IProps {
   title: string
@@ -11,7 +9,6 @@ interface IProps {
 
 export default function VideoThumbnail ({ title, className, videoSource }: IProps): JSX.Element {
   const [isOpen, setIsOpen] = useState<boolean>(false)
-  const [buffering, setBuffering] = useState<boolean>(true)
 
   return (
     <>
@@ -24,59 +21,7 @@ export default function VideoThumbnail ({ title, className, videoSource }: IProp
                     <p className="font-avenir absolute left-[5%] bottom-[5%]  text-t-off-white uppercase text-lg lg:text-2xl 2xl:text-3xl">{title}</p>
             </button>
         </div>
-        <AnimatePresence>
-        {isOpen && (
-          <div className="fixed inset-0 bg-t-off-black bg-opacity-80 z-50 flex justify-center items-center">
-              <motion.div
-                initial={{ opacity: 0, width: '7rem' }}
-                animate={{ opacity: 1, width: '80%' } }
-                transition={{ duration: 0.5 }}
-                exit={{ opacity: 0 }}
-                className="relative bg-t-off-white p-1 lg:min-h-[40vh] min-h-[20vh]  min-w-28 rounded-lg mx-auto transition-all duration-300 ease-in-out">
-                <button onClick={() => { setIsOpen(false) }} className="z-10 absolute top-[2%] right-[2%] p-4">
-                  <div className="relative flex flex-row w-12 h-10 ">
-                    <div className="block w-10  absolute left-1/2 top-1/2   transform  -translate-x-1/2 -translate-y-1/2">
-                      <span
-                        aria-hidden="true"
-                        className="block rounded-md absolute h-0.5 w-10 bg-t-off-white transform transition duration-500 ease-in-out rotate-45"
-                      ></span>
-                      <span
-                        aria-hidden="true"
-                        className="block absolute rounded-md h-0.5 w-10 bg-t-off-white  transform transition  duration-500  ease-in-out opacity-0"
-                      ></span>
-                      <span
-                        aria-hidden="true"
-                        className="block absolute rounded-md h-0.5 w-10  bg-t-off-white transform  transition duration-500 ease-in-out -rotate-45"
-                      ></span>
-                    </div>
-                  </div>
-              </button>
-                {/* <video src={videoSource} controls autoPlay className="w-full rounded-lg"></video> */}
-                <ReactPlayer
-                    url="https://player.vimeo.com/video/932265258"
-                    controls={true}
-                    width="100%"
-                    height="100%"
-                    previewTabIndex={0}
-                    // onBufferEnd={() => { setBuffering(false) }}
-                    // onStart={() => { setBuffering(true) }}?
-                    // onBuffer={() => { setBuffering(false) }}
-                    config={{
-                      vimeo: {
-                        playerOptions: {
-                          vimeo_logo: false,
-                          colors: ['00000000', 'C0F20C', 'FFFFFF', '000000'],
-                          responsive: true,
-                          autoplay: true
-                        }
-                      }
-                    }}
-                />
-
-              </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
+        <VideoPlayer isOpen={isOpen} videoSource={videoSource} onClose={() => { setIsOpen(false) }} />
     </>
   )
 }

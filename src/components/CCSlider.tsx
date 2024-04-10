@@ -20,13 +20,13 @@ const slides = {
             Automate ball collection and give your students up to 30% more practice time
           </li>
           <li>
-            More practice time = More reps, more feedback, and more value
+            More practice time means more reps, more feedback, and more value for your students
           </li>
           <li>
             Save your energy and make practices more enjoyable without the hassle of picking up balls
           </li>
           <li>
-            Stand out as the coach with the coolest tennis gadget, and book more lessons
+            Stand out and book more lessons as the coach with the coolest gadget in tennis
           </li>
         </ul>
       </div>,
@@ -44,13 +44,13 @@ const slides = {
         <h3 className={titleStyle} >For clubs</h3>
         <ul className={descriptionStyle} >
           <li>
-            Delight your members by providing the best new technology in Tennis
+            Delight your members by providing the best new technology in tennis
           </li>
           <li>
             Save your grounds-crew time that would have been spent sweeping clay courts
           </li>
           <li>
-            Perfect rental for those practicing their serve, training with their kids, or using a ball machine. 
+            The Tennibot is a perfect rental for those practicing their serve, training with their kids, or using a ball machine
           </li>
         </ul>
       </div>,
@@ -68,13 +68,13 @@ const slides = {
         <h3 className={titleStyle} >For schools</h3>
         <ul className={descriptionStyle} >
           <li>
-            Gain an edge over other tennis programs, train more effectively and beat your rival
+            Gain an edge over other tennis programs, train more effectively, and beat your rivals
           </li>
           <li>
             Players can hit hundreds more shots per hour during one on one practice sessions
           </li>
           <li>
-            More time to hydrate, recover, and learn. Stop wasting it picking up tennis balls
+            Use the time saved by not picking up balls to hydrate, recover, and learn
           </li>
         </ul>
       </div>,
