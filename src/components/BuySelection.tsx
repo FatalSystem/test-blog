@@ -19,10 +19,10 @@ export default function BuySelection (): JSX.Element {
                 <h2 className="font-avenir uppercase text-t-off-white text-3xl bg-t-off-black pr-3 absolute top-[-15%]" >Buy</h2>
             </div>
             <h2 className="md:hidden font-avenir uppercase text-t-off-white text-3xl mb-[-1.2rem]" >Rent</h2>
-            <button onClick={() => { setSelected(0) }} className={`${selected === 0 ? 'md:border-t-green' : 'border-t-off-white'} relative flex-[0_0_30%] border-2 md:hover:border-t-green rounded-lg px-5 mobilem:px-10 md:px-5 lg:px-7  py-5 flex flex-col justify-start transition-all duration-300 ease-in-out`} >
+            <button onClick={() => { setSelected(0) }} className={`${selected === 0 ? 'md:border-t-green' : 'border-t-off-white'} relative flex-[0_0_30%] border-2 md:hover:border-t-green rounded-lg px-5 mobilem:px-10 md:px-5 lg:px-7  py-5 flex flex-col justify-between transition-all duration-300 ease-in-out`} >
                 <div className="flex flex-col tablet:flex-row tablet:justify-between tablet:items-start items-start justify-between w-full" >
-                    <h3 className={titleStyle} >$79 / Month</h3>
-                    <div className="w-full lg:absolute lg:right-0 tablet:w-[30%] tablet:min-w-20 relative flex flex-row gap-2 tablet:flex-col items-center justify-between mb-5 transition-all duration-300 ease-in-out" >
+                    <h3 className={titleStyle} >{`$${isChecked ? '89' : '79'} / Month`}</h3>
+                    <div className="w-full lg:absolute lg:right-0 tablet:w-[30%] tablet:min-w-20 relative flex flex-row tablet:gap-2 gap-0 tablet:flex-col items-center justify-between mb-5 transition-all duration-300 ease-in-out" >
                         <label className={`tablet:hidden font-plutoLight text-xs ${!isChecked ? 'text-t-off-white' : 'text-t-disabled'}`} >Annual Plan</label>
                         <Switch checked={isChecked} className='transition-all mx-auto duration-300 ease-in-out' onCheckedChange={() => { setIsChecked(!isChecked) }} />
                         {
@@ -77,7 +77,7 @@ export default function BuySelection (): JSX.Element {
                         <label className={`tablet:hidden font-plutoLight  text-xs ${isChecked ? 'text-t-off-white' : 'text-t-disabled'}`} >Monthly Plan</label>
                     </div>
                 </div>
-                <ul className="list-disc list-inside text-left flex flex-col gap-3" >
+                <ul className="list-disc list-inside text-left flex flex-col gap-3 mt-4" >
                     <li className={`font-plutoLight text-t-green text-pretty ${itemStyle}`} >Unlimited warranty</li>
                     <li className={`font-plutoLight text-t-green text-pretty ${itemStyle}`} >Classic Membership Included</li>
                     <li className={`font-plutoLight text-t-off-white text-pretty ${itemStyle}`} >Ball Collection</li>
@@ -98,7 +98,7 @@ export default function BuySelection (): JSX.Element {
                 </div>
             </button>
 
-            <button onClick={() => { setSelected(1) }} className={`${selected === 1 ? 'md:border-t-green' : 'border-t-off-white'} bg-t-off-black relative flex-[0_0_30%] border-2 md:hover:border-t-green rounded-lg px-5 mobilem:px-10 md:px-5 lg:px-7 py-5 flex flex-col justify-start transition-all duration-300 ease-in-out`} >
+            <button onClick={() => { setSelected(1) }} className={`${selected === 1 ? 'md:border-t-green' : 'border-t-off-white'} bg-t-off-black relative flex-[0_0_30%] border-2 md:hover:border-t-green rounded-lg px-5 mobilem:px-10 md:px-5 lg:px-7 py-5 flex flex-col justify-between transition-all duration-300 ease-in-out`} >
                 <h3 className={`${titleStyle} mb-7 `} >$499 + $59 / Month</h3>
                 <ul className="list-disc list-inside text-left flex flex-col gap-3" >
                     <li className={`font-plutoLight text-t-green text-pretty ${itemStyle}`} >Unlimited warranty</li>
@@ -122,7 +122,7 @@ export default function BuySelection (): JSX.Element {
             </button>
 
             <h2 className="md:hidden font-avenir uppercase text-t-off-white text-3xl mb-[-2rem]" >Buy</h2>
-            <button onClick={() => { setSelected(2) }} className={`${selected === 2 ? 'md:border-t-green' : 'border-t-off-white'} bg-t-off-black relative flex-[0_0_30%] border-2 md:hover:border-t-green rounded-lg px-5 mobilem:px-10 md:px-5 lg:px-7 py-5 flex flex-col justify-start transition-all duration-300 ease-in-out`} >
+            <button onClick={() => { setSelected(2) }} className={`${selected === 2 ? 'md:border-t-green' : 'border-t-off-white'} bg-t-off-black relative flex-[0_0_30%] border-2 md:hover:border-t-green rounded-lg px-5 mobilem:px-10 md:px-5 lg:px-7 py-5 flex flex-col justify-between transition-all duration-300 ease-in-out`} >
                 <h3 className={`${titleStyle} mb-7 `} >$2,995</h3>
                 <ul className="list-disc list-inside text-left flex flex-col gap-3" >
                     <li className={`font-plutoLight text-t-green text-pretty ${itemStyle}`} >2 Year Warranty</li>
@@ -132,6 +132,7 @@ export default function BuySelection (): JSX.Element {
                     <li className={`font-plutoLight text-t-off-white text-pretty ${itemStyle}`} >Video Recording</li>
                     <li className={`font-plutoLight text-t-off-white text-pretty ${itemStyle}`} >Real Time Line Judging</li>
                     <li className={`font-plutoLight text-t-off-white text-pretty ${itemStyle}`} >Stat Tracking</li>
+                    <br />
                 </ul>
                 <div className="w-full flex flex-col items-center mt-10 md:hidden " >
                     <button className="tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" >

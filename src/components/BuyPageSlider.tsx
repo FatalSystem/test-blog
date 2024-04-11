@@ -2,13 +2,13 @@ import { TSlider } from './TSlider/TSlider'
 
 const slides = [
   {
-    style: "tablet:bg-[url('/images/buy/rovercourt-desktopxl.webp')] bg-[url('/images/buy/rovercourt.webp')] h-[40vh]"
+    style: "tablet:bg-[url('/images/buy/rovercourt-desktopxl.webp')] bg-[url('/images/buy/rovercourt.webp')] h-[50vh]"
   },
   {
-    style: "tablet:bg-[url('/images/buy/stationcourt-desktopxl.webp')] bg-[url('/images/buy/stationcourt.webp')] h-[40vh]"
+    style: "tablet:bg-[url('/images/buy/stationcourt-desktopxl.webp')] bg-[url('/images/buy/stationcourt.webp')] h-[50vh]"
   },
   {
-    style: "tablet:bg-[url('/images/buy/playercourt-desktopxl.webp')] bg-[url('/images/buy/playercourt.webp')] h-[40vh]"
+    style: "tablet:bg-[url('/images/buy/playercourt-desktopxl.webp')] bg-[url('/images/buy/playercourt.webp')] h-[50vh]"
   }
 
 ]
