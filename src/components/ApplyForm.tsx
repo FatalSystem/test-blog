@@ -53,7 +53,13 @@ const formSchema = z.object({
 
 const inputStyle = 'w-full bg-transparent border-2 border-t-off-white rounded-md sm:p-1.5 p-2.5 focus:outline-none focus:ring-indigo-500 focus:border-t-green'
 
-export function ApplyForm ({ id, slug, openQuestionId }): JSX.Element {
+interface IApplyForm {
+  id: string
+  slug: string
+  openQuestionId: string
+}
+
+export function ApplyForm ({ id, slug, openQuestionId }: IApplyForm): JSX.Element {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
