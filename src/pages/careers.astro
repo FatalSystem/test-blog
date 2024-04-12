@@ -1,17 +1,14 @@
 ---
-import Career from "@components/Career.astro"
 import Layout from "../layouts/Layout.astro"
 import Text from "@components/core/Text.astro"
+import CareersList from "@components/CareersList"
+
 ---
 <Layout title="Welcome to Tennibot.">
     <main class="bg-t-off-black overflow-hidden text-t-off-white" >
-        <section class="w-[80%] mx-auto py-20 " >
+        <section class="w-[80%] 2xl:w-[60%] mx-auto py-20 " >
             <Text tag="h1" className="uppercase text-3xl md:text-4xl lg:text-5xl font-black mb-10 font-avenirBold" >Ready to join the team?</Text>
-            <Career title="Manufacturing & supply chain intern" />
-            <Career title="Manufacturing & supply chain intern" />
-            <Career title="Manufacturing & supply chain intern" />
-            <Career title="Manufacturing & supply chain intern" />
-            <Career title="Manufacturing & supply chain intern" />
+            <CareersList client:load />
         </section>
     </main>
 </Layout>

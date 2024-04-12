@@ -1,0 +1,12 @@
+---
+import JobDetail from "@components/JobDetail"
+import Layout from "layouts/Layout.astro"
+---
+
+<Layout title="Tennibot - Job Details">
+    <main class="bg-t-off-black overflow-hidden text-t-off-white" >
+        <section class="w-[80%] 2xl:w-[60%] min-h-screen mx-auto py-20 " >
+            <JobDetail client:only />
+        </section>
+    </main>
+</Layout>
