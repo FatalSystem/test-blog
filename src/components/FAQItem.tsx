@@ -1,6 +1,43 @@
 import { useState } from 'react'
 
-export default function FAQItem ({ question, answer }): JSX.Element {
+const FAQ = [
+  {
+    question: 'Is the Tennibot portable?',
+    answer: 'Yes! The Tennibot weighs only 26lbs and can be easily transported. With the arms stowed, the Rover fits in the trunk of most cars. To get to and from the court, you can use the rear handle to roll the Tennibot like a suitcase.'
+  },
+  {
+    question: 'Do I need an internet connection to operate the Tennibot?',
+    answer: 'The Tennibot has its own Wi-Fi network that you can connect to in order to control it.  You will need an internet connection to create an account and complete the initial setup, but it is not necessary for your court to have internet access in order to operate the Tennibot.'
+  },
+  {
+    question: 'Does the Tennibot really save that much time?',
+    answer: 'In an average hour long session, you may spend up to 20 minutes of your time on the court collecting balls. That’s 30% of your practice time wasted! With Tennibot, that time drops to almost zero, meaning you can use that time to hit hundreds of extra shots every practice.'
+  },
+  {
+    question: 'How do I control the Tennibot?',
+    answer: 'Through the Tennibot app, you can select which zones you want to clear, or even control the Rover manually. The app also allows you to keep track of valuable data, such as match statistics and Station video recordings. The app is available for iOS and Android.'
+  },
+  {
+    question: 'What does the Station do?',
+    answer: 'The Station helps the Rover navigate the court. It can also be used with or without a Rover, to record video and gather valuable match data. It can even recommend areas of your game that need improvement. A Station is included with every purchase of a Rover.'
+  },
+  {
+    question: 'Does it work on clay courts?',
+    answer: <p>Yes! The Tennibot works on both clay and hard courts. If you have a question about performance on your court or a unique surface type please reach out at <span className='text-t-green' >info@tennibot.com</span></p>
+  },
+  {
+    question: 'Can I buy out my rental unit?',
+    answer: <p>Yes, you can choose to buy out and own your Tennibot at any time during your rental. Prices are determined based on how long you have been renting.<br /><br />Tennibot buyout pricing by date of buyout:<br /><br />$1,295 at day 0 to 3 months<br />$1,195 at 3 months, 1 day to 6 months<br />$1,095 at 6 months, 1 day to 12 months<br />$895 at 12 months, 1 day to 24 months<br />$500 on or after 24 months, 1 day</p>
+  }
+]
+
+interface IFAQItem {
+  question: string
+  answer: string | JSX.Element
+  index: number
+}
+
+export default function FAQItem ({ question, answer, index }: IFAQItem): JSX.Element {
   const [hideAnswer, setHideAnswer] = useState(true)
   return (
     <button onClick={() => { setHideAnswer(!hideAnswer) }} className="border-[1px] border-t-off-white text-left rounded-lg px-8 py-4 mb-6" >
@@ -13,7 +50,7 @@ export default function FAQItem ({ question, answer }): JSX.Element {
             </div>
         </div>
 
-        <p className={`font-plutoLight overflow-hidden text-t-off-white text-pretty xl:text-lg ${hideAnswer ? 'max-h-0 opacity-0 mt-0' : 'max-h-[1000px] opacity-100 mt-5'} transition-all ease-in-out duration-500`} >{answer}</p>
+        <p className={`font-plutoLight overflow-hidden text-t-off-white text-pretty xl:text-lg ${hideAnswer ? 'max-h-0 opacity-0 mt-0' : 'max-h-[1000px] opacity-100 mt-5'} transition-all ease-in-out duration-500`} >{FAQ[index].answer}</p>
 
     </button>
   )

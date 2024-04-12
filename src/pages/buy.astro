@@ -2,28 +2,10 @@
 import Layout from "../layouts/Layout.astro"
 import Text from "@components/core/Text.astro"
 import Button from "@components/core/Button.astro"
-import { Image } from 'astro:assets'
-// import Button from "@components/core/Button.astro"
-// import BuyImageGallery from "@components/BuyImageGallery/BuyImageGallery.tsx"
-import {CustomerReviews} from "@components/CustomerReviews.tsx"
-
-import shopPay from "@assets/buy/shoppay.svg"
-import googlePay from "@assets/buy/googlepay.svg"
-import metaPay from "@assets/buy/metapay.svg"
-
-import visa from "@assets/buy/visa.svg"
-import mastercard from "@assets/buy/mastercard.svg"
-import amex from "@assets/buy/amex.svg"
-import discover from "@assets/buy/discover.svg"
-// import type { EmblaOptionsType } from "embla-carousel/components/Options"
-
-
-import roverOnCourt from "@assets/buy/rovercourt.webp"
 import BuyPageSlider from "@components/BuyPageSlider"
 import BuySelection from "@components/BuySelection"
 import { CustomerReview, Marquee } from "@components/Marquee"
 import FAQItem from "@components/FAQItem"
-import { Pages } from "@utils"
 
 const MARQUEE_CONTENT = [
   {
@@ -143,7 +125,7 @@ $1,295 at day 0 to 3 months $1,195 at 3 months, 1 day to 6 months $1,095 at 
 
       <BuySelection client:idle />
 
-      <section>
+      <!-- <section>
         <div class="w-[80%] 2xl:w-[65%] mx-auto pt-5 pb-20">
           <Text tag="h2" className="font-avenir uppercase text-t-off-white text-3xl xl:text-4xl 2xl:text-5xl pb-5" >Membership</Text>
           <div class="flex sm:flex-row flex-col flex-wrap gap-8 min-[850px]:gap-4 md:gap-6 justify-center" >
@@ -162,7 +144,6 @@ $1,295 at day 0 to 3 months $1,195 at 3 months, 1 day to 6 months $1,095 at 
             <div class="flex flex-col border-2 border-t-off-white rounded-lg px-8 py-5 w-full min-[850px]:w-[48.5%] min-[1267px]:w-[32%] bg-[url('/images/buy/classic-bg.webp')] bg-cover bg-center" >
               <div class="flex flex-row justify-between items-baseline">
                 <Text tag="h4" className="font-avenirBold text-t-off-white uppercase text-xl min-[1267px]:text-3xl">Classic</Text> 
-                <!-- <Text  className="font-avenirBold text-t-green uppercase text-xs">Free</Text>  -->
               </div>
               <ul class="list-disc list-inside text-left flex flex-col gap-5 mt-5" >
                 <li class="text-t-off-white font-plutoLight text-sm 2xl:text-base" >1 Year of session analysis storage</li>
@@ -183,9 +164,9 @@ $1,295 at day 0 to 3 months $1,195 at 3 months, 1 day to 6 months $1,095 at 
             
           </div>
         </div>
-      </section>
+      </section> -->
 
-      <section class="bg-t-off-black pt-36 pb-24" >
+      <section class="bg-t-off-black pb-24" >
         <div class="relative flex h-full w-full flex-col items-center justify-center overflow-hidden" >
           <Marquee pauseOnHover className="[--duration:100s]" >
             {MARQUEE_CONTENT.map((item, index) => {
@@ -201,7 +182,7 @@ $1,295 at day 0 to 3 months $1,195 at 3 months, 1 day to 6 months $1,095 at 
         <Text tag="h2" className="font-plutoBold text-t-off-white text-xl lg:text-2xl xl:text-3xl mb-7" >Frequently Asked Questions</Text>
         {FAQ.map((item, index) => {
           return (
-            <FAQItem key={index} question={item.question} answer={item.answer} client:idle />
+            <FAQItem key={index} index={index} question={item.question} answer={item.answer} client:idle />
           )
         })}
       </section>

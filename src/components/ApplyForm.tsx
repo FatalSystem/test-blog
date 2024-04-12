@@ -68,7 +68,7 @@ export function ApplyForm ({ id, slug, openQuestionId }): JSX.Element {
 
   const onSubmit = async (values: z.infer<typeof formSchema>): Promise<void> => {
     if (errorSubmitting) setErrorSubmitting(false)
-    const url = `https://tennibot.recruitee.com/api/offers/${slug}/candidateslaskjd`
+    const url = `https://tennibot.recruitee.com/api/offers/${slug}/candidates`
     const formData = new FormData()
     formData.append('candidate[name]', values.name)
     formData.append('candidate[email]', values.email)
