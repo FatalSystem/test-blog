@@ -68,7 +68,7 @@ const MediaQuotesDesktop: React.FC = (): JSX.Element => {
     <section className="bg-t-off-black py-12 hidden flex-col justify-center content-center flex-wrap | min-[950px]:flex">
       <div className="flex mx-auto gap-5 flex-wrap items-baseline | lg:gap-16 ">
         {mediaQuotesContent.map((item, index) => (
-          <a key={index} onClick={() => { setActiveIndex(index) }} className="group cursor-pointer">
+          <button key={index} onClick={() => { setActiveIndex(index) }} className="group cursor-pointer">
             <img
               src={item.img.src}
               width={item.img.width - imageOffset}
@@ -83,7 +83,7 @@ const MediaQuotesDesktop: React.FC = (): JSX.Element => {
                 activeIndex === index ? 'opacity-100 w-full' : 'opacity-0 w-0'
               } group-hover:opacity-100 group-hover:w-full transform duration-300 `}
             />
-          </a>
+          </button>
         ))}
       </div>
       <p

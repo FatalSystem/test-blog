@@ -9,12 +9,12 @@ export default function BuySelection (): JSX.Element {
   const [isChecked, setIsChecked] = useState<boolean>(false)
   const [selected, setSelected] = useState<number>(0)
 
-  const handleURL = () => {
+  const handleURL = (): string => {
     if (selected === 0) {
-      if (!isChecked) {
-        return 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyNzQ0MjI0MzUsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2ODc5NTIzLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDA3MzMxfV19&store_id=190268'
+      if (isChecked) {
+        return 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyOTExNjY4ODMsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2OTEyMjkxLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDQwMDk5fV19&store_id=190268'
       }
-      return 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyOTExNjY4ODMsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2OTEyMjkxLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDQwMDk5fV19&store_id=190268'
+      return 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyNzQ0MjI0MzUsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2ODc5NTIzLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDA3MzMxfV19&store_id=190268'
     }
     if (selected === 1) {
       return 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMDE0ODM5MDEwOTEsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzA5NDA4NDE5LCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODc5MTAwMDY3fV19&store_id=190268'
@@ -22,6 +22,7 @@ export default function BuySelection (): JSX.Element {
     if (selected === 2) {
       return 'https://tennibot.myshopify.com/cart/44311234936995:1?channel=buy_button'
     }
+    return 'https://tennibot.myshopify.com/cart/44311234936995:1?channel=buy_button'
   }
 
   return (

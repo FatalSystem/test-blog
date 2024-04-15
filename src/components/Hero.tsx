@@ -9,22 +9,6 @@ export default function Herot (): JSX.Element {
 
   const videoSource = isTablet ? '/videos/tennibot-preview-tablet.mp4' : '/videos/tennibot-preview.mp4'
 
-  const test = async () => {
-    try {
-      const response = await fetch('/.netlify/functions/newsletter', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email: 'ohjjmm@gmail.com' })
-      })
-      const data = await response.json()
-      console.log(data)
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
   return (
     <section className="h-screen relative overflow-hidden" >
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen" >
@@ -38,8 +22,8 @@ export default function Herot (): JSX.Element {
             Tennis,<br className="min-[850px]:hidden" /> meet robot
         </h1>
         <div className="mt-7 w-[80%] items-center justify-center flex flex-col sm:flex-row gap-5" >
-            <button onClick={() => { setIsOpen(true) }} className="sm:mr-3 tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-t-off-black bg-t-off-white border-t-off-white md:text-t-off-white md:bg-transparent hover:bg-t-off-white hover:text-t-off-black " >Play video</button>
-            <a href={Pages.BUY} className="tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-center text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" /* theme="green" */ >Buy now</a>
+            <button aria-label='Play full video' onClick={() => { setIsOpen(true) }} className="sm:mr-3 tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-t-off-black bg-t-off-white border-t-off-white md:text-t-off-white md:bg-transparent hover:bg-t-off-white hover:text-t-off-black " >Play video</button>
+            <a href={Pages.BUY} aria-label="Navigate to purchase page" className="tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-center text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" /* theme="green" */ >Buy now</a>
         </div>
       </div>
       <VideoPlayer isOpen={isOpen} videoSource='https://player.vimeo.com/video/888850976' onClose={() => { setIsOpen(false) }} />

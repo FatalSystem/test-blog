@@ -1,2 +1,6 @@
 [functions]
   directory = "functions"
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "index, follow"
