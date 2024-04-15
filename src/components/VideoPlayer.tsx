@@ -21,7 +21,7 @@ export default function VideoPlayer ({ isOpen, onClose, videoSource }: IProps): 
                 transition={{ duration: 0.5 }}
                 exit={{ opacity: 0 }}
                 className="relative bg-transparent min-[450px]:bg-t-off-white p-1 lg:min-h-[40vh] min-h-[20vh]  min-w-28 rounded-lg mx-auto transition-all duration-300 ease-in-out">
-                <button onClick={onClose} className="z-10 absolute min-[450px]:top-[2%] top-[-30%] right-[2%] p-4">
+                <button aria-label="Close video popup" onClick={onClose} className="z-10 absolute min-[450px]:top-[2%] top-[-30%] right-[2%] p-4">
                   <div className="relative flex flex-row w-12 h-10 ">
                     <div className="block w-10  absolute left-1/2 top-1/2   transform  -translate-x-1/2 -translate-y-1/2">
                       <span

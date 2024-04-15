@@ -57,7 +57,7 @@ import usaMap from "@assets/front-page/usa-map.svg"
 
     <section class="flex flex-col md:flex-row tablet:mt-0 mt-[-1px]" >
       <div class="w-full md:w-[50%] md:h-full">
-        <BackgroundImage src="../src/assets/front-page/front-rover.webp" >
+        <BackgroundImage src="../src/assets/front-page/front-rover.webp" alt="Front view of Tennibot's Rover" >
           <div class="h-[60vh] lg:h-[70vh] flex flex-col items-center justify-between py-5" >
             <Text tag="h3" className="uppercase font-avenirBold xl:text-4xl text-3xl" >
               Rover
@@ -66,7 +66,7 @@ import usaMap from "@assets/front-page/usa-map.svg"
               <Text tag="p" className="font-avenir uppercase xl:text-3xl text-xl text-center font-thin" >
                 Take the <strong class="font-avenirBold" >tedious</strong><br> out of <strong class="font-avenirBold" >tennis</strong>
               </Text>
-              <Button href={Pages.ROVER} className="mt-6 w-64" >Learn more</Button>
+              <Button aria-label="Navigate to the Rover page" href={Pages.ROVER} className="mt-6 w-64" >Learn more</Button>
             </div>
           </div>
         </BackgroundImage>
@@ -81,7 +81,7 @@ import usaMap from "@assets/front-page/usa-map.svg"
               <Text tag="p" className="uppercase text-pretty font-avenir text-lg xl:text-3xl mobilem:text-xl text-center" >
                 Your own personal<br> <strong class="font-avenirBold" >coach, analyst and umpire</strong>
               </Text>
-              <Button href={Pages.STATION} className="mt-4 w-64 " >Learn more</Button>
+              <Button aria-label="Navigate to the Station page" href={Pages.STATION} className="mt-4 w-64 " >Learn more</Button>
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@ import usaMap from "@assets/front-page/usa-map.svg"
             </div>
           </div>
           <!-- TODO: Animate highlight on scroll -->
-          <Image src={usaMap} alt="" />
+          <Image src={usaMap} alt="Map of the United States representing the presence of Tennibot." />
         </div>
         <div >
           <Text tag="h6" className="font-black text-center text-5xl" >
