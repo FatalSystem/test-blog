@@ -12,6 +12,13 @@ const { title } = Astro.props
 <!DOCTYPE html>
 <html lang="en">
   <head>
+        <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PLCDBFS5');</script>
+  <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta property="og:url" content="http://tennibot.com" />
 	  <meta property="og:title" content="Tennibot">
@@ -29,8 +36,16 @@ const { title } = Astro.props
     <meta name="generator" content={Astro.generator} />
     <ImageSupportDetection />
     <title>{title}</title>
+    <!-- thoughtmetric -->
+    <script>
+      !function(t,e,i){if(!t.thoughtmetric){t.thoughtmetricQueue=t.thoughtmetricQueue||[],t.thoughtmetric=t.thoughtmetric||function(){t.thoughtmetricQueue.push(arguments)};var u=e.createElement("script");u.async=!0,u.src="https://pixel.thoughtmetric.io/tmpixel.min.js";var h=e.getElementsByTagName("script")[0];h.parentNode.insertBefore(u,h)}}(window,document); thoughtmetric("init","ID-ba61d217d9d871cf"); thoughtmetric("pageview");
+    </script>
   </head>
   <body class="bg-t-off-black" >
+        <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLCDBFS5"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
     <Header client:load />
     <slot />
     <Footer />
