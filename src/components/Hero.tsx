@@ -9,6 +9,22 @@ export default function Herot (): JSX.Element {
 
   const videoSource = isTablet ? '/videos/tennibot-preview-tablet.mp4' : '/videos/tennibot-preview.mp4'
 
+  const test = async () => {
+    try {
+      const response = await fetch('/.netlify/functions/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: 'ohjjmm@gmail.com' })
+      })
+      const data = await response.json()
+      console.log(data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   return (
     <section className="h-screen relative overflow-hidden" >
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen" >

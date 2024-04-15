@@ -10,16 +10,16 @@ const problems = await sanityClient.fetch(`*[_type == "problems"] | order(_creat
 const inputStyle = 'bg-transparent border-2 border-t-off-black rounded-md sm:p-1.5 p-2.5 focus:outline-none focus:ring-indigo-500 focus:border-t-green'
 ---
 
-<Layout title="Welcome to Tennibot.">
+<Layout title="FAQ | Tennibot">
     <main class="bg-t-off-white overflow-hidden text-t-off-black" >
         <section class="w-[90%] md:w-[80%] 2xl:max-w-[1266px] mx-auto pt-20" >
             <Text tag="h1" className="uppercase font-avenirBold lg:text-4xl 2xl:text-6xl text-3xl text-pretty" >Have a question?</Text>
             <Text tag="h3" className="uppercase font-avenirBold lg:font-avenir lg:text-4xl text-3xl 2xl:text-6xl" >You're in the right place</Text>
         </section>
-        <section class="md:w-[80%] 2xl:max-w-[1266px] w-full relative mx-auto my-10 group " >
+        <section class="md:w-[80%] 2xl:max-w-[1266px] w-full relative mx-auto my-10 group pb-20 " >
             <TabContainer client:load questions={questions} problems={problems} />
         </section>
-        <section class="md:py-20 mb-20">
+        <!-- <section class="md:py-20 mb-20">
             <div class="w-[80%] 2xl:max-w-[1266px] mx-auto">
                 <Text tag="h3" className="uppercase font-avenirBold lg:text-3xl 2xl:text-4xl text-2xl text-pretty" >Still have a question?</Text>
                 <Text tag="p" className="text-pretty font-avenir 2xl:text-lg mt-3">We have an answer. Fill out the form below and we'll get back to you as soon as possible.</Text>
@@ -53,6 +53,6 @@ const inputStyle = 'bg-transparent border-2 border-t-off-black rounded-md sm:p-1
 
                 </form>
             </div>
-        </section>
+        </section> -->
     </main>
 </Layout>

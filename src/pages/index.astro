@@ -8,9 +8,7 @@ import Button from "@components/core/Button.astro"
 import Text from "@components/core/Text.astro"
 
 // React
-// import { Marquee, MarqueeItem } from "@components/Marquee"
 import Counter from "@components/Counter"
-// import { TestimonialsSlider, } from "@components/TestimonialsSlider"
 import { MediaQuotes } from "@components/MediaQuotes"
 import FrontPageSlider from "@components/FrontPageSlider"
 import { Pages } from "@utils"
@@ -25,79 +23,10 @@ import courtSweepingMobile from "@assets/front-page/court-sweeping-mobile.webp"
 import matchAnalysis from "@assets/front-page/matchanalysis.webp"
 import matchAnalysisMobile from "@assets/front-page/match-analysis-mobile.webp"
 
-import harvard from "@assets/front-page/marquee/harvard.svg"
-import auburn from "@assets/front-page/marquee/auburn.svg"
-import wakeForest from "@assets/front-page/marquee/wake-forest.svg"
-import stanford from "@assets/front-page/marquee/stanford.svg"
-
 import usaMap from "@assets/front-page/usa-map.svg"
-// import Globe from "@components/Globe"
-
-// const MAIN_SLIDER_OPTIONS: EmblaOptionsType = { loop: false, watchDrag: false }
-// const MAIN_SLIDE_COUNT = 3
-// const MAIN_SLIDES = Array.from(Array(MAIN_SLIDE_COUNT).keys())
-
-const VIDEO_SLIDER_OPTIONS = { loop: true }
-const VIDEO_SLIDES = [
-  {
-    title: `"I think every tennis coach should have one of these."`,
-    author: {
-      name: "John Smith",
-      location: "San Diego, CA"
-    },
-    url: "/"
-  },
-  {
-    title: `"I think every tennis coach should have one of these."`,
-    author: {
-      name: "John Smith",
-      location: "San Diego, CA"
-    },
-    url: "/"
-  },
-  {
-    title: `"I think every tennis coach should have one of these."`,
-    author: {
-      name: "John Smith",
-      location: "San Diego, CA"
-    },
-    url: "/"
-  },
-  {
-    title: `"I think every tennis coach should have one of these."`,
-    author: {
-      name: "John Smith",
-      location: "San Diego, CA"
-    },
-    url: "/"
-  },
-  {
-    title: `"I think every tennis coach should have one of these."`,
-    author: {
-      name: "John Smith",
-      location: "San Diego, CA"
-    },
-    url: "/"
-  },
-]
-
-const MARQUEE_CONTENT = [
-  {
-    img: harvard
-  },
-  {
-    img: auburn
-  },
-  {
-    img: wakeForest
-  },
-  {
-    img: stanford
-  }
-]
 ---
 
-<Layout title="Welcome to Tennibot.">
+<Layout title="Tennibot">
   <main class="bg-t-off-black text-t-off-white" >
     <Hero client:load />
 
@@ -143,7 +72,7 @@ const MARQUEE_CONTENT = [
         </BackgroundImage>
       </div>
       <div class="w-full md:w-[50%] md:h-full" >
-        <div  class=" bg-[url('/images/front-page/station-mobile.webp')] bg-cover bg-bottom" >
+        <div  class=" bg-[url('/images/front-page/station-mobile.webp')] md:bg-[url('/images/front-page/station.webp')] bg-cover bg-top" >
           <div class="h-[60vh] lg:h-[70vh] flex flex-col items-center justify-between py-5">
             <Text tag="h3" className="uppercase font-avenirBold xl:text-4xl text-3xl" >
               Station

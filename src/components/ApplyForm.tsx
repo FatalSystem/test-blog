@@ -177,7 +177,7 @@ export function ApplyForm ({ id, slug, openQuestionId }: IApplyForm): JSX.Elemen
                 )}
             />
         </div>
-        <Button disabled={form.formState.disabled || !form.formState.isValid || form.formState.isSubmitting || (form.formState.isSubmitSuccessful && !errorSubmitting)} className='mt-10 cursor-pointer focus:outline-none focus:ring-indigo-500 focus:border-t-green text-lg w-full tablet:w-64 font-thin rounded-full py-2 font-avenir uppercase border-2 transition-all duration-300 text-t-off-black bg-t-off-white border-t-off-white md:text-t-off-white md:bg-transparent hover:bg-t-off-white hover:text-t-off-black' >
+        <Button disabled={form.formState.disabled || !form.formState.isValid || form.formState.isSubmitting || (form.formState.isSubmitSuccessful && !errorSubmitting)} className='disabled:opacity-50 mt-10 cursor-pointer focus:outline-none focus:ring-indigo-500 focus:border-t-green text-lg w-full tablet:w-64 font-thin rounded-full py-2 font-avenir uppercase border-2 transition-all duration-300 text-t-off-black bg-t-off-white border-t-off-white md:text-t-off-white md:bg-transparent hover:bg-t-off-white hover:text-t-off-black' >
           {form.formState.isSubmitSuccessful && !errorSubmitting && !form.formState.isSubmitting ? 'Sent' : 'Submit'}
           {form.formState.isSubmitting && <Loader2 className="ml-2 size-4 animate-spin" /> }
         </Button>

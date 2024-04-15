@@ -1,5 +1,6 @@
 ---
 import { Pages } from "@utils"
+import FooterNewsletter from "./FooterNewsletter"
 
 
 const contactLink = {
@@ -25,7 +26,7 @@ const dividerStyle = "h-96 border-l-2 border-t-off-white lg:mx-[3.5%] min-[1122p
       </h4>
       <div class="flex flex-wrap">
         <div class="xl:w-[110%] w-full">
-          <form class="flex w-full flex-row">
+          <!-- <form class="flex w-full flex-row">
             <input
               class="font-plutoLight w-full py-3 bg-transparent z-10 border-r-0 pl-5 border-2 border-t-green text-t-off-white"
               type="text"
@@ -39,9 +40,13 @@ const dividerStyle = "h-96 border-l-2 border-t-off-white lg:mx-[3.5%] min-[1122p
               <svg xmlns="http://www.w3.org/2000/svg"  width="35" height="16" viewBox="0 0 45 26" fill="none">
                 <path opacity="0.5" d="M0 13H43M43 13L30.4146 25M43 13L30.4146 1" stroke-width="3"/>
               </svg>
-            </button
-            >
-          </form>
+            </button>
+          </form> -->
+          <FooterNewsletter client:load 
+            formClassName="flex w-full flex-row"
+            inputClassName="font-plutoLight w-ful py-3 bg-transparent border-l-2 border-t-2 border-b-2 border-r-0 pl-5 border-t-green text-t-off-white"
+            buttonClassName="border-t-green border-2 rounded-r-md p-3 fill-current stroke-t-green text-t-green relative hover:bg-t-green hover:stroke-t-off-black transition-all duration-300 ease-in-out"
+             />
         </div>
       </div>
     </div>
@@ -118,7 +123,7 @@ const dividerStyle = "h-96 border-l-2 border-t-off-white lg:mx-[3.5%] min-[1122p
       </h4>
       <div class="flex flex-wrap">
         <div class="w-[80%]">
-          <form class="flex flex-row">
+          <!-- <form class="flex flex-row">
             <input
               class="font-plutoLight w-full py-3 bg-transparent z-10 pl-5 border-r-0 border-2 border-t-green text-t-off-white"
               type="text"
@@ -134,22 +139,27 @@ const dividerStyle = "h-96 border-l-2 border-t-off-white lg:mx-[3.5%] min-[1122p
               </svg>
             </button
             >
-          </form>
+          </form> -->
+          <FooterNewsletter client:load 
+            formClassName="flex w-full flex-row"
+            inputClassName="font-plutoLight w-ful py-3 bg-transparent border-l-2 border-t-2 border-b-2 border-r-0 pl-5 border-t-green text-t-off-white"
+            buttonClassName="border-t-green border-2 rounded-r-md p-3 fill-current stroke-t-green text-t-green relative"
+             />
         </div>
       </div>
       <div class="pt-10 w-fit pr-5">
         <h4 class="font-plutoBold font-black text-t-white mb-4">Contact Us:</h4>
         <ul class="flex flex-row flex-wrap gap-x-8">
-          <li class="mb-4 flex w-full flex-col min-[800px]:w-[50%]">
+          <li class="mb-4 flex w-full flex-col min-[890px]:w-[50%]">
             <a href={contactLink.bookCall} target="_blank" class="font-plutoLight text-md text-t-white hover:text-t-green transition-colors duration-200 uppercase underline">Book a call</a>
           </li>
-          <li class="mb-4 min-[800px]:w-[40%] flex-col flex">
+          <li class="mb-4 min-[890px]:w-[40%] flex-col flex">
             <a href={contactLink.mail} class="font-plutoLight text-md text-t-white  hover:text-t-green transition-colors duration-200">info@tennibot.com</a>
           </li>
           <li class="min-[800px]:w-[50%] mb-4" >
             <a href={contactLink.phone} class="font-plutoLight text-md text-t-white ">2175 Pumphrey Ave.<br />Auburn, AL 36832</a>
           </li>
-          <li class="mb-4 min-[800px]:w-[40%] w-full flex-col flex">
+          <li class="mb-4 min-[890px]:w-[40%] w-full flex-col flex">
             <a class="font-plutoLight text-md text-t-white hover:text-t-green transition-colors duration-200">(334)-449-7347</a>
           </li>
         </ul>
@@ -202,7 +212,7 @@ const dividerStyle = "h-96 border-l-2 border-t-off-white lg:mx-[3.5%] min-[1122p
       </h4>
       <div class="flex flex-wrap justify-center">
         <div class="w-full">
-          <form class="flex flex-row  mx-auto">
+          <!-- <form class="flex flex-row  mx-auto">
             <input
               class="font-plutoLight w-full py-3 bg-transparent z-10 pl-5 border-r-0 border-2 border-t-green text-t-off-white"
               type="text"
@@ -218,7 +228,12 @@ const dividerStyle = "h-96 border-l-2 border-t-off-white lg:mx-[3.5%] min-[1122p
               </svg>
             </button
             >
-          </form>
+          </form> -->
+          <FooterNewsletter client:load 
+            formClassName="flex w-full flex-row"
+            inputClassName="font-plutoLight w-ful py-3 bg-transparent border-r-0 pl-5 border-2 border-t-green text-t-off-white"
+            buttonClassName="border-t-green border-2 rounded-r-md p-3 fill-current stroke-t-off-black relative bg-t-green"
+             />
         </div>
       </div>
     </div>

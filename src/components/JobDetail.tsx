@@ -35,15 +35,6 @@ const ProgressBar = (): JSX.Element => {
 export default function JobDetail (): JSX.Element {
   const [jobDetails, setJobDetails] = useState<IJobDetails | undefined>()
 
-  const [applicant, setApplicant] = useState({
-    name: '',
-    phone: '',
-    email: ''
-  })
-
-  const [resume, setResume] = useState<File | undefined>()
-  const [coverLetter, setCoverLetter] = useState<File | undefined>()
-
   const fetchJobDetails = async (): Promise<void> => {
     try {
       const params = new URLSearchParams(window.location.search)
@@ -62,38 +53,8 @@ export default function JobDetail (): JSX.Element {
           openQuestionId: jobDetailsData.offer.open_questions[0].id
         })
       }
-      console.log(jobDetailsData.offer)
     } catch (error) {
       console.error(error)
-    }
-  }
-
-  const applyForJob = async (): Promise<void> => {
-    const url = `https://tennibot.recruitee.com/api/offers/${applicant.slug}/candidates`
-    const formData = new FormData()
-    formData.append('candidate[name]', applicant.name)
-    formData.append('candidate[email]', applicant.email)
-    formData.append('candidate[phone]', applicant.phone)
-    formData.append('candidate[cv]', applicant.resume)
-
-    if (applicant.openQuestionId && applicant.coverLetter) {
-      formData.append('candidate[open_question_answers_attributes][0][open_question_id]', applicant.openQuestionId)
-      formData.append('candidate[open_question_answers_attributes][0][file]', applicant.coverLetter)
-    }
-
-    try {
-      const response = await fetch(url, {
-        method: 'POST',
-        body: formData
-      })
-      const data = await response.json()
-      if (data.candidate && data.candidate.name === applicant.name) {
-        console.log('Application successful')
-      } else {
-        throw new Error('The request failed.')
-      }
-    } catch (error) {
-      console.error('Error:', error)
     }
   }
 
@@ -145,43 +106,7 @@ export default function JobDetail (): JSX.Element {
 
         <section>
             <h2 className={h2Style} >Apply now</h2>
-
             <ApplyForm id={jobDetails.id} slug={jobDetails.slug} openQuestionId={jobDetails.openQuestionId} />
-
-            {/* <div>
-                <form onSubmit={(e) => {
-                    e.preventDefault()
-                    applyForJob()
-                }} className='text-t-off-white flex flex-col font-avenir 2xl:text-lg gap-5' >
-                    <div className="flex flex-col w-full gap-1">
-                        <label htmlFor="name">Full name</label>
-                        <input type="text" id="name" name="name" value={applicant.name} onChange={(val) => { setApplicant({ ...applicant, name: val }) }} className={inputStyle} required />
-                    </div>
-
-                    <div className="flex flex-col w-full gap-1">
-                        <label htmlFor='phone' >Phone number</label>
-                        <input type='tel' id='phone' name='phone' value={applicant.phone} onChange={(val) => { setApplicant({ ...applicant, phone: val }) }} className={inputStyle} required />
-                    </div>
-
-                    <div className="flex flex-col w-full gap-1">
-                        <label htmlFor='email' >Email address</label>
-                        <input type='email' id='email' name='email' onChange={(val) => { setApplicant({ ...applicant, email: val }) }} className={inputStyle} required />
-                    </div>
-
-                    <div className="flex sm:flex-row flex-col w-full gap-5">
-                        <div className="flex flex-col w-full gap-1">
-                            <label htmlFor='resume' >Upload resume</label>
-                            <input type='file' id='resume' name='resume' value={resume} onChange={(file) => { setResume(file) }} required />
-                        </div>
-
-                        <div className="flex flex-col w-full gap-1">
-                            <label htmlFor='cover-letter' >Cover letter</label>
-                            <input id='cover-letter' type="file" name='cover-letter' value={coverLetter} onChange={(file) => { setCoverLetter(file) }} />
-                        </div>
-                    </div>
-                    <input type="submit" value="Submit" className="mt-5 cursor-pointer focus:outline-none focus:ring-indigo-500 focus:border-t-green text-lg w-full tablet:w-64 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-t-off-black bg-t-off-white border-t-off-white md:text-t-off-white md:bg-transparent hover:bg-t-off-white hover:text-t-off-black" />
-                </form>
-            </div> */}
         </section>
     </motion.div>
   )

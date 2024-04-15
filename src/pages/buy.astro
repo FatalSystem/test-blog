@@ -68,16 +68,16 @@ const MARQUEE_CONTENT = [
 
 const FAQ = [
   {
+    question: 'Does it work on clay courts?',
+    answer: 'yes'
+  },
+  {
     question: 'Is the Tennibot portable?',
     answer: 'Yes! The Tennibot weighs only 26lbs and can be easily transported. With the arms stowed, the Rover fits in the trunk of most cars. To get to and from the court, you can use the rear handle to roll the Tennibot like a suitcase.'
   },
   {
-    question: 'Do I need an internet connection to operate the Tennibot?',
-    answer: 'The Tennibot has its own Wi-Fi network that you can connect to in order to control it.  You will need an internet connection to create an account and complete the initial setup, but it is not necessary for your court to have internet access in order to operate the Tennibot.'
-  },
-  {
     question: 'Does the Tennibot really save that much time?',
-    answer: `In an average hour long session, you may spend up to 20 minutes of your time on the court collecting balls. That's 30% of your practice time wasted! With Tennibot, that time drops to almost zero, meaning you can use that time to hit hundreds of extra shots every practice.`
+    answer: 'In an average hour long session, you may spend up to 20 minutes of your time on the court collecting balls. That’s 30% of your practice time wasted! With Tennibot, that time drops to almost zero, meaning you can use that time to hit hundreds of extra shots every practice.'
   },
   {
     question: 'How do I control the Tennibot?',
@@ -88,17 +88,18 @@ const FAQ = [
     answer: 'The Station helps the Rover navigate the court. It can also be used with or without a Rover, to record video and gather valuable match data. It can even recommend areas of your game that need improvement. A Station is included with every purchase of a Rover.'
   },
   {
-    question: 'Does it work on clay courts?',
-    answer: 'Yes! The Tennibot works on both clay and hard courts. If you have a question about performance on your court or a unique surface type please reach out at info@tennibot.com'
+    question: 'Do I need an internet connection to operate the Tennibot?',
+    answer: 'The Tennibot has its own Wi-Fi network that you can connect to in order to control it.  You will need an internet connection to create an account and complete the initial setup, but it is not necessary for your court to have internet access in order to operate the Tennibot.'
   },
   {
-    question: 'Can I buy out my rental unit?',
-    answer: 'yes'  },
+    question: 'Do my annual/monthly payments count toward purchasing the Tennibot?',
+    answer: 'yes'
+  }
 ]
 
 ---
 
-<Layout title="Welcome to Tennibot.">
+<Layout title="Buy | Tennibot">
     <main class="bg-t-off-black overflow-hidden text-t-off-white" >
       <section class="min-[570px]:w-[80%] w-full 2xl:w-[65%] mx-auto py-20" >
         <div class="w-[80%] min-[570px]:w-full mx-auto flex min-[570px]:flex-row flex-col justify-between min-[570px]:h-[10vh]" >
@@ -173,7 +174,7 @@ const FAQ = [
         </div>
       </section>
 
-      <section class="w-[80%] 2xl:w-[65%] py-20 mx-auto">
+      <section id="faq" class="w-[80%] 2xl:w-[65%] py-20 mx-auto">
         <Text tag="h2" className="font-plutoBold text-t-off-white text-xl lg:text-2xl xl:text-3xl mb-7" >Frequently Asked Questions</Text>
         {FAQ.map((item, index) => {
           return (

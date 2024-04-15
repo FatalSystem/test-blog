@@ -2,12 +2,12 @@ import { useState } from 'react'
 
 const FAQ = [
   {
-    question: 'Is the Tennibot portable?',
-    answer: 'Yes! The Tennibot weighs only 26lbs and can be easily transported. With the arms stowed, the Rover fits in the trunk of most cars. To get to and from the court, you can use the rear handle to roll the Tennibot like a suitcase.'
+    question: 'Does it work on clay courts?',
+    answer: <p>Yes! The Tennibot works on both clay and hard courts. If you have a question about performance on your court or a unique surface type please reach out at <span className='text-t-green' >info@tennibot.com</span></p>
   },
   {
-    question: 'Do I need an internet connection to operate the Tennibot?',
-    answer: 'The Tennibot has its own Wi-Fi network that you can connect to in order to control it.  You will need an internet connection to create an account and complete the initial setup, but it is not necessary for your court to have internet access in order to operate the Tennibot.'
+    question: 'Is the Tennibot portable?',
+    answer: 'Yes! The Tennibot weighs only 26lbs and can be easily transported. With the arms stowed, the Rover fits in the trunk of most cars. To get to and from the court, you can use the rear handle to roll the Tennibot like a suitcase.'
   },
   {
     question: 'Does the Tennibot really save that much time?',
@@ -22,12 +22,18 @@ const FAQ = [
     answer: 'The Station helps the Rover navigate the court. It can also be used with or without a Rover, to record video and gather valuable match data. It can even recommend areas of your game that need improvement. A Station is included with every purchase of a Rover.'
   },
   {
-    question: 'Does it work on clay courts?',
-    answer: <p>Yes! The Tennibot works on both clay and hard courts. If you have a question about performance on your court or a unique surface type please reach out at <span className='text-t-green' >info@tennibot.com</span></p>
+    question: 'Do I need an internet connection to operate the Tennibot?',
+    answer: 'The Tennibot has its own Wi-Fi network that you can connect to in order to control it.  You will need an internet connection to create an account and complete the initial setup, but it is not necessary for your court to have internet access in order to operate the Tennibot.'
   },
   {
-    question: 'Can I buy out my rental unit?',
-    answer: <p>Yes, you can choose to buy out and own your Tennibot at any time during your rental. Prices are determined based on how long you have been renting.<br /><br />Tennibot buyout pricing by date of buyout:<br /><br />$1,295 at day 0 to 3 months<br />$1,195 at 3 months, 1 day to 6 months<br />$1,095 at 6 months, 1 day to 12 months<br />$895 at 12 months, 1 day to 24 months<br />$500 on or after 24 months, 1 day</p>
+    question: 'Do my annual/monthly payments count toward purchasing the Tennibot?',
+    answer: <p>Yes. When you decide you love the Tennibot and are ready to purchase outright, here are the buyout options: <ul className='list-disc list-inside'><br />
+      <li>0-3 Months    $2,950.00 </li>
+      <li>3-6 Months    $2,800.00</li>
+      <li>6-12 Months    $2,600.00 </li>
+      <li>12-24 Months   $2,250.00 </li>
+      <li>24+ Months  $1,500.00 </li>
+      </ul></p>
   }
 ]
 
@@ -40,7 +46,7 @@ interface IFAQItem {
 export default function FAQItem ({ question, answer, index }: IFAQItem): JSX.Element {
   const [hideAnswer, setHideAnswer] = useState(true)
   return (
-    <button onClick={() => { setHideAnswer(!hideAnswer) }} className="border-[1px] border-t-off-white text-left rounded-lg px-8 py-4 mb-6" >
+    <button onClick={() => { setHideAnswer(!hideAnswer) }} className="border-[1px] w-full border-t-off-white text-left rounded-lg px-8 py-4 mb-6" >
         <div className="flex flex-row justify-between items-center" >
             <h6 className="font-plutoBold text-t-off-white xl:text-xl" >{question}</h6>
             <div className={`${hideAnswer ? 'rotate-0' : 'rotate-180'} ml-5 transition-all ease-in-out duration-500`} >
