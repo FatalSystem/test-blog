@@ -16,6 +16,9 @@ export default defineConfig({
   // },
   site: 'https://www.tennibot.com',
   output: 'hybrid',
+  redirects: {
+    '/how-it-works/': '/rover/'
+  },
   integrations: [tailwind(), sitemap(), react({
     experimentalReactChildren: true
   }), astroImageTools, sanityIntegration({
