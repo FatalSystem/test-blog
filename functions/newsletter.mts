@@ -11,14 +11,22 @@ export default async (event: Request, context: Context): Promise<Response> => {
     server: 'us8'
   })
 
-  // TODO: RECAPTCHA
+  const RC_SECRET_KEY = Netlify.env.get('RC_SECRET_KEY')
+
   try {
     const data = await event.json()
-    const email = data.email
+    const { email, rcToken } = data
+    const recaptchaResponse = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${RC_SECRET_KEY}&response=${rcToken}`)
+    const recaptchaData = await recaptchaResponse.json()
+    console.log(recaptchaData)
+    if (recaptchaData.success === false || recaptchaData.score < 0.5) {
+      return new Response('Invalid reCAPTCHA', { status: 400 })
+    }
     const response = await MCClient.lists.setListMember('b9aa6b4480', email, {
       email_address: email,
       skip_merge_validation: true,
-      status_if_new: 'subscribed'
+      status_if_new: 'subscribed',
+      status: 'subscribed'
     })
     return new Response(JSON.stringify(response))
   } catch (error) {

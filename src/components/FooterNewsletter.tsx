@@ -4,17 +4,13 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
-  FormItem,
-  FormLabel,
-  FormMessage
+  FormItem
 } from './Form'
 import { Input } from './Input'
 import { Info, Loader2 } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from './Button'
-import { wait } from '@utils'
 
 const formSchema = z.object({
   email: z.string().email({
@@ -29,6 +25,7 @@ export default function FooterNewsletter ({ formClassName, inputClassName, butto
       email: ''
     }
   })
+  const [token, setToken] = useState<string>('')
   const [errorSubmitting, setErrorSubmitting] = useState<boolean>(false)
   const formSent = form.formState.isSubmitSuccessful && !errorSubmitting && !form.formState.isSubmitting
 
@@ -36,13 +33,13 @@ export default function FooterNewsletter ({ formClassName, inputClassName, butto
     try {
       if (errorSubmitting) setErrorSubmitting(false)
       if (form.formState.submitCount > 3) throw new Error('Too many attempts')
-      // TODO: RECAPTCHA
+      if (!token) { console.error('No token'); return }
       const response = await fetch('/.netlify/functions/newsletter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email: values.email })
+        body: JSON.stringify({ email: values.email, rcToken: token })
       })
       const data = await response.json()
       console.log(data)
@@ -51,6 +48,16 @@ export default function FooterNewsletter ({ formClassName, inputClassName, butto
       console.error(error)
     }
   }
+
+  useEffect(() => {
+    grecaptcha.ready(() => {
+      grecaptcha.execute('6LfPJjcpAAAAAOmlbStg7zLCp1PLGKONPGkRlA0g', { action: 'footerNewsletter' })
+        .then((token) => {
+          console.log('token', token)
+          setToken(token)
+        })
+    })
+  }, []) // Empty dependency array means this runs once on mount
 
   return (
     <Form {...form} >

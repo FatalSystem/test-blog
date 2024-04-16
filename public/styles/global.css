@@ -87,4 +87,8 @@
         height: 600px !important;
     }
 }
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
   
