@@ -56,7 +56,7 @@ export default function FooterNewsletter ({ formClassName, inputClassName, butto
           setToken(token)
         })
     })
-  }, []) // Empty dependency array means this runs once on mount
+  }, [])
 
   return (
     <Form {...form} >

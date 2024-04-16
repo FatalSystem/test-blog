@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from './Form'
 import { Input } from './Input'
 import { useForm } from 'react-hook-form'
@@ -45,6 +45,7 @@ export default function CommercialForm (): JSX.Element {
       newsletter: false
     }
   })
+  const [token, setToken] = useState<string>('')
 
   const [errorSubmitting, setErrorSubmitting] = useState<boolean>(false)
 
@@ -52,6 +53,25 @@ export default function CommercialForm (): JSX.Element {
     return Object.keys(data)
       .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
       .join('&')
+  }
+
+  const subscribeToNewsletter = async (email: string): Promise<void> => {
+    try {
+      if (form.formState.submitCount > 3) throw new Error('Too many attempts')
+      if (!token) { console.error('No token'); return }
+      const response = await fetch('/.netlify/functions/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, rcToken: token })
+      })
+      const data = await response.json()
+      console.log(data)
+    } catch (error) {
+      setErrorSubmitting(true)
+      console.error(error)
+    }
   }
 
   const onSubmit = async (values: z.infer<typeof formSchema>): Promise<void> => {
@@ -67,19 +87,18 @@ export default function CommercialForm (): JSX.Element {
     formData.append('title', values.facility)
     formData.append('about', values.about)
     formData.append('zipcode', values.zipcode)
-
-    console.log('newsletter', values.newsletter)
     try {
-      // TODO: RECAPTCHA
+      if (values.newsletter && values.email !== '') {
+        await subscribeToNewsletter(values.email)
+      }
       const response = await fetch('/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: encode({"form-name": "commercial", ...values })
+        body: encode({ 'form-name': 'commercial', ...values })
       })
-      const data = await response.json()
-      console.log(data)
+      console.log(response)
     } catch (error) {
       setErrorSubmitting(true)
       console.error(error)
@@ -100,6 +119,15 @@ export default function CommercialForm (): JSX.Element {
     //   console.error(error)
     // }
   }
+
+  useEffect(() => {
+    grecaptcha.ready(() => {
+      grecaptcha.execute('6LfPJjcpAAAAAOmlbStg7zLCp1PLGKONPGkRlA0g', { action: 'footerNewsletter' })
+        .then((token) => {
+          setToken(token)
+        })
+    })
+  }, [])
 
   return (
     <Form {...form}>
