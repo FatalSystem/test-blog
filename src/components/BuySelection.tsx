@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Switch } from './Switch'
 import { motion } from 'framer-motion'
+import ReactGA from 'react-ga4'
 
 const titleStyle = 'text-t-off-white text-left font-avenirBold text-xl md:text-base lg:text-xl xl:text-2xl mb-4'
 const itemStyle = 'text-sm md:text-xs xl:text-sm 2xl:text-base'
@@ -9,21 +10,57 @@ export default function BuySelection (): JSX.Element {
   const [isChecked, setIsChecked] = useState<boolean>(false)
   const [selected, setSelected] = useState<number>(0)
 
-  const handleURL = (): string => {
-    if (selected === 0) {
+  const handleNavigation = (product: number): void => {
+    ReactGA.event({
+      category: 'Buy',
+      action: 'Buy selection',
+      label: 'Checkout button clicked'
+    })
+
+    if (product === 0) {
       if (isChecked) {
-        return 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyOTExNjY4ODMsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2OTEyMjkxLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDQwMDk5fV19&store_id=190268'
+        ReactGA.event({
+          category: 'Buy',
+          action: 'Buy selection',
+          label: 'Annual Plan'
+        })
+        window.location.href = 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyOTExNjY4ODMsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2OTEyMjkxLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDQwMDk5fV19&store_id=190268'
+        return
       }
-      return 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyNzQ0MjI0MzUsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2ODc5NTIzLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDA3MzMxfV19&store_id=190268'
+      ReactGA.event({
+        category: 'Buy',
+        action: 'Buy selection',
+        label: 'Monthly Plan'
+      })
+      window.location.href = 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyNzQ0MjI0MzUsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2ODc5NTIzLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDA3MzMxfV19&store_id=190268'
+      return
     }
-    if (selected === 1) {
-      return 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMDE0ODM5MDEwOTEsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzA5NDA4NDE5LCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODc5MTAwMDY3fV19&store_id=190268'
+
+    if (product === 1) {
+      ReactGA.event({
+        category: 'Buy',
+        action: 'Buy selection',
+        label: 'Dynamic Plan'
+      })
+      window.location.href = 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMDE0ODM5MDEwOTEsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzA5NDA4NDE5LCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODc5MTAwMDY3fV19&store_id=190268'
+      return
     }
-    if (selected === 2) {
-      return 'https://tennibot.myshopify.com/cart/44311234936995:1?channel=buy_button'
+
+    if (product === 2) {
+      ReactGA.event({
+        category: 'Buy',
+        action: 'Buy selection',
+        label: 'One-Time'
+      })
+      window.location.href = 'https://tennibot.myshopify.com/cart/44311234936995:1?channel=buy_button'
     }
-    return 'https://tennibot.myshopify.com/cart/44311234936995:1?channel=buy_button'
   }
+
+  useEffect(() => {
+    if (!ReactGA.isInitialized) {
+      ReactGA.initialize('G-5MY88GRQM4')
+    }
+  }, [])
 
   return (
     <section className="w-[80%] 2xl:w-[65%] mx-auto md:pt-16 pt-0 pb-20" >
@@ -104,7 +141,9 @@ export default function BuySelection (): JSX.Element {
                     <li className={`font-plutoLight text-t-off-white text-pretty ${itemStyle}`} >Discounted buy out price<br /><a href="#faq" className='underline text-t-green' >*more details below</a></li>
                 </ul>
                 <div className="w-full flex flex-col items-center mt-10 md:hidden " >
-                    <a href={isChecked ? 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyOTExNjY4ODMsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2OTEyMjkxLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDQwMDk5fV19&store_id=190268' : 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyNzQ0MjI0MzUsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2ODc5NTIzLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDA3MzMxfV19&store_id=190268'} target='_blank' className="text-center tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
+                    <a onClick={() => {
+                      handleNavigation(0)
+                    }} target='_blank' className="text-center tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
                         Proceed to Checkout
                     </a>
                     <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 4-5 weeks</label>
@@ -127,7 +166,9 @@ export default function BuySelection (): JSX.Element {
                     <li className={`font-plutoLight text-t-off-white text-pretty ${itemStyle} pb-2`} >Discounted buy out price<br /><a href="#faq" className='underline text-t-green' >*more details below</a></li>
                 </ul>
                 <div className="w-full flex flex-col items-center mt-10 md:hidden " >
-                    <a href="https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMDE0ODM5MDEwOTEsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzA5NDA4NDE5LCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODc5MTAwMDY3fV19&store_id=190268" target='_blank' className=" text-center tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
+                    <a onClick={() => {
+                      handleNavigation(1)
+                    }} target='_blank' className=" text-center tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
                         Proceed to Checkout
                     </a>
                     <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 4-5 weeks</label>
@@ -151,7 +192,9 @@ export default function BuySelection (): JSX.Element {
                     <br />
                 </ul>
                 <div className="w-full flex flex-col items-center mt-10 md:hidden " >
-                    <a href="https://tennibot.myshopify.com/cart/44311234936995:1?channel=buy_button" target='_blank' className=" text-center tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
+                    <a onClick={() => {
+                      handleNavigation(2)
+                    }} target='_blank' className=" text-center tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
                         Proceed to Checkout
                     </a>
                     <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 4-5 weeks</label>
@@ -162,7 +205,9 @@ export default function BuySelection (): JSX.Element {
             </button>
         </div>
         <div className="w-full md:flex flex-col items-center my-20 hidden" >
-            <a href={handleURL()} target='_blank' className="sm:mr-3 text-center tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
+            <a onClick={() => {
+              handleNavigation(selected)
+            }} target='_blank' className="sm:mr-3 text-center tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
                 Proceed to Checkout
             </a>
             <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 4-5 weeks</label>
