@@ -53,11 +53,10 @@ export default function FooterNewsletter ({ formClassName, inputClassName, butto
     grecaptcha.ready(() => {
       grecaptcha.execute('6LfPJjcpAAAAAOmlbStg7zLCp1PLGKONPGkRlA0g', { action: 'footerNewsletter' })
         .then((token) => {
-          console.log('token', token)
           setToken(token)
         })
     })
-  }, []) // Empty dependency array means this runs once on mount
+  }, [])
 
   return (
     <Form {...form} >

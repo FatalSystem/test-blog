@@ -18,7 +18,6 @@ export default async (event: Request, context: Context): Promise<Response> => {
     const { email, rcToken } = data
     const recaptchaResponse = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${RC_SECRET_KEY}&response=${rcToken}`)
     const recaptchaData = await recaptchaResponse.json()
-    console.log(recaptchaData)
     if (recaptchaData.success === false || recaptchaData.score < 0.5) {
       return new Response('Invalid reCAPTCHA', { status: 400 })
     }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from './Form'
 import { Input } from './Input'
 import { useForm } from 'react-hook-form'
@@ -45,8 +45,35 @@ export default function CommercialForm (): JSX.Element {
       newsletter: false
     }
   })
+  const [token, setToken] = useState<string>('')
+  const [sent, setSent] = useState<boolean>(false)
 
   const [errorSubmitting, setErrorSubmitting] = useState<boolean>(false)
+
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&')
+  }
+
+  const subscribeToNewsletter = async (email: string): Promise<void> => {
+    try {
+      if (form.formState.submitCount > 3) throw new Error('Too many attempts')
+      if (!token) { console.error('No token'); return }
+      const response = await fetch('/.netlify/functions/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, rcToken: token })
+      })
+      const data = await response.json()
+      console.log(data)
+    } catch (error) {
+      setErrorSubmitting(true)
+      console.error(error)
+    }
+  }
 
   const onSubmit = async (values: z.infer<typeof formSchema>): Promise<void> => {
     if (errorSubmitting) setErrorSubmitting(false)
@@ -61,24 +88,32 @@ export default function CommercialForm (): JSX.Element {
     formData.append('title', values.facility)
     formData.append('about', values.about)
     formData.append('zipcode', values.zipcode)
-
-    console.log('newsletter', values.newsletter)
     try {
-      // TODO: RECAPTCHA
-      const response = await fetch('/.netlify/functions/commercial', {
+      if (values.newsletter && values.email !== '') {
+        await subscribeToNewsletter(values.email)
+      }
+      await fetch('/', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: JSON.stringify(values)
+        body: encode({ 'form-name': 'commercial', ...values })
       })
-      const data = await response.json()
-      console.log(data)
+      setSent(true)
     } catch (error) {
       setErrorSubmitting(true)
       console.error(error)
     }
   }
+
+  useEffect(() => {
+    grecaptcha.ready(() => {
+      grecaptcha.execute('6LfPJjcpAAAAAOmlbStg7zLCp1PLGKONPGkRlA0g', { action: 'footerNewsletter' })
+        .then((token) => {
+          setToken(token)
+        })
+    })
+  }, [])
 
   return (
     <Form {...form}>
@@ -163,8 +198,8 @@ export default function CommercialForm (): JSX.Element {
                     </FormItem>
                 )}
                 />
-                <Button disabled={form.formState.disabled || !form.formState.isValid || form.formState.isSubmitting || (form.formState.isSubmitSuccessful && !errorSubmitting)} className='disabled:opacity-50 mt-6 cursor-pointer focus:outline-none focus:ring-indigo-500 focus:border-t-green text-lg w-full tablet:w-64 font-thin rounded-full py-2 font-avenir uppercase border-2 transition-all duration-300 text-t-off-black bg-t-off-white border-t-off-white md:text-t-off-white md:bg-transparent hover:bg-t-off-white hover:text-t-off-black' >
-                    {form.formState.isSubmitSuccessful && !errorSubmitting && !form.formState.isSubmitting ? 'Sent' : 'Submit'}
+                <Button disabled={form.formState.disabled || !form.formState.isValid || form.formState.isSubmitting || (form.formState.isSubmitSuccessful && !errorSubmitting) || sent} className='flex flex-row  justify-center items-center disabled:opacity-50 mt-6 cursor-pointer focus:outline-none focus:ring-indigo-500 focus:border-t-green text-lg w-full tablet:w-64 font-thin rounded-full py-2 font-avenir uppercase border-2 transition-all duration-300 text-t-off-black bg-t-off-white border-t-off-white md:text-t-off-white md:bg-transparent hover:bg-t-off-white hover:text-t-off-black' >
+                    {sent && !errorSubmitting && !form.formState.isSubmitting ? 'Sent' : 'Submit'}
                     {form.formState.isSubmitting && <Loader2 className="ml-2 size-4 animate-spin" /> }
                 </Button>
                 <FormField

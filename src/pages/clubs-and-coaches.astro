@@ -86,7 +86,7 @@ const labelStyle = 'lg:text-lg xl:text-xl'
             <CCSlider client:only="react" type="school" />
         </section>
 
-        <!-- <section>
+        <section>
             <div class="w-[80%] mx-auto pb-20" >
                 <div class="mt-20 mb-10" >
                     <Text tag="h2" className="font-avenir font-light uppercase text-t-off-white text-3xl sm:text-4xl lg:text-5xl" ><span class="font-avenirBold">Tennibot</span> commercial</Text>
@@ -95,7 +95,47 @@ const labelStyle = 'lg:text-lg xl:text-xl'
 
                 <CommercialForm client:load /> 
             </div>
-        </section> -->
+            <form name="commercial" method="post" data-netlify="true" class="font-plutoLight text-t-off-white grid-cols-1 gap-5 hidden" >
+                <div class="flex flex-row sm:gap-5 gap-10 flex-wrap" >
+                    <div class="flex flex-col md:w-[48%] w-full gap-1">
+                        <label for="name" class={labelStyle} >Name</label>
+                        <input id="name" name="name" type="text" required class={inputStyle} />
+                    </div>
+
+                    <div class="flex flex-col md:w-[48%] w-full gap-1">
+                        <label for="email" class={labelStyle} >Email Address</label>
+                        <input id="email" name="email" type="email" required class={inputStyle} />
+                    </div>
+
+                    <div class="flex flex-col md:w-[48%] w-full gap-1">
+                        <label for="phone" class={labelStyle} >Phone Number</label>
+                        <input id="phone" name="phone" required type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class={inputStyle} />
+                    </div>
+
+                    <div class="flex flex-col md:w-[48%] w-full gap-1 ">
+                        <label for="facility" class={labelStyle} >Facility Name</label>
+                        <input id="facility" name="facility" type="text" class={inputStyle} />
+                    </div>
+
+                    <div class="flex flex-col md:w-[48%] w-full gap-1">
+                        <label for="about" class={labelStyle} >Tell us about your facility...</label>
+                        <textarea id="about" name="about" rows="6" placeholder="Number of courts, lessons per day, etc." class={inputStyle} />
+                    </div>
+
+                    <div class="flex flex-col md:w-[48%] gap-1 w-full">
+                        <label class={labelStyle}>Zip Code</label>
+                        <input type="text" pattern="^\d{5}(-\d{4})?$" aria-label="Zip Code" class={inputStyle} />
+                        <input type="submit" value="Submit" class="mt-5 cursor-pointer focus:outline-none focus:ring-indigo-500 focus:border-t-green text-lg w-full tablet:w-64 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-t-off-black bg-t-off-white border-t-off-white md:text-t-off-white md:bg-transparent hover:bg-t-off-white hover:text-t-off-black" />
+                        <div class="flex items-center gap-3 mt-3" >
+                            <input id="newsletter" name="newsletter" type="checkbox" class="appearance-none border-2 border-t-off-white size-4 rounded-sm checked:bg-t-green focus:outline-none focus:ring-indigo-500 focus:border-t-green" />
+                            <label for="newsletter" class={labelStyle} >I'd like to receive Tennibot email updates</label>
+                            <input type="hidden" name="form-name" value="commercial" />
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </section>
 
     </main>
 </Layout>
