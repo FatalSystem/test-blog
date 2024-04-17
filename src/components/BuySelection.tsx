@@ -124,7 +124,7 @@ export default function BuySelection (): JSX.Element {
                                     }}
                                     className="flex flex-row gap-1"
                                     >
-                                        <label className='hidden tablet:block font-plutoLight text-t-off-white text-xs transition-all duration-300 ease-in-out' >Anual<br className='hidden lg:block' /> Plan</label>
+                                        <label className='hidden tablet:block font-plutoLight text-t-off-white text-xs transition-all duration-300 ease-in-out' >Annual<br className='hidden lg:block' /> Plan</label>
                                 </motion.div>
                         )}
                         <label className={`tablet:hidden font-plutoLight  text-xs ${isChecked ? 'text-t-off-white' : 'text-t-disabled'}`} >Monthly Plan</label>

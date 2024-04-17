@@ -2,6 +2,7 @@
 import { ImageSupportDetection } from "astro-imagetools/components"
 import Footer from "../components/Footer.astro"
 import Header from "@components/Header"
+import Popup from "@components/Popup"
 export interface Props {
   title: string
 }
@@ -58,7 +59,7 @@ const { title } = Astro.props
         <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLCDBFS5"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  
+    <!-- <Popup client:load /> -->
     <Header client:load />
     <slot />
     <Footer />
