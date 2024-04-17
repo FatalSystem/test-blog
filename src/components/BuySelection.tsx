@@ -12,24 +12,24 @@ export default function BuySelection (): JSX.Element {
 
   const handleNavigation = (product: number): void => {
     ReactGA.event({
-      category: 'Buy',
-      action: 'Buy selection',
+      category: 'buy',
+      action: 'begin_checkout',
       label: 'Checkout button clicked'
     })
 
     if (product === 0) {
       if (isChecked) {
         ReactGA.event({
-          category: 'Buy',
-          action: 'Buy selection',
+          category: 'buy',
+          action: 'begin_checkout',
           label: 'Annual Plan'
         })
         window.location.href = 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyOTExNjY4ODMsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2OTEyMjkxLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDQwMDk5fV19&store_id=190268'
         return
       }
       ReactGA.event({
-        category: 'Buy',
-        action: 'Buy selection',
+        category: 'buy',
+        action: 'begin_checkout',
         label: 'Monthly Plan'
       })
       window.location.href = 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyNzQ0MjI0MzUsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2ODc5NTIzLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDA3MzMxfV19&store_id=190268'
@@ -38,8 +38,8 @@ export default function BuySelection (): JSX.Element {
 
     if (product === 1) {
       ReactGA.event({
-        category: 'Buy',
-        action: 'Buy selection',
+        category: 'buy',
+        action: 'begin_checkout',
         label: 'Dynamic Plan'
       })
       window.location.href = 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMDE0ODM5MDEwOTEsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzA5NDA4NDE5LCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODc5MTAwMDY3fV19&store_id=190268'
@@ -48,8 +48,8 @@ export default function BuySelection (): JSX.Element {
 
     if (product === 2) {
       ReactGA.event({
-        category: 'Buy',
-        action: 'Buy selection',
+        category: 'buy',
+        action: 'begin_checkout',
         label: 'One-Time'
       })
       window.location.href = 'https://tennibot.myshopify.com/cart/44311234936995:1?channel=buy_button'
