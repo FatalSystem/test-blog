@@ -143,7 +143,7 @@ export default function BuySelection (): JSX.Element {
                 <div className="w-full flex flex-col items-center mt-10 md:hidden " >
                     <a onClick={() => {
                       handleNavigation(0)
-                    }} target='_blank' className="text-center tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
+                    }} target='_blank' className="text-center cursor-pointer tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
                         Proceed to Checkout
                     </a>
                     <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 4-5 weeks</label>
@@ -168,7 +168,7 @@ export default function BuySelection (): JSX.Element {
                 <div className="w-full flex flex-col items-center mt-10 md:hidden " >
                     <a onClick={() => {
                       handleNavigation(1)
-                    }} target='_blank' className=" text-center tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
+                    }} target='_blank' className=" text-center cursor-pointer tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
                         Proceed to Checkout
                     </a>
                     <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 4-5 weeks</label>
@@ -194,7 +194,7 @@ export default function BuySelection (): JSX.Element {
                 <div className="w-full flex flex-col items-center mt-10 md:hidden " >
                     <a onClick={() => {
                       handleNavigation(2)
-                    }} target='_blank' className=" text-center tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
+                    }} target='_blank' className=" text-center cursor-pointer tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
                         Proceed to Checkout
                     </a>
                     <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 4-5 weeks</label>
@@ -207,7 +207,7 @@ export default function BuySelection (): JSX.Element {
         <div className="w-full md:flex flex-col items-center my-20 hidden" >
             <a onClick={() => {
               handleNavigation(selected)
-            }} target='_blank' className="sm:mr-3 text-center tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
+            }} target='_blank' className="sm:mr-3 text-center cursor-pointer tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
                 Proceed to Checkout
             </a>
             <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 4-5 weeks</label>
