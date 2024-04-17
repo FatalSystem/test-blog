@@ -19,11 +19,12 @@ export default function BuySelection (): JSX.Element {
 
     if (product === 0) {
       if (isChecked) {
-        ReactGA.event({
-          category: 'buy',
-          action: 'begin_checkout',
-          label: 'Annual Plan'
-        })
+        // ReactGA.event({
+        //   category: 'buy',
+        //   action: 'begin_checkout',
+        //   label: 'Annual Plan'
+        // })
+        ReactGA.send({ hitType: 'buy_now_click', plan: 'annual' })
         window.location.href = 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyOTExNjY4ODMsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2OTEyMjkxLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDQwMDk5fV19&store_id=190268'
         return
       }
