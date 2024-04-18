@@ -76,7 +76,7 @@ export default function Popup (): JSX.Element {
     <>
         {
             isOpen && (
-                <Dialog open={isOpen} >
+                <Dialog open={true} >
                     <DialogContent className="sm:bg-[url('/images/general/popup.webp')] bg-t-off-black bg-cover bg-center pt-[8%] pb-[5%] sm:max-w-xl xl:max-w-3xl" >
                         <div className='absolute w-full hidden sm:block h-[100%] bg-gradient-to-l from-[#232320]/[0.8] from-50% via-transparent via-90% to-[#232320]/[0.0] to-90%' ></div>
                         {
