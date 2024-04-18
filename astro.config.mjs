@@ -21,7 +21,7 @@ export default defineConfig({
     '/call': 'https://calendly.com/haithameletrabi/introcall',
     '/t5setup': 'https://youtu.be/BerTwqWqAPo',
     '/unbox': 'https://youtu.be/vvNnUARbGz0',
-    '/quickstart': 'https://www.youtube.com/watch?v=R5Xb7S_Ev4Q'
+    '/quickstart': 'https://www.youtube.com/watch?v=c7O39UYMls4'
   },
   integrations: [tailwind(), sitemap(), react({
     experimentalReactChildren: true
