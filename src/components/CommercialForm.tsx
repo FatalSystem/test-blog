@@ -67,8 +67,9 @@ export default function CommercialForm (): JSX.Element {
         },
         body: JSON.stringify({ email, rcToken: token })
       })
-      const data = await response.json()
-      console.log(data)
+      if (response.status !== 200) {
+        setErrorSubmitting(true)
+      }
     } catch (error) {
       setErrorSubmitting(true)
       console.error(error)
@@ -78,21 +79,11 @@ export default function CommercialForm (): JSX.Element {
   const onSubmit = async (values: z.infer<typeof formSchema>): Promise<void> => {
     if (errorSubmitting) setErrorSubmitting(false)
     if (form.formState.submitCount > 3) throw new Error('Too many attempts')
-
-    const formData = new FormData()
-    formData.append('name', values.name)
-    formData.append('lastName', values.name)
-    formData.append('email', values.email)
-    formData.append('phone', values.phone)
-    formData.append('facility', values.facility)
-    formData.append('title', values.facility)
-    formData.append('about', values.about)
-    formData.append('zipcode', values.zipcode)
     try {
       if (values.newsletter && values.email !== '') {
         await subscribeToNewsletter(values.email)
       }
-      await fetch('/', {
+      const response = await fetch('/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
@@ -108,7 +99,7 @@ export default function CommercialForm (): JSX.Element {
 
   useEffect(() => {
     grecaptcha.ready(() => {
-      grecaptcha.execute('6LfPJjcpAAAAAOmlbStg7zLCp1PLGKONPGkRlA0g', { action: 'footerNewsletter' })
+      grecaptcha.execute('6LfPJjcpAAAAAOmlbStg7zLCp1PLGKONPGkRlA0g', { action: 'commercialNewsletter' })
         .then((token) => {
           setToken(token)
         })

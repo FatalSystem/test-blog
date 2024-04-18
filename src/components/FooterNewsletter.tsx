@@ -41,8 +41,9 @@ export default function FooterNewsletter ({ formClassName, inputClassName, butto
         },
         body: JSON.stringify({ email: values.email, rcToken: token })
       })
-      const data = await response.json()
-      console.log(data)
+      if (response.status !== 200) {
+        setErrorSubmitting(true)
+      }
     } catch (error) {
       setErrorSubmitting(true)
       console.error(error)
