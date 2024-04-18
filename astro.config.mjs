@@ -17,7 +17,10 @@ export default defineConfig({
   site: 'https://www.tennibot.com',
   output: 'hybrid',
   redirects: {
-    '/how-it-works/': '/rover/'
+    '/how-it-works/': '/rover/',
+    '/call': 'https://calendly.com/haithameletrabi/introcall',
+    '/t5setup': 'https://youtu.be/BerTwqWqAPo',
+    '/unbox': 'https://youtu.be/vvNnUARbGz0'
   },
   integrations: [tailwind(), sitemap(), react({
     experimentalReactChildren: true
