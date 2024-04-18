@@ -20,6 +20,7 @@ export default defineConfig({
     '/how-it-works/': '/rover/',
     '/call': 'https://calendly.com/haithameletrabi/introcall',
     '/T5setup': 'https://youtu.be/BerTwqWqAPo',
+    '/t5setup': 'https://youtu.be/BerTwqWqAPo',
     '/unbox': 'https://youtu.be/vvNnUARbGz0',
     '/quickstart': 'https://www.youtube.com/watch?v=c7O39UYMls4'
   },
