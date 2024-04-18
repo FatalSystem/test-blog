@@ -80,7 +80,7 @@ export default function Popup (): JSX.Element {
                     <DialogContent className="sm:bg-[url('/images/general/popup.webp')] bg-t-off-black bg-cover bg-center pt-[8%] pb-[5%] sm:max-w-xl xl:max-w-3xl" >
                         <div className='absolute w-full hidden sm:block h-[100%] bg-gradient-to-l from-[#232320]/[0.8] from-50% via-transparent via-90% to-[#232320]/[0.0] to-90%' ></div>
                         {
-                            /* formSent */ true
+                            formSent
                               ? (
                                 <div className='sm:w-[60%] sm:pb-0 pb-[20%] w-[90%] m-auto z-10' >
                                     <button onClick={() => { setIsOpen(false) }} className=" absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground" ><X className="h-10 w-10 text-t-off-white " /></button>
