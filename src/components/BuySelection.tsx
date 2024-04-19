@@ -156,7 +156,7 @@ export default function BuySelection (): JSX.Element {
             <button onClick={() => { setSelected(2) }} className={`${selected === 2 ? 'md:border-t-green' : 'border-t-off-white'} bg-t-off-black relative flex-[0_0_30%] border-2 md:hover:border-t-green rounded-lg px-5 mobilem:px-10 md:px-5 lg:px-7 py-5 flex flex-col justify-start transition-all duration-300 ease-in-out`} >
                 <h3 className={`${titleStyle} mb-7 `} >$2,995</h3>
                 <ul className="list-disc list-inside text-left flex flex-col gap-3" >
-                    <li className={`font-plutoLight text-t-green text-pretty ${itemStyle}`} >2 Year Warranty</li>
+                    <li className={`font-plutoLight text-t-off-white text-pretty ${itemStyle}`} >2 Year Warranty</li>
                     {/* <li className={`font-plutoLight text-t-green text-pretty ${itemStyle}`} >Classic Membership Included</li> */}
                     <li className={`font-plutoLight text-t-off-white text-pretty ${itemStyle}`} >Free shipping in the US</li>
                     <li className={`font-plutoLight text-t-off-white text-pretty ${itemStyle}`} >60 day money-back guarantee</li>

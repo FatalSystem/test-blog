@@ -77,7 +77,7 @@ export default function Popup (): JSX.Element {
         {
             isOpen && (
                 <Dialog open={true} >
-                    <DialogContent className="sm:bg-[url('/images/general/popup.webp')] bg-t-off-black bg-cover bg-center pt-[8%] pb-[5%] sm:max-w-xl xl:max-w-3xl" >
+                    <DialogContent className="sm:bg-[url('/images/general/popup.webp')] bg-t-off-black bg-cover bg-center flex flex-col justify-center items-center sm:max-w-xl xl:max-w-3xl" >
                         <div className='absolute w-full hidden sm:block h-[100%] bg-gradient-to-l from-[#232320]/[0.8] from-50% via-transparent via-90% to-[#232320]/[0.0] to-90%' ></div>
                         {
                             formSent
@@ -89,7 +89,7 @@ export default function Popup (): JSX.Element {
                                 </div>
                                 )
                               : (
-                                <div className='sm:w-[60%] sm:pb-10 pb-[20%] sm:ml-auto sm:mr-0 w-[90%] mx-auto z-10' >
+                                <div className='sm:w-[60%] sm:pb-0 pb-[20%] sm:ml-auto sm:mr-0 w-[90%] mx-auto z-10' >
                                     <DialogHeader>
                                     <button onClick={() => { setIsOpen(false) }} className=" absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground" ><X className="h-10 w-10 text-t-off-white " /></button>
                                     <DialogTitle className='font-avenirBold uppercase text-left text-t-off-white text-2xl lg:text-3xl'>Want a free<br />adv wristband?</DialogTitle>
