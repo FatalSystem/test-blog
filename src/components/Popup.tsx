@@ -98,7 +98,7 @@ export default function Popup (): JSX.Element {
                                     <p className='font-plutoLight text-left text-base mt-3 mb-10 text-t-off-white lg:text-lg'>We promise we won’t spam you :)</p>
                                     </DialogDescription>
                                     <Form {...form} >
-                                        <form onSubmit={form.handleSubmit(onSubmit)} className="flex w-full flex-row" >
+                                        <form id="popup-form" onSubmit={form.handleSubmit(onSubmit)} className="flex w-full flex-row" >
                                             <FormField
                                             control={form.control}
                                             name="email"
