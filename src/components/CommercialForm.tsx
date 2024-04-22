@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from './Button'
-import { Loader2 } from 'lucide-react'
+import { Info, Loader2 } from 'lucide-react'
 import { encode } from '@utils'
 
 const inputStyle = 'bg-transparent border-2 p-2.5 border-t-off-white rounded-md sm:p-1.5 focus:outline-none focus:ring-indigo-500 focus:border-t-green'
@@ -51,7 +51,7 @@ export default function CommercialForm (): JSX.Element {
 
   const [errorSubmitting, setErrorSubmitting] = useState<boolean>(false)
 
-  const subscribeToNewsletter = async (email: string): Promise<void> => {
+  const subscribeToNewsletter = async (email: string, fname: string, lname: string, phone: string): Promise<void> => {
     try {
       if (form.formState.submitCount > 3) throw new Error('Too many attempts')
       if (!token) { console.error('No token'); return }
@@ -60,7 +60,7 @@ export default function CommercialForm (): JSX.Element {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email, rcToken: token })
+        body: JSON.stringify({ email, fname, lname, phone, rcToken: token })
       })
       if (response.status !== 200) {
         setErrorSubmitting(true)
@@ -76,7 +76,13 @@ export default function CommercialForm (): JSX.Element {
     if (form.formState.submitCount > 3) throw new Error('Too many attempts')
     try {
       if (values.newsletter && values.email !== '') {
-        await subscribeToNewsletter(values.email)
+        let firstName = ''
+        let lastName = ''
+        if (values.name.includes(' ')) {
+          firstName = values.name.trim().split(' ')[0] ?? ''
+          lastName = values.name.trim().split(' ')[1] ?? ''
+        }
+        await subscribeToNewsletter(values.email, firstName, lastName, values.phone)
       }
       const response = await fetch('/', {
         method: 'POST',
@@ -85,7 +91,11 @@ export default function CommercialForm (): JSX.Element {
         },
         body: encode({ 'form-name': 'commercial', ...values })
       })
-      setSent(true)
+      if (response.status !== 200) {
+        setErrorSubmitting(true)
+      } else {
+        setSent(true)
+      }
     } catch (error) {
       setErrorSubmitting(true)
       console.error(error)
@@ -188,6 +198,7 @@ export default function CommercialForm (): JSX.Element {
                     {sent && !errorSubmitting && !form.formState.isSubmitting ? 'Sent' : 'Submit'}
                     {form.formState.isSubmitting && <Loader2 className="ml-2 size-4 animate-spin" /> }
                 </Button>
+                {errorSubmitting && <p className=" text-t-off-white mt-3 font-plutoLight text-sm text-pretty flex flex-row items-center"><Info className='mr-2 sm:size-5 size-5' /> There was an error. Please try again.</p>}
                 <FormField
                 control={form.control}
                 name="newsletter"
