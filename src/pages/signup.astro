@@ -1,0 +1,29 @@
+---
+import Layout from "layouts/Layout.astro"
+import { Image } from 'astro:assets'
+import RoverTitle from '@assets/rover/rovertitle.svg'
+import LandingForm from "@components/LandingForm"
+
+---
+
+<Layout title="Join the newsletter | Tennibot">
+    <main class="bg-t-off-black overflow-hidden text-t-off-white" >
+        <section class="h-screen bg-[url('/images/landing-page/rover-on-fence.webp')] flex flex-col justify-start bg-cover bg-center">
+            <div class="w-[80%] 2xl:w-[60%] pt-[15vh] grid lg:grid-cols-2 grid-cols-1 gap-5 mx-auto  h-full  " >
+                <div class="lg:mt-[10vh] ">
+                    <picture class="md:hidden lg:block" >
+                        <Image src={RoverTitle} alt="The only autonmous tennis assistant" class="w-full xl:max-w-[90%]" />
+                    </picture>
+                    <h1 class="text-t-off-white font-avenir uppercase text-4xl hidden md:block lg:hidden" ><strong class="font-avenirBold" >Tennibot:</strong> the world's first autonomous tennis assistant</h1>
+                </div>
+                <div class="flex flex-col lg:justify-start justify-end" >
+                    <div class="bg-t-off-black border-2 border-t-off-white rounded-lg py-5 mobilem:px-10 px-5 lg:w-[80%] w-full  mx-auto md:mb-[10vh] mb-[-20vh]" >
+                        <h2 class="font-avenirBold text-t-off-white text-center mb-5 mobilem:text-lg tablet:text-2xl lg:text-lg xl:text-xl" >Join the newsletter and<br class="sm:hidden lg:block" /> get a free wristband!</h2>
+                        <LandingForm client:load />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="h-[30vh] md:hidden" />
+    </main>
+</Layout>

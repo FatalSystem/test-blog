@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from './Form'
 import { Input } from './Input'
 import { useForm } from 'react-hook-form'
@@ -6,6 +6,7 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from './Button'
 import { Loader2 } from 'lucide-react'
+import { encode } from '@utils'
 
 const inputStyle = 'bg-transparent border-2 p-2.5 border-t-off-white rounded-md sm:p-1.5 focus:outline-none focus:ring-indigo-500 focus:border-t-green'
 const labelStyle = 'lg:text-lg xl:text-xl mb-2'
@@ -49,12 +50,6 @@ export default function CommercialForm (): JSX.Element {
   const [sent, setSent] = useState<boolean>(false)
 
   const [errorSubmitting, setErrorSubmitting] = useState<boolean>(false)
-
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-      .join('&')
-  }
 
   const subscribeToNewsletter = async (email: string): Promise<void> => {
     try {

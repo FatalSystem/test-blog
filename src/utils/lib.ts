@@ -10,3 +10,9 @@ export const wait = async (duration: number) => {
     setTimeout(() => { resolve() }, duration)
   })
 }
+
+export const encode = (data) => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
+}

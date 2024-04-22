@@ -6,6 +6,7 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from './Button'
 import { Loader2 } from 'lucide-react'
+import { encode } from '@utils'
 
 const inputStyle = 'bg-transparent border-2 border-t-off-black rounded-md sm:p-1.5 p-2.5 focus:outline-none focus:ring-indigo-500 focus:border-t-green'
 const labelStyle = 'lg:text-lg xl:text-xl mb-2'
@@ -37,12 +38,6 @@ export default function FAQ (): JSX.Element {
   const [sent, setSent] = useState<boolean>(false)
 
   const [errorSubmitting, setErrorSubmitting] = useState<boolean>(false)
-
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-      .join('&')
-  }
 
   const subscribeToNewsletter = async (email: string): Promise<void> => {
     try {
