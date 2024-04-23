@@ -67,6 +67,16 @@ const { title } = Astro.props
     <!-- Start of tennibot Zendesk Widget script -->
     <!-- <script id="ze-snippet" is:inline src="https://static.zdassets.com/ekr/snippet.js?key=5914932e-450d-40e3-ac62-25d8e5c58c2c"> </script> -->
     <!-- End of tennibot Zendesk Widget script -->
+    <!-- Blotout -->
+    <script is:inline>
+      window.edgetag=window.edgetag||function(){(edgetag.stubs=edgetag.stubs||[]).push(arguments)};
+    
+      edgetag('init', {
+        edgeURL: 'https://vebed.tennibot.com',
+        disableConsentCheck: true
+      })
+    </script>
+    <script async type="text/javascript" src="https://vebed.tennibot.com/load"></script>
   </head>
   <body class="bg-t-off-black overflow-x-hidden" >
         <!-- Google Tag Manager (noscript) -->
