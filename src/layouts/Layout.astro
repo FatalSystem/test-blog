@@ -72,8 +72,8 @@ const { title } = Astro.props
         <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLCDBFS5"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <Popup client:load />
-    <Banner client:load />
+    <Popup client:only />
+    <Banner client:only />
     <Header client:load />
     <slot />
     <Footer />
