@@ -7,6 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from './Button'
 import { Info, Loader2 } from 'lucide-react'
 import { encode } from '@utils'
+import { Checkbox } from './Checkbox'
 
 const inputStyle = 'bg-transparent border-2 p-2.5 border-t-off-white rounded-md sm:p-1.5 focus:outline-none focus:ring-indigo-500 focus:border-t-green'
 const labelStyle = 'lg:text-lg xl:text-xl mb-2'
@@ -43,7 +44,7 @@ export default function CommercialForm (): JSX.Element {
       facility: '',
       about: '',
       zipcode: '',
-      newsletter: false
+      newsletter: true
     }
   })
   const [token, setToken] = useState<string>('')
@@ -203,11 +204,11 @@ export default function CommercialForm (): JSX.Element {
                 control={form.control}
                 name="newsletter"
                 render={({ field }) => (
-                    <FormItem className='flex flex-row w-full gap-2 mt-5' >
+                    <FormItem className='flex flex-row items-start space-x-3 space-y-0 rounded-md mt-5' >
                         <FormControl>
-                            <Input {...field} type="checkbox" className="appearance-none border-2 border-t-off-white size-4 rounded-sm checked:bg-t-green focus:outline-none focus:ring-indigo-500 focus:border-t-green" />
+                            <Checkbox checked={field.value ?? true} onCheckedChange={field.onChange} className='text-t-green' />
                         </FormControl>
-                        <FormDescription>
+                        <FormDescription className='font-plutoLight text-t-off-white' >
                             {'I\'d like to receive Tennibot email updates'}
                         </FormDescription>
                         <FormMessage />

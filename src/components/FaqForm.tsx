@@ -7,6 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from './Button'
 import { Loader2 } from 'lucide-react'
 import { encode } from '@utils'
+import { Checkbox } from './Checkbox'
 
 const inputStyle = 'bg-transparent border-2 border-t-off-black rounded-md sm:p-1.5 p-2.5 focus:outline-none focus:ring-indigo-500 focus:border-t-green'
 const labelStyle = 'lg:text-lg xl:text-xl mb-2'
@@ -31,7 +32,7 @@ export default function FAQ (): JSX.Element {
       question: '',
       name: '',
       email: '',
-      newsletter: false
+      newsletter: true
     }
   })
   const [token, setToken] = useState<string>('')
@@ -39,7 +40,7 @@ export default function FAQ (): JSX.Element {
 
   const [errorSubmitting, setErrorSubmitting] = useState<boolean>(false)
 
-  const subscribeToNewsletter = async (email: string): Promise<void> => {
+  const subscribeToNewsletter = async (email: string, fname: string, lname: string): Promise<void> => {
     try {
       if (form.formState.submitCount > 3) throw new Error('Too many attempts')
       if (!token) { console.error('No token'); return }
@@ -48,7 +49,7 @@ export default function FAQ (): JSX.Element {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email, rcToken: token })
+        body: JSON.stringify({ email, fname, lname, rcToken: token })
       })
       const data = await response.json()
       console.log(data)
@@ -63,7 +64,13 @@ export default function FAQ (): JSX.Element {
     if (form.formState.submitCount > 3) throw new Error('Too many attempts')
     try {
       if (values.newsletter && values.email !== '') {
-        await subscribeToNewsletter(values.email)
+        let firstName = ''
+        let lastName = ''
+        if (values.name.includes(' ')) {
+          firstName = values.name.trim().split(' ')[0] ?? ''
+          lastName = values.name.trim().split(' ')[1] ?? ''
+        }
+        await subscribeToNewsletter(values.email, firstName, lastName)
       }
       await fetch('/', {
         method: 'POST',
@@ -142,11 +149,11 @@ export default function FAQ (): JSX.Element {
                         control={form.control}
                         name="newsletter"
                         render={({ field }) => (
-                            <FormItem className='flex flex-row w-full gap-2 mt-5' >
+                            <FormItem className='flex flex-row items-start space-x-3 space-y-0 rounded-md mt-5' >
                                 <FormControl>
-                                    <Input {...field} type="checkbox" className="appearance-none border-2 border-t-off-black size-4 rounded-sm checked:bg-t-off-black focus:outline-none focus:ring-indigo-500 focus:border-t-green" />
+                                    <Checkbox checked={field.value ?? true} onCheckedChange={field.onChange} className='border-t-off-black text-t-off-black' />
                                 </FormControl>
-                                <FormDescription>
+                                <FormDescription className='font-plutoLight text-t-off-black' >
                                     {'I\'d like to receive Tennibot email updates'}
                                 </FormDescription>
                                 <FormMessage />
