@@ -58,6 +58,9 @@ export default function LandingForm (): JSX.Element {
         setErrorSubmitting(true)
       } else {
         setSent(true)
+        edgetag('tag', 'Lead', {
+          name: 'landing'
+        })
       }
     } catch (error) {
       setErrorSubmitting(true)

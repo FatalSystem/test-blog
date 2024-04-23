@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react'
-import { Switch } from './Switch'
-import { motion } from 'framer-motion'
+import { useState } from 'react'
 
 const titleStyle = 'text-t-off-white text-left font-avenirBold text-xl md:text-base lg:text-xl xl:text-2xl mb-4'
 const itemStyle = 'text-sm md:text-xs xl:text-sm 2xl:text-base'
@@ -11,25 +9,55 @@ export default function BuySelection (): JSX.Element {
 
   const handleNavigation = (product: number): void => {
     if (product === 0) {
-      // if (isChecked) {
-      //   ReactGA.event({
-      //     category: 'set_checkout_option',
-      //     action: 'set_checkout_option',
-      //     value: 1
-      //   })
-      //   window.location.href = 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyOTExNjY4ODMsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2OTEyMjkxLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDQwMDk5fV19&store_id=190268'
-      //   return
-      // }
+      edgetag('tag', 'initiateCheckout', {
+        currency: 'USD',
+        value: 95,
+        checkoutUrl: 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyOTExNjY4ODMsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2OTEyMjkxLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDQwMDk5fV19&store_id=190268',
+        contents: [
+          {
+            id: '8318017011875',
+            quantity: 1,
+            item_price: 95,
+            title: 'Monthly Plan'
+          }
+        ]
+      })
       window.location.href = 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyOTExNjY4ODMsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2OTEyMjkxLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDQwMDk5fV19&store_id=190268'
       return
     }
 
     if (product === 1) {
+      edgetag('tag', 'initiateCheckout', {
+        currency: 'USD',
+        value: 995,
+        checkoutUrl: 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyNzQ0MjI0MzUsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2ODc5NTIzLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDA3MzMxfV19&store_id=190268',
+        contents: [
+          {
+            id: '8318008819875',
+            quantity: 1,
+            item_price: 995,
+            title: 'Annual Plan'
+          }
+        ]
+      })
       window.location.href = 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyNzQ0MjI0MzUsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2ODc5NTIzLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDA3MzMxfV19&store_id=190268'
       return
     }
 
     if (product === 2) {
+      edgetag('tag', 'initiateCheckout', {
+        currency: 'USD',
+        value: 2995,
+        checkoutUrl: 'https://tennibot.myshopify.com/cart/44311234936995:1?channel=buy_button',
+        contents: [
+          {
+            id: '8317998170275',
+            quantity: 1,
+            item_price: 2995,
+            title: 'One Time Purchase'
+          }
+        ]
+      })
       window.location.href = 'https://tennibot.myshopify.com/cart/44311234936995:1?channel=buy_button'
     }
   }
@@ -46,7 +74,7 @@ export default function BuySelection (): JSX.Element {
             <h2 className="md:hidden font-avenir uppercase text-t-off-white text-3xl mb-[-1.2rem]" >Rent-to-own</h2>
             <button onClick={() => { setSelected(0) }} className={`${selected === 0 ? 'md:border-t-green' : 'border-t-off-white'} relative flex-[0_0_30%] border-2 md:hover:border-t-green rounded-lg px-5 mobilem:px-10 md:px-5 lg:px-7  py-5 flex flex-col justify-start transition-all duration-300 ease-in-out`} >
                 <div className="flex flex-col tablet:flex-row tablet:justify-between tablet:items-start items-start justify-between w-full" >
-                    <h3 className={titleStyle} >{`$95 / Month`}</h3>
+                    <h3 className={titleStyle} >$95 / Month</h3>
                     {/* <div className="w-full lg:absolute lg:right-0 tablet:w-[30%] tablet:min-w-20 relative flex flex-row tablet:gap-2 gap-0 tablet:flex-col items-center justify-between mb-5 transition-all duration-300 ease-in-out" >
                         <label className={`tablet:hidden font-plutoLight text-xs ${!isChecked ? 'text-t-off-white' : 'text-t-disabled'}`} >Annual Plan</label>
                         <Switch checked={isChecked} className='transition-all mx-auto duration-300 ease-in-out' onCheckedChange={() => { setIsChecked(!isChecked) }} />
