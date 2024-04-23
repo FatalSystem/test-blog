@@ -117,7 +117,7 @@ export default function Popup (): JSX.Element {
                                             )}
                                             />
                                             {!formSent && (
-                                                <Button disabled={form.formState.disabled || !form.formState.isValid || form.formState.isSubmitting || (form.formState.isSubmitSuccessful && !errorSubmitting)} className="border-t-green sm:bg-t-off-black bg-t-green border-2 rounded-r-md p-3 fill-current sm:stroke-t-green stroke-t-off-black text-t-green relative hover:bg-t-green hover:stroke-t-off-black transition-all duration-300 ease-in-out" >
+                                                <Button id="popup-submit" disabled={form.formState.disabled || !form.formState.isValid || form.formState.isSubmitting || (form.formState.isSubmitSuccessful && !errorSubmitting)} className="border-t-green sm:bg-t-off-black bg-t-green border-2 rounded-r-md p-3 fill-current sm:stroke-t-green stroke-t-off-black text-t-green relative hover:bg-t-green hover:stroke-t-off-black transition-all duration-300 ease-in-out" >
                                                         {form.formState.isSubmitting && <Loader2 className="size-5 animate-spin absolute inset-0 m-auto" />}
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="35" height="16" viewBox="0 0 45 26" className={`${form.formState.isSubmitting ? 'opacity-0' : 'opacity-100'}`} fill="none">
                                                             <path opacity="0.5" d="M0 13H43M43 13L30.4146 25M43 13L30.4146 1" strokeWidth="3"/>
