@@ -116,14 +116,12 @@ export default function Popup (): JSX.Element {
                                                 </FormItem>
                                             )}
                                             />
-                                            {!formSent && (
-                                                <Button id="popup-submit" disabled={form.formState.disabled || !form.formState.isValid || form.formState.isSubmitting || (form.formState.isSubmitSuccessful && !errorSubmitting)} className="modal-sign-up-button border-t-green sm:bg-t-off-black bg-t-green border-2 rounded-r-md p-3 fill-current sm:stroke-t-green stroke-t-off-black text-t-green relative hover:bg-t-green hover:stroke-t-off-black transition-all duration-300 ease-in-out" >
-                                                        {form.formState.isSubmitting && <Loader2 className="size-5 animate-spin absolute inset-0 m-auto" />}
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="16" viewBox="0 0 45 26" className={`${form.formState.isSubmitting ? 'opacity-0' : 'opacity-100'}`} fill="none">
-                                                            <path opacity="0.5" d="M0 13H43M43 13L30.4146 25M43 13L30.4146 1" strokeWidth="3"/>
-                                                        </svg>
-                                                </Button>
-                                            )}
+                                            <Button id="popup-submit" disabled={form.formState.disabled || !form.formState.isValid || form.formState.isSubmitting || (form.formState.isSubmitSuccessful && !errorSubmitting)} className="modal-sign-up-button border-t-green sm:bg-t-off-black bg-t-green border-2 rounded-r-md p-3 fill-current sm:stroke-t-green stroke-t-off-black text-t-green relative hover:bg-t-green hover:stroke-t-off-black transition-all duration-300 ease-in-out" >
+                                                    {form.formState.isSubmitting && <Loader2 className="size-5 animate-spin absolute inset-0 m-auto" />}
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="16" viewBox="0 0 45 26" className={`${form.formState.isSubmitting ? 'opacity-0' : 'opacity-100'}`} fill="none">
+                                                        <path opacity="0.5" d="M0 13H43M43 13L30.4146 25M43 13L30.4146 1" strokeWidth="3"/>
+                                                    </svg>
+                                            </Button>
                                         </form>
                                         {errorSubmitting && <p className=" text-t-off-white mt-3 font-plutoLight text-sm text-pretty flex flex-row items-center"><Info className='mr-2 sm:size-5 size-5' /> There was an error. Please try again.</p>}
                                     </Form>
