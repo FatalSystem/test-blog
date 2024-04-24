@@ -58,7 +58,7 @@ export default function LandingForm (): JSX.Element {
         setErrorSubmitting(true)
       } else {
         setSent(true)
-        edgetag('tag', 'Complete registration')
+        edgetag('tag', 'Complete registration new')
       }
     } catch (error) {
       setErrorSubmitting(true)

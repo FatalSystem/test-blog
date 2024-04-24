@@ -41,7 +41,7 @@ export default function Popup (): JSX.Element {
         body: JSON.stringify({ email: values.email, rcToken: token })
       })
       if (response.status === 200) {
-        edgetag('tag', 'Complete registration')
+        edgetag('tag', 'Complete registration new')
         window.localStorage.setItem('signed', 'true')
         window.sessionStorage.removeItem('nextPopup')
       } else {
