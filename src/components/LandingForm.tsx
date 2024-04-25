@@ -47,7 +47,7 @@ export default function LandingForm (): JSX.Element {
         firstName = values.name.trim().split(' ')[0]
         lastName = values.name.trim().split(' ')[1]
       }
-      const response = await fetch('/.netlify/functions/newsletter', {
+      const response = await fetch('/.netlify/functions/popup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -58,6 +58,7 @@ export default function LandingForm (): JSX.Element {
         setErrorSubmitting(true)
       } else {
         setSent(true)
+        window.localStorage.setItem('signed', 'true')
         edgetag('tag', 'Complete registration new')
         window.location.href = '/'
       }
