@@ -59,6 +59,7 @@ export default function LandingForm (): JSX.Element {
       } else {
         setSent(true)
         edgetag('tag', 'Complete registration new')
+        window.location.href = '/'
       }
     } catch (error) {
       setErrorSubmitting(true)
