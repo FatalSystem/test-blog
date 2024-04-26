@@ -24,17 +24,18 @@ const FAQ = [
   {
     question: 'Do I need an internet connection to operate the Tennibot?',
     answer: 'The Tennibot has its own Wi-Fi network that you can connect to in order to control it.  You will need an internet connection to create an account and complete the initial setup, but it is not necessary for your court to have internet access in order to operate the Tennibot.'
+  },
+  {
+    question: 'What is included in the warranty?',
+    answer: <>
+    <p>When you purchase a Tennibot, it comes with a comprehensive 2-year warranty. This warranty ensures that any malfunctions or defects will be repaired free of charge. Please note that the warranty does not cover losses due to theft, intentional damage, or neglect.</p>
+    <p className='font-plutoBold mt-5 mb-2'>Eligibility:</p>
+    <ul className='list-disc list-inside'>
+      <li>The warranty is included with every outright purchase of a Tennibot.</li>
+      <li>Customers on an active rent-to-own plan are also covered under this warranty.</li>
+    </ul>
+    </>
   }
-  // {
-  //   question: 'Do my annual/monthly payments count toward purchasing the Tennibot?',
-  //   answer: <p>Yes. When you decide you love the Tennibot and are ready to purchase outright, here are the buyout options: <ul className='list-disc list-inside'><br />
-  //     <li>0-3 Months    $2,950.00 </li>
-  //     <li>3-6 Months    $2,800.00</li>
-  //     <li>6-12 Months    $2,600.00 </li>
-  //     <li>12-24 Months   $2,250.00 </li>
-  //     <li>24+ Months  $1,500.00 </li>
-  //     </ul></p>
-  // }
 ]
 
 interface IFAQItem {
