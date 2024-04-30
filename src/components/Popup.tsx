@@ -54,7 +54,7 @@ export default function Popup (): JSX.Element {
   }
 
   const handleShouldPopup = async (): Promise<void> => {
-    await wait(5000)
+    await wait(10000)
     if (!window.localStorage.getItem('signed') && (window.location.pathname !== '/signup/' && window.location.pathname !== '/signup')) {
       if (!window.sessionStorage.getItem('nextPopup')) {
         setIsOpen(true)
