@@ -1,8 +1,88 @@
 ---
 import Layout from "layouts/Layout.astro"
 import { Image } from 'astro:assets'
-import RoverTitle from '@assets/rover/rovertitle.svg'
 import LandingForm from "@components/LandingForm"
+import { MediaQuotes } from "@components/MediaQuotes"
+import FrontPageSlider from "@components/FrontPageSlider"
+import Text from "@components/core/Text.astro"
+
+import ballCollection from "@assets/front-page/ball-collection.webp"
+import ballCollectionMobile from "@assets/front-page/ball-collection-mobile.webp"
+import lineJudging from "@assets/front-page/line-judging.webp"
+import lineJudgingMobile from "@assets/front-page/line-judging-mobile.webp"
+import courtSweeping from "@assets/front-page/courtsweeping.webp"
+import courtSweepingMobile from "@assets/front-page/court-sweeping-mobile.webp"
+import matchAnalysis from "@assets/front-page/matchanalysis.webp"
+import matchAnalysisMobile from "@assets/front-page/match-analysis-mobile.webp"
+import DeviceGridItem from "@components/DeviceGridItem.astro"
+
+import haitham from "@assets/about-us/haitham.webp"
+import haithamTablet from "@assets/about-us/haithamtablet.webp"
+import haithamDesktop from "@assets/about-us/haithamdesktop.webp"
+
+import lincoln from "@assets/about-us/lincoln.webp"
+import lincolnTablet from "@assets/about-us/lincolntablet.webp"
+import lincolnDesktop from "@assets/about-us/lincolndesktop.webp"
+import { CustomerReview, Marquee } from "@components/Marquee"
+
+const MARQUEE_CONTENT = [
+  {
+    review: 'It works well! My kids love it! It is super light and easy to move around.',
+    author: {
+      name: 'Mike D.',
+      role: 'Player',
+      location: 'Houston, TX'
+    }
+  },
+  {
+    review: 'My back feels better just looking at it!',
+    author: {
+      name: 'Rhonda S.',
+      role: 'Player',
+      location: 'KANSAS CITY, MO'
+    }
+  },
+  {
+    review: 'I can teach 6 to 8 hours a day now if I want to! I think every tennis coach should have one of these.',
+    author: {
+      name: 'Danny K.',
+      role: 'Coach',
+      location: 'San Francisco, CA'
+    }
+  },
+  {
+    review: 'Great machine! Thank you! I am loving my Tennibot!',
+    author: {
+      name: 'Bob F.',
+      role: 'Player',
+      location: 'Chicago, IL'
+    }
+  },
+  {
+    review: 'The cool factor is undeniable.',
+    author: {
+      name: 'Allen Y.',
+      role: 'Player',
+      location: 'Los Angeles, CA'
+    }
+  },
+  {
+    review: 'I like it so much that I bought a second one for our club!',
+    author: {
+      name: 'Robert M.',
+      role: 'Player',
+      location: 'Flagstaff, AZ'
+    }
+  },
+  {
+    review: 'Man! I waited for years for someone to finally build this!',
+    author: {
+      name: 'Dave M.',
+      role: 'Player',
+      location: 'Los Angeles, CA'
+    }
+  },
+]
 
 ---
 <Layout title="Join the newsletter | Tennibot">
@@ -14,21 +94,139 @@ import LandingForm from "@components/LandingForm"
                     {'Your browser doesn\'t support the video tag.'}
                 </video>
             </div>
-            <div class="w-[80%] 2xl:w-[60%] pt-[15vh] grid lg:grid-cols-2 grid-cols-1 gap-5 mx-auto  h-full z-10  " >
-                <div class="lg:mt-[10vh] ">
-                    <picture class="md:hidden lg:block" >
-                        <Image src={RoverTitle} alt="The only autonmous tennis assistant" class="w-full xl:max-w-[90%]" />
-                    </picture>
-                    <h1 class="text-t-off-white font-avenir uppercase text-4xl hidden md:block lg:hidden" ><strong class="font-avenirBold" >Tennibot:</strong> the world's first autonomous tennis assistant</h1>
+            <div class="w-[95%] sm:w-[80%] md:w-[600px] lg:w-[80%] 2xl:w-[60%] pt-[15vh] grid lg:grid-cols-2 grid-cols-1 gap-5 mx-auto  h-full z-10  " >
+                <div class="lg:mt-[5vh] ">
+                    <h1 class="text-t-off-white font-avenirBold uppercase xl:text-5xl lg:text-4xl md:text-3xl mobilem:text-2xl mobilel:text-3xl text-2xl text-pretty mx-auto w-[85%] tablet:w-full  " >Tennibot clears<br class="tablet:hidden lg:block" /> the court,<br class="hidden sm:block lg:hidden" /> so<br class="tablet:hidden lg:block" /> you can rule it</h1>
                 </div>
                 <div class="flex flex-col lg:justify-start justify-end" >
-                    <div class="bg-t-off-black border-2 border-t-off-white rounded-lg py-5 mobilem:px-10 px-5 w-full  mx-auto md:mb-[10vh] mb-[-20vh]" >
-                        <h2 class="font-avenirBold text-t-off-white text-center mb-5 mobilem:text-lg tablet:text-2xl lg:text-lg xl:text-xl" >Join the newsletter and<br class="sm:hidden lg:block" /> get a free wristband!</h2>
+                    <div class="bg-t-off-black border-2 border-t-off-white rounded-lg py-5 mobilem:px-10 px-5 w-full  mx-auto  mb-10" >
+                        <h2 class="font-plutoLight text-t-off-white mb-10 md:text-lg" >Sign up to recieve updates on the Tennibot, discounts, and a <strong class="font-plutoBold text-t-green" >free ADV Wristband!</strong></h2>
                         <LandingForm client:load />
                     </div>
                 </div>
             </div>
         </section>
-        <div class="h-[30vh] md:hidden" />
+        <!-- <div class="h-[30vh] md:hidden" /> -->
+        
+        <MediaQuotes client:load />
+
+        <section class="relative text-t-off-white">
+            <FrontPageSlider client:idle />
+        </section>
+
+        <section>
+            <picture >
+              <source srcset={ballCollectionMobile.src} media="(max-width: 425px)" />
+              <Image src={ballCollection} class="w-full" alt="Ball collection image" />
+            </picture>
+            <picture>
+              <source srcset={lineJudgingMobile.src} media="(max-width: 425px)" />
+              <Image src={lineJudging}  class="w-full" alt="Line judging image" />
+            </picture>
+            <picture>
+              <source srcset={courtSweepingMobile.src} media="(max-width: 425px)" />
+              <Image src={courtSweeping} class="w-full" alt="Court sweeping image" />
+            </picture>
+            <picture>
+              <source srcset={matchAnalysisMobile.src} media="(max-width: 425px)" />
+              <Image src={matchAnalysis} class="w-full" alt="Match analysis image" />
+            </picture>
+        </section>
+
+        <section class="flex flex-col md:flex-row w-full" >
+            <div class="bg-[url('/images/landing-page/rental-bg.webp')] bg-center bg-cover h-[55vh] w-full flex flex-col justify-end px-10 pb-5" >
+                <div class="md:text-right">
+                    <p class="uppercase text-t-off-white font-avenirBold text-2xl mb-2">Rent-to-own</p>
+                    <p class="uppercase text-t-off-white font-avenirBold text-4xl lg:text-5xl" ><span class="text-t-green" >$95</span> / Month</p>
+                </div>
+            </div>
+            <div class="bg-[url('/images/landing-page/buy-bg.webp')] bg-center bg-cover h-[55vh] w-full flex flex-col justify-end pl-10 pb-5" >
+                <div class="text-left">
+                    <p class="uppercase text-t-off-white font-avenirBold text-2xl mb-2">Buy</p>
+                    <p class="uppercase font-avenirBold text-4xl lg:text-5xl text-t-green" >$2,995</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-t-off-black lg:my-40 min-[670px]:h-fit text-t-off-white" >
+            <h2 class="font-avenirBold text-4xl w-[80%] 2xl:w-[60%] mx-auto mb-5 uppercase hidden lg:block" >Perfect for...</h2>
+            <div class="lg:w-[80%] 2xl:w-[60%] w-full h-fit grid lg:grid-cols-3 min-[670px]:grid-cols-1 min-[670px]:mx-auto lg:gap-5">
+                <DeviceGridItem containerClass="lg:bg-[url('/images/landing-page/players-bg-desktopxl.webp')] min-[670px]:bg-[url('/images/landing-page/players-bg-tablet.webp')] bg-[url('/images/landing-page/players-bg-mobile.webp')] min-[1520px]:h-[60vh] min-[1150px]:h-[40vh] min-[670px]:h-[50vh] min-[670px]:rounded-none lg:rounded-lg lg:h-[35vh]" >
+                    <Text tag="h6" className="z-[1] uppercase text-2xl min-[670px]:text-3xl text-center font-avenirBold min-[670px]:font-thin lg:text-left w-full mb-3" ><span class="lg:hidden">For</span> Players</Text>
+                    <Text tag="p" className="z-[1] lg:w-full mx-auto w-[80%] text-center sm:text-lg sm:leading-6 lg:text-left font-avenir text-pretty overflow-hidden h-fit lg:h-0 lg:opacity-0 pb-5 lg:pb-3 tablet:pb-10 lg:group-hover:opacity-100 xl:group-hover:h-[15vh] lg:group-hover:h-[18vh] transition-all duration-500" >
+                        With the Tennibot collecting balls for you,<br class="hidden sm:block lg:hidden" /> you can hit hundreds of extra shots and<br class="hidden sm:block lg:hidden" /> get the most out of every practice.
+                    </Text>
+                </DeviceGridItem>
+                <DeviceGridItem containerClass="lg:bg-[url('/images/landing-page/coaches-bg-desktopxl.webp')] tablet:bg-[url('/images/landing-page/coaches-bg-tablet.webp')] bg-[url('/images/landing-page/coaches-bg-mobile.webp')] min-[1520px]:h-[60vh] min-[1150px]:h-[40vh] min-[670px]:h-[50vh] min-[670px]:rounded-none lg:rounded-lg lg:h-[35vh]" >
+                    <Text tag="h6" className="z-[1] uppercase text-2xl min-[670px]:text-3xl text-center font-avenirBold min-[670px]:font-thin lg:text-left w-full mb-3" ><span class="lg:hidden">For</span> Coaches</Text>
+                    <Text tag="p" className="z-[1] lg:w-full mx-auto w-[80%] text-center sm:text-lg sm:leading-6 lg:text-left font-avenir text-pretty overflow-hidden h-fit lg:h-0 lg:opacity-0 pb-5 lg:pb-3 tablet:pb-10 lg:group-hover:opacity-100 xl:group-hover:h-[15vh] lg:group-hover:h-[18vh] transition-all duration-500" >
+                        Stand out and bring more value to your<br class="hidden sm:block lg:hidden" /> students by spending the lesson giving<br class="hidden sm:block lg:hidden" /> feedback instead of picking up balls.
+                    </Text>
+                </DeviceGridItem>
+                <DeviceGridItem containerClass="lg:bg-[url('/images/landing-page/clubs-bg-desktopxl.webp')] min-[670px]:bg-[url('/images/landing-page/clubs-bg-tablet.webp')] bg-[url('/images/landing-page/clubs-bg-mobile.webp')] min-[1520px]:h-[60vh] min-[1150px]:h-[40vh] min-[670px]:h-[50vh] min-[670px]:rounded-none lg:rounded-lg lg:h-[35vh]" >
+                    <Text tag="h6" className="z-[1] uppercase text-2xl min-[670px]:text-3xl text-center font-avenirBold min-[670px]:font-thin lg:text-left w-full mb-3" ><span class="lg:hidden">For</span> Clubs</Text>
+                    <Text tag="p" className="z-[1] lg:w-full mx-auto w-[80%] text-center sm:text-lg sm:leading-6 lg:text-left font-avenir text-pretty overflow-hidden h-fit lg:h-0 lg:opacity-0 pb-5 lg:pb-3 tablet:pb-10 lg:group-hover:opacity-100 xl:group-hover:h-[15vh] lg:group-hover:h-[18vh] transition-all duration-500" >
+                        Delight your guests and open up a new<br class="hidden sm:block lg:hidden" /> revenue stream by offering the best<br class="hidden sm:block lg:hidden" /> new technology in tennis. 
+                    </Text>
+                </DeviceGridItem>
+            </div>
+        </section>
+
+        <section>
+            <div class="w-[80%] 2xl:w-[60%] pt-20 mx-auto">
+                <Text tag="h2" className="font-avenir lg:mb-20 uppercase text-3xl md:text-4xl lg:text-5xl tablet:text-left w-full" >Our <strong class="font-avenirBold" >founders</strong></Text>
+                <div class="flex min-[590px]:flex-row flex-col items-center justify-around gap-20 mt-14" >
+                    <div class="relative flex pb-16 justify-center  xl:w-[35%] w-full" >
+                        <picture class="rounded-full group/haithamImg relative bg-t-off-white lg:hover:bg-transparent transition-all duration-500 ease-in-out" >
+                            <source srcset={haitham.src} media="(max-width: 450px)" />
+                            <source srcset={haithamTablet.src} media="(max-width: 768px)" />
+                            <Image src={haithamDesktop} alt="Haitham Eletrabi" class="relative z-10 tablet:bottom-5 tablet:right-5 bottom-3 right-3 lg:group-hover/haithamImg:bottom-0 lg:group-hover/haithamImg:right-0 mx-auto transition-all duration-500 ease-in-out" />
+                        </picture>
+                        <h6 class="absolute bottom-0 font-avenir text-t-off-white uppercase text-xl lg:text-2xl xl:text-3xl" >Haitham Eletrabi</h6>
+                    </div>
+                    <div class="relative flex pb-16 justify-center xl:w-[35%] w-full" >
+                        <picture class="rounded-full group/lincolnImg relative bg-t-off-white lg:hover:bg-transparent transition-all duration-500 ease-in-out" >
+                            <source srcset={lincoln.src} media="(max-width: 450px)" />
+                            <source srcset={lincolnTablet.src} media="(max-width: 768px)" />
+                            <Image src={lincolnDesktop} alt="Lincoln Wang" class="relative z-10 mx-auto tablet:bottom-5 tablet:right-5 bottom-3 right-3 lg:group-hover/lincolnImg:bottom-0 lg:group-hover/lincolnImg:right-0 transition-all duration-500 ease-in-out" />
+                        </picture>
+                        <h6 class="absolute bottom-0 font-avenir text-t-off-white uppercase text-xl lg:text-2xl xl:text-3xl" >Lincoln Warng</h6>
+                    </div>
+                </div>
+
+                <Text tag="h2" className="mx-auto font-avenir uppercase text-3xl md:text-4xl lg:text-5xl lg:mt-36 mt-16 " >Our <strong class="font-avenirBold" >story</strong></Text>
+                <div class="flex flex-col lg:flex-row mx-auto gap-8 pt-10" >
+                    <Text tag="p" className="font-plutoLight sm:text-lg 2xl:text-xl"  >Tennibot was born one night as Haitham, practicing with a ball machine, realized that he spent more time picking up balls than actually hitting them. So he set out to fix the worst part of his favorite sport. That was when Haitham was introduced to Lincoln through an Auburn business professor. Lincoln had just finished his Master's degree and happened to be a tennis enthusiast himself.</Text>
+                    <Text tag="p" className="font-plutoLight sm:text-lg 2xl:text-xl" >Soon after meeting, whenever the duo wasn’t playing doubles, they were working on the Tennibot. After years of designing, prototyping, testing and tweaking, the team was able to take Tennibot from a mere concept to the most innovative product to hit the tennis industry in years. Now the Tennibot is ready to be put on every tennis court in the world and make tedious ball-collecting a thing of the past.</Text>
+                </div>
+            </div>
+        </section>
+
+        <section class="lg:pt-40 pt-36 pb-10">
+            <div class="w-[80%] 2xl:w-[60%] mx-auto justify-center flex md:flex-row flex-col">
+                <div class="md:w-[50%] flex flex-row justify-start items-center pr-10" >
+                    <p class="font-avenir w-fit mx-auto uppercase xl:text-6xl lg:text-5xl text-2xl md:text-4xl text-center md:text-left mb-3 text-t-off-white" >
+                        Try <strong class="font-avenirBold" >risk free</strong><br class="tablet:hidden md:block" /> for 60 days
+                    </p>
+                </div>
+                <div class="md:w-[50%] border border-t-off-white rounded-lg py-8 px-10" >
+                    <p class="font-plutoLight text-t-off-white mb-10" >Sign up to recieve updates on the Tennibot, discounts, and a <strong class="font-plutoBold text-t-green" >free ADV Wristband!</strong></p>
+                    <LandingForm client:load />
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-t-off-black py-24" >
+            <div class="relative flex h-full w-full flex-col items-center justify-center overflow-hidden" >
+              <Marquee pauseOnHover className="[--duration:100s]" >
+                {MARQUEE_CONTENT.map((item, index) => {
+                  return (
+                    <CustomerReview key={index} review={item.review} author={item.author} />
+                  )
+                })}
+              </Marquee>
+            </div>
+          </section>
+
     </main>
 </Layout>
