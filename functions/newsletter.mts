@@ -26,7 +26,6 @@ export default async (event: Request, context: Context): Promise<Response> => {
     let mergeFields
     if (fname !== '') mergeFields = { ...mergeFields, FNAME: fname }
     if (lname !== '') mergeFields = { ...mergeFields, LNAME: lname }
-    if (phone !== '') mergeFields = { ...mergeFields, PHONE: phone }
 
     const response = await MCClient.lists.setListMember('b9aa6b4480', email, {
       email_address: email,

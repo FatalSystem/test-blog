@@ -15,7 +15,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
 
   try {
     const data = await event.json()
-    const { email, fname, lname, phone, rcToken } = data
+    const { email, fname, lname, call, rcToken } = data
     const recaptchaResponse = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${RC_SECRET_KEY}&response=${rcToken}`)
     const recaptchaData = await recaptchaResponse.json()
     if (recaptchaData.success === false || recaptchaData.score < 0.5) {
@@ -24,16 +24,18 @@ export default async (event: Request, context: Context): Promise<Response> => {
 
     // Avoid overwritting data TODO: improve with TS
     let mergeFields
+    const tags = []
+    if (call !== false) tags.push('Open for Call')
     if (fname !== '') mergeFields = { ...mergeFields, FNAME: fname }
     if (lname !== '') mergeFields = { ...mergeFields, LNAME: lname }
-    if (phone !== '') mergeFields = { ...mergeFields, PHONE: phone }
 
     const response = await MCClient.lists.setListMember('6001255d5c', email, {
       email_address: email,
       skip_merge_validation: true,
       status_if_new: 'subscribed',
       status: 'subscribed',
-      merge_fields: mergeFields
+      merge_fields: mergeFields,
+      tags
     })
     return new Response(JSON.stringify(response))
   } catch (error) {
