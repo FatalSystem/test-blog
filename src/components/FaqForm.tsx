@@ -52,7 +52,6 @@ export default function FAQ (): JSX.Element {
         body: JSON.stringify({ email, fname, lname, rcToken: token })
       })
       const data = await response.json()
-      console.log(data)
     } catch (error) {
       setErrorSubmitting(true)
       console.error(error)

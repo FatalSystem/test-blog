@@ -3,12 +3,9 @@ import Button from "@components/core/Button.astro"
 import Layout from "../layouts/Layout.astro"
 import Text from "@components/core/Text.astro"
 import DeviceGridItem from "@components/DeviceGridItem.astro"
-import { BackgroundImage } from "astro-imagetools/components"
 import { Image } from 'astro:assets'
-import RadialGradient from '@components/RadialGradient.tsx'
 import RoverHeroMobile from '@components/RoverHeroMobile.tsx'
 
-import VideoPlayer from '@components/VideoPlayer.tsx'
 import RoverTitle from '@assets/rover/rovertitle.svg'
 
 import roverTopView from '@assets/rover/rovertopview.webp'
@@ -137,7 +134,7 @@ import VideoThumbnail from "@components/VideoThumbnail"
 
                  <div class="w-full sm:grid sm:grid-cols-2 flex flex-col mt-5 gap-5" >
                      <VideoThumbnail client:idle title="setup" videoSource="https://player.vimeo.com/video/932265258" className="bg-[url('/images/rover/setupthumbnail.webp')]"  />
-                     <VideoThumbnail client:idle title="overview" videoSource="https://player.vimeo.com/video/888850976" className="bg-[url('/images/rover/timelapsethumbnail.webp')]" />
+                     <VideoThumbnail client:idle title="overview" videoSource="https://player.vimeo.com/video/946348494" className="bg-[url('/images/rover/timelapsethumbnail.webp')]" />
                 </div> 
             </div>
         </section>

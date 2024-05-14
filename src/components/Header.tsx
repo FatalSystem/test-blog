@@ -35,8 +35,6 @@ export default function Header (): JSX.Element {
     shouldShow()
   }, [])
 
-  console.log(showBanner)
-
   return (
     <div className='sticky top-0 z-50'>
       <Banner show={showBanner} onClose={closeBanner} />
