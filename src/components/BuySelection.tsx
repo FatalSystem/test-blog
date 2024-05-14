@@ -173,7 +173,7 @@ export default function BuySelection (): JSX.Element {
                     }} target='_blank' className="text-center cursor-pointer tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
                         Proceed to Checkout
                     </a>
-                    <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 4-5 weeks</label>
+                    <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 5-6 weeks</label>
                 </div>
                 <div className='hidden lg:flex size-6 p-1 border-[1px] border-t-off-white rounded-full absolute flex-col justify-center items-center bottom-[3.5%] right-[3.5%] '>
                     <div className={`${selected === 0 ? 'bg-t-green' : 'bg-transparent'} size-full rounded-full transition-all duration-500 ease-in-out`} />
@@ -224,7 +224,7 @@ export default function BuySelection (): JSX.Element {
                     }} target='_blank' className=" text-center cursor-pointer tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
                         Proceed to Checkout
                     </a>
-                    <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 4-5 weeks</label>
+                    <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 5-6 weeks</label>
                 </div>
                 <div className='hidden lg:flex size-6 p-1 border-[1px] border-t-off-white rounded-full absolute flex-col justify-center items-center bottom-[3.5%] right-[3.5%] '>
                     <div className={`${selected === 1 ? 'bg-t-green' : 'bg-transparent'} size-full rounded-full transition-all duration-500 ease-in-out`} />
@@ -277,7 +277,7 @@ export default function BuySelection (): JSX.Element {
                     }} target='_blank' className=" text-center cursor-pointer tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
                         Proceed to Checkout
                     </a>
-                    <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 4-5 weeks</label>
+                    <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 5-6 weeks</label>
                 </div>
                 <div className='hidden lg:flex size-6 p-1 border-[1px] border-t-off-white rounded-full absolute flex-col justify-center items-center bottom-[3.5%] right-[3.5%] '>
                     <div className={`${selected === 2 ? 'bg-t-green' : 'bg-transparent'} size-full rounded-full transition-all duration-500 ease-in-out`} />
@@ -290,7 +290,7 @@ export default function BuySelection (): JSX.Element {
             }} target='_blank' className="sm:mr-3 text-center cursor-pointer tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
                 Proceed to Checkout
             </a>
-            <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 4-5 weeks</label>
+            <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 5-6 weeks</label>
         </div>
     </section>
   )
