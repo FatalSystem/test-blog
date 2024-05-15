@@ -49,7 +49,7 @@ export default function BuySelection (): JSX.Element {
       edgetag('tag', 'initiateCheckout', {
         currency: 'USD',
         value: 2995,
-        checkoutUrl: 'https://tennibot.myshopify.com/cart/44311234936995:1?channel=buy_button',
+        checkoutUrl: 'https://store.tennibot.com/cart/44311234936995:1?channel=buy_button',
         contents: [
           {
             id: '8317998170275',
@@ -59,7 +59,7 @@ export default function BuySelection (): JSX.Element {
           }
         ]
       })
-      window.location.href = 'https://tennibot.myshopify.com/cart/44311234936995:1?channel=buy_button'
+      window.location.href = 'https://store.tennibot.com/cart/44311234936995:1?channel=buy_button'
     }
   }
 
