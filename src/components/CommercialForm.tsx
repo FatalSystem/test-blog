@@ -61,7 +61,7 @@ export default function CommercialForm (): JSX.Element {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email, fname, lname, phone, rcToken: token })
+        body: JSON.stringify({ email, fname, lname, from: 'Commercial', phone, rcToken: token })
       })
       if (response.status !== 200) {
         setErrorSubmitting(true)

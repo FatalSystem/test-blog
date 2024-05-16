@@ -49,7 +49,7 @@ export default function FAQ (): JSX.Element {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email, fname, lname, rcToken: token })
+        body: JSON.stringify({ email, fname, lname, from: 'FAQ', rcToken: token })
       })
       const data = await response.json()
     } catch (error) {

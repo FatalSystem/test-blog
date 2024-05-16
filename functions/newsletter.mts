@@ -15,7 +15,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
 
   try {
     const data = await event.json()
-    const { email, fname, lname, phone, rcToken } = data
+    const { email, fname, lname, phone, from, rcToken } = data
     const recaptchaResponse = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${RC_SECRET_KEY}&response=${rcToken}`)
     const recaptchaData = await recaptchaResponse.json()
     if (recaptchaData.success === false || recaptchaData.score < 0.5) {
@@ -32,7 +32,10 @@ export default async (event: Request, context: Context): Promise<Response> => {
       skip_merge_validation: true,
       status_if_new: 'subscribed',
       status: 'subscribed',
-      merge_fields: mergeFields
+      merge_fields: {
+        ...mergeFields,
+        FROM: from
+      }
     })
     return new Response(JSON.stringify(response))
   } catch (error) {
