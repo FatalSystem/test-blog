@@ -39,7 +39,7 @@ export default function FooterNewsletter ({ formClassName, inputClassName, butto
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email: values.email, rcToken: token })
+        body: JSON.stringify({ email: values.email, from: 'Footer', rcToken: token })
       })
       if (response.status !== 200) {
         setErrorSubmitting(true)

@@ -38,7 +38,7 @@ export default function Popup (): JSX.Element {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email: values.email, rcToken: token })
+        body: JSON.stringify({ email: values.email, from: 'Popup', rcToken: token })
       })
       if (response.status === 200) {
         edgetag('tag', 'Complete registration new')

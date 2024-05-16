@@ -21,7 +21,7 @@ const formSchema = z.object({
 const inputStyle = 'bg-transparent border-2 p-2.5 border-t-green rounded-md focus:outline-none focus:ring-indigo-500 focus:border-t-green mb-5'
 const labelStyle = 'lg:text-lg xl:text-xl mb-2 hidden'
 
-export default function LandingForm (): JSX.Element {
+export default function LandingForm ({ from }: { from: string }): JSX.Element {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -52,7 +52,7 @@ export default function LandingForm (): JSX.Element {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email: values.email, fname: firstName ?? values.name, lname: lastName ?? '', call: values.call, rcToken: token })
+        body: JSON.stringify({ email: values.email, from, fname: firstName ?? values.name, lname: lastName ?? '', call: values.call, rcToken: token })
       })
       if (response.status !== 200) {
         setErrorSubmitting(true)
