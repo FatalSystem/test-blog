@@ -84,8 +84,8 @@ export default function SecondBuyPageSlider (): JSX.Element {
           onIndexChangeCb={onIndexChangeCb}
           />
       </div>
-        <div className='py-10 w-[80%] mx-auto'>
-          <h5 className='font-avenirBold uppercase text-lg text-center text-pretty text-t-off-white' >{handleContent(selected).title}</h5>
+        <div className='pt-10 pb-20 w-[80%] mx-auto'>
+          <h5 className='font-avenirBold uppercase text-xl tablet:text-2xl mb-3 text-center text-pretty text-t-off-white' >{handleContent(selected).title}</h5>
           <p className='font-plutoLight text-t-off-white text-center text-pretty' >{handleContent(selected).description}</p>
         </div>
     </div>

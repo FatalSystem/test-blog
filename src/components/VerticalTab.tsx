@@ -26,23 +26,23 @@ export default function VerticalTab (): JSX.Element {
     <div className='md:flex hidden flex-row mt-20 mb-48' >
         <div className='' >
             <div className='flex flex-col h-full gap-5 justify-between mr-5' >
-                <a onClick={() => { setSelectedTab(0) }} className={`${tabItemStyle} ${selectedTab === 0 ? 'font-plutoBold border-l-2 border-t-green' : 'border-transparent'}`} >
+                <a onClick={() => { setSelectedTab(0) }} className={`${tabItemStyle} ${selectedTab === 0 ? 'font-plutoBold border-l-2 border-t-green' : 'font-plutoLight border-transparent'}`} >
                     Ball Collection
                     <p className={`${selectedTab === 0 ? 'max-h-[1000px] opacity-100 mt-2 z-10' : 'max-h-0 opacity-0 mt-0 overflow-hidden'} text-wrap text-sm mt-1 font-plutoLight transition-all duration-700 ease-in-out`} >The Tennibot collects up to 40 balls a minute on clay or hard courts.</p>
                 </a>
-                <a onClick={() => { setSelectedTab(1) }} className={`${tabItemStyle} ${selectedTab === 1 ? 'font-plutoBold border-l-2 border-t-green' : 'border-transparent'}`} >
+                <a onClick={() => { setSelectedTab(1) }} className={`${tabItemStyle} ${selectedTab === 1 ? 'font-plutoBold border-l-2 border-t-green' : 'font-plutoLight border-transparent'}`} >
                     Clay Court Sweeping
                     <p className={`${selectedTab === 1 ? 'max-h-[1000px] opacity-100 mt-2 z-10' : '-z-10 max-h-0 opacity-0 mt-0 overflow-hidden'} text-wrap text-sm mt-1 font-plutoLight transition-all duration-700 ease-in-out`} >With the Sweeper attachment, your courts will be swept effortlessly.</p>
                 </a>
-                <a onClick={() => { setSelectedTab(2) }} className={`${tabItemStyle} ${selectedTab === 2 ? 'font-plutoBold border-l-2 border-t-green' : 'border-transparent'}`} >
+                <a onClick={() => { setSelectedTab(2) }} className={`${tabItemStyle} ${selectedTab === 2 ? 'font-plutoBold border-l-2 border-t-green' : 'font-plutoLight border-transparent'}`} >
                     Video Recording
                     <p className={`${selectedTab === 2 ? 'max-h-[1000px] opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0 overflow-hidden'} text-wrap text-sm mt-1 font-plutoLight transition-all duration-700 ease-in-out`} >The Station captures those great shots from anywhere on the court.</p>
                 </a>
-                <a onClick={() => { setSelectedTab(3) }} className={`${tabItemStyle} ${selectedTab === 3 ? 'font-plutoBold border-l-2 border-t-green' : 'border-transparent'}`} >
+                <a onClick={() => { setSelectedTab(3) }} className={`${tabItemStyle} ${selectedTab === 3 ? 'font-plutoBold border-l-2 border-t-green' : 'font-plutoLight border-transparent'}`} >
                     Real Time Line Judging
                     <p className={`${selectedTab === 3 ? 'max-h-[1000px] opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0 overflow-hidden'} text-wrap text-sm mt-1 font-plutoLight transition-all duration-700 ease-in-out`} >No more arguing over line calls. Let the Station do the talking.</p>
                 </a>
-                <a onClick={() => { setSelectedTab(4) }} className={`${tabItemStyle} ${selectedTab === 4 ? 'font-plutoBold border-l-2 border-t-green' : 'border-transparent'}`} >
+                <a onClick={() => { setSelectedTab(4) }} className={`${tabItemStyle} ${selectedTab === 4 ? 'font-plutoBold border-l-2 border-t-green' : 'font-plutoLight border-transparent'}`} >
                     Stat Tracking
                     <p className={`${selectedTab === 4 ? 'max-h-[1000px] opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0 overflow-hidden'} text-wrap text-sm mt-1 font-plutoLight transition-all duration-700 ease-in-out`} >See a detailed match breakdown and keep track of your progress in the app.</p>
                 </a>

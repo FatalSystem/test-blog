@@ -2,8 +2,8 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Switch } from './Switch'
 
-const titleStyle = 'text-t-off-white text-left font-avenirBold text-2xl md:text-2xl lg:text-xl xl:text-2xl mb-4'
-const itemStyle = 'text-sm md:text-sm xl:text-sm 2xl:text-base'
+const titleStyle = 'text-t-off-white text-left font-avenirBold text-2xl md:text-2xl lg:text-xl xl:text-2xl'
+const itemStyle = 'mobilem:text-sm text-xs md:text-sm xl:text-sm 2xl:text-base'
 
 export const tabs = [
   { label: 'Rent-to-own' },
@@ -17,6 +17,23 @@ export default function BuySelection (): JSX.Element {
 
   const handleNavigation = (product: number): void => {
     if (product === 0) {
+      if (isChecked) {
+        edgetag('tag', 'initiateCheckout', {
+          currency: 'USD',
+          value: 995,
+          checkoutUrl: 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyNzQ0MjI0MzUsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2ODc5NTIzLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDA3MzMxfV19&store_id=190268',
+          contents: [
+            {
+              id: '8318008819875',
+              quantity: 1,
+              item_price: 995,
+              title: 'Annual Plan'
+            }
+          ]
+        })
+        window.location.href = 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyNzQ0MjI0MzUsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2ODc5NTIzLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDA3MzMxfV19&store_id=190268'
+        return
+      }
       edgetag('tag', 'initiateCheckout', {
         currency: 'USD',
         value: 95,
@@ -34,23 +51,23 @@ export default function BuySelection (): JSX.Element {
       return
     }
 
-    if (product === 1) {
-      edgetag('tag', 'initiateCheckout', {
-        currency: 'USD',
-        value: 995,
-        checkoutUrl: 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyNzQ0MjI0MzUsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2ODc5NTIzLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDA3MzMxfV19&store_id=190268',
-        contents: [
-          {
-            id: '8318008819875',
-            quantity: 1,
-            item_price: 995,
-            title: 'Annual Plan'
-          }
-        ]
-      })
-      window.location.href = 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyNzQ0MjI0MzUsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2ODc5NTIzLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDA3MzMxfV19&store_id=190268'
-      return
-    }
+    // if (product === 1) {
+    //   edgetag('tag', 'initiateCheckout', {
+    //     currency: 'USD',
+    //     value: 995,
+    //     checkoutUrl: 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyNzQ0MjI0MzUsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2ODc5NTIzLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDA3MzMxfV19&store_id=190268',
+    //     contents: [
+    //       {
+    //         id: '8318008819875',
+    //         quantity: 1,
+    //         item_price: 995,
+    //         title: 'Annual Plan'
+    //       }
+    //     ]
+    //   })
+    //   window.location.href = 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyNzQ0MjI0MzUsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2ODc5NTIzLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDA3MzMxfV19&store_id=190268'
+    //   return
+    // }
 
     if (product === 2) {
       edgetag('tag', 'initiateCheckout', {
@@ -71,10 +88,10 @@ export default function BuySelection (): JSX.Element {
   }
 
   return (
-    <section className="lg:max-w-[80%] md:max-w-[26rem] max-w-[80%] 2xl:w-[65%] mx-auto md:pt-5 pt-0 pb-20" >
+    <section className="lg:max-w-[80%] tablet:max-w-[26rem] max-w-[80%] 2xl:w-[65%] mx-auto pt-10 pb-20" >
         <div className="flex relative flex-col gap-5 justify-between" >
             <div className="flex flex-col justify-between w-full items-baseline" >
-              <h1 className="font-avenirBold md:text-4xl xl:text-5xl text-3xl uppercase" >Tennibot</h1>
+              <h1 className="font-avenirBold md:text-4xl xl:text-4xl text-3xl uppercase" >Tennibot</h1>
               <p className="font-pluto text-lg xl:text-xl" >Rover and Station</p>
             </div>
             {/* <div className="absolute lg:block hidden top-[-15%] w-[50%] border-t-2 border-r-2 border-t-off-white rounded-r-lg h-[30%]" >
@@ -87,7 +104,7 @@ export default function BuySelection (): JSX.Element {
               <a onClick={() => { setSelected(0) }} className={`${selected !== 2 ? 'font-avenirBold underline underline-offset-2 tablet:no-underline' : 'font-avenir'} cursor-pointer uppercase text-t-off-white text-xl transition-all duration-300 ease-in-out`} >Rent-to-own</a>
               <a onClick={() => { setSelected(2) }} className={`${selected === 2 ? 'font-avenirBold' : 'font-avenir'} cursor-pointer uppercase text-t-off-white text-xl transition-all duration-300 ease-in-out`} >Buy</a>
             </div>
-            <ul className='flex w-full md:pb-10 pb-5 flex-row tablet:justify-center justify-around mt-10 tablet:hidden' >
+            <ul className='flex w-full md:pb-10 pb-5 flex-row tablet:justify-center justify-around mt-5 tablet:hidden' >
                 {tabs.map((item, index) => {
                   return (
                         <li key={item.label} className='tablet:w-full w-fit cursor-pointer text-center relative h-[24px] flex justify-center min-w-0' onClick={() => {
@@ -109,7 +126,7 @@ export default function BuySelection (): JSX.Element {
                   )
                 })}
             </ul>
-            <button onClick={() => { setSelected(0) }} className={`${selected === 0 ? 'lg:border-t-green' : ' hover:opacity-100 opacity-50 border-t-off-white'} bg-t-darker-green relative flex-[0_0_30%] border-2 lg:hover:border-t-green rounded-lg px-5 mobilem:px-10 md:px-5 lg:px-7 md:pb-8 lg:pb-5 py-5 flex flex-col lg:justify-start justify-center transition-all duration-300 ease-in-out`} >
+            <button onClick={() => { setSelected(0) }} className={`${selected === 0 ? 'lg:border-t-green' : ' hover:opacity-100 opacity-50 border-t-off-white'} bg-t-darker-green relative flex-[0_0_30%] border-2 lg:hover:border-t-green rounded-lg px-5 mobilel:px-7 md:px-5 lg:px-7 md:pb-8 lg:pb-5 py-5 flex flex-col lg:justify-start justify-center transition-all duration-300 ease-in-out`} >
                 <div className="flex flex-col tablet:flex-row tablet:justify-between tablet:items-start items-start justify-between w-full" >
                     <h3 className={titleStyle} >{`${isChecked ? '$995' : '$95'} / ${isChecked ? 'Year' : 'Month'}`}</h3>
                     <div className=" mr-3 absolute right-0 tablet:w-[30%] tablet:min-w-20 flex flex-row tablet:gap-2 gap-0 tablet:flex-col items-center justify-between mb-5 transition-all duration-300 ease-in-out" >
@@ -210,10 +227,10 @@ export default function BuySelection (): JSX.Element {
             </button> */}
 
             {/* <h2 className="lg:hidden font-avenir uppercase text-t-off-white text-3xl mb-[-1rem]" >Buy</h2> */}
-            <button onClick={() => { setSelected(2) }} className={`${selected === 2 ? 'lg:border-t-green' : 'hover:opacity-100 opacity-50 border-t-off-white'} bg-t-darker-green relative flex-[0_0_30%] border-2 lg:hover:border-t-green rounded-lg px-5 mobilem:px-10 md:px-5 lg:px-7 pb-8 lg:pb-5 py-5 flex flex-col justify-start transition-all duration-300 ease-in-out`} >
+            <button onClick={() => { setSelected(2) }} className={`${selected === 2 ? 'lg:border-t-green' : 'hover:opacity-100 opacity-50 border-t-off-white'} bg-t-darker-green relative flex-[0_0_30%] border-2 lg:hover:border-t-green rounded-lg px-5 mobilel:px-7 md:px-5 lg:px-7 pb-8 lg:pb-5 py-5 flex flex-col justify-start transition-all duration-300 ease-in-out`} >
                 <h3 className={`${titleStyle} `} >$2,995</h3>
                 <div className={'flex lg:flex-col md:flex-row flex-col w-full md:w-auto transition-all ease-in-out duration-500'} >
-                  <ul className={'list-disc list-inside text-left flex flex-col gap-2 transition-all ease-in-out duration-500'} >
+                  <ul className={'list-disc list-inside mt-2 text-left flex flex-col gap-2 transition-all ease-in-out duration-500'} >
                       <li className={`font-plutoLight list-item text-t-off-white text-pretty ${itemStyle}`} >60 day money-back guarantee</li>
                       <li className={`font-plutoLight list-item text-t-off-white text-pretty ${itemStyle}`} >Free shipping in the US</li>
                       <li className={`font-plutoLight list-item text-t-off-white text-pretty ${itemStyle}`} >Comprehensive customer service and <a href="#faq" className='underline text-t-green' >warranty</a></li>
@@ -232,13 +249,13 @@ export default function BuySelection (): JSX.Element {
                 </div> */}
             </button>
         </div>
-        <div className="w-full flex-col items-center mt-[5vh] flex" >
+        <div className="w-full flex-col items-center mt-[3vh] flex" >
             <a onClick={() => {
               handleNavigation(selected)
             }} target='_blank' className="sm:mr-3 text-center tablet:w-72 cursor-pointer w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-96 rounded-full py-2 font-avenir border-2 transition duration-300 border-t-green lg:text-t-green lg:bg-transparent hover:bg-t-green hover:text-t-off-black bg-t-green text-t-off-black" rel="noreferrer" >
                 Proceed to Checkout
             </a>
-            <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 5-6 weeks</label>
+            <label className="font-plutoLight text-t-off-white text-pretty mt-[2vh]" >Ships in 5-6 weeks</label>
         </div>
     </section>
   )
