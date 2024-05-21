@@ -6,6 +6,8 @@ import BuyPageSlider from "@components/BuyPageSlider"
 import BuySelection from "@components/BuySelection"
 import { CustomerReview, Marquee } from "@components/Marquee"
 import FAQItem from "@components/FAQItem"
+import VerticalTab from "@components/VerticalTab"
+import SecondBuyPageSlider from "@components/SecondBuyPageSlider"
 
 const MARQUEE_CONTENT = [
   {
@@ -100,99 +102,117 @@ const FAQ = [
 ---
 
 <Layout title="Buy | Tennibot">
-    <main class="bg-t-off-black overflow-hidden text-t-off-white" >
-      <section class="min-[570px]:w-[80%] w-full 2xl:w-[65%] mx-auto py-20" >
-        <div class="w-[80%] min-[570px]:w-full mx-auto flex min-[570px]:flex-row flex-col justify-between]" >
-          <div class="flex flex-col sm:flex-row justify-between w-full  items-baseline" >
-            <Text tag="h1" className="font-avenirBold md:text-4xl xl:text-5xl text-3xl uppercase" >Tennibot</Text>
-            <Text className="font-pluto text-lg xl:text-xl" >Rover and Station</Text>
+    <main class="bg-t-off-black relative text-t-off-white flex lg:flex-row flex-col-reverse" >
+      <section class="lg:w-[60%] w-full" >
+        <!-- <section class="min-[570px]:w-[80%] w-full 2xl:w-[65%] mx-auto py-20" > -->
+        <section class="w-full mx-auto pb-20" >
+          <div class="w-[80%] min-[570px]:w-full mx-auto flex min-[570px]:flex-row flex-col justify-between]" >
+            <!-- <div class="flex flex-col sm:flex-row justify-between w-full  items-baseline" >
+              <Text tag="h1" className="font-avenirBold md:text-4xl xl:text-5xl text-3xl uppercase" >Tennibot</Text>
+              <Text className="font-pluto text-lg xl:text-xl" >Rover and Station</Text>
+            </div> -->
+  
+            <!-- <div class="bg-[#2B400D] px-5 py-2 flex flex-col justify-center rounded-lg h-full w-fit min-[570px]:mt-0 mt-5">
+              <Text className="font-plutoBold text-t-green md:text-lg" >60 Day Free Trial</Text>
+              <Text className="font-plutoLight text-t-off-white lg:text-sm md:text-xs mt-1 text-base" >If you don't love it, you'll get a<br class="hidden tablet:block"/> full refund and a free return.</Text>
+            </div> -->
           </div>
-
-          <!-- <div class="bg-[#2B400D] px-5 py-2 flex flex-col justify-center rounded-lg h-full w-fit min-[570px]:mt-0 mt-5">
-            <Text className="font-plutoBold text-t-green md:text-lg" >60 Day Free Trial</Text>
-            <Text className="font-plutoLight text-t-off-white lg:text-sm md:text-xs mt-1 text-base" >If you don't love it, you'll get a<br class="hidden tablet:block"/> full refund and a free return.</Text>
-          </div> -->
-        </div>
-
-        <div class="relative text-t-off-white min-[570px]:rounded-lg rounded-none overflow-hidden min-[570px]:my-7 my-10 " >
-          <BuyPageSlider client:idle />
-        </div>
-      </section>
-
-      <BuySelection client:idle />
-
-      <!-- <section>
-        <div class="w-[80%] 2xl:w-[65%] mx-auto pt-5 pb-20">
-          <Text tag="h2" className="font-avenir uppercase text-t-off-white text-3xl xl:text-4xl 2xl:text-5xl pb-5" >Membership</Text>
-          <div class="flex sm:flex-row flex-col flex-wrap gap-8 min-[850px]:gap-4 md:gap-6 justify-center" >
-
-            <div class="flex flex-col border-2 border-t-off-white rounded-lg px-8 py-5 w-full min-[850px]:w-[48.5%] min-[1267px]:w-[32%] bg-[url('/images/buy/guest-bg.webp')] bg-cover bg-center" >
-              <div class="flex flex-row justify-between items-baseline">
-                <Text tag="h4" className="font-avenirBold text-t-off-white uppercase text-xl min-[1267px]:text-3xl ">Guest</Text> 
-                <Text  className="font-avenirBold text-t-green uppercase text-xs min-[850px]:text-base ">Free</Text> 
-              </div>
-              <ul class="list-disc list-inside text-left flex flex-col gap-5 mt-5" >
-                <li class="text-t-off-white font-plutoLight text-sm 2xl:text-base" >1 Month of session analysis storage</li>
-                <li class="text-t-off-white font-plutoLight text-sm 2xl:text-base" >2 hours of cloud video storage</li>
-              </ul>
-            </div>
-
-            <div class="flex flex-col border-2 border-t-off-white rounded-lg px-8 py-5 w-full min-[850px]:w-[48.5%] min-[1267px]:w-[32%] bg-[url('/images/buy/classic-bg.webp')] bg-cover bg-center" >
-              <div class="flex flex-row justify-between items-baseline">
-                <Text tag="h4" className="font-avenirBold text-t-off-white uppercase text-xl min-[1267px]:text-3xl">Classic</Text> 
-              </div>
-              <ul class="list-disc list-inside text-left flex flex-col gap-5 mt-5" >
-                <li class="text-t-off-white font-plutoLight text-sm 2xl:text-base" >1 Year of session analysis storage</li>
-                <li class="text-t-off-white font-plutoLight text-sm 2xl:text-base" >20 hours of cloud video storage</li>
-              </ul>
-            </div>
-
-            <div class="flex flex-col border-2 border-t-off-white rounded-lg px-8 py-5 w-full min-[850px]:w-[48.5%] min-[1267px]:w-[32%] bg-[url('/images/buy/pro-bg.webp')] bg-cover bg-center" >
-              <div class="flex flex-row justify-between items-baseline">
-                <Text tag="h4" className="font-avenirBold text-t-off-white uppercase text-xl min-[1267px]:text-3xl">Pro</Text> 
-                <Text  className="font-avenirBold text-t-green uppercase text-xs min-[850px]:text-base">$9 / Month</Text> 
-              </div>
-              <ul class="list-disc list-inside text-left flex flex-col gap-5 mt-5" >
-                <li class="text-t-off-white font-plutoLight text-sm 2xl:text-base" >Unlimited session analysis storage</li>
-                <li class="text-t-off-white font-plutoLight text-sm 2xl:text-base" >100 hours of cloud video storage</li>
-              </ul>
-            </div>
-            
+  
+          <div class="relative text-t-off-white rounded-none overflow-hidden" >
+            <BuyPageSlider client:idle />
           </div>
-        </div>
-      </section> -->
+        </section>
+  
+        <!-- <BuySelection client:idle /> -->
+        <section class="w-[80%] pt-20 mx-auto" >
+          <h3 class="font-avenirBold uppercase text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl" >Never pick up a<br />tennis ball again</h3>
+          <p class="font-plutoLight xl:text-lg 2xl:text-xl mt-5 md:mb-48 mb-20">Jump into the future of sports with Tennibot, the world’s first autonomous tennis assistant. Save time on the court and hit hundreds of extra shots in every practice session.</p>
 
-      <section class="bg-t-off-black pb-24" >
-        <div class="relative flex h-full w-full flex-col items-center justify-center overflow-hidden" >
-          <Marquee pauseOnHover className="[--duration:100s]" >
-            {MARQUEE_CONTENT.map((item, index) => {
-              return (
-                <CustomerReview key={index} review={item.review} author={item.author} />
-              )
-            })}
-          </Marquee>
-        </div>
-      </section>
+          <VerticalTab client:load />
 
-      <section id="faq" class="w-[80%] 2xl:w-[65%] py-20 mx-auto">
-        <Text tag="h2" className="font-plutoBold text-t-off-white text-xl lg:text-2xl xl:text-3xl mb-7" >Frequently Asked Questions</Text>
-        {FAQ.map((item, index) => {
-          return (
-            <FAQItem key={index} index={index} question={item.question} answer={item.answer} client:idle />
-          )
-        })}
-      </section>
+        </section>
 
-      <section class=" bg-t-off-black lg:pb-32 pt-11 pb-20 text-t-off-white" >
-        <div class="w-[80%] 2xl:w-[65%] flex lg:flex-row flex-col items-end mx-auto h-full " >
-            <div>
-                <Text tag="h3" className="uppercase font-avenir text-2xl lg:text-4xl 2xl:text-5xl mb-5" >Let's talk</Text>
-                <Text tag="p" className="font-plutoLight lg:text-lg 2xl:" >Jump on a call with a team member to answer any questions you have or to see the Tennibot in action. If you don’t want to chat, email your question to <a href="mailto:info@tennibot.com" class="text-t-green" >info@tennibot.com</a>.</Text>
+        <section class="relative text-t-off-white rounded-none overflow-hidden md:hidden" >
+          <SecondBuyPageSlider client:load />
+        </section>
+
+  
+        <!-- <section>
+          <div class="w-[80%] 2xl:w-[65%] mx-auto pt-5 pb-20">
+            <Text tag="h2" className="font-avenir uppercase text-t-off-white text-3xl xl:text-4xl 2xl:text-5xl pb-5" >Membership</Text>
+            <div class="flex sm:flex-row flex-col flex-wrap gap-8 min-[850px]:gap-4 md:gap-6 justify-center" >
+  
+              <div class="flex flex-col border-2 border-t-off-white rounded-lg px-8 py-5 w-full min-[850px]:w-[48.5%] min-[1267px]:w-[32%] bg-[url('/images/buy/guest-bg.webp')] bg-cover bg-center" >
+                <div class="flex flex-row justify-between items-baseline">
+                  <Text tag="h4" className="font-avenirBold text-t-off-white uppercase text-xl min-[1267px]:text-3xl ">Guest</Text> 
+                  <Text  className="font-avenirBold text-t-green uppercase text-xs min-[850px]:text-base ">Free</Text> 
+                </div>
+                <ul class="list-disc list-inside text-left flex flex-col gap-5 mt-5" >
+                  <li class="text-t-off-white font-plutoLight text-sm 2xl:text-base" >1 Month of session analysis storage</li>
+                  <li class="text-t-off-white font-plutoLight text-sm 2xl:text-base" >2 hours of cloud video storage</li>
+                </ul>
+              </div>
+  
+              <div class="flex flex-col border-2 border-t-off-white rounded-lg px-8 py-5 w-full min-[850px]:w-[48.5%] min-[1267px]:w-[32%] bg-[url('/images/buy/classic-bg.webp')] bg-cover bg-center" >
+                <div class="flex flex-row justify-between items-baseline">
+                  <Text tag="h4" className="font-avenirBold text-t-off-white uppercase text-xl min-[1267px]:text-3xl">Classic</Text> 
+                </div>
+                <ul class="list-disc list-inside text-left flex flex-col gap-5 mt-5" >
+                  <li class="text-t-off-white font-plutoLight text-sm 2xl:text-base" >1 Year of session analysis storage</li>
+                  <li class="text-t-off-white font-plutoLight text-sm 2xl:text-base" >20 hours of cloud video storage</li>
+                </ul>
+              </div>
+  
+              <div class="flex flex-col border-2 border-t-off-white rounded-lg px-8 py-5 w-full min-[850px]:w-[48.5%] min-[1267px]:w-[32%] bg-[url('/images/buy/pro-bg.webp')] bg-cover bg-center" >
+                <div class="flex flex-row justify-between items-baseline">
+                  <Text tag="h4" className="font-avenirBold text-t-off-white uppercase text-xl min-[1267px]:text-3xl">Pro</Text> 
+                  <Text  className="font-avenirBold text-t-green uppercase text-xs min-[850px]:text-base">$9 / Month</Text> 
+                </div>
+                <ul class="list-disc list-inside text-left flex flex-col gap-5 mt-5" >
+                  <li class="text-t-off-white font-plutoLight text-sm 2xl:text-base" >Unlimited session analysis storage</li>
+                  <li class="text-t-off-white font-plutoLight text-sm 2xl:text-base" >100 hours of cloud video storage</li>
+                </ul>
+              </div>
+              
             </div>
-            <div class="lg:w-[50%] lg:mt-0 mt-10 w-full flex lg:justify-end justify-center" >
-                <Button href="https://calendly.com/haithameletrabi/15-minute-call" theme="ghostLight" >Schedule call</Button>
-            </div>
-        </div>
+          </div>
+        </section> -->
+  
+        <section class="bg-t-off-black pb-24" >
+          <div class="relative flex h-full w-full flex-col items-center justify-center overflow-hidden" >
+            <Marquee pauseOnHover className="[--duration:100s]" >
+              {MARQUEE_CONTENT.map((item, index) => {
+                return (
+                  <CustomerReview key={index} review={item.review} author={item.author} />
+                )
+              })}
+            </Marquee>
+          </div>
+        </section>
+  
+        <section id="faq" class="w-[80%] 2xl:w-[65%] py-20 mx-auto">
+          <Text tag="h2" className="font-plutoBold text-t-off-white text-xl lg:text-2xl xl:text-3xl mb-7" >Frequently Asked Questions</Text>
+          {FAQ.map((item, index) => {
+            return (
+              <FAQItem key={index} index={index} question={item.question} answer={item.answer} client:idle />
+            )
+          })}
+        </section>
+  
+        <section class=" bg-t-off-black lg:pb-32 pt-11 pb-20 text-t-off-white" >
+          <div class="w-[80%] 2xl:w-[65%] flex flex-col items-end mx-auto h-full " >
+              <div>
+                  <Text tag="h3" className="uppercase font-avenir text-2xl lg:text-4xl 2xl:text-5xl mb-5" >Let's talk</Text>
+                  <Text tag="p" className="font-plutoLight lg:text-lg 2xl:" >Jump on a call with a team member to answer any questions you have or to see the Tennibot in action. If you don’t want to chat, email your question to <a href="mailto:info@tennibot.com" class="text-t-green" >info@tennibot.com</a>.</Text>
+              </div>
+              <div class="mt-10 w-full flex lg:justify-start justify-center" >
+                  <Button href="https://calendly.com/haithameletrabi/15-minute-call" theme="ghostLight" >Schedule call</Button>
+              </div>
+          </div>
+        </section>
+      </section>
+      <section class="bg-[url('/images/buy/pricing-bg.webp')] overflow-y-scroll overflow-x-hidden hide-scrollbar bg-center bg-cover lg:h-screen w-full lg:pt-0 lg:w-[40%] lg:sticky lg:top-16 lg:right-0">
+        <BuySelection client:idle />
       </section>
     </main>
 </Layout>

@@ -26,7 +26,8 @@ module.exports = {
         't-video-gradient': 'rgb(32, 32, 35, 0.6)',
         't-shade': '#232320',
         't-gray': '#AFAFAE',
-        't-disabled': '#8E9088'
+        't-disabled': '#8E9088',
+        't-darker-green': '#0A4523'
       },
       fontFamily: {
         avenir: ['AvenirNLPRegular', 'sans-serif'],
