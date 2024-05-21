@@ -65,7 +65,7 @@ export default function VerticalTab (): JSX.Element {
                   duration: 1
                 }}
              className='w-full rounded-lg overflow-hidden' >
-                <video className="w-full h-full object-cover bg-[url('/images/cover-img-mobile.webp')] min-[720px]:bg-[url('/images/cover-img.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
+                <video className="w-full h-full object-cover bg-[url('/images/ball-collection-cover.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
                     <source src={handleVideoSource(selectedTab)} type="video/mp4" />
                     {'Your browser doesn\'t support the video tag.'}
                 </video>
@@ -89,7 +89,7 @@ export default function VerticalTab (): JSX.Element {
                   duration: 1
                 }}
              className='w-full rounded-lg overflow-hidden' >
-                <video className="w-full h-full object-cover bg-[url('/images/cover-img-mobile.webp')] min-[720px]:bg-[url('/images/cover-img.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
+                <video className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
                     <source src={handleVideoSource(selectedTab)} type="video/mp4" />
                     {'Your browser doesn\'t support the video tag.'}
                 </video>
@@ -157,7 +157,7 @@ export default function VerticalTab (): JSX.Element {
                   duration: 1
                 }}
              className='w-full rounded-lg overflow-hidden' >
-                <video className="w-full h-full object-cover bg-[url('/images/cover-img-mobile.webp')] min-[720px]:bg-[url('/images/cover-img.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
+                <video className="w-full h-full object-cover bg-[url('/images/buy/stat-tracking-cover.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
                     <source src={handleVideoSource(selectedTab)} type="video/mp4" />
                     {'Your browser doesn\'t support the video tag.'}
                 </video>

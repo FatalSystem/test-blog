@@ -3,18 +3,18 @@ import { TSliderTwo } from './TSliderTwo'
 
 const slides = [
   {
-    content: <video className="w-full h-full object-cover bg-[url('/images/cover-img-mobile.webp')] min-[720px]:bg-[url('/images/cover-img.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
+    content: <video className="w-full h-full object-cover bg-[url('/images/ball-collection-cover.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
     <source src='/videos/ball-collection.mp4' type="video/mp4" />
     {'Your browser doesn\'t support the video tag.'}
 </video>,
-    style: "tablet:bg-[url('/images/buy/rovercourt-desktopxl.webp')] bg-[url('/images/buy/rovercourt.webp')] sm:h-[70vh] h-[45vh]"
+    style: "bg-[url('/images/buy/ball-collection-cover.webp')] sm:h-[70vh] h-[45vh]"
   },
   {
-    content: <video className="w-full h-full object-cover bg-[url('/images/cover-img-mobile.webp')] min-[720px]:bg-[url('/images/cover-img.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
+    content: <video className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
     <source src='/videos/court-sweeping.mp4' type="video/mp4" />
     {'Your browser doesn\'t support the video tag.'}
 </video>,
-    style: "tablet:bg-[url('/images/buy/rover-closeup-desktopxl.webp')] bg-[url('/images/buy/rover-closeup.webp')] sm:h-[70vh] h-[45vh]"
+    style: "bg-[url('/images/buy/court-sweeping-cover.webp')] sm:h-[70vh] h-[45vh]"
   },
   {
     style: "bg-[url('/images/buy/station-tab.webp')] sm:h-[70vh] h-[45vh]"
@@ -23,11 +23,11 @@ const slides = [
     style: "bg-[url('/images/buy/line-judge.webp')] sm:h-[70vh] h-[45vh]"
   },
   {
-    content: <video className="w-full h-full object-cover bg-[url('/images/cover-img-mobile.webp')] min-[720px]:bg-[url('/images/cover-img.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
+    content: <video className="w-full h-full object-cover bg-[url('/images/buy/stat-tracking-cover.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
     <source src='/videos/stat-tracking.mp4' type="video/mp4" />
     {'Your browser doesn\'t support the video tag.'}
 </video>,
-    style: "tablet:bg-[url('/images/buy/station-closeup-desktopxl.webp')] bg-[url('/images/buy/station-closeup.webp')] sm:h-[70vh] h-[45vh]"
+    style: "bg-[url('/images/buy/stat-tracking-cover.webp')] sm:h-[70vh] h-[45vh]"
   }
 
 ]
