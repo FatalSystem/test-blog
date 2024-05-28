@@ -127,11 +127,13 @@ export default function BuySelection (): JSX.Element {
                 })}
             </ul>
             <button onClick={() => { setSelected(0) }} className={`${selected === 0 ? 'lg:border-t-green' : ' hover:opacity-100 opacity-50 border-t-off-white'} bg-t-darker-green relative flex-[0_0_30%] border-2 lg:hover:border-t-green rounded-lg px-5 mobilel:px-7 md:px-5 lg:px-7 md:pb-8 lg:pb-5 py-5 flex flex-col lg:justify-start justify-center transition-all duration-300 ease-in-out`} >
-                <div className="flex flex-col tablet:flex-row tablet:justify-between tablet:items-start items-start justify-between w-full" >
+                <div className="flex flex-col tablet:flex-row tablet:justify-start tablet:items-baseline items-start justify-between w-full" >
                     <h3 className={titleStyle} >{`${isChecked ? '$995' : '$95'} / ${isChecked ? 'Year' : 'Month'}`}</h3>
-                    <div className=" mr-3 absolute right-0 tablet:w-[30%] tablet:min-w-20 flex flex-row tablet:gap-2 gap-0 tablet:flex-col items-center justify-between mb-5 transition-all duration-300 ease-in-out" >
+                    {isChecked && (<label className='font-plutoBold ml-[5%] hidden tablet:block' >23% Off!</label>)}
+                    <div className=" mr-3 absolute right-0 tablet:w-[30%] tablet:min-w-20 flex tablet:gap-2 gap-0 flex-col items-center justify-between mb-5 transition-all duration-300 ease-in-out" >
                         {/* <label className={`tablet:hidden font-plutoLight text-xs ${!isChecked ? 'text-t-off-white' : 'text-t-disabled'}`} >Annual Plan</label> */}
                         <Switch checked={isChecked} className='transition-all mx-auto duration-300 ease-in-out' onCheckedChange={() => { setIsChecked(!isChecked) }} />
+                        {isChecked && (<label className='font-plutoBold mt-2 tablet:hidden' >23% Off!</label>)}
                         {/* {
                             isChecked && (
                                 <motion.div
