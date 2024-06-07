@@ -12,6 +12,7 @@ const PrevButton: React.FC<TArrowButton> = (props) => {
           type="button"
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 2 }}
           {...restProps}
+          aria-label="Previous button"
         >
           {svg ?? (
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="41" viewBox="0 0 19 32" fill="none">
@@ -28,6 +29,7 @@ const PrevButton: React.FC<TArrowButton> = (props) => {
     <button
       className="z-10 flex items-center justify-center cursor-pointer size-[4rem] embla__button--prev"
       type="button"
+      aria-label="Previous button"
       {...restProps}
     >
         {svg ?? (

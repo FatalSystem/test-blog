@@ -11,6 +11,7 @@ const NextButton: React.FC<TArrowButton> = (props) => {
         <motion.button
           className={`z-10 flex items-center justify-center cursor-pointer w-[4rem] h-[4rem] embla__button--prev ${restProps.className}`}
           type="button"
+          aria-label="Next button"
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 2 }}
           {...restProps}
         >
@@ -29,6 +30,7 @@ const NextButton: React.FC<TArrowButton> = (props) => {
     <button
         className="z-10 flex items-center justify-center cursor-pointer size-[4rem] embla__button--next"
         type="button"
+        aria-label="Next button"
         {...restProps}
     >
         {svg ?? (

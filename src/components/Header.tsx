@@ -82,7 +82,7 @@ export default function Header (): JSX.Element {
               </a>
             </div>
             <div className="relative my-auto flex flex-row">
-              <button onClick={handleOpen} className="w-12 h-10 ">
+              <button onClick={handleOpen} aria-label="Main Menu" className="w-12 h-10 ">
                 <div className="block w-10  absolute left-1/2 top-1/2   transform  -translate-x-1/2 -translate-y-1/2">
                   <span
                     aria-hidden="true"

@@ -5,7 +5,7 @@ const DotButton: React.FC<TDotButton> = (props) => {
   const { children, ...restProps } = props
 
   return (
-    <button type="button" {...restProps}>
+    <button type="button" aria-label="Dot Button" {...restProps}>
       {children}
     </button>
   )

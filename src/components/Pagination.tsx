@@ -36,6 +36,7 @@ const Pagination = ({ items, itemsPerPage, tab, currentPage, goToPage, goToNextP
               <motion.button
                 className="z-10 absolute mobilel:left-0 left-[-10%] flex items-center justify-center cursor-pointer size-[4rem]"
                 type="button"
+                aria-label="Previous button"
                 // layout
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}
                 onClick={goToPreviousPage}
@@ -61,6 +62,7 @@ const Pagination = ({ items, itemsPerPage, tab, currentPage, goToPage, goToNextP
                 type="button"
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}
                 onClick={goToNextPage}
+                aria-label="Next button"
                 >
                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="32" viewBox="0 0 19 32" fill="none">
                   <path d="M2 2L17 16L2 30" stroke="#191A16" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
