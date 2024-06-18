@@ -139,7 +139,7 @@ export default function LandingForm ({ from }: { from: string }): JSX.Element {
                             <Checkbox checked={field.value ?? true} onCheckedChange={field.onChange} className='text-t-green border-t-green' />
                         </FormControl>
                         <FormDescription className='font-plutoLight text-t-off-white' >
-                            {'I am happy to jump on a 10 minute call with the Tennibot Team'}
+                            {'I am happy to jump on a 15 minute call with the Tennibot Team'}
                         </FormDescription>
                         <FormMessage />
                     </FormItem>
