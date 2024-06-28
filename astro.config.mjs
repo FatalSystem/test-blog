@@ -23,7 +23,8 @@ export default defineConfig({
     '/t5setup': 'https://youtu.be/BerTwqWqAPo',
     '/unbox': 'https://youtu.be/vvNnUARbGz0',
     '/quickstart': 'https://www.youtube.com/watch?v=c7O39UYMls4',
-    '/meeting': 'https://calendly.com/haithameletrabi/15-minute-call?month=2024-06'
+    '/meeting': 'https://calendly.com/haithameletrabi/15-minute-call?month=2024-06',
+    '/help': 'https://www.youtube.com/watch?v=BerTwqWqAPo'
   },
   integrations: [tailwind(), sitemap(), react({
     experimentalReactChildren: true
