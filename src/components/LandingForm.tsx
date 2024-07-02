@@ -39,7 +39,7 @@ export default function LandingForm ({ from }: { from: string }): JSX.Element {
     try {
       if (errorSubmitting) setErrorSubmitting(false)
       if (form.formState.submitCount > 3) throw new Error('Too many attempts')
-      if (!token) { console.error('No token'); return }
+      // if (!token) { console.error('No token'); return }
 
       let firstName
       let lastName
@@ -59,8 +59,8 @@ export default function LandingForm ({ from }: { from: string }): JSX.Element {
       } else {
         setSent(true)
         window.localStorage.setItem('signed', 'true')
-        edgetag('tag', 'Complete registration new')
-        window.location.href = '/'
+        // edgetag('tag', 'Complete registration new')
+        // window.location.href = '/'
       }
     } catch (error) {
       setErrorSubmitting(true)
