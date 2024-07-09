@@ -59,8 +59,8 @@ export default function LandingForm ({ from }: { from: string }): JSX.Element {
       } else {
         setSent(true)
         window.localStorage.setItem('signed', 'true')
-        // edgetag('tag', 'Complete registration new')
-        // window.location.href = '/'
+        edgetag('tag', 'Complete registration new')
+        window.location.href = '/'
       }
     } catch (error) {
       setErrorSubmitting(true)
