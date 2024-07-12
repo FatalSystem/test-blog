@@ -14,7 +14,7 @@ export default function Herot (): JSX.Element {
     <section className="h-screen relative overflow-hidden" >
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen" >
           <video className="w-full h-full object-cover bg-[url('/images/cover-img2.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
-              <source src={videoSource} type="video/mp4" />
+              <source src={videoSource} type="video/webm" />
               {'Your browser doesn\'t support the video tag.'}
           </video>
       </div>
