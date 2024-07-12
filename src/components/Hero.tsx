@@ -1,19 +1,19 @@
 import { Pages } from '@utils'
 import { useState } from 'react'
-import { useMediaQuery } from 'usehooks-ts'
+// import { useMediaQuery } from 'usehooks-ts'
 import VideoPlayer from './VideoPlayer'
 
 export default function Herot (): JSX.Element {
-  const isTablet = useMediaQuery('(max-width: 720px)')
+  // const isTablet = useMediaQuery('(max-width: 720px)')
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   // const videoSource = isTablet ? '/videos/tennibot-preview-tablet.mp4' : '/videos/tennibot-preview.mp4'
-  const videoSource = isTablet ? '/videos/tennibot-preview-tablet.mp4' : '/videos/tennibot-preview-2.webm'
+  const videoSource = '/videos/tennibot-preview-2.webm'
 
   return (
     <section className="h-screen relative overflow-hidden" >
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen" >
-          <video className="w-full h-full object-cover bg-[url('/images/cover-img-mobile.webp')] min-[720px]:bg-[url('/images/cover-img.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
+          <video className="w-full h-full object-cover bg-[url('/images/cover-img2.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
               <source src={videoSource} type="video/mp4" />
               {'Your browser doesn\'t support the video tag.'}
           </video>
@@ -27,7 +27,7 @@ export default function Herot (): JSX.Element {
             <a href={Pages.BUY} aria-label="Navigate to purchase page" className="tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-center text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" /* theme="green" */ >Buy now</a>
         </div>
       </div>
-      <VideoPlayer isOpen={isOpen} videoSource='https://player.vimeo.com/video/888850976' onClose={() => { setIsOpen(false) }} />
+      <VideoPlayer isOpen={isOpen} videoSource='https://player.vimeo.com/video/983376637' onClose={() => { setIsOpen(false) }} />
     </section>
   )
 }
