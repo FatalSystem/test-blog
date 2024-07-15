@@ -1,6 +1,7 @@
 import type { Context } from '@netlify/functions'
 
 export default async (event: Request, context: Context): Promise<Response> => {
+  // Disabled for now
   if (event.method !== 'POST') {
     return new Response('Method Not Allowed', { status: 405 })
   }

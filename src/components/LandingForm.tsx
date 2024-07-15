@@ -39,7 +39,7 @@ export default function LandingForm ({ from }: { from: string }): JSX.Element {
     try {
       if (errorSubmitting) setErrorSubmitting(false)
       if (form.formState.submitCount > 3) throw new Error('Too many attempts')
-      // if (!token) { console.error('No token'); return }
+      if (!token) { console.error('No token'); return }
 
       let firstName
       let lastName
@@ -47,7 +47,7 @@ export default function LandingForm ({ from }: { from: string }): JSX.Element {
         firstName = values.name.trim().split(' ')[0]
         lastName = values.name.trim().split(' ')[1]
       }
-      const response = await fetch('/.netlify/functions/popup', {
+      const response = await fetch('/.netlify/functions/newsletter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
