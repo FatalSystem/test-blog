@@ -16,6 +16,7 @@ export default function BuySelection (): JSX.Element {
   // const [viewMore, setViewMore] = useState({ first: false, second: false, third: false })
 
   const handleNavigation = (product: number): void => {
+    var _learnq = _learnq || []
     if (product === 0) {
       if (isChecked) {
         _learnq.push(['track', 'Initiate Checkout', {
