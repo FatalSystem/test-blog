@@ -18,6 +18,9 @@ export default function BuySelection (): JSX.Element {
   const handleNavigation = (product: number): void => {
     if (product === 0) {
       if (isChecked) {
+        _learnq.push(['track', 'Initiate Checkout', {
+          'productType' : 'Annual Plan'
+        }])
         edgetag('tag', 'initiateCheckout', {
           currency: 'USD',
           value: 995,
@@ -34,6 +37,11 @@ export default function BuySelection (): JSX.Element {
         window.location.href = 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyNzQ0MjI0MzUsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2ODc5NTIzLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDA3MzMxfV19&store_id=190268'
         return
       }
+
+      _learnq.push(['track', 'Initiate Checkout', {
+        'productType' : 'Monthly Plan'
+      }])
+
       edgetag('tag', 'initiateCheckout', {
         currency: 'USD',
         value: 95,
@@ -70,6 +78,9 @@ export default function BuySelection (): JSX.Element {
     // }
 
     if (product === 2) {
+      _learnq.push(['track', 'Initiate Checkout', {
+        'productType' : 'One Time'
+      }])
       edgetag('tag', 'initiateCheckout', {
         currency: 'USD',
         value: 2995,
