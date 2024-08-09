@@ -269,7 +269,7 @@ export default function BuySelection (): JSX.Element {
             }} target='_blank' className="sm:mr-3 text-center tablet:w-72 cursor-pointer w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-96 rounded-full py-2 font-avenir border-2 transition duration-300 border-t-green lg:text-t-green lg:bg-transparent hover:bg-t-green hover:text-t-off-black bg-t-green text-t-off-black" rel="noreferrer" >
                 Proceed to Checkout
             </a>
-            <label className="font-plutoLight text-t-off-white text-pretty text-center mt-[2vh]" >Due to high demand,<br /> new orders will ship in 5-6 weeks.</label>
+            <label className="font-plutoLight text-xs text-t-off-white text-pretty text-center mt-[2vh]" >Due to high demand,<br /> new orders will ship in 5-6 weeks.</label>
         </div>
     </section>
   )
