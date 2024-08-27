@@ -14,7 +14,7 @@ import { Input } from './Input'
 import { useState } from 'react'
 import { Info, Loader2 } from 'lucide-react'
 import { Button } from './Button'
-import { encode } from '@utils'
+import JobDetail from './JobDetail'
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -56,11 +56,12 @@ const inputStyle = 'w-full bg-transparent border-2 border-t-off-white rounded-md
 
 interface IApplyForm {
   id: string
+  jobTitle: string
   slug?: string
   openQuestionId?: string
 }
 
-export function ApplyForm ({ id, slug, openQuestionId }: IApplyForm): JSX.Element {
+export function ApplyForm ({ id, jobTitle, slug, openQuestionId }: IApplyForm): JSX.Element {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -91,6 +92,7 @@ export function ApplyForm ({ id, slug, openQuestionId }: IApplyForm): JSX.Elemen
     const formData = new FormData()
     formData.append('form-name', 'apply')
     formData.append('name', values.name)
+    formData.append('job', jobTitle)
     formData.append('email', values.email)
     formData.append('phone', values.phone)
     formData.append('resume', values.resume[0])
