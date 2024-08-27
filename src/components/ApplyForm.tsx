@@ -133,6 +133,19 @@ export function ApplyForm ({ id, jobTitle, slug, openQuestionId }: IApplyForm): 
         />
         <FormField
           control={form.control}
+          name="job"
+          render={({ field }) => (
+            <FormItem className='hidden' >
+              <FormLabel>Job</FormLabel>
+              <FormControl>
+                <Input {...field} className={inputStyle} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
           name="phone"
           render={({ field }) => (
             <FormItem>
