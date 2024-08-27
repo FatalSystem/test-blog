@@ -7,7 +7,7 @@ import Layout from "layouts/Layout.astro"
     <main class="bg-t-off-black overflow-hidden text-t-off-white" >
         <section class="w-[80%] 2xl:w-[60%] min-h-screen mx-auto py-20 " >
             <JobDetail client:only />
-            <form name="apply" method="POST" data-netlify="true" class="hidden">
+            <form name="apply" method="POST" data-netlify="true" class="hidden" encType="multipart/form-data">
                 <p>
                   <label for="name">Name:</label>
                   <input type="text" id="name" name="name" required>
