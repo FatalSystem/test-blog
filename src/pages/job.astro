@@ -7,6 +7,31 @@ import Layout from "layouts/Layout.astro"
     <main class="bg-t-off-black overflow-hidden text-t-off-white" >
         <section class="w-[80%] 2xl:w-[60%] min-h-screen mx-auto py-20 " >
             <JobDetail client:only />
+            <form name="apply" method="POST" data-netlify="true" class="hidden" encType="multipart/form-data">
+                <p>
+                  <label for="name">Name:</label>
+                  <input type="text" id="name" name="name" required>
+                </p>
+                <p>
+                  <label for="job">Job:</label>
+                  <input type="text" id="job" name="job" required>
+                </p>
+                
+                <p>
+                  <label for="phone">Phone Number:</label>
+                  <input type="tel" id="phone" name="phone" required>
+                </p>
+                
+                <p>
+                  <label for="email">Email Address:</label>
+                  <input type="email" id="email" name="email" required>
+                </p>
+                
+                <p>
+                  <label for="resume">Upload PDF:</label>
+                  <input type="file" id="resume" name="resume" accept=".pdf" required>
+                </p>
+            </form>
         </section>
     </main>
 </Layout>
