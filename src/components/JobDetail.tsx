@@ -168,7 +168,7 @@ export default function JobDetail (): JSX.Element {
 
         <section>
             <h2 className={h2Style} >Apply now</h2>
-            <ApplyForm id={jobDetails.id} /* slug={jobDetails.slug} openQuestionId={jobDetails.openQuestionId}*/ />
+            <ApplyForm id={jobDetails.id} jobTitle={jobDetails.title} /* slug={jobDetails.slug} openQuestionId={jobDetails.openQuestionId}*/ />
         </section>
     </motion.div>
   )
