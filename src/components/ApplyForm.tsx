@@ -88,13 +88,20 @@ export function ApplyForm ({ id, slug, openQuestionId }: IApplyForm): JSX.Elemen
     //   formData.append('candidate[open_question_answers_attributes][0][file]', values.coverLetter[0])
     // }
 
+    const formData = new FormData()
+    formData.append('form-name', 'apply')
+    formData.append('name', values.name)
+    formData.append('email', values.email)
+    formData.append('phone', values.phone)
+    formData.append('resume', values.resume[0])
+
     try {
       const response = await fetch('/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: encode({ 'form-name': 'apply', ...values })
+        // headers: {
+        //   'Content-Type': 'application/x-www-form-urlencoded'
+        // },
+        body: formData
       })
       // const data = await response.json()
       // if (data.candidate && data.candidate.name === values.name) {
@@ -108,7 +115,7 @@ export function ApplyForm ({ id, slug, openQuestionId }: IApplyForm): JSX.Elemen
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 font-avenir">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 font-avenir" encType="multipart/form-data">
         <FormField
           control={form.control}
           name="name"
