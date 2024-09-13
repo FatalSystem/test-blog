@@ -24,7 +24,8 @@ export default defineConfig({
     '/unbox': 'https://youtu.be/vvNnUARbGz0',
     '/quickstart': 'https://www.youtube.com/watch?v=c7O39UYMls4',
     '/meeting': 'https://calendly.com/haithameletrabi/15-minute-call?month=2024-06',
-    '/help': 'https://www.youtube.com/watch?v=BerTwqWqAPo'
+    '/help': 'https://www.youtube.com/watch?v=BerTwqWqAPo',
+    '/onboarding': 'https://calendly.com/haithameletrabi/onboarding'
   },
   integrations: [tailwind(), sitemap(), react({
     experimentalReactChildren: true
