@@ -105,6 +105,14 @@ export default function BuySelection (): JSX.Element {
             <div className="flex flex-col justify-between w-full items-baseline" >
               <h1 className="font-avenirBold md:text-4xl xl:text-4xl text-3xl uppercase" >Tennibot</h1>
               <p className="font-pluto text-lg xl:text-xl" >Rover and Station</p>
+              <div className="flex items-center gap-2 mt-2 flex-wrap">
+                <img src="/images/buy/stars.svg" alt="5 stars" className="w-4" />
+                <img src="/images/buy/stars.svg" alt="5 stars" className="w-4" />
+                <img src="/images/buy/stars.svg" alt="5 stars" className="w-4" />
+                <img src="/images/buy/stars.svg" alt="5 stars" className="w-4" />
+                <img src="/images/buy/star-half.svg" alt="5 stars" className="w-4" />
+                <p className="font-pluto text-xs">(4.8) based on 34 reviews</p>
+              </div>
             </div>
             {/* <div className="absolute lg:block hidden top-[-15%] w-[50%] border-t-2 border-r-2 border-t-off-white rounded-r-lg h-[30%]" >
                 <h2 className="font-avenir uppercase text-t-off-white text-3xl bg-t-off-black pr-3 absolute top-[-15%]" >Rent-to-own</h2>
