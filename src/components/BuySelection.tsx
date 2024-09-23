@@ -153,7 +153,7 @@ export default function BuySelection (): JSX.Element {
                     <div className=" mr-3 absolute right-0 tablet:w-[30%] tablet:min-w-20 flex flex-col tablet:gap-2 gap-0 items-center justify-between mb-5 transition-all duration-300 ease-in-out" >
                         {/* <label className={`tablet:hidden font-plutoLight text-xs ${!isChecked ? 'text-t-off-white' : 'text-t-disabled'}`} >Annual Plan</label> */}
                         <Switch checked={isChecked} className='transition-all mx-auto duration-300 ease-in-out ' onCheckedChange={() => { setIsChecked(!isChecked) }} />
-                        {isChecked && (<label className='font-plutoBold mt-2 tablet:hidden' >57% Off!</label>)}
+                        <label className={`font-plutoBold  mt-2 tablet:hidden ${isChecked ? 'opacity-100' : 'opacity-0'} `} >57% Off!</label>
                         {/* {
                             isChecked && (
                                 <motion.div
