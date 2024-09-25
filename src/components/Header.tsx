@@ -21,12 +21,12 @@ export default function Header (): JSX.Element {
   const [showBanner, setShowBanner] = useState<boolean>(false)
 
   const closeBanner = (): void => {
-    window.localStorage.setItem('showBanner', 'false')
+    window.localStorage.setItem('showOfferBanner', 'false')
     setShowBanner(false)
   }
 
   const shouldShow = (): void => {
-    if (window.localStorage.getItem('showBanner') === null && window.location.pathname === '/') {
+    if (window.localStorage.getItem('showOfferBanner') === null && window.location.pathname === '/') {
       setShowBanner(true)
     }
   }
