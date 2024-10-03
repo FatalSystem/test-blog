@@ -1,0 +1,58 @@
+---
+import LandingForm from "@components/LandingForm"
+import Layout from "layouts/Layout.astro"
+import { BackgroundImage } from "astro-imagetools/components"
+import Button from "@components/core/Button.astro"
+import Text from "@components/core/Text.astro"
+import { Pages } from "@utils"
+
+---
+<Layout title="Join the newsletter | Tennibot">
+    <main class="w-full bg-t-off-black relative text-t-off-white" >
+        <div class="bg-[url('/images/padel/padelbot.webp')] bg-center bg-cover">
+            <div class="w-[95%] sm:w-[80%] pt-[15vh] flex md:flex-row flex-col h-[80vh] gap-5 mx-auto" >
+                <div class="lg:mt-[5vh] mx-auto w-[90%]">
+                    <h1 class="text-t-off-white font-avenir uppercase xl:text-4xl lg:text-3xl md:text-2xl mobilem:text-xl mobilel:text-2xl text-xl text-pretty mx-auto w-[90%] tablet:w-full" >It's not just for tennis anymore<br /><span class="font-avenirBold" >the padelbot is here</span></h1>
+                </div>
+                <div class="flex flex-col lg:justify-start" >
+                    <div class="bg-t-off-black border-2 border-t-off-white rounded-lg py-5 mobilem:px-10 px-5 w-[90%] mx-auto  mb-10" >
+                        <h2 class="font-plutoLight text-t-off-white mb-10 md:text-lg" >Sign up to be notified when the Padelbot is available.</h2>
+                        <LandingForm from="Landing Top" client:load />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="flex flex-col md:flex-row tablet:mt-0 mt-[-1px]" >
+            <div class="w-full md:w-[50%] md:h-full" >
+                <div  class=" bg-[url('/images/padel/tennis.webp')] bg-cover bg-top" >
+                  <div class="h-[60vh] lg:h-[70vh] flex flex-col items-center justify-between py-5">
+                    <Text tag="h3" className="uppercase font-avenirBold xl:text-4xl text-3xl" >
+                      Tennis
+                    </Tex>
+                    <div class="flex flex-col items-center w-[90%]" >
+                      <!-- <Text tag="p" className="uppercase text-pretty font-avenir text-lg xl:text-3xl mobilem:text-xl text-center" >
+                        Your own personal<br> <strong class="font-avenirBold" >coach, analyst and umpire</strong>
+                      </Text> -->
+                      <Button aria-label="Navigate to the Station page" href={Pages.STATION} className="mt-4 w-64 " >Learn more</Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="w-full md:w-[50%] md:h-full" >
+              <div  class=" bg-[url('/images/padel/pickleball.webp')] bg-cover bg-top" >
+                <div class="h-[60vh] lg:h-[70vh] flex flex-col items-center justify-between py-5">
+                  <Text tag="h3" className="uppercase font-avenirBold xl:text-4xl text-3xl" >
+                    Pickleball
+                  </Tex>
+                  <div class="flex flex-col items-center w-[90%]" >
+                    <!-- <Text tag="p" className="uppercase text-pretty font-avenir text-lg xl:text-3xl mobilem:text-xl text-center" >
+                      Your own personal<br> <strong class="font-avenirBold" >coach, analyst and umpire</strong>
+                    </Text> -->
+                    <Button aria-label="Navigate to the Station page" href={Pages.STATION} className="mt-4 w-64 " >Learn more</Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+    </main>
+</Layout>
