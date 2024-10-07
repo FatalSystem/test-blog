@@ -1,22 +1,20 @@
 ---
-import LandingForm from "@components/LandingForm"
+import SportForm from "@components/SportForm"
 import Layout from "layouts/Layout.astro"
 import Button from "@components/core/Button.astro"
 import Text from "@components/core/Text.astro"
-import { Pages } from "@utils"
-
 ---
 <Layout title="Join the newsletter | Tennibot">
     <main class="w-full bg-t-off-black relative text-t-off-white" >
-      <div class="bg-[url('/images/padel/padelbot.webp')] bg-center md:bg-right md:h-[80vh] h-[60rem] bg-cover">
+      <div class="lg:bg-[url('/images/padel/padelbot.webp')] md:bg-[url('/images/padel/padelbot-laptop.webp')] bg-[url('/images/padel/padelbot-mobile.webp')] bg-center md:bg-right md:h-[80vh] h-[60rem] bg-cover">
+        <div class="bg-black w-full md:h-[80vh] h-[60rem] absolute opacity-20 group-hover:opacity-40 transition-all duration-300 ease-in-out" ></div>
         <div class="w-[95%] sm:w-[80%] pt-[5vh] flex md:flex-row flex-col  justify-between h-full gap-5 mx-auto" >
-          <div class="lg:mt-[5vh] mx-auto w-[90%]">
+          <div class="lg:mt-[5vh] z-10 mx-auto w-[90%]">
               <h1 class="text-t-off-white font-avenir uppercase xl:text-4xl lg:text-3xl md:text-2xl mobilem:text-xl mobilel:text-2xl text-xl text-pretty mx-auto w-[90%] tablet:w-full" >It's not just for tennis anymore<br /><span class="font-avenirBold" >the padelbot is here</span></h1>
           </div>
-          <div class="flex flex-col md:justify-start justify-end" >
+          <div class="flex flex-col z-10 md:justify-start justify-end" >
             <div class="bg-t-off-black border-2 border-t-off-white rounded-lg py-5 mobilem:px-10 px-5 w-[90%] mx-auto  mb-10" >
-              <h2 class="font-plutoLight text-t-off-white mb-10 md:text-lg" >Be the first to know when Padelbot sales go live</h2>
-              <LandingForm from="Landing Top" client:load />
+              <SportForm from="Padelbot Form" sport="Padel" client:load />
             </div>
           </div>
         </div>

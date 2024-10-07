@@ -1,10 +1,8 @@
 ---
-import LandingForm from "@components/LandingForm"
 import Layout from "layouts/Layout.astro"
 import Button from "@components/core/Button.astro"
 import Text from "@components/core/Text.astro"
-import { Pages } from "@utils"
-
+import SportForm from "@components/SportForm"
 ---
 <Layout title="Join the newsletter | Tennibot">
     <main class="w-full bg-t-off-black relative text-t-off-white" >
@@ -16,8 +14,8 @@ import { Pages } from "@utils"
           </div>
           <div class="flex z-10 flex-col md:justify-start justify-end" >
             <div class="bg-t-off-black border-2 border-t-off-white rounded-lg py-5 mobilem:px-10 px-5 w-[90%] mx-auto  mb-10" >
-              <h2 class="font-plutoLight text-t-off-white mb-10 md:text-lg" >Be the first to know when Pickleball sales go live</h2>
-              <LandingForm from="Landing Top" client:load />
+              <!-- <h2 class="font-plutoLight text-t-off-white mb-10 md:text-lg" >Be the first to know when Pickleball sales go live</h2> -->
+              <SportForm from="Pickleball Form" sport="Pickleball" client:load />
             </div>
           </div>
         </div>
@@ -38,7 +36,7 @@ import { Pages } from "@utils"
           </div>
           <div class="relative w-full md:w-[50%] md:h-full" >
             <div class="bg-black h-[40vh] sm:w-[50vw] w-full absolute opacity-20 group-hover:opacity-40 transition-all duration-300 ease-in-out" ></div>
-            <div class="bg-[url('/images/tennis/padel.webp')] bg-cover bg-top" >
+            <div class="bg-[url('/images/pickleball/padel.webp')] bg-cover bg-bottom" >
               <div class="h-[40vh] flex flex-col items-center justify-between py-5">
                 <Text tag="h3" className="uppercase z-10 font-avenirBold xl:text-4xl text-3xl" >
                   Padel
