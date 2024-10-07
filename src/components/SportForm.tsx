@@ -90,7 +90,7 @@ export default function SportForm ({ from, sport }: { from: string, sport: strin
   return (
     <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='font-plutoLight mb-2' >
-            <h2 className="font-plutoLight text-t-off-white mb-10 md:text-lg" >{`Be the first to know when ${sport === 'Padel' ? 'Padelbot' : 'Pickleball'} sales go live`}</h2> 
+            <h2 className="font-plutoLight text-t-off-white mb-10 md:text-lg" >{`Be the first to know when ${sport === 'Padel' ? 'Padelbot' : 'Pickleball'} sales go live!`}</h2> 
             <div className='flex md:flex-row flex-col md:gap-2'>
                 <FormField
                 control={form.control}
