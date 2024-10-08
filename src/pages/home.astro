@@ -1,0 +1,130 @@
+---
+// Astro
+import Layout from "../layouts/Layout.astro"
+import Hero from "@components/Hero"
+import { BackgroundImage } from "astro-imagetools/components"
+import { Image } from 'astro:assets'
+import Button from "@components/core/Button.astro"
+import Text from "@components/core/Text.astro"
+
+// React
+import Counter from "@components/Counter"
+import { MediaQuotes } from "@components/MediaQuotes"
+import FrontPageSlider from "@components/FrontPageSlider"
+import { Pages } from "@utils"
+
+// Imgs
+import ballCollection from "@assets/front-page/ball-collection.webp"
+import ballCollectionMobile from "@assets/front-page/ball-collection-mobile.webp"
+import lineJudging from "@assets/front-page/line-judging.webp"
+import lineJudgingMobile from "@assets/front-page/line-judging-mobile.webp"
+import courtSweeping from "@assets/front-page/courtsweeping.webp"
+import courtSweepingMobile from "@assets/front-page/court-sweeping-mobile.webp"
+import matchAnalysis from "@assets/front-page/matchanalysis.webp"
+import matchAnalysisMobile from "@assets/front-page/match-analysis-mobile.webp"
+
+import usaMap from "@assets/front-page/usa-map.svg"
+---
+
+<Layout title="Tennibot">
+  <main class="bg-t-off-black text-t-off-white" >
+    <Hero client:load />
+
+    <MediaQuotes client:load />
+
+    <section class="relative text-t-off-white">
+      <FrontPageSlider client:idle />
+    </section>
+
+    <section>
+      <picture >
+        <source srcset={ballCollectionMobile.src} media="(max-width: 425px)" />
+        <Image src={ballCollection} class="w-full" alt="Ball collection image" />
+      </picture>
+      <picture>
+        <source srcset={lineJudgingMobile.src} media="(max-width: 425px)" />
+        <Image src={lineJudging}  class="w-full" alt="Line judging image" />
+      </picture>
+      <picture>
+        <source srcset={courtSweepingMobile.src} media="(max-width: 425px)" />
+        <Image src={courtSweeping} class="w-full" alt="Court sweeping image" />
+      </picture>
+      <picture>
+        <source srcset={matchAnalysisMobile.src} media="(max-width: 425px)" />
+        <Image src={matchAnalysis} class="w-full" alt="Match analysis image" />
+      </picture>
+    </section>
+
+    <section class="flex flex-col md:flex-row tablet:mt-0 mt-[-1px]" >
+      <div class="w-full md:w-[50%] md:h-full">
+        <BackgroundImage src="../src/assets/front-page/front-rover.webp" alt="Front view of Tennibot's Rover" >
+          <div class="h-[60vh] lg:h-[70vh] flex flex-col items-center justify-between py-5" >
+            <Text tag="h3" className="uppercase font-avenirBold xl:text-4xl text-3xl" >
+              Rover
+            </Tex>
+            <div class="flex flex-col items-center w-[90%]" >
+              <Text tag="p" className="font-avenir uppercase xl:text-3xl text-xl text-center font-thin" >
+                Take the <strong class="font-avenirBold" >tedious</strong><br> out of <strong class="font-avenirBold" >tennis</strong>
+              </Text>
+              <Button aria-label="Navigate to the Rover page" href={Pages.ROVER} className="mt-6 w-64" >Learn more</Button>
+            </div>
+          </div>
+        </BackgroundImage>
+      </div>
+      <div class="w-full md:w-[50%] md:h-full" >
+        <div  class=" bg-[url('/images/front-page/station-mobile.webp')] md:bg-[url('/images/front-page/station.webp')] bg-cover bg-top" >
+          <div class="h-[60vh] lg:h-[70vh] flex flex-col items-center justify-between py-5">
+            <Text tag="h3" className="uppercase font-avenirBold xl:text-4xl text-3xl" >
+              Station
+            </Tex>
+            <div class="flex flex-col items-center w-[90%]" >
+              <Text tag="p" className="uppercase text-pretty font-avenir text-lg xl:text-3xl mobilem:text-xl text-center" >
+                Your own personal<br> <strong class="font-avenirBold" >coach, analyst and umpire</strong>
+              </Text>
+              <Button aria-label="Navigate to the Station page" href={Pages.STATION} className="mt-4 w-64 " >Learn more</Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="bg-t-off-black pt-20 mb-20" >
+      <Text tag="h3" className="pb-10 uppercase text-3xl font-thin text-center" >Trusted by...</Text>
+      <div class="relative flex h-full w-full flex-col items-center justify-center overflow-hidden" >
+        <Marquee pauseOnHover className="[--duration:50s]" >
+          {MARQUEE_CONTENT.map((item, index) => {
+            return (
+              <MarqueeItem key={index} img={item.img} />
+            )
+          })}
+        </Marquee>
+      </div>
+    </section> -->
+
+    <!-- <section class="bg-t-off-black md:py-40 py-32 flex xl:h-fit xl:py-56 2xl:py-64" >
+      <div class="w-4/5 m-auto flex flex-col-reverse lg:flex-row justify-center items-center gap-10" >
+        <div class="md:w-[70%] lg:w-[50%] w-full" >
+          <Image src={usaMap} alt="Map of the United States representing the presence of Tennibot." />
+        </div>
+        <div >
+          <Text className="font-black text-center text-5xl" >
+            <Counter client:load value={1027945} />
+          </Text>
+          <Text tag="p" className="font-avenir text-pretty text-center text-xl md:text-2xl xl:text-3xl font-thin italic mt-5" >
+            Tennis balls collected by Tennibot,<br class="hidden sm:block" /> across the United States
+          </Text>
+        </div>
+      </div>
+    </section> -->
+    
+    <!-- <section class="relative bg-t-off-black mt-20 pb-20 overflow-hidden ">
+      <TestimonialsSlider client:only="react" slides={VIDEO_SLIDES} options={VIDEO_SLIDER_OPTIONS} />
+    </section> -->
+    <section class="flex flex-row justify-center items-center lg:pb-10 pt-10 pb-5">
+      <hr class="w-full absolute" >
+      <div class="sm:mx-10 mx-2 sm:p-2 bg-t-off-black z-[1]">
+        <Text className=" w-full font-avenirBold uppercase text-center text-pretty text-xl mobilel:text-xl mobilem:text-xl sm:text-nowrap sm:text-2xl lg:text-3xl" >Designed and<br class="sm:hidden" > assembled in the USA</Text>
+      </div>
+    </section>
+  </main>
+</Layout>
