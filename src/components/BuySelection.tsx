@@ -148,7 +148,7 @@ export default function BuySelection (): JSX.Element {
             </ul>
             <div onClick={() => { setSelected(0) }} className={`${selected === 0 ? 'lg:border-t-green' : ' hover:opacity-100 opacity-50 border-t-off-white'} cursor-pointer bg-t-darker-green relative flex-[0_0_30%] border-2 lg:hover:border-t-green rounded-lg px-5 mobilel:px-7 md:px-5 lg:px-7 md:pb-8 lg:pb-5 py-5 flex flex-col lg:justify-start justify-center transition-all duration-300 ease-in-out`} >
                 <div className="flex flex-col tablet:flex-row tablet:justify-start tablet:items-baseline items-start justify-between w-full" >
-                    <h3 className={titleStyle} >{`${isChecked ? '$995' : '$195'} / ${isChecked ? 'Year' : 'Month'}`}</h3>
+                    <h3 className={titleStyle} >{`${isChecked ? '$995' : '$95'} / ${isChecked ? 'Year' : 'Month'}`}</h3>
                     {isChecked && (<label className='font-plutoBold ml-[5%] hidden tablet:block' >57% Off!</label>)}
                     <div className=" mr-3 absolute right-0 tablet:w-[30%] tablet:min-w-20 flex flex-col tablet:gap-2 gap-0 items-center justify-between mb-5 transition-all duration-300 ease-in-out" >
                         {/* <label className={`tablet:hidden font-plutoLight text-xs ${!isChecked ? 'text-t-off-white' : 'text-t-disabled'}`} >Annual Plan</label> */}
@@ -209,7 +209,7 @@ export default function BuySelection (): JSX.Element {
                 <div className={'flex lg:flex-col md:flex-row flex-col w-full md:w-auto transition-all ease-in-out duration-500'} >
                   <ul className={'list-disc list-inside text-left flex flex-col gap-2 mt-2 transition-all ease-in-out duration-500'} >
                       <li className={`font-plutoLight list-item  text-t-off-white text-pretty ${itemStyle}`} >Cancel anytime</li>
-                      <li className={`font-plutoLight list-item text-t-off-white text-pretty ${itemStyle}`} >Own your Tennibot after {isChecked ? '4' : '3'} years</li>
+                      <li className={`font-plutoLight list-item text-t-off-white text-pretty ${itemStyle}`} >Own your Tennibot after 4 years</li>
                       <li className={`font-plutoLight list-item text-t-off-white text-pretty ${itemStyle}`} >Comprehensive customer service and <a href="#faq" className='underline text-t-green' >warranty</a></li>
                   </ul>
                 </div>
