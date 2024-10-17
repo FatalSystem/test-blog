@@ -12,10 +12,10 @@ const inputStyle = 'bg-transparent border-2 border-t-off-black rounded-md sm:p-1
 ---
 
 <Layout title="FAQ | Tennibot">
-    <main class="bg-t-off-white overflow-hidden text-t-off-black" >
+    <main class="bg-off-black overflow-hidden text-t-green" >
         <section class="w-[90%] md:w-[80%] 2xl:max-w-[1266px] mx-auto pt-20" >
             <Text tag="h1" className="uppercase font-avenirBold lg:text-4xl 2xl:text-6xl text-3xl text-pretty" >Have a question?</Text>
-            <Text tag="h3" className="uppercase font-avenirBold lg:font-avenir lg:text-4xl text-3xl 2xl:text-6xl" >You're in the right place</Text>
+            <Text tag="h3" className="uppercase font-avenirBold text-white lg:font-avenir lg:text-4xl text-3xl 2xl:text-6xl" >You're in the right place</Text>
         </section>
         <section class="md:w-[80%] 2xl:max-w-[1266px] w-full relative mx-auto my-10 group pb-20 " >
             <TabContainer client:load questions={questions} problems={problems} />
@@ -23,9 +23,9 @@ const inputStyle = 'bg-transparent border-2 border-t-off-black rounded-md sm:p-1
         <section class="md:py-20 mb-20">
             <div class="w-[80%] 2xl:max-w-[1266px] mx-auto">
                 <Text tag="h3" className="uppercase font-avenirBold lg:text-3xl 2xl:text-4xl text-2xl text-pretty" >Still have a question?</Text>
-                <Text tag="p" className="text-pretty font-avenir 2xl:text-lg mt-3">We have an answer. Fill out the form below and we'll get back to you as soon as possible.</Text>
+                <Text tag="p" className="text-pretty font-avenirBold text-white 2xl:text-lg mt-3">We have an answer. Fill out the form below and we'll get back to you as soon as possible.</Text>
 
-                <form name="faq" method="post" data-netlify="true" class="text-t-off-black font-avenir 2xl:text-lg mt-10 grid-cols-1 md:grid-cols-2 gap-5 hidden">
+                <form name="faq" method="post" data-netlify="true" class="font-avenir 2xl:text-lg mt-10 grid-cols-1 md:grid-cols-2 gap-5 hidden">
                     <div class="flex flex-col w-full gap-1">
                         <label for="question" >Question</label>
                         <textarea id="question" name="question" rows="6" required class={`${inputStyle} h-full`} />

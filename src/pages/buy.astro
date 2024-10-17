@@ -191,10 +191,10 @@ const FAQ = [
         </section>
   
         <section id="faq" class="w-[80%] 2xl:w-[65%] py-20 mx-auto">
-          <Text tag="h2" className="font-plutoBold text-t-off-white text-xl lg:text-2xl xl:text-3xl mb-7" >Frequently Asked Questions</Text>
+          <Text tag="h2" className="font-plutoBold text-t-green text-xl lg:text-2xl xl:text-3xl mb-7" >Frequently Asked Questions</Text>
           {FAQ.map((item, index) => {
             return (
-              <FAQItem key={index} index={index} question={item.question} answer={item.answer} client:idle />
+              <FAQItem key={index} index={index} question={item.question} answer={item.answer}/>
             )
           })}
         </section>

@@ -9,7 +9,7 @@ import { Loader2 } from 'lucide-react'
 import { encode } from '@utils'
 import { Checkbox } from './Checkbox'
 
-const inputStyle = 'bg-transparent border-2 border-t-off-black rounded-md sm:p-1.5 p-2.5 focus:outline-none focus:ring-indigo-500 focus:border-t-green'
+const inputStyle = 'bg-transparent border-2 border-t-off-green rounded-md sm:p-1.5 p-2.5 focus:outline-none focus:ring-indigo-500 focus:border-t-green'
 const labelStyle = 'lg:text-lg xl:text-xl mb-2'
 
 const formSchema = z.object({
@@ -96,7 +96,7 @@ export default function FAQ (): JSX.Element {
 
   return (
     <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className='text-t-off-black font-avenir 2xl:text-lg mt-10 grid grid-cols-1 md:grid-cols-2 gap-5' >
+        <form onSubmit={form.handleSubmit(onSubmit)} className='text-t-green font-avenir 2xl:text-lg mt-10 grid grid-cols-1 md:grid-cols-2 gap-5' >
             <FormField
                 control={form.control}
                 name="question"
@@ -140,7 +140,7 @@ export default function FAQ (): JSX.Element {
                     />
                     <div className="flex md:flex-col flex-col-reverse gap-1 w-full">
                         <Button disabled={form.formState.disabled || !form.formState.isValid || form.formState.isSubmitting || (form.formState.isSubmitSuccessful && !errorSubmitting) || sent}
-                        className='flex flex-row  justify-center items-center disabled:opacity-50 mt-6 cursor-pointer focus:outline-none focus:ring-indigo-500 focus:border-t-green text-lg w-full tablet:w-64 font-thin rounded-full py-2 font-avenir uppercase border-2 transition-all duration-300 text-t-off-white md:text-t-off-black bg-t-off-black border-t-off-black md:bg-t-off-white hover:bg-t-off-black hover:text-t-off-white' >
+                        className='flex flex-row  justify-center items-center disabled:opacity-50 mt-6 cursor-pointer focus:outline-none focus:ring-indigo-500 focus:border-t-green text-lg w-full tablet:w-64 font-thin rounded-full py-2 font-avenirBold uppercase border-2 transition-all duration-300 text-t-green md:text-t-off-black bg-t-green border-t-off-green md:bg-green hover:bg-t-off-white' >
                             {sent && !errorSubmitting && !form.formState.isSubmitting ? 'Sent' : 'Submit'}
                             {form.formState.isSubmitting && <Loader2 className="ml-2 size-4 animate-spin" /> }
                         </Button>
@@ -150,9 +150,9 @@ export default function FAQ (): JSX.Element {
                         render={({ field }) => (
                             <FormItem className='flex flex-row items-start space-x-3 space-y-0 rounded-md mt-5' >
                                 <FormControl>
-                                    <Checkbox checked={field.value ?? true} onCheckedChange={field.onChange} className='border-t-off-black text-t-off-black' />
+                                    <Checkbox checked={field.value ?? true} onCheckedChange={field.onChange} className='border-t-off-green text-t-off-green' />
                                 </FormControl>
-                                <FormDescription className='font-plutoLight text-t-off-black' >
+                                <FormDescription className='font-plutoLight text-t-off-green' >
                                     {'I\'d like to receive Tennibot email updates'}
                                 </FormDescription>
                                 <FormMessage />
