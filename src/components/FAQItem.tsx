@@ -47,7 +47,7 @@ interface IFAQItem {
 export default function FAQItem ({ question, answer, index }: IFAQItem): JSX.Element {
   const [hideAnswer, setHideAnswer] = useState(true)
   return (
-    <button onClick={() => { setHideAnswer(!hideAnswer) }} className="border-[1px] w-full border-[rgba(45, 205, 110, 0.7)] text-left rounded-lg px-8 py-4 mb-6" >
+    <button onClick={() => { setHideAnswer(!hideAnswer) }} className="border-[1px] w-full border-t-off-white text-left rounded-lg px-8 py-4 mb-6" >
         <div className="flex flex-row justify-between items-center" >
             <h6 className="font-plutoBold text-t-off-white xl:text-xl" >{question}</h6>
             <div className={`${hideAnswer ? 'rotate-0' : 'rotate-180'} ml-5 transition-all ease-in-out duration-500`} >
