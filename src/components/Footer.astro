@@ -12,6 +12,8 @@ const contactLink = {
 const linkStyle = "xl:text-xl lg:text-lg font-avenir uppercase text-t-off-white hover:text-t-green transition-colors duration-200"
 const dividerStyle = "h-96 border-l-2 border-t-off-white lg:mx-[3.5%] min-[1122px]:mx-[5%]"
 
+const currentYear = new Date().getFullYear()
+
 ---
 <!-- TODO: Turn this into a single layout... -->
 <footer class="bg-t-off-black ">
@@ -292,7 +294,7 @@ const dividerStyle = "h-96 border-l-2 border-t-off-white lg:mx-[3.5%] min-[1122p
     class="flex px-10 items-baseline justify-around pb-5 gap-5 bg-t-off-black md:w-full flex-wrap xl:justify-around md:justify-between md:pt-10 mt-2"
   >
     <a href={Pages.TERMS} class="cursor-pointer font-plutoLight xl:text-lg lg:text-lg hover:text-t-green transition-colors duration-200 text-xs text-t-off-white text-right underline italic order-1">Terms and Conditions</a>
-    <p class="font-plutoLight xl:text-lg lg:text-lg hover:text-t-green transition-colors duration-200 text-t-off-white order-3 sm:order-2">Copyright © 2023 Tennibot, Inc.</p>
+    <p class="font-plutoLight xl:text-lg lg:text-lg hover:text-t-green transition-colors duration-200 text-t-off-white order-3 sm:order-2">Copyright © {currentYear} Tennibot, Inc.</p>
     <a href={Pages.PRIVACY} class="cursor-pointer font-plutoLight xl:text-lg lg:text-lg hover:text-t-green transition-colors duration-200 text-xs text-t-off-white text-right underline italic sm:order-3 order-2">Privacy Policy</a>
   </div>
 </footer>
