@@ -8,6 +8,7 @@ import { Button } from './Button'
 import { Info, Loader2 } from 'lucide-react'
 import { Checkbox } from './Checkbox'
 import PhoneForm from './PhoneForm'
+import { listIds } from '@utils'
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -23,7 +24,7 @@ const formSchema = z.object({
 const inputStyle = 'bg-transparent border-2 p-2.5 border-t-green rounded-md focus:outline-none focus:ring-indigo-500 focus:border-t-green mb-5'
 const labelStyle = 'lg:text-lg xl:text-xl mb-2 hidden'
 
-export default function SportForm ({ from, sport }: { from: string, sport: string }): JSX.Element {
+export default function PartnerForm ({ from, listId }: { from: string, listId: string }): JSX.Element {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -32,8 +33,6 @@ export default function SportForm ({ from, sport }: { from: string, sport: strin
       call: true
     }
   })
-
-  const sportId = sport === 'Padel' ? 'YjdHS9' : 'SMCNHb'
 
   const [token, setToken] = useState<string>('')
   const [sent, setSent] = useState<boolean>(false)
@@ -58,7 +57,7 @@ export default function SportForm ({ from, sport }: { from: string, sport: strin
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email: values.email, from, fname: firstName ?? values.name, lname: lastName ?? '', rcToken: token, listId: sportId })
+        body: JSON.stringify({ email: values.email, from, fname: firstName ?? values.name, lname: lastName ?? '', rcToken: token, listId })
       })
       if (response.status !== 200) {
         setErrorSubmitting(true)
@@ -84,18 +83,12 @@ export default function SportForm ({ from, sport }: { from: string, sport: strin
   }, [])
 
   if (showPhoneForm) {
-    return (
-      <>
-        <h2 className="font-plutoLight text-t-off-white mb-10 md:text-lg" >Want to be part of our VIP group? Enter your number below!</h2>
-        <PhoneForm currentEmail={currentEmail} listId={sportId} from={from} />
-      </>
-    )
+    return <PhoneForm currentEmail={currentEmail} listId={listIds.partner} from={from} />
   }
 
   return (
     <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='font-plutoLight mb-2' >
-            <h2 className="font-plutoLight text-t-off-white mb-10 md:text-lg" >{`Be the first to know when ${sport === 'Padel' ? 'Padelbot' : 'Pickleball'} sales go live!`}</h2> 
             <div className='flex md:flex-row flex-col md:gap-2'>
                 <FormField
                 control={form.control}

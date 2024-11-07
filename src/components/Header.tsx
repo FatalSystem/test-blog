@@ -7,10 +7,13 @@ import Banner from './Banner'
 const links = [
   { label: 'Home', href: Pages.HOME },
   { label: 'Buy', href: Pages.BUY },
+  { label: 'Tennis', href: '/home' },
   { label: 'The rover', href: Pages.ROVER },
   { label: 'The station', href: Pages.STATION },
-  { label: 'About us', href: Pages.ABOUT },
   { label: 'Clubs and Coaches', href: Pages.CLUBS },
+  { label: 'Pickleball', href: '/pickleball' },
+  { label: 'Padel', href: '/padel' },
+  { label: 'About us', href: Pages.ABOUT },
   { label: 'FAQs', href: Pages.FAQ }
 ]
 // TODO: Remake with framer motion
@@ -53,7 +56,7 @@ export default function Header (): JSX.Element {
                     <a
                       key={index}
                       href={link.href}
-                      className={`text-xl text-t-off-white font-avenirBold uppercase mb-10 transform cursor-pointer hover:text-t-green transition duration-${
+                      className={`text-xl font-avenirBold text-t-off-white uppercase mb-10 transform ${[3, 4, 5].includes(index) ? 'pl-5' : ''} cursor-pointer hover:text-t-green transition duration-${
                         (index + 1) * 100
                       } ${open ? 'opacity-100' : 'opacity-0'} ease-in-out`}
                     >

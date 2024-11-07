@@ -21,15 +21,13 @@ const labelStyle = 'lg:text-lg xl:text-xl mb-2 hidden'
 
 // TODO: improve phone validation with libphonenumber-js
 
-export default function PhoneForm ({ from, sport, currentEmail }: { from: string, sport: string, currentEmail: string }): JSX.Element {
+export default function PhoneForm ({ from, listId, currentEmail }: { from: string, listId: string, currentEmail: string }): JSX.Element {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       phone: '+1'
     }
   })
-
-  const sportId = sport === 'Padel' ? 'YjdHS9' : 'SMCNHb'
 
   const [token, setToken] = useState<string>('')
   const [sent, setSent] = useState<boolean>(false)
@@ -46,7 +44,7 @@ export default function PhoneForm ({ from, sport, currentEmail }: { from: string
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email: currentEmail, from, rcToken: token, sport: sportId, phone: values.phone })
+        body: JSON.stringify({ email: currentEmail, from, rcToken: token, listId, phone: values.phone })
       })
       if (response.status !== 200) {
         setErrorSubmitting(true)
@@ -72,7 +70,6 @@ export default function PhoneForm ({ from, sport, currentEmail }: { from: string
   return (
     <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='font-plutoLight mb-2' >
-        <h2 className="font-plutoLight text-t-off-white mb-10 md:text-lg" >Want to be part of our VIP group? Enter your number below!</h2>
             <div className='flex w-full flex-row flex-nowrap mb-5' >
                 <FormField
                 control={form.control}
