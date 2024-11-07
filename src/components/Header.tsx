@@ -7,12 +7,12 @@ import Banner from './Banner'
 const links = [
   { label: 'Home', href: Pages.HOME },
   { label: 'Buy', href: Pages.BUY },
-  { label: 'Tennis', href: '/home' },
+  { label: 'Tennis', href: Pages.TENNIS },
   { label: 'The rover', href: Pages.ROVER },
   { label: 'The station', href: Pages.STATION },
   { label: 'Clubs and Coaches', href: Pages.CLUBS },
-  { label: 'Pickleball', href: '/pickleball' },
-  { label: 'Padel', href: '/padel' },
+  { label: 'Pickleball', href: Pages.PICKLEBALL },
+  { label: 'Padel', href: Pages.PADEL },
   { label: 'About us', href: Pages.ABOUT },
   { label: 'FAQs', href: Pages.FAQ }
 ]
@@ -49,7 +49,7 @@ export default function Header (): JSX.Element {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className='absolute md:h-[100vh] bg-t-off-black rounded-b-lg shadow-lg md:w-fit w-full right-0 top-16'
+                className='absolute h-[100vh] bg-t-off-black rounded-b-lg shadow-lg md:w-fit w-full right-0 top-16 custom-scrollbar overflow-y-scroll'
               >
                 <ul className='px-10 flex flex-col pt-10'>
                   {links.map((link, index) => (

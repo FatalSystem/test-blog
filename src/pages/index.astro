@@ -1,8 +1,5 @@
 ---
-import LandingForm from "@components/LandingForm"
 import Layout from "layouts/Layout.astro"
-import { BackgroundImage } from "astro-imagetools/components"
-import Button from "@components/core/Button.astro"
 import Text from "@components/core/Text.astro"
 import { Pages } from "@utils"
 
@@ -12,34 +9,34 @@ import { Pages } from "@utils"
         <section class="flex flex-col sm:flex-row tablet:mt-0 mt-[-1px]" >
           <div class="w-full group md:w-[50%] md:h-full" >
             <div  class="bg-[url('/images/general/bm.webp')] bg-cover bg-center " >
-              <div class="sm:h-[100vh] h-[50vh] relative flex flex-col items-center justify-between py-10">
+              <div class="sm:h-[100vh] h-[50vh] relative flex flex-col  items-center justify-between py-10">
                 <!-- <div class="bg-black sm:w-[50vw] w-full absolute opacity-20 group-hover:opacity-40 transition-all duration-300 ease-in-out" ></div> -->
                 <Text tag="h3" className="uppercase z-10 font-avenir xl:text-4xl text-3xl" >
                     The <span class="font-avenirBold" >partner</span>
                 </Text>
                 <div class="flex flex-col items-center w-[90%]" >
-                  <Text tag="p" className="uppercase text-pretty font-avenir mb-5 text-lg xl:text-3xl mobilem:text-xl text-center" >
+                  <Text tag="p" className="uppercase text-pretty font-avenir mb-5 text-lg xl:text-3xl mobilem:text-lg text-center" >
                     The smartest <span class="font-avenirBold" >ball machine</span><br /> in the world
                   </Text>
                   <!-- <Button aria-label="Navigate to the Rover page" href="/" className="mt-4 w-64 uppercase text-t-off-black" >Meet Rover</Button> -->
-                  <a href="/partner" class={`tablet:w-64 w-full 2xl:w-80 text-lg 2xl:text-2xl 2xl: 2xl:py-3 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-center text-t-off-black bg-t-green border-t-green md:text-t-off-black md:bg-green hover:bg-t-green hover:text-t-off-black`}>Meet Partner</a>
+                  <a href={Pages.PARTNER} class={`tablet:w-64 w-full 2xl:w-80 text-lg 2xl:text-2xl 2xl: 2xl:py-3 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-center text-t-off-black bg-t-green border-t-green md:text-t-off-black md:bg-green hover:bg-t-green hover:text-t-off-black`}>Meet Partner</a>
                 </div>
               </div>
             </div>
           </div>
             <div class="w-full group md:w-[50%] md:h-full" >
-              <div  class="bg-[url('/images/general/rovers.webp')] bg-cover bg-center " >
+              <div  class="bg-[url('/images/general/rovers.webp')] bg-cover bg-bottom " >
                 <div class="sm:h-[100vh] h-[50vh] relative flex flex-col items-center justify-between py-10">
                   <!-- <div class="bg-black sm:w-[50vw] w-full absolute opacity-20 group-hover:opacity-40 transition-all duration-300 ease-in-out" ></div> -->
                   <Text tag="h3" className="uppercase z-10 font-avenir xl:text-4xl text-3xl" >
                       The <span class="font-avenirBold" >Rover</span>
                   </Text>
                   <div class="flex flex-col items-center w-[90%]" >
-                    <Text tag="p" className="uppercase text-pretty font-avenir mb-5 text-lg xl:text-3xl mobilem:text-xl text-center" >
+                    <Text tag="p" className="uppercase text-pretty font-avenir mb-5 text-lg xl:text-3xl mobilem:text-lg text-center" >
                       The smartest <span class="font-avenirBold" >ball collector</span> <br />in the world
                     </Text>
                     <!-- <Button aria-label="Navigate to the Rover page" href="/" className="mt-4 w-64 uppercase text-t-off-black" >Meet Rover</Button> -->
-                    <a href="/home" class={`tablet:w-64 w-full 2xl:w-80 text-lg 2xl:text-2xl 2xl: 2xl:py-3 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-center text-t-off-black bg-t-green border-t-green md:text-t-off-black md:bg-green hover:bg-t-green hover:text-t-off-black`}>Meet Rover</a>
+                    <a href={Pages.TENNIS} class={`tablet:w-64 w-full 2xl:w-80 text-lg 2xl:text-2xl 2xl: 2xl:py-3 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-center text-t-off-black bg-t-green border-t-green md:text-t-off-black md:bg-green hover:bg-t-green hover:text-t-off-black`}>Meet Rover</a>
                   </div>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const countdownItem = 'font-plutoBold text-center text-t-off-white text-xl mobilel:w-fit w-[30%]'
+const countdownItem = 'font-plutoBold text-center text-t-off-white text-xl min-[830px]:w-fit md:w-[30%] mobilel:w-fit w-[30%]'
 const TARGET_DATE = new Date('2024-11-21T02:00:00')
 
 export default function Countdown() {
@@ -31,25 +31,25 @@ export default function Countdown() {
   }, [])
 
   return (
-    <div className="flex flex-row justify-center py-5 flex-wrap gap-5 mobilel:w-fit mobilel:py-2 rounded-lg mt-5" >
+    <div className="flex flex-row justify-center min-[830px]:justify-center md:justify-start py-5 flex-wrap gap-5 mobilel:w-fit mobilel:py-2 rounded-lg mt-5" >
         <div className={countdownItem} >
             <p>{timeLeft.days}</p>
-            <p className="font-plutoLight" >Days</p>
+            <p className="font-plutoLight text-sm lg:text-lg" >Days</p>
         </div>
 
         <div className={countdownItem} >
             <p>{timeLeft.hours}</p>
-            <p className="font-plutoLight" >Hours</p>
+            <p className="font-plutoLight text-sm lg:text-lg" >Hours</p>
         </div>
 
         <div className={countdownItem} >
             <p>{timeLeft.minutes}</p>
-            <p className="font-plutoLight" >Minutes</p>
+            <p className="font-plutoLight text-sm lg:text-lg" >Minutes</p>
         </div>
 
         <div className={countdownItem} >
             <p>{timeLeft.seconds}</p>
-            <p className="font-plutoLight" >Seconds</p>
+            <p className="font-plutoLight text-sm lg:text-lg" >Seconds</p>
         </div>
     </div>
   )
