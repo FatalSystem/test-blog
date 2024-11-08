@@ -54,6 +54,8 @@ export default function PhoneForm ({ from, listId, currentEmail }: { from: strin
     }
   }
 
+  console.log(sent)
+
   useEffect(() => {
     grecaptcha.ready(() => {
       grecaptcha.execute('6LfPJjcpAAAAAOmlbStg7zLCp1PLGKONPGkRlA0g', { action: 'landingNewsletter' })
@@ -133,7 +135,7 @@ export default function PhoneForm ({ from, listId, currentEmail }: { from: strin
                       </FormItem>
                   )}
                   />
-                  <Button disabled={form.formState.disabled || !form.formState.isValid || form.formState.isSubmitting || (form.formState.isSubmitSuccessful && !errorSubmitting)} className={`group mt-8 flex flex-row justify-center items-center border-t-green md:bg-t-off-black md:hover:bg-t-green border-2 rounded-md p-3 stroke-t-off-black md:stroke-t-green md:hover:stroke-t-green relative ${sent ? 'bg-t-green md:hover:stroke-t-off-black' : 'bg-t-green md:hover:stroke-t-off-black'} transition-all duration-300 ease-in-out`} >
+                  <Button disabled={form.formState.disabled || !form.formState.isValid || form.formState.isSubmitting || (form.formState.isSubmitSuccessful && !errorSubmitting)} className={`group mt-8 flex flex-row justify-center items-center border-t-green md:hover:bg-t-green border-2 rounded-md p-3 stroke-t-off-black md:stroke-t-green md:hover:stroke-t-green relative ${sent ? 'bg-t-green md:hover:stroke-t-off-black' : 'bg-t-green md:bg-t-off-black md:hover:stroke-t-off-black'} transition-all duration-300 ease-in-out`} >
                     <span className={`font-avenir uppercase duration-300 ease-in-out ${sent ? 'text-t-off-black' : 'md:text-t-off-white text-t-off-black group-hover:text-t-off-black'}`}>{sent ? 'Thank you!' : 'Submit'}</span>
                       {form.formState.isSubmitting && <Loader2 className="size-5 right-5 animate-spin absolute md:stroke-t-green stroke-t-off-black" />}
                       <svg xmlns="http://www.w3.org/2000/svg" width="35" height="16" viewBox="0 0 45 26" className={`${(form.formState.isSubmitting || sent) ? 'opacity-0' : 'opacity-100'} absolute right-5 `} fill="none">
