@@ -17,9 +17,8 @@ import Countdown from "@components/Countdown"
               <Countdown client:load />
           </div>
           <div class="flex z-10 flex-col md:justify-start justify-end" >
-            <div class="bg-t-off-black border-2 border-t-off-white rounded-lg py-5 mobilem:px-10 px-5 w-[90%] mx-auto  mb-10" >
+            <div class="bg-t-off-black border-2 border-t-off-white rounded-lg py-5 mobilem:px-10 px-5 md:min-w-[400px] w-[90%] mx-auto  mb-10" >
               <h2 class="font-plutoBold text-t-green mb-5 md:text-lg text-center" >You're Invited to<br /> the Future of AI Training</h2>
-              <p class="font-plutoLight text-t-off-white mb-8 md:text-lg text-center " >Secure your early access today and be among the first ever to experience the human-like training partner!</p>
               <PartnerForm from="Partner Landing Page" listId={listIds.partner} client:load />
             </div>
           </div>
