@@ -1,0 +1,28 @@
+---
+import Layout from "layouts/Layout.astro"
+import Button from "@components/core/Button.astro"
+import Text from "@components/core/Text.astro"
+import SportForm from "@components/SportForm"
+import PartnerForm from "@components/PartnerForm"
+import { listIds } from "@utils"
+import Countdown from "@components/Countdown"
+---
+<Layout title="Join the newsletter | Tennibot" showFooter={false} >
+    <main class="w-full bg-t-off-black relative text-t-off-white" >
+      <div class="bg-[url('/images/general/bm.webp')] bg-center md:bg-right md:h-[100vh] h-[60rem] bg-cover">
+        <div class="bg-black w-full md:h-[100vh] h-[60rem] absolute opacity-20 group-hover:opacity-40 transition-all duration-300 ease-in-out" ></div>
+        <div class="w-[95%] sm:w-[80%] pt-[5vh] flex md:flex-row flex-col  justify-between h-full gap-5 mx-auto" >
+          <div class="lg:mt-[5vh] mx-auto z-10 w-[90%]">
+              <h1 class="text-t-off-white font-avenir uppercase xl:text-4xl lg:text-3xl md:text-2xl mobilem:text-3xl mobilel:text-3xl text-xl text-pretty mx-auto mobilel:mx-0 w-[90%] tablet:w-full" >The ball machine of the <span class="font-avenirBold" >future</span>:</h1>
+              <Countdown client:load />
+          </div>
+          <div class="flex z-10 flex-col md:justify-start justify-end" >
+            <div class="bg-t-off-black border-2 border-t-off-white rounded-lg py-5 mobilem:px-10 px-5 md:min-w-[400px] w-[90%] mx-auto  mb-10" >
+              <h2 class="font-plutoBold text-t-green mb-5 md:text-lg text-center" >You're Invited to<br /> the Future of AI Training</h2>
+              <PartnerForm from="Partner Landing Page" listId={listIds.partner} client:load />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+</Layout>

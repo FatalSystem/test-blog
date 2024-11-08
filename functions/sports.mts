@@ -10,7 +10,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
 
   try {
     const data = await event.json()
-    const { email, fname, lname, call, from, rcToken, sport, phone } = data
+    const { email, fname, lname, call, from, rcToken, listId, phone, sport } = data
     const recaptchaResponse = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${RC_SECRET_KEY}&response=${rcToken}`)
     const recaptchaData = await recaptchaResponse.json()
     if (recaptchaData.success === false || recaptchaData.score < 0.5) {
@@ -22,9 +22,10 @@ export default async (event: Request, context: Context): Promise<Response> => {
     if (fname !== '' && fname) mergeFields = { ...mergeFields, first_name: fname }
     if (lname !== '' && lname) mergeFields = { ...mergeFields, last_name: lname }
     if (phone !== '' && phone) mergeFields = { ...mergeFields, phone_number: phone }
+    if (sport !== '' && sport) mergeFields = { ...mergeFields, sport }
     if (call) mergeFields = { ...mergeFields, call: 'Yes' }
 
-    const response = await fetch(`https://a.klaviyo.com/api/v2/list/${sport}/subscribe?api_key=${KY_API_KEY}`,
+    const response = await fetch(`https://a.klaviyo.com/api/v2/list/${listId}/subscribe?api_key=${KY_API_KEY}`,
       {
         method: 'POST',
         headers: {

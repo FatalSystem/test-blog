@@ -7,10 +7,13 @@ import Banner from './Banner'
 const links = [
   { label: 'Home', href: Pages.HOME },
   { label: 'Buy', href: Pages.BUY },
+  { label: 'Tennis', href: Pages.TENNIS },
   { label: 'The rover', href: Pages.ROVER },
   { label: 'The station', href: Pages.STATION },
-  { label: 'About us', href: Pages.ABOUT },
   { label: 'Clubs and Coaches', href: Pages.CLUBS },
+  { label: 'Pickleball', href: Pages.PICKLEBALL },
+  { label: 'Padel', href: Pages.PADEL },
+  { label: 'About us', href: Pages.ABOUT },
   { label: 'FAQs', href: Pages.FAQ }
 ]
 // TODO: Remake with framer motion
@@ -46,14 +49,14 @@ export default function Header (): JSX.Element {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className='absolute md:h-[100vh] bg-t-off-black rounded-b-lg shadow-lg md:w-fit w-full right-0 top-16'
+                className='absolute h-[100vh] bg-t-off-black rounded-b-lg shadow-lg md:w-fit w-full right-0 top-16 custom-scrollbar overflow-y-scroll'
               >
                 <ul className='px-10 flex flex-col pt-10'>
                   {links.map((link, index) => (
                     <a
                       key={index}
                       href={link.href}
-                      className={`text-xl text-t-off-white font-avenirBold uppercase mb-10 transform cursor-pointer hover:text-t-green transition duration-${
+                      className={`text-xl font-avenirBold text-t-off-white uppercase mb-10 transform ${[3, 4, 5].includes(index) ? 'pl-5' : ''} cursor-pointer hover:text-t-green transition duration-${
                         (index + 1) * 100
                       } ${open ? 'opacity-100' : 'opacity-0'} ease-in-out`}
                     >

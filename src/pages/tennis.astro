@@ -2,13 +2,11 @@
 // Astro
 import Layout from "../layouts/Layout.astro"
 import Hero from "@components/Hero"
-import { BackgroundImage } from "astro-imagetools/components"
 import { Image } from 'astro:assets'
 import Button from "@components/core/Button.astro"
 import Text from "@components/core/Text.astro"
 
 // React
-import Counter from "@components/Counter"
 import { MediaQuotes } from "@components/MediaQuotes"
 import FrontPageSlider from "@components/FrontPageSlider"
 import { Pages } from "@utils"
@@ -22,8 +20,6 @@ import courtSweeping from "@assets/front-page/courtsweeping.webp"
 import courtSweepingMobile from "@assets/front-page/court-sweeping-mobile.webp"
 import matchAnalysis from "@assets/front-page/matchanalysis.webp"
 import matchAnalysisMobile from "@assets/front-page/match-analysis-mobile.webp"
-
-import usaMap from "@assets/front-page/usa-map.svg"
 ---
 
 <Layout title="Tennibot">
@@ -56,32 +52,32 @@ import usaMap from "@assets/front-page/usa-map.svg"
     </section>
 
     <section class="flex flex-col md:flex-row tablet:mt-0 mt-[-1px]" >
-      <div class="w-full md:w-[50%] md:h-full">
-        <BackgroundImage src="../src/assets/front-page/front-rover.webp" alt="Front view of Tennibot's Rover" >
-          <div class="h-[60vh] lg:h-[70vh] flex flex-col items-center justify-between py-5" >
-            <Text tag="h3" className="uppercase font-avenirBold xl:text-4xl text-3xl" >
-              Rover
-            </Tex>
-            <div class="flex flex-col items-center w-[90%]" >
-              <Text tag="p" className="font-avenir uppercase xl:text-3xl text-xl text-center font-thin" >
-                Take the <strong class="font-avenirBold" >tedious</strong><br> out of <strong class="font-avenirBold" >tennis</strong>
-              </Text>
-              <Button aria-label="Navigate to the Rover page" href={Pages.ROVER} className="mt-6 w-64" >Learn more</Button>
-            </div>
-          </div>
-        </BackgroundImage>
-      </div>
-      <div class="w-full md:w-[50%] md:h-full" >
-        <div  class=" bg-[url('/images/front-page/station-mobile.webp')] md:bg-[url('/images/front-page/station.webp')] bg-cover bg-top" >
+      <div class="relative w-full md:w-[50%] md:h-full">
+        <div class=" xl:bg-[url('/images/tennis/pickleball.webp')] bg-[url('/images/tennis/pickleball.webp')] bg-cover bg-top" >
           <div class="h-[60vh] lg:h-[70vh] flex flex-col items-center justify-between py-5">
             <Text tag="h3" className="uppercase font-avenirBold xl:text-4xl text-3xl" >
-              Station
+              Pickleball
             </Tex>
             <div class="flex flex-col items-center w-[90%]" >
-              <Text tag="p" className="uppercase text-pretty font-avenir text-lg xl:text-3xl mobilem:text-xl text-center" >
+              <!-- <Text tag="p" className="uppercase text-pretty font-avenir text-lg xl:text-3xl mobilem:text-xl text-center" >
                 Your own personal<br> <strong class="font-avenirBold" >coach, analyst and umpire</strong>
-              </Text>
-              <Button aria-label="Navigate to the Station page" href={Pages.STATION} className="mt-4 w-64 " >Learn more</Button>
+              </Text> -->
+              <Button aria-label="Navigate to the Station page" href={Pages.PICKLEBALL} className="mt-4 w-64 " >Learn more</Button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full md:w-[50%] md:h-full" >
+        <div class=" xl:bg-[url('/images/tennis/padel.webp')] bg-[url('/images/tennis/padel-mobile.webp')] bg-cover bg-top" >
+          <div class="h-[60vh] lg:h-[70vh] flex flex-col items-center justify-between py-5">
+            <Text tag="h3" className="uppercase font-avenirBold xl:text-4xl text-3xl" >
+              Padel
+            </Tex>
+            <div class="flex flex-col items-center w-[90%]" >
+              <!-- <Text tag="p" className="uppercase text-pretty font-avenir text-lg xl:text-3xl mobilem:text-xl text-center" >
+                Your own personal<br> <strong class="font-avenirBold" >coach, analyst and umpire</strong>
+              </Text> -->
+              <Button aria-label="Navigate to the Station page" href={Pages.PADEL} className="mt-4 w-64 " >Learn more</Button>
             </div>
           </div>
         </div>

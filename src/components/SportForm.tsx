@@ -58,7 +58,7 @@ export default function SportForm ({ from, sport }: { from: string, sport: strin
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email: values.email, from, fname: firstName ?? values.name, lname: lastName ?? '', rcToken: token, sport: sportId })
+        body: JSON.stringify({ email: values.email, from, fname: firstName ?? values.name, lname: lastName ?? '', rcToken: token, listId: sportId })
       })
       if (response.status !== 200) {
         setErrorSubmitting(true)
@@ -84,7 +84,12 @@ export default function SportForm ({ from, sport }: { from: string, sport: strin
   }, [])
 
   if (showPhoneForm) {
-    return <PhoneForm currentEmail={currentEmail} sport={sport} from={from} />
+    return (
+      <>
+        <h2 className="font-plutoLight text-t-off-white mb-10 md:text-lg" >Want to be part of our VIP group? Enter your number below!</h2>
+        <PhoneForm currentEmail={currentEmail} listId={sportId} from={from} />
+      </>
+    )
   }
 
   return (
