@@ -13,7 +13,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
     const { email, fname, lname, call, from, rcToken, listId, phone, sport } = data
     const recaptchaResponse = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${RC_SECRET_KEY}&response=${rcToken}`)
     const recaptchaData = await recaptchaResponse.json()
-    if (recaptchaData.success === false || recaptchaData.score < 0.5) {
+    if (recaptchaData.success === false || recaptchaData.score < 0.2) {
       return new Response('Invalid reCAPTCHA', { status: 400 })
     }
 
