@@ -1,12 +1,19 @@
 ---
 import Layout from "layouts/Layout.astro"
-import time from '@assets/front-page/news/time.svg'
-import bbc from '@assets/front-page/news/bbc.svg'
+import time from '@assets/partner/time.svg'
+import bbc from '@assets/partner/bbc.svg'
+import techCrunch from '@assets/partner/techcrunch.svg'
+import bloomberg from '@assets/partner/bloomberg.svg'
 import shipping from '@assets/partner/shipping-icon.svg'
 import moneyBack from '@assets/partner/return-icon.svg'
 import warranty from '@assets/partner/warranty-icon.svg'
+import PartnerVideoDisplay from "@components/PartnerVideoDisplay"
+import VideoThumbnail from "@components/VideoThumbnail"
+import PartnerPopup from "@components/PartnerPopup"
+import PartnerFooter from "@components/PartnerFooter.astro"
+import PartnerFeatures from "@components/PartnerFeatures"
 ---
-<Layout title="Partner | Tennibot" >
+<Layout title="Partner | Tennibot" showFooter={false} >
     <main class="w-full bg-t-off-black relative text-t-off-white" >
       <section class="h-[100vh] bg-[url('/images/partner/partner-hero.webp')] bg-cover bg-center flex flex-col justify-between" >
         <div class="flex flex-col justify-center items-center pt-[8vh]" >
@@ -17,23 +24,28 @@ import warranty from '@assets/partner/warranty-icon.svg'
             <a href="/" class={`mt-10 tablet:w-64 w-full 2xl:w-80 text-lg 2xl:text-2xl 2xl: 2xl:py-3 font-thin rounded-full py-2 font-avenirBold border-2 transition duration-300 text-center text-t-off-black bg-t-green border-t-green md:text-t-off-black md:bg-green hover:bg-t-green hover:text-t-off-black`}>Meet Partner</a>
         </div>
 
-        <div class="w-[50%] ml-auto pb-[15vh] flex flex-col justify-end" >
+        <div class="w-[50%] mx-auto pb-[15vh] flex flex-col justify-end" >
             <p class="font-avenirBold text-t-off-black uppercase text-center text-lg mb-3 flex flex-col justify-center items-center" >As seen in:</p>
             <div class="flex flex-row gap-5 items-center justify-center" >
                 <img
                 src={time.src}
-                width={time.width - 100}
-                height={time.height}
+                width={100}
+                height={50}
                 />
                 <img
-                src={time.src}
-                width={time.width - 100}
-                height={time.height}
+                src={techCrunch.src}
+                width={150}
+                height={50}
                 />
                 <img
-                src={time.src}
-                width={time.width - 100}
-                height={time.height}
+                src={bbc.src}
+                width={100}
+                height={50}
+                />
+                <img
+                src={bloomberg.src}
+                width={150}
+                height={50}
                 />
             </div>
         </div>
@@ -41,10 +53,13 @@ import warranty from '@assets/partner/warranty-icon.svg'
 
       <section class="bg-black" >
         <div class="w-[80%] mx-auto pt-24 pb-10" >
-            <h2 class="font-avenirBold text-t-green text-center text-3xl" >Train without limits</h2>
+            <h2 class="font-avenirBold text-t-green text-center uppercase text-3xl" >Train without limits</h2>
         </div>
-        <div class="bg-[url('/images/general/bm.webp')] h-[300px] w-[80%] mx-auto bg-cover bg-center rounded-xl " >
-
+        <!-- <div class="bg-[url('/images/general/bm.webp')] h-[300px] w-[80%] mx-auto bg-cover bg-center rounded-xl overflow-hidden " >
+            <video class="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
+                <source src="/videos/tennibot-partner.mp4" type="video/mp4" />
+                {'Your browser doesn\'t support the video tag.'}
+            </video>
         </div>
         <div class="w-[80%] mx-auto flex flex-row gap-5 pt-10 pb-24" >
             <div class="border-t-2 border-t-green pt-5" >
@@ -59,52 +74,53 @@ import warranty from '@assets/partner/warranty-icon.svg'
                 <h3 class="font-avenirBold text-t-green" >Padel</h3>
                 <p class="font-pluto text-t-off-white text-sm" >The most human ball machine you have ever practiced with! The Partner detects your movements and moves around the court to ensure a challenging practice for any shot you can think of.</p>
             </div>
-        </div>
+        </div> -->
+        <PartnerVideoDisplay client:load />
       </section>
 
       <section class="bg-black" >
         <div class="w-[80%] mx-auto pt-16 pb-10" >
-            <h2 class="font-avenirBold text-t-green text-center text-3xl" >Why Tennibot?</h2>
+            <h2 class="font-avenirBold text-t-green text-center uppercase text-3xl" >Why Tennibot?</h2>
             <p class="font-pluto text-t-off-white text-center mt-5" >We invented intelligent court training – the rest are just playing catch-up.</p>
         </div>
 
         <div class="w-[80%] mx-auto flex flex-row gap-20 pt-5 pb-16" >
-            <div class="border-2 border-t-green rounded-xl text-center py-8 px-3" >
+            <div class="w-[100%] border-2 border-t-green rounded-xl text-center py-8 px-3" >
                 <h5 class="font-avenirBold text-t-off-white mb-3" >Premium Quality</h5>
                 <p class="font-pluto text-t-off-white text-sm" >Tennibot is the only ball machine company that offers a 3-year warranty. We stand behind our quality, while others don't.</p>
             </div>
-            <div class="border-2 border-t-green rounded-xl text-center py-8 px-3" >
-                <h5 class="font-avenirBold text-t-off-white mb-3" >Premium Quality</h5>
-                <p class="font-pluto text-t-off-white text-sm" >Tennibot is the only ball machine company that offers a 3-year warranty. We stand behind our quality, while others don't.</p>
+            <div class="w-[100%] border-2 border-t-green rounded-xl text-center py-8 px-3" >
+                <h5 class="font-avenirBold text-t-off-white mb-3" >Track Record</h5>
+                <p class="font-pluto text-t-off-white text-sm" >Since 2018, we have been building autonomous tennis robots for picking up balls and sweeping clay courts. This is not our first rodeo :)</p>
             </div>
-            <div class="border-2 border-t-green rounded-xl text-center py-8 px-3" >
-                <h5 class="font-avenirBold text-t-off-white mb-3" >Premium Quality</h5>
-                <p class="font-pluto text-t-off-white text-sm" >Tennibot is the only ball machine company that offers a 3-year warranty. We stand behind our quality, while others don't.</p>
+            <div class="w-[100%] border-2 border-t-green rounded-xl text-center py-8 px-3" >
+                <h5 class="font-avenirBold text-t-off-white mb-3" >Detail Obsessed</h5>
+                <p class="font-pluto text-t-off-white text-sm" >We purchased, tested, and analyzed every ball machine on the market to solve & address all the consumer pain points and inconveniences to build the ultimate ball machine!</p>
             </div>
         </div>
       </section>
 
       <section class="bg-black" >
         <div class="w-[80%] mx-auto flex flex-row justify-center gap-10 pt-5 pb-36" >
-            <div class="ml-auto">
-                <h5 class="font-avenirBold text-xl text-t-green mb-5" >
-                    Proudly desgined<br /> and assembled in the USA🇺🇸
+            <div class="mx-auto">
+                <h5 class="font-avenirBold text-xl text-center text-t-green mb-5" >
+                    Proudly desgined and assembled in the USA🇺🇸
                 </h5>
-                <p class="font-avenir text-t-off-white text-sm" >
+                <p class="font-avenir text-center text-t-off-white text-sm" >
                     📍 Auburn, AL
                 </p>
+                <a href="/" class={`flex flex-row mx-auto mt-5 gap-2 w-fit justify-center px-10 items-center text-lg 2xl:text-lg 2xl:py-2 font-thin rounded-full py-2 font-avenir border-2 transition duration-300 text-center text-t-off-black bg-t-green border-t-green md:text-t-off-black md:bg-green hover:bg-t-green hover:text-t-off-black stroke-t-off-black`}>
+                    Reserve
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="35" height="16" viewBox="0 0 45 26" fill="none">
+                        <path opacity="0.5" d="M0 13H43M43 13L30.4146 25M43 13L30.4146 1" stroke-width="3" class="stroke-t-off-black"/>
+                    </svg> -->
+                </a>
             </div>
-            <div class="mr-auto flex flex-col justify-between" >
+            <!-- <div class="mr-auto flex flex-col justify-between" >
                 <p class="font-avenir text-t-off-white text-md mb-8" >
                     Crafted with care by fellow tennis, pickle, & padel players.
                 </p>
-                <a href="/" class={`flex flex-row gap-2 w-fit justify-center px-5 items-center text-lg 2xl:text-2xl 2xl: 2xl:py-3 font-thin rounded-full py-2 font-avenir border-2 transition duration-300 text-center text-t-off-black bg-t-green border-t-green md:text-t-off-black md:bg-green hover:bg-t-green hover:text-t-off-black stroke-t-off-black`}>
-                    Learn More
-                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="16" viewBox="0 0 45 26" fill="none">
-                        <path opacity="0.5" d="M0 13H43M43 13L30.4146 25M43 13L30.4146 1" stroke-width="3" class="stroke-t-off-black"/>
-                    </svg>
-                </a>
-            </div>
+            </div> -->
         </div>
 
         <div class="w-[80%] mx-auto flex flex-row justify-center gap-10 pt-5 pb-16" >
@@ -115,26 +131,7 @@ import warranty from '@assets/partner/warranty-icon.svg'
       </section>
       
       <section class="bg-black pt-5 pb-36" >
-        <div class="flex flex-row gap-10 overflow-x-scroll ml-5 flex-nowrap [&::-webkit-scrollbar]:hidden" >
-            <div class="h-[60vh] min-w-[290px] bg-[url('/images/partner/partner-specs.webp')] bg-cover bg-center rounded-xl flex flex-col justify-center px-10" >
-                <p class="font-avenir text-t-off-white uppercase text-2xl mt-[10vh]" >Specs</p>
-            </div>
-            <div class="h-[60vh] min-w-[290px] bg-[url('/images/partner/partner-specs.webp')] bg-cover bg-center rounded-xl flex flex-col justify-center px-10" >
-                <p class="font-avenir text-t-off-white uppercase text-2xl mt-[10vh]" >Specs</p>
-            </div>
-            <div class="h-[60vh] min-w-[290px] bg-[url('/images/partner/partner-specs.webp')] bg-cover bg-center rounded-xl flex flex-col justify-center px-10" >
-                <p class="font-avenir text-t-off-white uppercase text-2xl mt-[10vh]" >Specs</p>
-            </div>
-            <div class="h-[60vh] min-w-[290px] bg-[url('/images/partner/partner-specs.webp')] bg-cover bg-center rounded-xl flex flex-col justify-center px-10" >
-                <p class="font-avenir text-t-off-white uppercase text-2xl mt-[10vh]" >Specs</p>
-            </div>
-            <div class="h-[60vh] min-w-[290px] bg-[url('/images/partner/partner-specs.webp')] bg-cover bg-center rounded-xl flex flex-col justify-center px-10" >
-                <p class="font-avenir text-t-off-white uppercase text-2xl mt-[10vh]" >Specs</p>
-            </div>
-            <div class="h-[60vh] min-w-[290px] bg-[url('/images/partner/partner-specs.webp')] bg-cover bg-center rounded-xl flex flex-col justify-center px-10" >
-                <p class="font-avenir text-t-off-white uppercase text-2xl mt-[10vh]" >Specs</p>
-            </div>
-        </div>
+        <PartnerFeatures client:load />
       </section>
 
       <section class="bg-black pb-36 pt-10" >
@@ -153,8 +150,8 @@ import warranty from '@assets/partner/warranty-icon.svg'
             <div class="min-w-[600px] h-[50vh] bg-[url('/images/partner/partner-step-one.webp')] bg-cover bg-center rounded-xl flex flex-col justify-between px-5 py-5" >
                 <p class="font-avenirBold text-t-off-white text-3xl" >2.</p>
                 <div class="mb-10">
-                    <h5 class="font-avenirBold text-t-off-white text-3xl mb-5" >Ready in one minute</h5>
-                    <p class="font-pluto text-t-off-white text-xl" >Simply set the Partner & Station on the court and turn them on. </p>
+                    <h5 class="font-avenirBold text-t-off-white text-3xl mb-5" >Auto calibrate in seconds</h5>
+                    <p class="font-pluto text-t-off-white text-xl" >They will automatically calibrate the court lines, the net, and their position & yours on the court.</p>
                 </div>
             </div>
             <div class="min-w-[600px] h-[50vh] bg-[url('/images/partner/partner-step-one.webp')] bg-cover bg-center rounded-xl flex flex-col justify-between px-5 py-5" >
@@ -172,21 +169,28 @@ import warranty from '@assets/partner/warranty-icon.svg'
             <div class="bg-t-off-black p-10 rounded-xl flex flex-col">
                 <p class="font-avenir uppercase text-t-off-white text-2xl mb-5">See it in action</p>
                 <div class="flex flex-row gap-5 justify-between items-center" >
-                    <div class="w-[30%] h-[50vh] bg-[url('/images/partner/action-placeholder.webp')] bg-cover bg-center rounded-xl" >
-
-                    </div>
-                    <div class="w-[30%] h-[50vh] bg-[url('/images/partner/action-placeholder.webp')] bg-cover bg-center rounded-xl" >
-
-                    </div>
-                    <div class="w-[30%] h-[50vh] bg-[url('/images/partner/action-placeholder.webp')] bg-cover bg-center rounded-xl" >
-
-                    </div>
+                    <VideoThumbnail client:idle title="Infinite drills" videoSource="https://player.vimeo.com/video/932265258" className="bg-[url('/images/rover/setupthumbnail.webp')] w-[30%]"  />
+                    <VideoThumbnail client:idle title="Game-like matches" videoSource="https://player.vimeo.com/video/932265258" className="bg-[url('/images/rover/setupthumbnail.webp')] w-[30%]"  />
+                    <VideoThumbnail client:idle title="Tracking & Analytics" videoSource="https://player.vimeo.com/video/932265258" className="bg-[url('/images/rover/setupthumbnail.webp')] w-[30%]"  />
+                </div>
+            </div>
+        </div>
+      </section>
+      <section class="bg-black pt-16 pb-36" >
+        <div class="w-[80%] mx-auto" >
+            <h2 class="font-avenirBold text-t-green text-center text-3xl mb-10" >But don't take our word for it!</h2>
+            <div class="bg-t-off-black p-10 rounded-xl flex flex-col">
+                <p class="font-avenir uppercase text-t-off-white text-2xl mb-5">Listen to what Players/Coaches say</p>
+                <div class="flex flex-row gap-5 justify-between items-center" >
+                    <VideoThumbnail client:idle title="Infinite drills" videoSource="https://player.vimeo.com/video/932265258" className="bg-[url('/images/rover/setupthumbnail.webp')] w-[30%]"  />
+                    <VideoThumbnail client:idle title="Game-like matches" videoSource="https://player.vimeo.com/video/932265258" className="bg-[url('/images/rover/setupthumbnail.webp')] w-[30%]"  />
+                    <VideoThumbnail client:idle title="Tracking & Analytics" videoSource="https://player.vimeo.com/video/932265258" className="bg-[url('/images/rover/setupthumbnail.webp')] w-[30%]"  />
                 </div>
             </div>
         </div>
       </section>
 
-      <section class="bg-black pt-16 pb-36" >
+      <!-- <section class="bg-black pt-16 pb-36" >
           <div class="w-[80%] mx-auto" >
               <h2 class="font-avenirBold text-t-green text-center text-3xl mb-10" >From Tennibot users</h2>
           </div>
@@ -236,24 +240,24 @@ import warranty from '@assets/partner/warranty-icon.svg'
                 </div>
             </div>
           </div>
-      </section>
+      </section> -->
 
       <section class="bg-black pt-16 pb-44" >
         <div class="w-[80%] bg-t-off-black rounded-xl mx-auto px-10 py-16" >
-            <h2 class="font-avenirBold text-t-green text-center text-3xl mb-5" >Join the Exclusive First Wave</h2>
-            <p class="font-avenir text-t-off-white text-center text-lg mb-10" >Reserve your spot - only 150 spaces available</p>
-            <div class="w-[100%]">
-                <p class="font-avenirBold text-t-green text-2xl mb-5" >Pre Order Partner</p>
+            <h2 class="font-avenirBold text-t-green text-center text-3xl mb-5" >Reserve your spot now </h2>
+            <p class="font-avenir text-t-off-white text-center text-lg mb-10" >Be one of the Early Founding Backers - only 150 units available</p>
+            <div class="w-[100%">
+                <!-- <p class="font-avenirBold text-t-green text-2xl mb-5" >Pre Order Partner</p> -->
                 <div class="flex flex-row w-full gap-5" >
-                    <div class="flex flex-col w-full gap-10">
-                        <div class="flex flex-row items-center gap-3" >
+                    <div class="flex flex-col w-full justify-start gap-10">
+                        <!-- <div class="flex flex-row items-center gap-3" >
                             <a href="/" class={`w-fit px-5 text-lg 2xl:text-2xl 2xl: 2xl:py-3 font-thin rounded-full py-1 font-avenir border-2 transition duration-300 text-center text-t-off-black bg-t-green border-t-green md:text-t-off-black md:bg-green hover:bg-t-green hover:text-t-off-black`}>Reserve</a>
                             <div>
                                 <p class="font-pluto text-t-off-white text-sm" >Pay in full or in interest free installments</p>
                             </div>
-                        </div>
+                        </div> -->
     
-                        <div>
+                        <!-- <div>
                             <img
                             src={shipping.src}
                             width={25}
@@ -261,7 +265,7 @@ import warranty from '@assets/partner/warranty-icon.svg'
                             />
                             <p class="font-avenirBold text-t-off-white text-lg mt-3" >Free Shipping</p>
                             <p class="font-pluto text-t-off-white" >We'll deliver your Partner right to your doorstep.</p>
-                        </div>
+                        </div> -->
                         <div>
                             <img
                             src={moneyBack.src}
@@ -269,7 +273,16 @@ import warranty from '@assets/partner/warranty-icon.svg'
                             height={25}
                             />
                             <p class="font-avenirBold text-t-off-white text-lg mt-3" >60-day-money-back-guarantee</p>
-                            <p class="font-pluto text-t-off-white" >Try Partner for 60 days. Free returns within 60 days.</p>
+                            <p class="font-pluto text-t-off-white" >Try Partner for 60 days. Free returns within 60 days</p>
+                        </div>
+                        <div>
+                            <img
+                            src={moneyBack.src}
+                            width={25}
+                            height={25}
+                            />
+                            <p class="font-avenirBold text-t-off-white text-lg mt-3" >Personalized Customization</p>
+                            <p class="font-pluto text-t-off-white" >Have your name or loved one or even your club's<br /> itched on your robot.</p>
                         </div>
                         <div>
                             <img
@@ -280,8 +293,9 @@ import warranty from '@assets/partner/warranty-icon.svg'
                             <p class="font-avenirBold text-t-off-white text-lg mt-3" >5 Year Warranty</p>
                             <p class="font-pluto text-t-off-white" >We've got you covered. Purchase with peace of mind.</p>
                         </div>
+                        <a href="/" class={`w-fit mt-10 px-10 text-lg 2xl: 2xl:py-2 font-thin rounded-full py-1 font-avenir border-2 transition duration-300 text-center text-t-off-black bg-t-green border-t-green md:text-t-off-black md:bg-green hover:bg-t-green hover:text-t-off-black`}>Reserve</a>
                     </div>
-                    <div class="w-full bg-[url('/images/partner/partner-reserve-img.webp')] bg-cover bg-center rounded-xl" >
+                    <div class="w-full bg-[url('/images/partner/early-placeholder.png')] bg-cover bg-center rounded-xl" >
 
                     </div>
                 </div>
@@ -290,3 +304,4 @@ import warranty from '@assets/partner/warranty-icon.svg'
       </section>
     </main>
 </Layout>
+<PartnerFooter />

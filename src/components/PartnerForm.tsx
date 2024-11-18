@@ -89,7 +89,7 @@ export default function PartnerForm ({ from, listId }: { from: string, listId: s
 
   return (
     <>
-      <p className="font-plutoLight text-t-off-white mb-8 md:text-lg text-center " >Secure your early access today and be among the first ever to experience the human-like training partner!</p>
+      <p className="font-plutoLight text-t-off-white mb-8 md:text-lg text-center " >Thanks for your interest. Please fill the following form and we'll get back to you as soon as possible.</p>
       <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className='font-plutoLight mb-2' >
               <div className='flex md:flex-row flex-col md:gap-2'>
@@ -100,6 +100,20 @@ export default function PartnerForm ({ from, listId }: { from: string, listId: s
                       <FormItem className='flex flex-col w-full gap-1' >
                           <FormControl>
                               <Input {...field} placeholder='Name' className={inputStyle} />
+                          </FormControl>
+                          <FormMessage />
+                      </FormItem>
+                  )}
+                  />
+              </div>
+              <div className='flex md:flex-row flex-col md:gap-2'>
+                  <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                      <FormItem className='flex flex-col w-full gap-1' >
+                          <FormControl>
+                              <Input {...field} placeholder='Phone' className={inputStyle} />
                           </FormControl>
                           <FormMessage />
                       </FormItem>
