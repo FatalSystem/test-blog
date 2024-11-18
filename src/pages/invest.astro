@@ -3,21 +3,25 @@ import Layout from "layouts/Layout.astro"
 import PartnerForm from "@components/PartnerForm"
 import { listIds } from "@utils"
 import Countdown from "@components/Countdown"
+import placeholderOne from "@assets/invest/placeholderone.webp"
+import placeholderTwo from "@assets/invest/placeholdertwo.webp"
 ---
 <Layout title="Invest | Tennibot" showFooter={false} >
     <main class="w-full bg-t-off-black relative text-t-off-white" >
-      <div class="bg-[url('/images/general/bm.webp')] bg-center md:bg-right md:h-[100vh] h-[60rem] bg-cover">
-        <div class="bg-black w-full md:h-[100vh] h-[60rem] absolute opacity-20 group-hover:opacity-40 transition-all duration-300 ease-in-out" ></div>
-        <div class="w-[95%] sm:w-[80%] pt-[5vh] flex md:flex-row flex-col  justify-between h-full gap-5 mx-auto" >
-          <div class="lg:mt-[5vh] mx-auto z-10 w-[90%]">
-              <h1 class="text-t-off-white font-avenir uppercase xl:text-4xl lg:text-3xl md:text-2xl mobilem:text-3xl mobilel:text-3xl text-xl text-pretty mx-auto mobilel:mx-0 w-[90%] tablet:w-full" >Interested in joining the future of m Sports and Robotics?</h1>
+      <div class="bg-center md:bg-right md:h-[100vh] h-[60rem] bg-cover">
+        <!-- <div class="bg-black w-full md:h-[100vh] h-[60rem] absolute opacity-20 group-hover:opacity-40 transition-all duration-300 ease-in-out" ></div> -->
+        <div class="w-[100%] sm:w-[80%] pt-[5vh] flex md:flex-row flex-col  justify-between h-full gap-5 mx-auto" >
+          <div class="lg:mt-[5vh] mx-auto z-10 w-[100%]">
+              <h1 class="text-t-off-white font-avenir uppercase xl:text-4xl lg:text-3xl md:text-2xl mobilem:text-3xl mobilel:text-3xl text-xl text-pretty mx-auto mobilel:mx-0 w-[90%] tablet:w-full" >Interested in joining the future of Racquet Sports and Robotics?</h1>
               <!-- <Countdown client:load /> -->
+              <div class="bg-t-off-black border-2 mt-10 border-t-off-white rounded-lg py-5 mobilem:px-10 px-5 md:max-w-[500px] md:min-w-[400px] w-[90%]  mb-10" >
+                <!-- <h2 class="font-plutoBold text-t-green mb-5 md:text-lg text-center" >You're Invited to<br /> the Future of AI Training</h2> -->
+                <PartnerForm from="Partner Landing Page" listId={listIds.partner} client:load />
+              </div>
           </div>
-          <div class="flex z-10 flex-col md:justify-start justify-end" >
-            <div class="bg-t-off-black border-2 border-t-off-white rounded-lg py-5 mobilem:px-10 px-5 md:min-w-[400px] w-[90%] mx-auto  mb-10" >
-              <!-- <h2 class="font-plutoBold text-t-green mb-5 md:text-lg text-center" >You're Invited to<br /> the Future of AI Training</h2> -->
-              <PartnerForm from="Partner Landing Page" listId={listIds.partner} client:load />
-            </div>
+          <div class="flex z-10 flex-col md:justify-start justify-end w-[100%]" >
+              <img src={placeholderTwo.src} alt="bm" width={600} height={800} class="rounded-lg mb-10" />
+              <img src={placeholderOne.src} alt="bm" width={600} height={800} class="rounded-lg" />
           </div>
         </div>
       </div>
