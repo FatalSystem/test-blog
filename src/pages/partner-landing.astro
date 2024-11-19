@@ -12,8 +12,10 @@ import VideoThumbnail from "@components/VideoThumbnail"
 import PartnerPopup from "@components/PartnerPopup"
 import PartnerFooter from "@components/PartnerFooter.astro"
 import PartnerFeatures from "@components/PartnerFeatures"
+import PartnerSlider from "@components/PartnerSlider"
+import PartnerHeader from "@components/PartnerHeader"
 ---
-<Layout title="Partner | Tennibot" showFooter={false} >
+<Layout title="Partner | Tennibot" showFooter={false} showHeader={false} showPartnerHeader={true} >
     <main class="w-full bg-t-off-black relative text-t-off-white" >
       <section class="h-[100vh] bg-[url('/images/partner/partner-hero.webp')] bg-cover bg-center flex flex-col justify-between" >
         <div class="flex flex-col justify-center items-center pt-[8vh]" >
@@ -45,7 +47,7 @@ import PartnerFeatures from "@components/PartnerFeatures"
                 <img
                 src={bloomberg.src}
                 width={150}
-                height={50}
+                class="mb-[-10px]"
                 />
             </div>
         </div>
@@ -107,7 +109,7 @@ import PartnerFeatures from "@components/PartnerFeatures"
                     Proudly desgined and assembled in the USA🇺🇸
                 </h5>
                 <p class="font-avenir text-center text-t-off-white text-sm" >
-                    📍 Auburn, AL
+                    📍Auburn, AL
                 </p>
                 <a href="/" class={`flex flex-row mx-auto mt-5 gap-2 w-fit justify-center px-10 items-center text-lg 2xl:text-lg 2xl:py-2 font-thin rounded-full py-2 font-avenir border-2 transition duration-300 text-center text-t-off-black bg-t-green border-t-green md:text-t-off-black md:bg-green hover:bg-t-green hover:text-t-off-black stroke-t-off-black`}>
                     Reserve
@@ -139,15 +141,15 @@ import PartnerFeatures from "@components/PartnerFeatures"
             <h2 class="font-avenirBold text-t-green text-center text-3xl uppercase" >How partner works</h2>
             <p class="font-pluto text-t-off-white text-center text-lg mt-5 mb-10" >In three easy steps... 👇🏼</p>
         </div>
-        <div class="flex flex-row gap-10 overflow-x-scroll ml-5 flex-nowrap [&::-webkit-scrollbar]:hidden" >
-            <div class="min-w-[600px] h-[50vh] bg-[url('/images/partner/partner-step-one.webp')] bg-cover bg-center rounded-xl flex flex-col justify-between px-5 py-5" >
+        <div class="flex flex-row gap-10 overflow-x-scroll px-5 flex-nowrap [&::-webkit-scrollbar]:hidden" >
+            <div class="min-w-[800px] h-[50vh] bg-[url('/images/partner/partner-step-one.webp')] bg-cover bg-center rounded-xl flex flex-col justify-between px-5 py-5" >
                 <p class="font-avenirBold text-t-off-white text-3xl" >1.</p>
                 <div class="mb-10">
                     <h5 class="font-avenirBold text-t-off-white text-3xl mb-5" >Ready in one minute</h5>
                     <p class="font-pluto text-t-off-white text-xl" >Simply set the Partner & Station on the court and turn them on. </p>
                 </div>
             </div>
-            <div class="min-w-[600px] h-[50vh] bg-[url('/images/partner/partner-step-one.webp')] bg-cover bg-center rounded-xl flex flex-col justify-between px-5 py-5" >
+            <div class="min-w-[800px] h-[50vh] bg-[url('/images/partner/partner-step-one.webp')] bg-cover bg-center rounded-xl flex flex-col justify-between px-5 py-5" >
                 <p class="font-avenirBold text-t-off-white text-3xl" >2.</p>
                 <div class="mb-10">
                     <h5 class="font-avenirBold text-t-off-white text-3xl mb-5" >Auto calibrate in seconds</h5>
@@ -157,8 +159,8 @@ import PartnerFeatures from "@components/PartnerFeatures"
             <div class="min-w-[600px] h-[50vh] bg-[url('/images/partner/partner-step-one.webp')] bg-cover bg-center rounded-xl flex flex-col justify-between px-5 py-5" >
                 <p class="font-avenirBold text-t-off-white text-3xl" >3.</p>
                 <div class="mb-10">
-                    <h5 class="font-avenirBold text-t-off-white text-3xl mb-5" >Ready in one minute</h5>
-                    <p class="font-pluto text-t-off-white text-xl" >Simply set the Partner & Station on the court and turn them on. </p>
+                    <h5 class="font-avenirBold text-t-off-white text-3xl mb-5" >Create your dream match</h5>
+                    <p class="font-pluto text-t-off-white text-xl" >With the Tennibot app, reate any practice or match session you dream of simple as that!</p>
                 </div>
             </div>
         </div>
@@ -179,12 +181,60 @@ import PartnerFeatures from "@components/PartnerFeatures"
       <section class="bg-black pt-16 pb-36" >
         <div class="w-[80%] mx-auto" >
             <h2 class="font-avenirBold text-t-green text-center text-3xl mb-10" >But don't take our word for it!</h2>
-            <div class="bg-t-off-black p-10 rounded-xl flex flex-col">
-                <p class="font-avenir uppercase text-t-off-white text-2xl mb-5">Listen to what Players/Coaches say</p>
-                <div class="flex flex-row gap-5 justify-between items-center" >
-                    <VideoThumbnail client:idle title="Infinite drills" videoSource="https://player.vimeo.com/video/932265258" className="bg-[url('/images/rover/setupthumbnail.webp')] w-[30%]"  />
-                    <VideoThumbnail client:idle title="Game-like matches" videoSource="https://player.vimeo.com/video/932265258" className="bg-[url('/images/rover/setupthumbnail.webp')] w-[30%]"  />
-                    <VideoThumbnail client:idle title="Tracking & Analytics" videoSource="https://player.vimeo.com/video/932265258" className="bg-[url('/images/rover/setupthumbnail.webp')] w-[30%]"  />
+            <div class="mx-auto flex flex-row gap-5" >
+                <div class="border-t-off-white bg-t-off-black border-2 rounded-xl flex flex-row overflow-hidden" >
+                    <div class="bg-[url('/images/partner/placeholder.webp')] bg-cover bg-center w-[50%]" >
+                        <button onclick="" class="w-full relative flex flex-col justify-center items-center h-full" >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 57 72" fill="none" class="fill-t-off-white group-hover:fill-t-green" >
+                                <path opacity="0.65" d="M54.5722 31.5497C57.8093 33.722 57.8093 38.278 54.5722 40.4503L9.06586 70.9893C5.25966 73.5437 0 70.9618 0 66.539V5.46099C0 1.03824 5.25965 -1.54367 9.06585 1.01064L54.5722 31.5497Z" />
+                                </svg>
+                        </button>
+                    </div>
+                    <div class="p-5">
+                        <div class="mb-5" >
+                            <h5 class="font-avenirBold text-t-off-white text-lg mb-2" >"I think every tennis coach should have one of these."</h5>
+                            <p class="font-avenir uppercase text-t-off-white text-xs" >John Smith</p>
+                            <p class="font-avenir uppercase text-t-off-white text-xs" >San Diego, CA</p>
+                        </div>
+    
+                        <a class="font-avenir text-t-off-white text-sm underline" >Watch video</a>
+                    </div>
+                </div>
+                <div class="border-t-off-white bg-t-off-black border-2 rounded-xl flex flex-row overflow-hidden" >
+                    <div class="bg-[url('/images/partner/placeholder.webp')] bg-cover bg-center w-[50%]" >
+                        <button onclick="" class="w-full relative flex flex-col justify-center items-center h-full" >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 57 72" fill="none" class="fill-t-off-white group-hover:fill-t-green" >
+                                <path opacity="0.65" d="M54.5722 31.5497C57.8093 33.722 57.8093 38.278 54.5722 40.4503L9.06586 70.9893C5.25966 73.5437 0 70.9618 0 66.539V5.46099C0 1.03824 5.25965 -1.54367 9.06585 1.01064L54.5722 31.5497Z" />
+                                </svg>
+                        </button>
+                    </div>
+                    <div class="p-5">
+                        <div class="mb-5" >
+                            <h5 class="font-avenirBold text-t-off-white text-lg mb-2" >"I think every tennis coach should have one of these."</h5>
+                            <p class="font-avenir uppercase text-t-off-white text-xs" >John Smith</p>
+                            <p class="font-avenir uppercase text-t-off-white text-xs" >San Diego, CA</p>
+                        </div>
+    
+                        <a class="font-avenir text-t-off-white text-sm underline" >Watch video</a>
+                    </div>
+                </div>
+                <div class="border-t-off-white bg-t-off-black border-2 rounded-xl flex flex-row overflow-hidden" >
+                    <div class="bg-[url('/images/partner/placeholder.webp')] bg-cover bg-center w-[50%]" >
+                        <button onclick="" class="w-full relative flex flex-col justify-center items-center h-full" >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 57 72" fill="none" class="fill-t-off-white group-hover:fill-t-green" >
+                                <path opacity="0.65" d="M54.5722 31.5497C57.8093 33.722 57.8093 38.278 54.5722 40.4503L9.06586 70.9893C5.25966 73.5437 0 70.9618 0 66.539V5.46099C0 1.03824 5.25965 -1.54367 9.06585 1.01064L54.5722 31.5497Z" />
+                                </svg>
+                        </button>
+                    </div>
+                    <div class="p-5">
+                        <div class="mb-5" >
+                            <h5 class="font-avenirBold text-t-off-white text-lg mb-2" >"I think every tennis coach should have one of these."</h5>
+                            <p class="font-avenir uppercase text-t-off-white text-xs" >John Smith</p>
+                            <p class="font-avenir uppercase text-t-off-white text-xs" >San Diego, CA</p>
+                        </div>
+    
+                        <a class="font-avenir text-t-off-white text-sm underline" >Watch video</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -246,7 +296,7 @@ import PartnerFeatures from "@components/PartnerFeatures"
         <div class="w-[80%] bg-t-off-black rounded-xl mx-auto px-10 py-16" >
             <h2 class="font-avenirBold text-t-green text-center text-3xl mb-5" >Reserve your spot now </h2>
             <p class="font-avenir text-t-off-white text-center text-lg mb-10" >Be one of the Early Founding Backers - only 150 units available</p>
-            <div class="w-[100%">
+            <div class="w-[100%]">
                 <!-- <p class="font-avenirBold text-t-green text-2xl mb-5" >Pre Order Partner</p> -->
                 <div class="flex flex-row w-full gap-5" >
                     <div class="flex flex-col w-full justify-start gap-10">
@@ -295,8 +345,8 @@ import PartnerFeatures from "@components/PartnerFeatures"
                         </div>
                         <a href="/" class={`w-fit mt-10 px-10 text-lg 2xl: 2xl:py-2 font-thin rounded-full py-1 font-avenir border-2 transition duration-300 text-center text-t-off-black bg-t-green border-t-green md:text-t-off-black md:bg-green hover:bg-t-green hover:text-t-off-black`}>Reserve</a>
                     </div>
-                    <div class="w-full bg-[url('/images/partner/early-placeholder.png')] bg-cover bg-center rounded-xl" >
-
+                    <div class="w-full relative overflow-hidden bg-[url('/images/partner/founder-2.jpeg')] bg-cover bg-center rounded-xl" >
+                        <!-- <PartnerSlider client:load /> -->
                     </div>
                 </div>
             </div>
