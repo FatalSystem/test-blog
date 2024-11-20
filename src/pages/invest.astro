@@ -5,6 +5,7 @@ import { listIds } from "@utils"
 import Countdown from "@components/Countdown"
 import placeholderOne from "@assets/invest/placeholderone.webp"
 import placeholderTwo from "@assets/invest/placeholdertwo.webp"
+import PartnerSlider from "@components/PartnerSlider"
 ---
 <Layout title="Invest | Tennibot" showFooter={false} >
     <main class="w-full bg-t-off-black relative text-t-off-white" >
@@ -19,9 +20,10 @@ import placeholderTwo from "@assets/invest/placeholdertwo.webp"
                 <PartnerForm from="Partner Landing Page" listId={listIds.partner} client:load />
               </div>
           </div>
-          <div class="flex z-10 flex-col md:justify-start justify-end w-[100%]" >
-              <img src={placeholderTwo.src} alt="bm" width={600} height={800} class="rounded-lg mb-10" />
-              <img src={placeholderOne.src} alt="bm" width={600} height={800} class="rounded-lg" />
+          <div class="flex relative mt-[20vh] h-fit z-10 rounded-xl overflow-hidden flex-col md:justify-start justify-end w-[100%]" >
+              <!-- <img src={placeholderTwo.src} alt="bm" width={600} height={800} class="rounded-lg mb-10" /> -->
+              <!-- <img src={placeholderOne.src} alt="bm" width={600} height={800} class="rounded-lg" /> -->
+              <PartnerSlider client:load />
           </div>
         </div>
       </div>
