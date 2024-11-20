@@ -44,15 +44,15 @@ const PartnerVideoDisplay = (): JSX.Element => {
         )}
         <div className="w-[80%] mx-auto flex flex-row gap-5 pt-10 pb-24" >
             <a onClick={() => { setSelectedTab(0) }} className={`border-t-2 pt-5 cursor-pointer w-[100%] ${selectedTab === 0 ? 'border-t-green' : 'border-transparent opacity-50 hover:opacity-80'} transition-all duration-500 ease-in-out`} >
-                <h3 className="font-avenirBold text-t-green" >Tennis</h3>
+                <h3 className="font-avenirBold text-t-green text-2xl mb-2" >Tennis</h3>
                 <p className="font-pluto text-t-off-white text-sm" >The most human ball machine you have ever practiced with! The Partner detects your movements and moves around the court to ensure a challenging practice for any shot you can think of.</p>
             </a>
             <a onClick={() => { setSelectedTab(1) }} className={`border-t-2 pt-5 cursor-pointer w-[100%] ${selectedTab === 1 ? 'border-t-green' : 'border-transparent opacity-50 hover:opacity-80'} transition-all duration-500 ease-in-out`} >
-                <h3 className="font-avenirBold text-t-green" >Padel</h3>
+                <h3 className="font-avenirBold text-t-green text-2xl mb-2" >Padel</h3>
                 <p className="font-pluto text-t-off-white text-sm" >Perfect your bajada and chiquita with AI-powered drills that adapt to your style, keeping each rally challenging so you stay on your toes every time you step on the court.</p>
             </a>
             <a onClick={() => { setSelectedTab(2) }} className={`border-t-2 pt-5 cursor-pointer w-[100%] ${selectedTab === 2 ? 'border-t-green' : 'border-transparent opacity-50 hover:opacity-80'} transition-all duration-500 ease-in-out`} >
-                <h3 className="font-avenirBold text-t-green" >Pickle</h3>
+                <h3 className="font-avenirBold text-t-green text-2xl mb-2" >Pickle</h3>
                 <p className="font-pluto text-t-off-white text-sm" >Dinks, drives, and third shot drops - Practice any shot you want, anywhere on the court with the most realistic gameplay a ball machine can provide.</p>
             </a>
         </div>
