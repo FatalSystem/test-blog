@@ -6,9 +6,11 @@ interface IProps {
   isOpen: boolean
   onClose: () => void
   videoSource: string
+  customWidth?: string
+  closeButtonStyle?: string
 }
 
-export default function VideoPlayer ({ isOpen, onClose, videoSource }: IProps): JSX.Element {
+export default function VideoPlayer ({ isOpen, onClose, videoSource, customWidth, closeButtonStyle }: IProps): JSX.Element {
   const isMobile = useMediaQuery('(max-width: 450px)')
 
   return (
@@ -17,11 +19,11 @@ export default function VideoPlayer ({ isOpen, onClose, videoSource }: IProps): 
           <div className="fixed inset-0 bg-t-off-black bg-opacity-80 z-50 flex justify-center items-center">
               <motion.div
                 initial={{ opacity: 0, width: '7rem' }}
-                animate={{ opacity: 1, width: isMobile ? '100%' : '80%' } }
+                animate={{ opacity: 1, width: isMobile ? customWidth ?? '100%' : customWidth ?? '80%' } }
                 transition={{ duration: 0.5 }}
                 exit={{ opacity: 0 }}
                 className="relative bg-transparent min-[450px]:bg-t-off-white p-1 lg:min-h-[40vh] min-h-[20vh]  min-w-28 rounded-lg mx-auto transition-all duration-300 ease-in-out">
-                <button aria-label="Close video popup" onClick={onClose} className="z-10 absolute min-[450px]:top-[2%] top-[-30%] right-[2%] p-4">
+                <button aria-label="Close video popup" onClick={onClose} className={`z-10 absolute min-[450px]:top-[2%] right-[2%] p-4 ${closeButtonStyle}`}>
                   <div className="relative flex flex-row w-12 h-10 ">
                     <div className="block w-10  absolute left-1/2 top-1/2   transform  -translate-x-1/2 -translate-y-1/2">
                       <span

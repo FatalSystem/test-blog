@@ -21,7 +21,7 @@ export default function VideoThumbnail ({ title, className, videoSource }: IProp
                     <p className="font-avenir absolute left-[5%] bottom-[5%]  text-t-off-white uppercase text-lg lg:text-2xl 2xl:text-3xl">{title}</p>
             </button>
         </div>
-        <VideoPlayer isOpen={isOpen} videoSource={videoSource} onClose={() => { setIsOpen(false) }} />
+        <VideoPlayer isOpen={isOpen} videoSource={videoSource} onClose={() => { setIsOpen(false) }} closeButtonStyle="top-[-30%]" />
     </>
   )
 }

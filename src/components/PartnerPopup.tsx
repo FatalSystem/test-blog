@@ -12,7 +12,7 @@ const PartnerPopup = ({ showPopup, onClose, children }: PartnerPopupProps): JSX.
         {
             showPopup && (
                 <Dialog open={true} >
-                    <DialogContent className=" bg-t-off-white bg-cover bg-center p-0 overflow-hidden flex flex-col justify-center items-center sm:max-w-xl xl:max-w-3xl" >
+                    <DialogContent className=" bg-t-off-black bg-cover bg-center p-0 overflow-hidden flex flex-col justify-center items-center w-fit" >
                         {children}
                     </DialogContent>
                 </Dialog>
