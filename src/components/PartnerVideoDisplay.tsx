@@ -1,7 +1,8 @@
 import { useState } from 'react'
-
+import { VolumeX, Volume2 } from 'lucide-react'
 const PartnerVideoDisplay = (): JSX.Element => {
   const [selectedTab, setSelectedTab] = useState<number>(0)
+  const [isMuted, setIsMuted] = useState<boolean>(true)
 
   const handleVideoSource = (tab: number): string => {
     switch (tab) {
@@ -19,24 +20,48 @@ const PartnerVideoDisplay = (): JSX.Element => {
   return (
     <>
         {selectedTab === 0 && (
-            <div className="aspect-[16/9] w-[80%] mx-auto bg-cover bg-center rounded-xl overflow-hidden " >
-                <video style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
+            <div className="aspect-[16/9] w-[80%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
+                <button
+                    onClick={() => { setIsMuted(!isMuted) }}
+                    className="absolute bottom-4 right-4 z-10 bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
+                >
+                    {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                </button>
+                <video
+                    className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center"
+                    autoPlay
+                    loop
+                    muted={isMuted}
+                    playsInline
+                >
                     <source src={handleVideoSource(selectedTab)} type="video/mp4" />
                     {'Your browser doesn\'t support the video tag.'}
                 </video>
             </div>
         )}
         {selectedTab === 1 && (
-            <div className="bg-[url('/images/general/bm.webp')] aspect-[16/9] w-[80%] mx-auto bg-cover bg-center rounded-xl overflow-hidden " >
-              <video style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
-                <source src={handleVideoSource(selectedTab)} type="video/mp4" />
-                {'Your browser doesn\'t support the video tag.'}
+            <div className="bg-[url('/images/general/bm.webp')] aspect-[16/9] w-[80%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
+                <button
+                    onClick={() => { setIsMuted(!isMuted) }}
+                    className="absolute bottom-4 right-4 z-10 bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
+                >
+                    {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                </button>
+                <video style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" autoPlay loop muted={isMuted} playsInline>
+                    <source src={handleVideoSource(selectedTab)} type="video/mp4" />
+                    {'Your browser doesn\'t support the video tag.'}
                 </video>
             </div>
         )}
         {selectedTab === 2 && (
-            <div className="bg-[url('/images/general/bm.webp')] aspect-[16/9] w-[80%] mx-auto bg-cover bg-center rounded-xl overflow-hidden " >
-                <video style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
+            <div className="bg-[url('/images/general/bm.webp')] aspect-[16/9] w-[80%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
+                <button
+                    onClick={() => { setIsMuted(!isMuted) }}
+                    className="absolute bottom-4 right-4 z-10 bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
+                >
+                    {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                </button>
+                <video style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" autoPlay loop muted={isMuted} playsInline>
                     <source src={handleVideoSource(selectedTab)} type="video/mp4" />
                     {'Your browser doesn\'t support the video tag.'}
                 </video>

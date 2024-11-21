@@ -2,10 +2,10 @@ import { TSliderTwo } from './TSliderTwo'
 
 const slides = [
   {
-    style: "bg-[url('/images/invest/placeholderone.webp')] sm:h-[45vh] h-[45vh]"
+    style: "bg-[url('/images/invest/placeholderone.webp')] sm:h-[40vh] h-[45vh]"
   },
   {
-    style: "bg-[url('/images/invest/placeholdertwo.webp')] sm:h-[45vh] h-[45vh] bg-bottom"
+    style: "bg-[url('/images/invest/placeholdertwo.webp')] sm:h-[40vh] h-[45vh] bg-bottom"
   }
 ]
 // sm:h-[70vh] h-[45vh]

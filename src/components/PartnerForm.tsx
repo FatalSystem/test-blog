@@ -89,7 +89,7 @@ export default function PartnerForm ({ from, listId }: { from: string, listId: s
 
   return (
     <>
-      <p className="font-plutoLight text-t-off-white mb-8 md:text-lg text-center " >Thanks for your interest. Please fill the following form and we'll get back to you as soon as possible.</p>
+      <p className="font-plutoLight text-t-off-white mb-8 md:text-md text-sm text-center " >Thanks for your interest. Please fill the following form and we'll get back to you as soon as possible.</p>
       <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className='font-plutoLight mb-2' >
               <div className='flex md:flex-row flex-col md:gap-2'>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import VideoPlayer from './VideoPlayer'
+import { useMediaQuery } from 'usehooks-ts'
 
 interface IProps {
   title: string
@@ -7,8 +8,20 @@ interface IProps {
   videoSource: string
 }
 
-export default function VideoThumbnail ({ title, className, videoSource }: IProps): JSX.Element {
+export default function PartnerActionVideo ({ title, className, videoSource }: IProps): JSX.Element {
   const [isOpen, setIsOpen] = useState<boolean>(false)
+  const isMobile = useMediaQuery('(max-width: 450px)')
+  const isTablet = useMediaQuery('(max-width: 768px)')
+
+  const handleHeight = (): string => {
+    if (isMobile) {
+      return '70%'
+    }
+    if (isTablet) {
+      return '50%'
+    }
+    return '30%'
+  }
 
   return (
     <>
@@ -21,7 +34,7 @@ export default function VideoThumbnail ({ title, className, videoSource }: IProp
                     <p className="font-avenir absolute left-[5%] bottom-[5%]  text-t-off-white uppercase text-lg lg:text-2xl 2xl:text-3xl">{title}</p>
             </button>
         </div>
-        <VideoPlayer isOpen={isOpen} videoSource={videoSource} onClose={() => { setIsOpen(false) }} closeButtonStyle="top-[-30%]" />
+        <VideoPlayer isOpen={isOpen} videoSource={videoSource} onClose={() => { setIsOpen(false) }} customWidth={handleHeight()} closeButtonStyle="top-[-15%]" />
     </>
   )
 }

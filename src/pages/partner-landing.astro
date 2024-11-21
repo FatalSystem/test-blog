@@ -17,6 +17,8 @@ import PartnerSlider from "@components/PartnerSlider"
 import PartnerHeader from "@components/PartnerHeader"
 import TestimonialItem from "@components/TestimonialItem"
 import PartnerVideoSlider from "@components/PartnerVideoSlider"
+import { Pages } from "@utils"
+import PartnerActionVideo from "@components/PartnerActionVideo"
 ---
 <Layout title="Partner | Tennibot" showFooter={false} showHeader={false} showPartnerHeader={true} >
     <main class="w-full bg-t-off-black text-t-off-white" >
@@ -27,7 +29,7 @@ import PartnerVideoSlider from "@components/PartnerVideoSlider"
             <p class="font-avenir text-t-off-white text-left uppercase md:text-xl text-md" >
                 The only ball machine<br class="md:hidden" /> that moves like a human.
             </p>
-            <a href="/" class={`mt-10 w-64 tablet:w-64 2xl:w-80 text-xl 2xl:text-2xl 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green`}>Reserve</a>
+            <a href={Pages.RESERVE} class={`mt-10 w-64 tablet:w-64 2xl:w-80 text-xl 2xl:text-2xl 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green`}>Reserve</a>
         </div>
 
         <div class="w-[50%] mx-auto pb-[15vh] z-10 flex flex-col justify-end" >
@@ -80,7 +82,7 @@ import PartnerVideoSlider from "@components/PartnerVideoSlider"
             <p class="font-pluto text-t-off-white text-center mt-5 md:text-lg mobilem:text-md text-sm" >We invented intelligent court training – the rest are just playing catch-up.</p>
         </div>
 
-        <div class="w-[80%] mx-auto flex lg:flex-row flex-col md:gap-20 gap-10 pt-5 pb-16" >
+        <div class="w-[80%] mx-auto flex lg:flex-row flex-col lg:gap-15 gap-10 pt-5 pb-16" >
             <div class="w-[100%] border-2 md:max-w-[50%] md:mx-auto border-t-off-white rounded-xl text-left py-8 px-5" >
                 <h5 class="font-avenirBold uppercase text-xl text-t-off-white mb-3" >Premium Quality</h5>
                 <p class="font-pluto text-t-off-white text-sm" >Tennibot is the only ball machine company that offers a <span class="text-t-green">3-year warranty</span>. We stand behind our quality, while others don't.</p>
@@ -100,14 +102,14 @@ import PartnerVideoSlider from "@components/PartnerVideoSlider"
         <div class="w-[80%] mx-auto flex md:flex-row flex-col justify-center pt-10 pb-36" >
             <div class=" flex flex-col md:items-center items-start md:w-[50%]" >
                 <h5 class="font-avenirBold md:text-2xl text-xl uppercase text-left text-t-off-white mb-5" >
-                    Desgined and<br class="" /> assembled in the USA 🇺🇸
+                    Designed and<br class="" /> assembled in the USA 🇺🇸
                 </h5>
             </div>
             <div class="md:w-[50%] flex flex-col justify-between" >
                 <p class="font-avenir md:text-md text-sm text-t-off-white mb-8" >
-                    Tennibot is a dedicated team based in Auburn, Alabama.<br class="md:block hidden" /> Crafted with care by fellow tennis, pickle, & padel players.
+                    Tennibot is a passionate team proudly headquartered in Auburn, Alabama.<br class="md:block hidden" /> Crafted with care by fellow tennis, pickle, & padel players.
                 </p>
-                <a href="/" class={`tablet:w-64 w-full 2xl:w-80 text-xl 2xl:text-2xl 2xl: 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green`}>Reserve</a>
+                <a href={Pages.RESERVE} class={`tablet:w-64 w-full 2xl:w-80 text-xl 2xl:text-2xl 2xl: 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green`}>Reserve</a>
             </div>
         </div>
 
@@ -142,7 +144,7 @@ import PartnerVideoSlider from "@components/PartnerVideoSlider"
                     <p class="font-pluto text-t-off-white md:text-xl" >They will automatically calibrate the court lines, the net, and their position & yours on the court.</p>
                 </div>
             </div>
-            <div class="min-w-[45%] h-[50vh] bg-[url('/images/partner/tennis.png')] bg-cover bg-bottom rounded-xl flex flex-col justify-between px-5 py-5" >
+            <div class="min-w-[45%] h-[50vh] bg-[url('/images/partner/partner-step-two.webp')] bg-cover bg-center rounded-xl flex flex-col justify-between px-5 py-5" >
                 <p class="font-avenirBold text-t-off-white text-3xl" >3.</p>
                 <div class="mb-10">
                     <h5 class="font-avenirBold text-t-off-white md:text-3xl text-xl mb-5" >Create your dream match</h5>
@@ -152,13 +154,15 @@ import PartnerVideoSlider from "@components/PartnerVideoSlider"
         </div>
       </section>
       <section class="bg-black pt-16 pb-36" >
-        <div class="w-[80%] mx-auto" >
-            <h2 class="font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl mb-10" >Intelligent. Powerful. Unmatched.</h2>
-            <div class="bg-t-off-black p-10 rounded-xl flex flex-col">
-                <p class="font-avenir uppercase text-t-off-white md:text-2xl mobilem:text-xl mb-5">See it in action</p>
-                <div class="flex md:flex-row flex-col gap-5 justify-between items-center" >
-                    <VideoThumbnail client:idle title="Infinite drills" videoSource="https://player.vimeo.com/video/932265258" className="bg-[url('/images/rover/setupthumbnail.webp')] md:w-[30%] w-full"  />
-                    <VideoThumbnail client:idle title="Game-like matches" videoSource="https://player.vimeo.com/video/932265258" className="bg-[url('/images/rover/setupthumbnail.webp')] md:w-[30%] w-full"  />
+        <div class="" >
+            <h2 class="w-[80%] mx-auto font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl mb-10" >Intelligent. Powerful. Unmatched.</h2>
+            <div class="lg:bg-t-off-black lg:w-[80%] lg:mx-auto lg:p-10 rounded-xl flex flex-col">
+                <p class="mx-auto font-avenir uppercase text-t-off-white md:text-2xl mobilem:text-xl mb-5">See it in action</p>
+                <div class="px-5 flex flex-row gap-5 overflow-x-scroll flex-nowrap [&::-webkit-scrollbar]:hidden justify-between items-center" >
+                    <PartnerActionVideo client:idle title="" videoSource="https://player.vimeo.com/video/1031773084" className="bg-[url('/images/partner/event-thumbnail.png')] lg:min-w-[20%] min-w-[40%] w-full"  />
+                    <PartnerActionVideo client:idle title="" videoSource="https://player.vimeo.com/video/1031748933" className="bg-[url('/images/partner/first-person-thumbnail.png')] lg:min-w-[20%] min-w-[40%] w-full"  />
+                    <PartnerActionVideo client:idle title="" videoSource="https://player.vimeo.com/video/1031748933" className="bg-[url('/images/partner/third-person-thumbnail.png')] lg:min-w-[20%] min-w-[40%] w-full"  />
+                    <PartnerActionVideo client:idle title="" videoSource="https://player.vimeo.com/video/1031748933" className="bg-[url('/images/partner/third-person-thumbnail.png')] lg:min-w-[20%] min-w-[40%] w-full"  />
                     <!-- <VideoThumbnail client:idle title="Tracking & Analytics" videoSource="https://player.vimeo.com/video/932265258" className="bg-[url('/images/rover/setupthumbnail.webp')] md:w-[30%] w-full"  /> -->
                 </div>
             </div>
@@ -168,10 +172,10 @@ import PartnerVideoSlider from "@components/PartnerVideoSlider"
         <div class="" >
             <h2 class="font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl mb-10" >But don't take our word for it!</h2>
             <div class="px-5 flex flex-row gap-10 overflow-x-scroll flex-nowrap [&::-webkit-scrollbar]:hidden" >
-                <TestimonialItem client:idle quote={`"I think every tennis coach should have one of theses."`} name="Sylvana Jordyn" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406658" className="bg-[url('/images/partner/testimonial-one.png')]" />
-                <TestimonialItem client:idle quote={`"I think every tennis coach should have one of theses."`} name="Logan West" location="Washington, DC" videoSource="https://player.vimeo.com/video/1031406854" className="bg-[url('/images/partner/testimonial-two.png')]" />
-                <TestimonialItem client:idle quote={`"I think every tennis coach should have one of theses."`} name="Alex Chan" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406731" className="bg-[url('/images/partner/testimonial-three.png')]" />
-                <TestimonialItem client:idle quote={`"I think every tennis coach should have one of theses."`} name="Mo Eldemerdash" location="Auburn, AL" videoSource="https://player.vimeo.com/video/1031426621" className="bg-[url('/images/partner/testimonial-four.png')]" />
+                <TestimonialItem client:idle quote={`"It’s fantastic for drilling, practice points, and even doubles drills. I really enjoyed it."`} name="Sylvana Jordyn" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406658" className="bg-[url('/images/partner/testimonial-one.png')]" />
+                <TestimonialItem client:idle quote={`“I worked on rapid-fire volleys, reflexes, and range at the net—it’s perfect for sharpening your skills.”`} name="Logan West" location="Washington, DC" videoSource="https://player.vimeo.com/video/1031406854" className="bg-[url('/images/partner/testimonial-two.png')]" />
+                <TestimonialItem client:idle quote={`“What surprised me the most was how much I had to move and anticipate—it felt just like a real hitting session.”`} name="Alex Chan" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406731" className="bg-[url('/images/partner/testimonial-three.png')]" />
+                <TestimonialItem client:idle quote={`“The Tennibot Partner is an amazing ball machine—it moves, evolves, and offers an experience unlike any other ball machine I’ve played with before.”`} name="Mo Eldemerdash" location="Auburn, AL" videoSource="https://player.vimeo.com/video/1031426621" className="bg-[url('/images/partner/testimonial-four.png')]" />
             </div>
         </div>
       </section>
@@ -227,9 +231,9 @@ import PartnerVideoSlider from "@components/PartnerVideoSlider"
                             <p class="font-avenirBold text-t-off-white text-lg mt-3" >5 Year Warranty</p>
                             <p class="font-pluto text-t-off-white" >We've got you covered. Purchase with peace of mind.</p>
                         </div>
-                        <a href="/" class={`tablet:w-64 w-full 2xl:w-80 text-xl 2xl:text-2xl 2xl: 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green`}>Reserve</a>
+                        <a href={Pages.RESERVE} class={`tablet:w-64 w-full 2xl:w-80 text-xl 2xl:text-2xl 2xl: 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green`}>Reserve</a>
                     </div>
-                    <div class="w-full relative h-[40vh] md:h-auto overflow-hidden bg-[url('/images/partner/founder-2.jpeg')] bg-cover bg-center rounded-xl" >
+                    <div class="w-full relative h-[40vh] md:h-auto overflow-hidden bg-[url('/images/partner/founderb.webp')] bg-cover bg-center rounded-xl" >
                         <!-- <PartnerSlider client:load /> -->
                     </div>
                 </div>
