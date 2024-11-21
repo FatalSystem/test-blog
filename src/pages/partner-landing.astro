@@ -22,7 +22,7 @@ import PartnerActionVideo from "@components/PartnerActionVideo"
 ---
 <Layout title="Partner | Tennibot" showFooter={false} showHeader={false} showPartnerHeader={true} >
     <main class="w-full bg-t-off-black text-t-off-white" >
-      <section class="relative h-[100vh] bg-[url('/images/partner/partner-hero.webp')] bg-cover bg-left flex flex-col justify-between" >
+      <section class="relative h-[100vh] bg-[url('/images/partner/partner-hero.webp')] bg-cover md:bg-left bg-[position:10%_75%] flex flex-col justify-between" >
         <div class="absolute inset-0 bg-gradient-to-l md:from-black/70 from-black/40 from-0% md:to-transparent to-black/40 md:to-90%"></div>
         <div class="flex flex-col justify-start w-fit self-center md:items-center items-start z-10 pt-[8vh] p-5" >
             <h1 class="font-avenir text-t-off-white uppercase mb-3 lg:text-6xl text-4xl text-center" >The <span class="font-avenirBold" >Partner</span></h1>
@@ -159,11 +159,10 @@ import PartnerActionVideo from "@components/PartnerActionVideo"
             <div class="lg:bg-t-off-black lg:w-[80%] lg:mx-auto lg:p-10 rounded-xl flex flex-col">
                 <p class="mx-auto font-avenir uppercase text-t-off-white md:text-2xl mobilem:text-xl mb-5">See it in action</p>
                 <div class="px-5 flex flex-row gap-5 overflow-x-scroll flex-nowrap [&::-webkit-scrollbar]:hidden justify-between items-center" >
+                    <PartnerActionVideo client:idle title="" videoSource="https://player.vimeo.com/video/1031782201" className="bg-[url('/images/partner/pickle-thumbnail.png')] lg:min-w-[20%] min-w-[40%] w-full"  />
                     <PartnerActionVideo client:idle title="" videoSource="https://player.vimeo.com/video/1031773084" className="bg-[url('/images/partner/event-thumbnail.png')] lg:min-w-[20%] min-w-[40%] w-full"  />
                     <PartnerActionVideo client:idle title="" videoSource="https://player.vimeo.com/video/1031748933" className="bg-[url('/images/partner/first-person-thumbnail.png')] lg:min-w-[20%] min-w-[40%] w-full"  />
                     <PartnerActionVideo client:idle title="" videoSource="https://player.vimeo.com/video/1031748933" className="bg-[url('/images/partner/third-person-thumbnail.png')] lg:min-w-[20%] min-w-[40%] w-full"  />
-                    <PartnerActionVideo client:idle title="" videoSource="https://player.vimeo.com/video/1031748933" className="bg-[url('/images/partner/third-person-thumbnail.png')] lg:min-w-[20%] min-w-[40%] w-full"  />
-                    <!-- <VideoThumbnail client:idle title="Tracking & Analytics" videoSource="https://player.vimeo.com/video/932265258" className="bg-[url('/images/rover/setupthumbnail.webp')] md:w-[30%] w-full"  /> -->
                 </div>
             </div>
         </div>
