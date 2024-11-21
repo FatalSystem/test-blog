@@ -13,14 +13,57 @@ interface IProps {
 
 export default function PartnerVideoSlider ({ type }: IProps): JSX.Element {
   const [isMuted, setIsMuted] = useState<boolean>(true)
+  const [isPlaying, setIsPlaying] = useState<boolean>(true)
+  const [showControls, setShowControls] = useState<boolean>(false)
 
   const handleFullscreen = (videoElement: HTMLVideoElement) => {
-    if (videoElement) {
-      if (document.fullscreenElement) {
-        document.exitFullscreen()
+    if (!videoElement) return;
+
+    // Check if currently in fullscreen
+    const isFullscreen = !!(
+      document.fullscreenElement ||
+      // @ts-expect-error - Vendor prefix properties
+      document.webkitFullscreenElement ||
+      // @ts-expect-error - Vendor prefix properties
+      document.webkitCurrentFullScreenElement ||
+      // @ts-expect-error - Vendor prefix properties
+      document.mozFullScreenElement ||
+      // @ts-expect-error - Vendor prefix properties
+      document.msFullscreenElement
+    );
+
+    try {
+      if (isFullscreen) {
+        // Exit fullscreen
+        const exitFn = (
+          document.exitFullscreen ||
+          // @ts-expect-error - Vendor prefix properties
+          document.webkitExitFullscreen ||
+          // @ts-expect-error - Vendor prefix properties
+          document.webkitCancelFullScreen ||
+          // @ts-expect-error - Vendor prefix properties
+          document.mozCancelFullScreen ||
+          // @ts-expect-error - Vendor prefix properties
+          document.msExitFullscreen
+        ).bind(document);
+        exitFn();
       } else {
-        videoElement.requestFullscreen()
+        // Enter fullscreen
+        const requestFn = (
+          videoElement.requestFullscreen ||
+          // @ts-expect-error - Vendor prefix properties
+          videoElement.webkitRequestFullscreen ||
+          // @ts-expect-error - Vendor prefix properties
+          videoElement.webkitEnterFullscreen ||
+          // @ts-expect-error - Vendor prefix properties
+          videoElement.mozRequestFullScreen ||
+          // @ts-expect-error - Vendor prefix properties
+          videoElement.msRequestFullscreen
+        ).bind(videoElement)
+        requestFn();
       }
+    } catch (error) {
+      console.error('Error entering or exiting fullscreen:', error);
     }
   }
 
@@ -28,8 +71,33 @@ export default function PartnerVideoSlider ({ type }: IProps): JSX.Element {
     tennis: [
       {
         content: <>
-              <div className="aspect-[16/9] w-[100%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
+              <div className="aspect-[16/9] w-[100%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" 
+                  onClick={() => setShowControls(true)}
+                  onMouseLeave={() => setShowControls(false)}
+              >
                   <div className="absolute bottom-4 right-4 z-10 flex gap-2">
+                      <button
+                          onClick={(e) => {
+                              e.stopPropagation();
+                              setIsPlaying(!isPlaying);
+                              const video = e.currentTarget.parentElement?.parentElement?.querySelector('video');
+                              if (video) {
+                                  isPlaying ? video.pause() : video.play();
+                              }
+                          }}
+                          className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
+                      >
+                          {isPlaying ? (
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                  <rect x="6" y="4" width="4" height="16"/>
+                                  <rect x="14" y="4" width="4" height="16"/>
+                              </svg>
+                          ) : (
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                  <polygon points="5 3 19 12 5 21 5 3"/>
+                              </svg>
+                          )}
+                      </button>
                       <button
                           onClick={() => setIsMuted(!isMuted)}
                           className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
@@ -38,15 +106,24 @@ export default function PartnerVideoSlider ({ type }: IProps): JSX.Element {
                       </button>
                       <button
                           onClick={(e) => {
-                            const video = e.currentTarget.parentElement?.parentElement?.querySelector('video')
-                            if (video) handleFullscreen(video)
+                              const video = e.currentTarget.parentElement?.parentElement?.querySelector('video')
+                              if (video) handleFullscreen(video)
                           }}
                           className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
                       >
                           <Fullscreen className="w-4 h-4" />
                       </button>
                   </div>
-                  <video style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" autoPlay loop muted={isMuted} playsInline>
+                  <video 
+                      style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} 
+                      className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" 
+                      autoPlay 
+                      loop 
+                      muted={isMuted} 
+                      playsInline
+                      onPlay={() => setIsPlaying(true)}
+                      onPause={() => setIsPlaying(false)}
+                  >
                       <source src="/videos/tennis-partner.mp4" type="video/mp4" />
                       {'Your browser doesn\'t support the video tag.'}
                   </video>
@@ -63,6 +140,28 @@ export default function PartnerVideoSlider ({ type }: IProps): JSX.Element {
           <div className="aspect-[16/9] w-[100%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
               <div className="absolute bottom-4 right-4 z-10 flex gap-2">
                   <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsPlaying(!isPlaying);
+                        const video = e.currentTarget.parentElement?.parentElement?.querySelector('video');
+                        if (video) {
+                            isPlaying ? video.pause() : video.play();
+                        }
+                      }}
+                      className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
+                  >
+                      {isPlaying ? (
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <rect x="6" y="4" width="4" height="16"/>
+                              <rect x="14" y="4" width="4" height="16"/>
+                          </svg>
+                      ) : (
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <polygon points="5 3 19 12 5 21 5 3"/>
+                          </svg>
+                      )}
+                  </button>
+                  <button
                       onClick={() => setIsMuted(!isMuted)}
                       className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
                   >
@@ -78,7 +177,16 @@ export default function PartnerVideoSlider ({ type }: IProps): JSX.Element {
                       <Fullscreen className="w-4 h-4" />
                   </button>
               </div>
-              <video style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" autoPlay loop muted={isMuted} playsInline>
+              <video 
+                  style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} 
+                  className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" 
+                  autoPlay 
+                  loop 
+                  muted={isMuted} 
+                  playsInline
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+              >
                   <source src="/videos/padel-partner.mp4" type="video/mp4" />
                   {'Your browser doesn\'t support the video tag.'}
               </video>
@@ -95,6 +203,28 @@ export default function PartnerVideoSlider ({ type }: IProps): JSX.Element {
               <div className="aspect-[16/9] w-[100%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
                   <div className="absolute bottom-4 right-4 z-10 flex gap-2">
                       <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setIsPlaying(!isPlaying);
+                            const video = e.currentTarget.parentElement?.parentElement?.querySelector('video');
+                            if (video) {
+                                isPlaying ? video.pause() : video.play();
+                            }
+                          }}
+                          className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
+                      >
+                          {isPlaying ? (
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                  <rect x="6" y="4" width="4" height="16"/>
+                                  <rect x="14" y="4" width="4" height="16"/>
+                              </svg>
+                          ) : (
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                  <polygon points="5 3 19 12 5 21 5 3"/>
+                              </svg>
+                          )}
+                      </button>
+                      <button
                           onClick={() => setIsMuted(!isMuted)}
                           className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
                       >
@@ -110,7 +240,16 @@ export default function PartnerVideoSlider ({ type }: IProps): JSX.Element {
                           <Fullscreen className="w-4 h-4" />
                       </button>
                   </div>
-                  <video style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" autoPlay loop muted={isMuted} playsInline>
+                  <video 
+                      style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} 
+                      className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" 
+                      autoPlay 
+                      loop 
+                      muted={isMuted} 
+                      playsInline
+                      onPlay={() => setIsPlaying(true)}
+                      onPause={() => setIsPlaying(false)}
+                  >
                       <source src="/videos/pickle-partner.mp4" type="video/mp4" />
                       {'Your browser doesn\'t support the video tag.'}
                   </video>

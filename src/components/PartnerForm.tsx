@@ -18,7 +18,7 @@ const formSchema = z.object({
   email: z.string().email({
     message: 'Invalid email address.'
   }),
-  phone: z.string().optional(),
+  // phone: z.string().optional(),
   call: z.boolean().optional()
 })
 
@@ -58,13 +58,13 @@ export default function PartnerForm ({ from, listId }: { from: string, listId: s
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email: values.email, from, fname: firstName ?? values.name, lname: lastName ?? '', rcToken: token, listId })
+        body: JSON.stringify({ email: values.email, from, fname: firstName ?? values.name, lname: lastName ?? '', rcToken: token, listId: 'URW7Es' })
       })
       if (response.status !== 200) {
         setErrorSubmitting(true)
       } else {
-        // setSent(true)
-        setShowSportSelector(true)
+        setSent(true)
+        // setShowSportSelector(true)
         setCurrentEmail(values.email)
         edgetag('tag', 'Complete registration new')
       }
@@ -100,20 +100,6 @@ export default function PartnerForm ({ from, listId }: { from: string, listId: s
                       <FormItem className='flex flex-col w-full gap-1' >
                           <FormControl>
                               <Input {...field} placeholder='Name' className={inputStyle} />
-                          </FormControl>
-                          <FormMessage />
-                      </FormItem>
-                  )}
-                  />
-              </div>
-              <div className='flex md:flex-row flex-col md:gap-2'>
-                  <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                      <FormItem className='flex flex-col w-full gap-1' >
-                          <FormControl>
-                              <Input {...field} placeholder='Phone' className={inputStyle} />
                           </FormControl>
                           <FormMessage />
                       </FormItem>

@@ -19,6 +19,9 @@ import TestimonialItem from "@components/TestimonialItem"
 import PartnerVideoSlider from "@components/PartnerVideoSlider"
 import { Pages } from "@utils"
 import PartnerActionVideo from "@components/PartnerActionVideo"
+import PartnerHowItWorksSlider from "@components/PartnerHowItWorksSlider"
+import DraggableSlider from "@components/DraggableSlider"
+import DraggablePartnerAction from "@components/DraggablePartnerAction"
 ---
 <Layout title="Partner | Tennibot" showFooter={false} showHeader={false} showPartnerHeader={true} >
     <main class="w-full bg-t-off-black text-t-off-white" >
@@ -85,15 +88,15 @@ import PartnerActionVideo from "@components/PartnerActionVideo"
         <div class="w-[80%] mx-auto flex lg:flex-row flex-col lg:gap-15 gap-10 pt-5 pb-16" >
             <div class="w-[100%] border-2 md:max-w-[50%] md:mx-auto border-t-off-white rounded-xl text-left py-8 px-5" >
                 <h5 class="font-avenirBold uppercase text-xl text-t-off-white mb-3" >Premium Quality</h5>
-                <p class="font-pluto text-t-off-white text-sm" >Tennibot is the only ball machine company that offers a <span class="text-t-green">3-year warranty</span>. We stand behind our quality, while others don't.</p>
+                <p class="font-pluto text-t-off-white text-sm text-pretty" >Tennibot is the only ball machine company that offers a <span class="text-t-green">3-year warranty</span>. We stand behind our quality, while others don't.</p>
             </div>
             <div class="w-[100%] border-2 md:max-w-[50%] md:mx-auto border-t-off-white rounded-xl text-left py-8 px-5" >
                 <h5 class="font-avenirBold uppercase text-xl text-t-off-white mb-3" >Track Record</h5>
-                <p class="font-pluto text-t-off-white text-sm" >Since 2018, we have been building autonomous tennis robots for picking up balls and sweeping clay courts. <span class="text-t-green">This is not our first rodeo :)</span></p>
+                <p class="font-pluto text-t-off-white text-sm text-pretty" >Since 2018, we have been building autonomous tennis robots for picking up balls and sweeping clay courts. <span class="text-t-green">This is not our first rodeo :)</span></p>
             </div>
             <div class="w-[100%] border-2 md:max-w-[50%] md:mx-auto border-t-off-white rounded-xl text-left py-8 px-5" >
                 <h5 class="font-avenirBold uppercase text-xl text-t-off-white mb-3" >Detail Obsessed</h5>
-                <p class="font-pluto text-t-off-white text-sm" >We purchased, tested, and analyzed <span class="text-t-green">every ball machine on the market</span> to solve & address all the consumer pain points and inconveniences to build the ultimate ball machine!</p>
+                <p class="font-pluto text-t-off-white text-sm text-pretty" >We purchased, tested, and analyzed <span class="text-t-green">every ball machine on the market</span> to solve & address all the consumer pain points and inconveniences to build the ultimate ball machine!</p>
             </div>
         </div>
       </section>
@@ -102,7 +105,7 @@ import PartnerActionVideo from "@components/PartnerActionVideo"
         <div class="w-[80%] mx-auto flex md:flex-row flex-col justify-center pt-10 md:pb-36 pb-16" >
             <div class=" flex flex-col md:items-center items-start md:w-[50%]" >
                 <h5 class="font-avenirBold md:text-2xl text-xl uppercase text-left text-t-off-white mb-5" >
-                    Designed and<br class="" /> assembled in the USA 🇺🇸
+                    Designed and<br class="" /> assembled in the USA
                 </h5>
             </div>
             <div class="md:w-[50%] flex flex-col justify-between" >
@@ -127,55 +130,30 @@ import PartnerActionVideo from "@components/PartnerActionVideo"
       <section class="bg-black md:pb-36 pb-16 pt-10" >
         <div class="w-[80%] mx-auto" >
             <h2 class="font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl uppercase" >How partner works</h2>
-            <p class="font-pluto text-t-off-white text-center md:text-lg mobilem:text-lg text-sm mt-5 mb-10" >In three easy steps... 👇🏼</p>
+            <p class="font-pluto text-t-off-white text-center md:text-lg mobilem:text-lg text-sm mt-5 mb-10" >In three easy steps...</p>
         </div>
-        <div class="flex md:flex-row flex-col gap-10 overflow-x-scroll px-5 flex-nowrap [&::-webkit-scrollbar]:hidden" >
-            <div class="min-w-[45%] h-[50vh] bg-[url('/images/partner/partner-step-one.webp')] bg-cover bg-center rounded-xl flex flex-col justify-between px-5 py-5" >
-                <p class="font-avenirBold text-t-off-white text-3xl" >1.</p>
-                <div class="mb-10">
-                    <h5 class="font-avenirBold text-t-off-white md:text-3xl text-xl mb-5" >Ready in one minute</h5>
-                    <p class="font-pluto text-t-off-white md:text-xl" >Simply set the Partner & Station on the court and turn them on. </p>
-                </div>
-            </div>
-            <div class="min-w-[45%] h-[50vh] bg-[url('/images/partner/partner-step-two.webp')] bg-cover bg-center rounded-xl flex flex-col justify-between px-5 py-5" >
-                <p class="font-avenirBold text-t-off-white text-3xl" >2.</p>
-                <div class="mb-10">
-                    <h5 class="font-avenirBold text-t-off-white md:text-3xl text-xl mb-5" >Auto calibrate in seconds</h5>
-                    <p class="font-pluto text-t-off-white md:text-xl" >They will automatically calibrate the court lines, the net, and their position & yours on the court.</p>
-                </div>
-            </div>
-            <div class="min-w-[45%] h-[50vh] bg-[url('/images/partner/partner-step-two.webp')] bg-cover bg-center rounded-xl flex flex-col justify-between px-5 py-5" >
-                <p class="font-avenirBold text-t-off-white text-3xl" >3.</p>
-                <div class="mb-10">
-                    <h5 class="font-avenirBold text-t-off-white md:text-3xl text-xl mb-5" >Create your dream match</h5>
-                    <p class="font-pluto text-t-off-white md:text-xl " >With the Tennibot app, reate any practice or match session you dream of simple as that!</p>
-                </div>
-            </div>
-        </div>
+        <PartnerHowItWorksSlider client:load />
       </section>
       <section class="bg-black pt-16 md:pb-36 pb-16" >
         <div class="" >
             <h2 class="w-[80%] mx-auto font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl mb-10" >Intelligent. Powerful. Unmatched.</h2>
             <div class="lg:bg-t-off-black lg:w-[80%] lg:mx-auto lg:p-10 rounded-xl flex flex-col">
-                <p class="mx-auto font-avenir uppercase text-t-off-white md:text-2xl mobilem:text-xl mb-5">See it in action</p>
-                <div class="px-5 flex flex-row gap-5 overflow-x-scroll flex-nowrap [&::-webkit-scrollbar]:hidden justify-between items-center" >
-                    <PartnerActionVideo client:idle title="" videoSource="https://player.vimeo.com/video/1031773084" className="bg-[url('/images/partner/event-thumbnail.png')] lg:min-w-[20%] min-w-[40%] w-full"  />
-                    <PartnerActionVideo client:idle title="" videoSource="https://player.vimeo.com/video/1031782201" className="bg-[url('/images/partner/pickle-thumbnail.png')] lg:min-w-[20%] min-w-[40%] w-full"  />
-                    <PartnerActionVideo client:idle title="" videoSource="https://player.vimeo.com/video/1031748865" className="bg-[url('/images/partner/first-person-thumbnail.png')] lg:min-w-[20%] min-w-[40%] w-full"  />
-                    <PartnerActionVideo client:idle title="" videoSource="https://player.vimeo.com/video/1031748933" className="bg-[url('/images/partner/third-person-thumbnail.png')] lg:min-w-[20%] min-w-[40%] w-full"  />
-                </div>
+                <p class="md:mx-5 mx-auto font-avenir uppercase text-t-off-white md:text-2xl mobilem:text-xl mb-5">See it in action</p>
+                <DraggablePartnerAction client:load />
             </div>
         </div>
       </section>
       <section class="bg-black pt-16 md:pb-36" >
         <div class="" >
             <h2 class="font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl mb-10" >But don't take our word for it!</h2>
-            <div class="px-5 flex flex-row gap-10 overflow-x-scroll flex-nowrap [&::-webkit-scrollbar]:hidden" >
-                <TestimonialItem client:idle quote={`"It’s fantastic for drilling, practice points, and even doubles drills. I really enjoyed it."`} name="Sylvana Jordyn" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406658" className="bg-[url('/images/partner/testimonial-one.png')]" />
-                <TestimonialItem client:idle quote={`“I worked on rapid-fire volleys, reflexes, and range at the net—it’s perfect for sharpening your skills.”`} name="Logan West" location="Washington, DC" videoSource="https://player.vimeo.com/video/1031406854" className="bg-[url('/images/partner/testimonial-two.png')]" />
-                <TestimonialItem client:idle quote={`“What surprised me the most was how much I had to move and anticipate—it felt just like a real hitting session.”`} name="Alex Chan" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406731" className="bg-[url('/images/partner/testimonial-three.png')]" />
-                <TestimonialItem client:idle quote={`“The Tennibot Partner is an amazing ball machine—it moves, evolves, and offers an experience unlike any other ball machine I’ve played with before.”`} name="Mo Eldemerdash" location="Auburn, AL" videoSource="https://player.vimeo.com/video/1031426621" className="bg-[url('/images/partner/testimonial-four.png')]" />
-            </div>
+            <!-- <div class="px-5 flex flex-row gap-10 overflow-x-scroll flex-nowrap [&::-webkit-scrollbar]:hidden" > -->
+            <DraggableSlider client:load className="gap-10" >
+                <TestimonialItem client:load quote={`"It’s fantastic for drilling, practice points, and even doubles drills. I really enjoyed it."`} name="Sylvana Jordyn" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406658" className="bg-[url('/images/partner/testimonial-one.png')]" />
+                <TestimonialItem client:load quote={`“I worked on rapid-fire volleys, reflexes, and range at the net—it’s perfect for sharpening your skills.”`} name="Logan West" location="Washington, DC" videoSource="https://player.vimeo.com/video/1031406854" className="bg-[url('/images/partner/testimonial-two.png')]" />
+                <TestimonialItem client:load quote={`“What surprised me the most was how much I had to move and anticipate—it felt just like a real hitting session.”`} name="Alex Chan" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406731" className="bg-[url('/images/partner/testimonial-three.png')]" />
+                <TestimonialItem client:load quote={`“The Tennibot Partner is an amazing ball machine—it moves, evolves, and offers an experience unlike any other ball machine I’ve played with before.”`} name="Mo Eldemerdash" location="Auburn, AL" videoSource="https://player.vimeo.com/video/1031426621" className="bg-[url('/images/partner/testimonial-four.png')]" />
+            </DraggableSlider>
+            <!-- </div> -->
         </div>
       </section>
 
@@ -210,7 +188,7 @@ import PartnerActionVideo from "@components/PartnerActionVideo"
                             height={25}
                             />
                             <p class="font-avenirBold text-t-off-white text-lg mt-3" >Personalized Customization</p>
-                            <p class="font-pluto text-t-off-white" >Have your name or loved one or even your club's<br class="hidden lg:block" /> itched on your robot.</p>
+                            <p class="font-pluto text-t-off-white" >Have your name, your loved one's name, or even your club's name etched on your robot.</p>
                         </div>
                         <div>
                             <img

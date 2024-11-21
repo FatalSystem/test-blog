@@ -12,6 +12,7 @@ export default function PartnerActionVideo ({ title, className, videoSource }: I
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const isMobile = useMediaQuery('(max-width: 450px)')
   const isTablet = useMediaQuery('(max-width: 768px)')
+  const isBigScreen = useMediaQuery('(min-width: 1440px)')
 
   const handleHeight = (): string => {
     if (isMobile) {
@@ -19,6 +20,9 @@ export default function PartnerActionVideo ({ title, className, videoSource }: I
     }
     if (isTablet) {
       return '50%'
+    }
+    if (isBigScreen) {
+      return '20%'
     }
     return '30%'
   }
