@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 const countdownItem = 'font-plutoBold text-center text-t-off-white text-xl min-[890px]:w-fit md:w-[30%] mobilel:w-fit w-[30%]'
-const TARGET_DATE = new Date('2024-11-22T20:00:00Z')
+const TARGET_DATE = new Date('2024-11-21T20:00:00Z')
 
 export default function Countdown() {
   const [timeLeft, setTimeLeft] = useState({
