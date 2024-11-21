@@ -2,10 +2,11 @@
 import { Pages } from "@utils"
 import FooterNewsletter from "./FooterNewsletter"
 import { Instagram, Linkedin, Twitter, Youtube } from "lucide-react"
+import PartnerFooterForm from "./PartnerFooterForm"
 
 
 const contactLink = {
-  mail: 'mailto:info@tennibot.com',
+  mail: 'mailto:haithame@tennibot.com',
   phone: 'tel:251-277-8022',
   bookCall: 'https://calendly.com/haithameletrabi/15-minute-call'
 }
@@ -45,7 +46,7 @@ const currentYear = new Date().getFullYear()
               </svg>
             </button>
           </form> -->
-          <FooterNewsletter client:load 
+          <PartnerFooterForm client:load 
             formClassName="flex w-full flex-row"
             inputClassName="font-plutoLight lg:w-full w-[40%] py-3 bg-transparent border-l-2 border-t-2 border-b-2 border-r-0 pl-5 border-t-green text-t-off-white"
             buttonClassName="border-t-green border-2 rounded-r-md p-3 fill-current stroke-t-green text-t-green relative hover:bg-t-green hover:stroke-t-off-black transition-all duration-300 ease-in-out"
@@ -103,16 +104,16 @@ const currentYear = new Date().getFullYear()
     >
       <ul class="flex flex-col gap-7">
         <li>
-            <a href={Pages.BUY} class={`font-plutoBold xl:text-2xl lg:text-xl text-t-white mb-4`} >More info:</a>
+            <p class={`font-plutoBold xl:text-2xl lg:text-xl text-t-white mb-2`} >More info:</p>
           </li>
         <li>
-          <a href={Pages.BUY} class={linkStyle} >About us</a>
+          <a href={Pages.ABOUT} class={linkStyle} >About us</a>
         </li>
         <li>
-          <a href={Pages.ROVER} class={linkStyle}>FAQ</a>
+          <a href={Pages.PARTNER_FAQ} class={linkStyle}>FAQ</a>
         </li>
         <li>
-          <a href={Pages.STATION} class={linkStyle}>Invest</a>
+          <a href={Pages.INVEST} class={linkStyle}>Invest</a>
         </li>
       </ul>
       <!-- <ul class="flex flex-col gap-6">
@@ -261,7 +262,7 @@ const currentYear = new Date().getFullYear()
             </button
             >
           </form> -->
-          <FooterNewsletter client:load 
+          <PartnerFooterForm client:load 
             formClassName="flex w-full flex-row"
             inputClassName="font-plutoLight w-ful py-3 bg-transparent border-r-0 pl-5 border-2 border-t-green text-t-off-white"
             buttonClassName="border-t-green border-2 rounded-r-md p-3 fill-current stroke-t-off-black relative bg-t-green"
@@ -306,13 +307,13 @@ const currentYear = new Date().getFullYear()
     <hr class="mx-auto h-0.5 bg-t-white tablet:w-[80%] w-5/6 | md:hidden" />
     <div class="px-10 py-10 w-fit tablet:self-center" >
       <ul class="flex flex-col gap-7">
-          <a href={Pages.BUY} class={linkStyle} >About us</a>
+          <a href={Pages.ABOUT} class={linkStyle} >About us</a>
         </li>
         <li>
-          <a href={Pages.ROVER} class={linkStyle}>FAQ</a>
+          <a href={Pages.PARTNER_FAQ} class={linkStyle}>FAQ</a>
         </li>
         <li>
-          <a href={Pages.STATION} class={linkStyle}>Invest</a>
+          <a href={Pages.INVEST} class={linkStyle}>Invest</a>
         </li>
       </ul>
     </div>

@@ -20,5 +20,7 @@ export enum Pages {
   FAQ = '/faq',
   TERMS = '/terms',
   PRIVACY = '/privacy',
-  RESERVE = '/reserve'
+  RESERVE = '/reserve',
+  PARTNER_FAQ = '/partner-faq',
+  INVEST = '/invest'
 }

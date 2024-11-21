@@ -1,0 +1,139 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Text from "@components/core/Text.astro"
+import { sanityClient } from "sanity:client"
+import TabContainer from "@components/TabContainer.tsx"
+import FaqForm from "@components/FaqForm"
+import PartnerTabContainer from "@components/PartnerTabContainer"
+import PartnerFooter from "@components/PartnerFooter.astro"
+ 
+// const questions = await sanityClient.fetch(`*[_type == "questions"] | order(_createdAt asc)`)
+// const problems = await sanityClient.fetch(`*[_type == "problems"] | order(_createdAt asc)`)
+
+const questions = [
+  {
+    Question: "What makes The Partner different from other ball machines?",
+    Answer: "The Partner is the first ball machine that moves and responds to you in real-time. Unlike traditional stationary machines, it tracks your position on the court, moves dynamically, and delivers shots that simulate a real practice partner experience."
+  },
+  {
+    Question: "How does The Partner detect players and adjust shots?",
+    Answer: "The Partner uses advanced sensor technology, AI, and computer vision to detect the player’s position on the court, as well as the white lines, net, and ball. This allows it to auto-calibrate and adjust shot placement dynamically based on your movement, delivering game-like play."
+  },
+  {
+    Question: "Can The Partner adapt to my skill level?",
+    Answer: "Yes! Its Match My Level mode tracks your performance in real-time, adjusting speed and difficulty dynamically to keep your training optimally challenging."
+  },
+  {
+    Question: "Is The Partner safe to use?",
+    Answer: "Absolutely! The Partner is equipped with smart safety features that detect humans and obstacles on the court. Its sensors automatically stop the machine from firing if it detects someone nearby, ensuring safety for all users."
+  },
+  {
+    Question: "How fast can The Partner shoot balls?",
+    Answer: "The Partner can fire balls at speeds of up to 70 mph, accommodating players at all skill levels, from beginners to advanced athletes."
+  },
+  {
+    Question: "What is the ball capacity of The Partner?",
+    Answer: "It holds up to 140 balls, giving you extended, uninterrupted practice sessions."
+  },
+  {
+    Question: "Can I use The Partner on any court surface?",
+    Answer: "Yes! The Partner is compatible with hard, clay, grass, astroturf, and carpet courts, making it versatile for all playing environments."
+  },
+  {
+    Question: "How portable is The Partner?",
+    Answer: "Weighing only 35 lbs, The Partner is compact and fits easily into most cars, making transportation to and from the court a breeze."
+  },
+  {
+    Question: "What is the Follow Me Mode?",
+    Answer: "The Partner’s Follow Me Mode allows it to autonomously follow you across flat surfaces, eliminating the hassle of manually moving it between locations."
+  },
+  {
+    Question: "How long does the battery last?",
+    Answer: "The battery runs for 4-5 hours on a full charge, depending on usage intensity."
+  },
+  {
+    Question: "What sports is The Partner compatible with?",
+    Answer: "There are specific Partner versions designed for tennis, padel, and pickleball, offering tailored training for each sport."
+  },
+  {
+    Question: "When will my Partner be delivered if I pre-order?",
+    Answer: "The estimated delivery for pre-ordered Partner units is in April 2025."
+  },
+  {
+    Question: "How do I control The Partner during practice?",
+    Answer: "The Partner is controlled via our user-friendly app, which serves as a remote control. Adjust settings, shot types, speeds, and patterns, or set it to operate autonomously for a seamless training experience."
+  },
+  {
+    Question: "Is there a warranty on The Partner?",
+    Answer: "Yes! The Partner includes an industry-leading two-year warranty that covers any manufacturing defects, ensuring high-quality performance and reliability."
+  },
+  {
+    Question: "Can I finance my purchase of The Partner?",
+    Answer: "Yes! You can pay for The Partner in interest-free installments using Shop Pay, making it easier than ever to own your ultimate training partner."
+  },
+  {
+    Question: "What makes The Partner’s AI so unique?",
+    Answer: "The Partner’s AI doesn’t just detect and respond—it learns. It uses real-time feedback to adapt to your skill level and training needs, offering a personalized experience every time you play."
+  },
+  {
+    Question: "How does the auto-calibration feature work?",
+    Answer: "The Partner’s auto-calibration technology adjusts its shot placement based on where the balls land, ensuring accuracy and reducing wasted balls common in traditional machines."
+  },
+  {
+    Question: "Where is The Partner made?",
+    Answer: "The Partner is proudly designed and assembled in the USA with meticulous attention to detail."
+  }
+];
+
+
+const inputStyle = 'bg-transparent border-2 border-t-off-black rounded-md sm:p-1.5 p-2.5 focus:outline-none focus:ring-indigo-500 focus:border-t-green'
+---
+
+<Layout title="FAQ | Tennibot" showPartnerHeader={true} showHeader={false}  showFooter={false}>
+    <main class="bg-t-off-white overflow-hidden text-t-off-black" >
+        <section class="w-[90%] md:w-[80%] 2xl:max-w-[1266px] mx-auto pt-20" >
+            <Text tag="h1" className="uppercase font-avenirBold lg:text-4xl 2xl:text-6xl text-3xl text-pretty" >Have a question?</Text>
+            <Text tag="h3" className="uppercase font-avenirBold lg:font-avenir lg:text-4xl text-3xl 2xl:text-6xl" >You're in the right place</Text>
+        </section>
+        <section class="md:w-[80%] 2xl:max-w-[1266px] w-full relative mx-auto my-10 group pb-20 " >
+            <PartnerTabContainer client:load questions={questions} />
+        </section>
+        <section class="md:py-20 mb-20">
+            <div class="w-[80%] 2xl:max-w-[1266px] mx-auto">
+                <Text tag="h3" className="uppercase font-avenirBold lg:text-3xl 2xl:text-4xl text-2xl text-pretty" >Still have a question?</Text>
+                <Text tag="p" className="text-pretty font-avenir 2xl:text-lg mt-3">We have an answer. Fill out the form below and we'll get back to you as soon as possible.</Text>
+
+                <form name="faq" method="post" data-netlify="true" class="text-t-off-black font-avenir 2xl:text-lg mt-10 grid-cols-1 md:grid-cols-2 gap-5 hidden">
+                    <div class="flex flex-col w-full gap-1">
+                        <label for="question" >Question</label>
+                        <textarea id="question" name="question" rows="6" required class={`${inputStyle} h-full`} />
+                    </div>
+
+                    <div class="flex flex-col sm:gap-5 gap-10" >
+                        <div class="flex flex-col w-full gap-1">
+                            <label for="name" >Name</label>
+                            <input id="name" name="name" type="text" required class={inputStyle} />
+                        </div>
+
+                        <div class="flex flex-col w-full gap-1">
+                            <label for="email" >Email Address</label>
+                            <input id="email" name="email" type="email" required class={inputStyle} />
+                        </div>
+
+                        <div class="flex md:flex-col flex-col-reverse gap-1 w-full">
+                            <input type="submit" value="Submit" class="cursor-pointer mt-5 focus:outline-none focus:ring-indigo-500 focus:border-t-green text-lg w-full tablet:w-64 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-t-off-white md:text-t-off-black bg-t-off-black border-t-off-black md:text-t-off-off md:bg-t-off-white hover:bg-t-off-black hover:text-t-off-white" />
+                            <div class="flex items-center gap-3 mt-3" >
+                                <input id="newsletter" name="newsletter" type="checkbox" class="appearance-none border-2 border-t-off-black size-4 rounded-sm checked:bg-t-off-black focus:outline-none focus:ring-indigo-500 focus:border-t-green" />
+                                <label for="newsletter" >I'd like to receive Tennibot email updates</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+                <FaqForm client:load />
+            </div>
+        </section>
+    </main>
+</Layout>
+<PartnerFooter />
