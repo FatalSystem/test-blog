@@ -18,7 +18,7 @@ const formSchema = z.object({
   email: z.string().email({
     message: 'Invalid email address.'
   }),
-  phone: z.string().optional(),
+  // phone: z.string().optional(),
   call: z.boolean().optional()
 })
 
@@ -58,13 +58,13 @@ export default function PartnerForm ({ from, listId }: { from: string, listId: s
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email: values.email, from, fname: firstName ?? values.name, lname: lastName ?? '', rcToken: token, listId })
+        body: JSON.stringify({ email: values.email, from, fname: firstName ?? values.name, lname: lastName ?? '', rcToken: token, listId: 'URW7Es' })
       })
       if (response.status !== 200) {
         setErrorSubmitting(true)
       } else {
-        // setSent(true)
-        setShowSportSelector(true)
+        setSent(true)
+        // setShowSportSelector(true)
         setCurrentEmail(values.email)
         edgetag('tag', 'Complete registration new')
       }
@@ -89,7 +89,7 @@ export default function PartnerForm ({ from, listId }: { from: string, listId: s
 
   return (
     <>
-      <p className="font-plutoLight text-t-off-white mb-8 md:text-lg text-center " >Secure your early access today and be among the first ever to experience the human-like training partner!</p>
+      <p className="font-plutoLight text-t-off-white mb-8 md:text-md text-sm text-center " >Thanks for your interest. Please fill the following form and we'll get back to you as soon as possible.</p>
       <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className='font-plutoLight mb-2' >
               <div className='flex md:flex-row flex-col md:gap-2'>

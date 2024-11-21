@@ -1,0 +1,26 @@
+---
+import Layout from "layouts/Layout.astro"
+import PartnerForm from "@components/PartnerForm"
+import { listIds } from "@utils"
+import Countdown from "@components/Countdown"
+import placeholderOne from "@assets/invest/placeholderone.webp"
+import placeholderTwo from "@assets/invest/placeholdertwo.webp"
+import PartnerSlider from "@components/PartnerSlider"
+---
+<Layout title="Invest | Tennibot" showFooter={false} showHeader={false} showPartnerHeader={true} >
+    <main class="w-full bg-t-off-black relative text-t-off-white" >
+      <div class="bg-center md:bg-right md:h-[100vh] h-[70rem] bg-cover">
+        <div class="lg:max-w-[60%] xl:max-w-[50%] w-[80%] mx-auto h-full flex flex-col justify-center " >
+          <h1 class="text-t-off-white mb-10 w-[80%] font-avenir uppercase xl:text-2xl lg:text-xl md:text-2xl mobilem:text-2xl mobilel:text-xl text-xl text-pretty mx-auto mobilel:mx-0" >Interested in joining the future of Racquet Sports and Robotics?</h1>
+          <div class="w-full flex gap-10 md:flex-row flex-col" >
+              <div class="bg-t-off-black px-5 py-5 border-2 border-t-off-white rounded-lg " >
+                <!-- <h2 class="font-plutoBold text-t-green mb-5 md:text-lg text-center" >You're Invited to<br /> the Future of AI Training</h2> -->
+                <PartnerForm from="Partner Landing Page" listId={listIds.partner} client:load />
+              </div>
+              <div class="flex relative w-[100%] mx-auto h-fit rounded-xl overflow-hidden flex-col md:justify-start justify-end md:w-[150%]" >
+                  <PartnerSlider client:load />
+              </div>
+        </div>
+      </div>
+    </main>
+</Layout>

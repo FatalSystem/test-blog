@@ -1,0 +1,57 @@
+---
+import Layout from "layouts/Layout.astro"
+import PartnerForm from "@components/PartnerForm"
+import { listIds } from "@utils"
+import Countdown from "@components/Countdown"
+---
+<Layout title="Reserve | Tennibot" showFooter={false} showHeader={false} >
+    <main class="w-full bg-t-off-black relative text-t-off-white" >
+      <section class="relative flex md:flex-row flex-col-reverse" >
+        <div class="relative bg-[url('/images/partner/partner-hero.webp')] bg-cover md:bg-center bg-[position:5%_75%] w-[100%] h-[100vh]" >
+          <div class="absolute inset-0 bg-gradient-to-l from-black/70 from-0% hidden md:block to-transparent to-90%"></div>
+        </div>
+        <div class="lg:w-[35%] md:w-[45%] flex flex-col justify-between md:absolute top-0 right-0 h-full">
+          <div>
+            <div class="flex bg-black pt-16 px-5 flex-row gap-x-5 justify-between text-t-off-white" >
+                <div>
+                    <h1 class="font-avenirBold text-t-green text-2xl" >Tennibot</h1>
+                    <h2 class="font-avenirBold text-t-off-white text-4xl" >Partner</h2>
+                </div>
+                <p class="font-avenirBold text-t-off-white text-xl" >$499</p>
+            </div>
+            <div class="bg-black px-5" >
+              <p class="font-avenir text-[#A6A6A6] text-sm pt-5 pb-3" >Reserve your Partner for only $499 today. <br /> Pay the remaining discounted price of $1495 ($<span class="line-through" >2999</span>) before delivery.</p>
+            </div>
+            <div class="bg-black flex flex-row justify-between px-5 pb-5">
+              <div class="flex flex-row items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mr-2" width="18" height="22" viewBox="0 0 46 32" fill="none">
+                  <path d="M9.5584 32C7.89936 32 6.49092 31.4198 5.33307 30.2595C4.17521 29.0992 3.59629 27.6904 3.59629 26.0331H1.92061C1.37657 26.0331 0.920368 25.8491 0.552008 25.4811C0.184003 25.1127 0 24.6565 0 24.1125V3.84174C0 2.76819 0.371901 1.85951 1.1157 1.1157C1.85951 0.371902 2.76801 0 3.84121 0H28.9345C29.991 0 30.8955 0.376151 31.6478 1.12845C32.4001 1.88076 32.7762 2.78519 32.7762 3.84174V8.09205H36.4952C37.1034 8.09205 37.6796 8.22806 38.224 8.50007C38.7681 8.77209 39.2161 9.14824 39.5682 9.62853L44.8975 16.7643C45.0258 16.9244 45.1219 17.1004 45.186 17.2924C45.2498 17.4847 45.2817 17.6928 45.2817 17.9166V24.1125C45.2817 24.6565 45.0977 25.1127 44.7297 25.4811C44.3613 25.8491 43.9051 26.0331 43.3611 26.0331H41.4405C41.4405 27.6904 40.8598 29.0992 39.6984 30.2595C38.5373 31.4198 37.1275 32 35.4688 32C33.8101 32 32.4017 31.4198 31.2434 30.2595C30.0856 29.0992 29.5067 27.6904 29.5067 26.0331H15.5295C15.5295 27.695 14.949 29.1048 13.788 30.2627C12.6269 31.4209 11.2171 32 9.5584 32ZM9.56318 28.8123C10.3424 28.8123 11.0003 28.5438 11.5369 28.0068C12.0735 27.4702 12.3418 26.8123 12.3418 26.0331C12.3418 25.2539 12.0735 24.5958 11.5369 24.0588C11.0003 23.5222 10.3424 23.2539 9.56318 23.2539C8.78396 23.2539 8.12587 23.5222 7.58892 24.0588C7.05231 24.5958 6.78401 25.2539 6.78401 26.0331C6.78401 26.8123 7.05231 27.4702 7.58892 28.0068C8.12587 28.5438 8.78396 28.8123 9.56318 28.8123ZM3.18773 22.8454H4.72421C5.17651 22.058 5.82964 21.398 6.6836 20.8653C7.53791 20.3326 8.49777 20.0662 9.56318 20.0662C10.601 20.0662 11.5537 20.3292 12.4215 20.8552C13.2893 21.3812 13.9493 22.0445 14.4016 22.8454H29.5885V3.84174C29.5885 3.65083 29.5272 3.4941 29.4047 3.37155C29.2821 3.249 29.1254 3.18773 28.9345 3.18773H3.84121C3.67793 3.18773 3.52811 3.25591 3.39174 3.39227C3.25573 3.52828 3.18773 3.67811 3.18773 3.84174V22.8454ZM35.4736 28.8123C36.2528 28.8123 36.9107 28.5438 37.4473 28.0068C37.9842 27.4702 38.2527 26.8123 38.2527 26.0331C38.2527 25.2539 37.9842 24.5958 37.4473 24.0588C36.9107 23.5222 36.2528 23.2539 35.4736 23.2539C34.6943 23.2539 34.0362 23.5222 33.4993 24.0588C32.9627 24.5958 32.6944 25.2539 32.6944 26.0331C32.6944 26.8123 32.9627 27.4702 33.4993 28.0068C34.0362 28.5438 34.6943 28.8123 35.4736 28.8123ZM32.7762 18.5951H42.2985L36.9856 11.5454C36.9176 11.4636 36.8393 11.3988 36.7508 11.351C36.6622 11.3035 36.5634 11.2798 36.4543 11.2798H32.7762V18.5951Z" fill="#C0F20C"/>
+                </svg>
+                <p class="font-avenir text-t-green text-sm" >Shipping in April 2025</p>
+                <button 
+                  class="relative ml-2"
+                  aria-label="Shipping information"
+                  onclick="this.querySelector('.tooltip').classList.toggle('hidden')"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 30 30" fill="none">
+                    <path d="M15 0C6.71625 0 0 6.71625 0 15C0 23.2838 6.71625 30 15 30C23.2838 30 30 23.2838 30 15C30 6.71625 23.2838 0 15 0ZM16.25 22.5H13.75V13.75H16.25V22.5ZM15 10.625C13.965 10.625 13.125 9.785 13.125 8.75C13.125 7.715 13.965 6.875 15 6.875C16.035 6.875 16.875 7.715 16.875 8.75C16.875 9.785 16.035 10.625 15 10.625Z" fill="#8E9088"/>
+                  </svg>
+                  <div class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden w-48 p-2 text-xs text-t-off-white bg-black rounded-lg shadow-lg border border-t-green">
+                    You can cancel your reservation anytime before the delivery date.
+                  </div>
+                </button>
+              </div>
+              <p class="font-avenir text-t-green text-sm" >Free US Shipping</p>
+            </div>
+            <!-- <div class="bg-white p-5 mt-2" >
+              <p class="font-avenir text-[#A6A6A6] text-xl">Deposit</p>
+              <p class="font-avenir text-t-off-black text-2xl mt-2">$499</p>
+            </div> -->
+            <div class="bg-black p-10 flex justify-center " >
+              <a href="https://buy.stripe.com/6oEdTp8pygzo5AA9AC" class={`w-80 text-xl 2xl:text-2xl 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green`}>Reserve</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+</Layout>
