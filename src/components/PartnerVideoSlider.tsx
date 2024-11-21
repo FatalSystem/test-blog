@@ -116,7 +116,7 @@ export default function PartnerVideoSlider ({ type }: IProps): JSX.Element {
                   </div>
                   <video 
                       style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} 
-                      className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" 
+                      className="w-full h-full object-cover bg-cover bg-center" 
                       autoPlay 
                       loop 
                       muted={isMuted} 
@@ -179,7 +179,7 @@ export default function PartnerVideoSlider ({ type }: IProps): JSX.Element {
               </div>
               <video 
                   style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} 
-                  className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" 
+                  className="w-full h-full object-cover bg-cover bg-center" 
                   autoPlay 
                   loop 
                   muted={isMuted} 
@@ -242,7 +242,7 @@ export default function PartnerVideoSlider ({ type }: IProps): JSX.Element {
                   </div>
                   <video 
                       style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} 
-                      className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" 
+                      className="w-full h-full object-cover bg-cover bg-center" 
                       autoPlay 
                       loop 
                       muted={isMuted} 

@@ -113,7 +113,7 @@ const PartnerVideoDisplay = (): JSX.Element => {
                     </button>
                 </div>
                 <video
-                    className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center"
+                    className="w-full h-full object-cover bg-cover bg-center"
                     autoPlay
                     loop
                     muted={isMuted}
@@ -167,7 +167,7 @@ const PartnerVideoDisplay = (): JSX.Element => {
                         <Fullscreen className="w-4 h-4" />
                     </button>
                 </div>
-                <video style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" autoPlay loop muted={isMuted} playsInline onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)}>
+                <video style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} className="w-full h-full object-cover bg-cover bg-center" autoPlay loop muted={isMuted} playsInline onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)}>
                     <source src={handleVideoSource(selectedTab)} type="video/mp4" />
                     {'Your browser doesn\'t support the video tag.'}
                 </video>
@@ -214,7 +214,7 @@ const PartnerVideoDisplay = (): JSX.Element => {
                         <Fullscreen className="w-4 h-4" />
                     </button>
                 </div>
-                <video style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" autoPlay loop muted={isMuted} playsInline onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)}>
+                <video style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} className="w-full h-full object-cover bg-cover bg-center" autoPlay loop muted={isMuted} playsInline onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)}>
                     <source src={handleVideoSource(selectedTab)} type="video/mp4" />
                     {'Your browser doesn\'t support the video tag.'}
                 </video>
