@@ -33,7 +33,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
         },
         body: JSON.stringify({
           profiles: [
-            { /* ...mergeFields, */ email: data.data.receipt_email, source: 'Stripe' }
+            { /* ...mergeFields, */ email: data.data.object.receipt_email, source: 'Stripe' }
           ]
         })
       }

@@ -2,6 +2,36 @@
 import Layout from "layouts/Layout.astro"
 ---
 <Layout title="Reserve | Tennibot" showFooter={false} showHeader={false} >
+    <!-- Trackdesk set client_reference_id help fuction begin -->
+  <script>
+    (function () {
+        var cookie = document.cookie.match('(^|;)\\s*trakdesk_cid\\s*=\\s*([^;]+)');
+        if (Array.isArray(cookie)) {
+            try {
+                var trakdeskCid = JSON.parse(cookie.pop());
+                var cid = trakdeskCid['cid'];
+                document.querySelectorAll('a[href^="https://buy.stripe.com/"]').forEach(function (a) {
+                    var url = new URL(a.href);
+                    url.searchParams.set('client_reference_id', cid);
+                    a.href = url.href;
+                });
+            } catch (e) {
+                console.log(e);
+            }
+        }
+    })();
+    </script>
+    <!-- Trackdesk set client_reference_id help fuction end -->
+     <!-- Trackdesk tracker optional types help script begin -->
+    <script async src="//cdn.trackdesk.com/tracking.js"></script>
+    <script>
+      (function(t,d,k){(t[k]=t[k]||[]).push(d);t[d]=t[d]||t[k].f||function(){(t[d].q=t[d].q||[]).push(arguments)}})(window,"trackdesk","TrackdeskObject");
+
+      trackdesk('tennibot', 'conversion', {
+        conversionType: 'sale'
+      });
+    </script>
+    <!-- Trackdesk tracker optional types help script end -->
     <main class="w-full bg-t-off-black relative text-t-off-white" >
       <section class="relative flex md:flex-row flex-col-reverse" >
         <div class="relative bg-[url('/images/partner/partner-hero.webp')] bg-cover md:bg-center bg-[position:5%_75%] w-[100%] h-[100vh]" >
