@@ -25,7 +25,7 @@ const formSchema = z.object({
 const inputStyle = 'bg-transparent border-2 p-2.5 border-t-green rounded-md focus:outline-none focus:ring-indigo-500 focus:border-t-green mb-5'
 const labelStyle = 'lg:text-lg xl:text-xl mb-2 hidden'
 
-export default function PartnerForm ({ from, listId }: { from: string, listId: string }): JSX.Element {
+export default function InvestForm ({ from, listId }: { from: string, listId: string }): JSX.Element {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -58,13 +58,13 @@ export default function PartnerForm ({ from, listId }: { from: string, listId: s
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email: values.email, from, fname: firstName ?? values.name, lname: lastName ?? '', rcToken: token, listId })
+        body: JSON.stringify({ email: values.email, from, fname: firstName ?? values.name, lname: lastName ?? '', rcToken: token, listId: 'URW7Es' })
       })
       if (response.status !== 200) {
         setErrorSubmitting(true)
       } else {
-        // setSent(true)
-        setShowSportSelector(true)
+        setSent(true)
+        // setShowSportSelector(true)
         setCurrentEmail(values.email)
         edgetag('tag', 'Complete registration new')
       }
@@ -89,7 +89,7 @@ export default function PartnerForm ({ from, listId }: { from: string, listId: s
 
   return (
     <>
-      {/* <p className="font-plutoLight text-t-off-white mb-8 md:text-md text-sm text-center " >Thanks for your interest. Please fill the following form and we'll get back to you as soon as possible.</p> */}
+      <p className="font-plutoLight text-t-off-white mb-8 md:text-md text-sm text-center " >{sent ? 'Thanks for your interest; we\'ll get back to you as soon as possible!' : 'Thanks for your interest. Please fill the following form and we\'ll get back to you as soon as possible.'}</p>
       <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className='font-plutoLight mb-2' >
               <div className='flex md:flex-row flex-col md:gap-2'>
