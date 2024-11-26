@@ -1,5 +1,5 @@
 import type { Context } from '@netlify/functions'
-const Stripe = require('stripe')
+import Stripe from 'stripe'
 
 export default async (event: Request, context: Context): Promise<Response> => {
   // if (event.method !== 'POST') {
