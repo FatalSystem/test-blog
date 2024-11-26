@@ -19,17 +19,17 @@ const links = [
 // TODO: Remake with framer motion
 export default function PartnerHeader (): JSX.Element {
   const [open, setOpen] = useState<boolean>(false)
-  const handleOpen = (): void => { setOpen(!open) }
+  // const handleOpen = (): void => { setOpen(!open) }
 
   const [showBanner, setShowBanner] = useState<boolean>(false)
 
   const closeBanner = (): void => {
-    window.localStorage.setItem('showOfferBanner', 'false')
+    window.localStorage.setItem('showReserveBanner', 'false')
     setShowBanner(false)
   }
 
   const shouldShow = (): void => {
-    if (window.localStorage.getItem('showOfferBanner') === null && window.location.pathname === '/') {
+    if (window.localStorage.getItem('showReserveBanner') === null && window.location.pathname === '/partner') {
       setShowBanner(true)
     }
   }
@@ -40,7 +40,7 @@ export default function PartnerHeader (): JSX.Element {
 
   return (
     <div className='sticky top-0 z-50'>
-      {/* <Banner show={showBanner} onClose={closeBanner} /> */}
+      <Banner show={showBanner} onClose={closeBanner} />
       <header className='relative' >
         <AnimatePresence >
           {open && (

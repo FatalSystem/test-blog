@@ -19,7 +19,6 @@ export default function ThankYouContent (): JSX.Element {
     const fetchSessionData = async () => {
       const urlParams = new URLSearchParams(window.location.search)
       const sessionId = urlParams.get('session')
-
       if (!sessionId) {
         setError('No session ID found')
         setIsLoading(false)
@@ -28,11 +27,11 @@ export default function ThankYouContent (): JSX.Element {
 
       try {
         const response = await fetch('/.netlify/functions/checkout', {
-          method: 'GET',
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ sessionId })
+          body: JSON.stringify({ session: sessionId })
         })
 
         if (!response.ok) {
@@ -95,7 +94,7 @@ export default function ThankYouContent (): JSX.Element {
             <div className="flex flex-col bg-t-off-white md:w-[50%] w-full h-full justify-start pt-[15vh]">
                 <div className="w-[80%] mx-auto flex flex-col justify-center">
                     <div className="flex flex-col justify-center items-center">
-                        <CircleCheck color="green" size={40}/>
+                        <CircleCheck size={40} color="green" />
                         <h1 className="font-avenirBold text-t-off-black text-2xl mt-3">Thank you!</h1>
                         <p className="font-avenir text-t-gray mt-3">A payment to TENNIBOT will appear on your statement.</p>
                         <div className="bg-[#afafae5f] rounded-md px-5 py-5 flex flex-row justify-between mt-3 w-full">
