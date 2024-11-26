@@ -29,7 +29,7 @@ export default function PartnerHeader (): JSX.Element {
   }
 
   const shouldShow = (): void => {
-    if (window.localStorage.getItem('showReserveBanner') === null && window.location.pathname === '/partner') {
+    if (window.localStorage.getItem('showReserveBanner') === null && window.location.pathname === '/partner/') {
       setShowBanner(true)
     }
   }
