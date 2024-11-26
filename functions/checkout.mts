@@ -14,7 +14,6 @@ export default async (event: Request, context: Context): Promise<Response> => {
     const checkout = await stripe.checkout.sessions.retrieve(data.session, {
       apiKey: STRIPE_KEY
     })
-    console.log(checkout)
 
     return new Response(JSON.stringify(checkout))
   } catch (error) {
