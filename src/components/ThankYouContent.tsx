@@ -42,7 +42,22 @@ export default function ThankYouContent (): JSX.Element {
         const amount = (parseInt((data?.currency_conversion?.amount_total ?? 49900).toFixed(2) * (data?.currency_conversion?.fx_rate ?? 1)) / 100) ?? 499.00
         const currency = data?.currency?.toUpperCase() ?? 'USD'
         gtag('event', 'conversion', { send_to: 'AW-16667981876/mKp3CMnUsckZELTw9Is-', value: amount, currency, transaction_id: sessionId })
-        gtag('event', 'purchase', { send_to: 'AW-16667981876', value: amount, currency, transaction_id: sessionId })
+        _learnq.push(['track', 'purchase', {
+          productType: 'Partner'
+        }])
+        edgetag('tag', 'purchase', {
+          currency,
+          value: amount,
+          checkoutUrl: 'https://buy.stripe.com/6oEdTp8pygzo5AA9AC',
+          contents: [
+            {
+              id: 'prod_RFzvkkUvOF5PmX',
+              quantity: Math.ceil(((parseInt(data?.currency_conversion?.amount_subtotal ?? 49900) / 100).toFixed(2)) / 499.00) || 1,
+              item_price: amount,
+              title: 'Partner'
+            }
+          ]
+        })
         setSessionData(data)
       } catch (err) {
         setError('Unable to verify payment. Please contact support.')
