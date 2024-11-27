@@ -42,6 +42,7 @@ export default function ThankYouContent (): JSX.Element {
         const amount = (parseInt((data?.currency_conversion?.amount_total ?? 49900).toFixed(2) * (data?.currency_conversion?.fx_rate ?? 1)) / 100) ?? 499.00
         const currency = data?.currency?.toUpperCase() ?? 'USD'
         gtag('event', 'conversion', { send_to: 'AW-16667981876/mKp3CMnUsckZELTw9Is-', value: amount, currency, transaction_id: sessionId })
+        gtag('event', 'purchase', { send_to: 'AW-16667981876', value: amount, currency, transaction_id: sessionId })
         setSessionData(data)
       } catch (err) {
         setError('Unable to verify payment. Please contact support.')
