@@ -42,19 +42,17 @@ export default function ThankYouContent (): JSX.Element {
         const amount = (parseInt((data?.currency_conversion?.amount_total ?? 49900).toFixed(2) * (data?.currency_conversion?.fx_rate ?? 1)) / 100) ?? 499.00
         const currency = data?.currency?.toUpperCase() ?? 'USD'
         gtag('event', 'conversion', { send_to: 'AW-16667981876/mKp3CMnUsckZELTw9Is-', value: amount, currency, transaction_id: sessionId })
-        _learnq.push(['track', 'purchase', {
-          productType: 'Partner'
-        }])
-        edgetag('tag', 'purchase', {
-          currency,
+        gtag('event', 'purchase', {
+          transaction_id: sessionId,
           value: amount,
-          checkoutUrl: 'https://buy.stripe.com/6oEdTp8pygzo5AA9AC',
-          contents: [
+          currency,
+          items: [
             {
-              id: 'prod_RFzvkkUvOF5PmX',
+              item_id: 'prod_RFzvkkUvOF5PmX',
+              item_name: 'Partner',
+              price: amount,
               quantity: Math.ceil(((parseInt(data?.currency_conversion?.amount_subtotal ?? 49900) / 100).toFixed(2)) / 499.00) || 1,
-              item_price: amount,
-              title: 'Partner'
+              index: 0
             }
           ]
         })
