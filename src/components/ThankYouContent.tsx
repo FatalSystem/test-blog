@@ -43,6 +43,7 @@ export default function ThankYouContent (): JSX.Element {
         const currency = data?.currency?.toUpperCase() ?? 'USD'
         gtag('event', 'conversion', { send_to: 'AW-16667981876/mKp3CMnUsckZELTw9Is-', value: amount, currency, transaction_id: sessionId })
         gtag('event', 'purchase', {
+          send_to: 'G-5MY88GRQM4',
           transaction_id: sessionId,
           value: amount,
           currency,
