@@ -42,21 +42,49 @@ export default function ThankYouContent (): JSX.Element {
         const amount = (parseInt((data?.currency_conversion?.amount_total ?? 49900).toFixed(2) * (data?.currency_conversion?.fx_rate ?? 1)) / 100) ?? 499.00
         const currency = data?.currency?.toUpperCase() ?? 'USD'
         gtag('event', 'conversion', { send_to: 'AW-16667981876/mKp3CMnUsckZELTw9Is-', value: amount, currency, transaction_id: sessionId })
-        gtag('event', 'purchase', {
-          send_to: 'G-5MY88GRQM4',
-          transaction_id: sessionId,
-          value: amount,
-          currency,
-          items: [
-            {
-              item_id: 'prod_RFzvkkUvOF5PmX',
-              item_name: 'Partner',
-              price: amount,
-              quantity: Math.ceil(((parseInt(data?.currency_conversion?.amount_subtotal ?? 49900) / 100).toFixed(2)) / 499.00) || 1,
-              index: 0
-            }
-          ]
-        })
+        try {
+          console.log('Sending GA4 purchase event with data:', {
+            transaction_id: sessionId,
+            value: amount,
+            currency,
+            items: [
+              {
+                item_id: 'prod_RFzvkkUvOF5PmX',
+                item_name: 'Partner',
+                price: amount,
+                quantity: Math.ceil(((parseInt(data?.currency_conversion?.amount_subtotal ?? 49900) / 100).toFixed(2)) / 499.00) || 1,
+                index: 0
+              }
+            ]
+          })
+
+          // First, verify gtag exists
+          if (typeof gtag !== 'function') {
+            console.error('gtag is not defined!')
+            return
+          }
+
+          gtag('event', 'purchase', {
+            send_to: 'G-5MY88GRQM4',
+            transaction_id: sessionId,
+            value: amount,
+            currency,
+            items: [
+              {
+                item_id: 'prod_RFzvkkUvOF5PmX',
+                item_name: 'Partner',
+                price: amount,
+                quantity: Math.ceil(((parseInt(data?.currency_conversion?.amount_subtotal ?? 49900) / 100).toFixed(2)) / 499.00) || 1,
+                index: 0
+              }
+            ]
+          })
+
+          console.log('GA4 purchase event sent successfully')
+        } catch (err) {
+          console.error('Error sending GA4 event:', err)
+          setError('Unable to verify payment. Please contact support.')
+        }
         console.log('Sent to ga4')
         setSessionData(data)
       } catch (err) {
