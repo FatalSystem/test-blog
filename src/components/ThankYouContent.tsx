@@ -73,7 +73,6 @@ export default function ThankYouContent (): JSX.Element {
           }
 
           gtag('event', 'purchase', {
-            send_to: 'G-5MY88GRQM4',
             transaction_id: sessionId,
             value: amount,
             currency,
