@@ -56,6 +56,7 @@ export default function ThankYouContent (): JSX.Element {
             }
           ]
         })
+        console.log('Sent to ga4')
         setSessionData(data)
       } catch (err) {
         setError('Unable to verify payment. Please contact support.')
