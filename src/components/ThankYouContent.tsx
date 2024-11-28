@@ -16,6 +16,14 @@ export default function ThankYouContent (): JSX.Element {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5MY88GRQM4', {
+      page_path: window.location.pathname,
+      page_title: 'Thank You'
+    })
+    console.log('gtag reinitialized')
     const fetchSessionData = async () => {
       const urlParams = new URLSearchParams(window.location.search)
       const sessionId = urlParams.get('session')
