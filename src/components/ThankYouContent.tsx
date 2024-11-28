@@ -73,7 +73,7 @@ export default function ThankYouContent (): JSX.Element {
           }
 
           gtag('event', 'purchase', {
-            transaction_id: sessionId,
+            // transaction_id: sessionId,
             value: amount,
             currency,
             items: [
