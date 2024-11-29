@@ -40,7 +40,7 @@ export default function PartnerHeader (): JSX.Element {
 
   return (
     <div className='sticky top-0 z-50'>
-      <Banner show={showBanner} onClose={closeBanner} />
+      {/* <Banner show={showBanner} onClose={closeBanner} /> */}
       <header className='relative' >
         <AnimatePresence >
           {open && (
