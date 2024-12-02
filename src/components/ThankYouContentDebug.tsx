@@ -11,7 +11,7 @@ interface SessionData {
 }
 
 // Type declaration for gtag
-declare function gtag(...args: any[]): void;
+declare function gtag (...args: any[]): void
 
 export default function ThankYouContentDebug (): JSX.Element {
   const [sessionData, setSessionData] = useState<SessionData | null>(null)
@@ -20,118 +20,78 @@ export default function ThankYouContentDebug (): JSX.Element {
 
   useEffect(() => {
     console.log('wow')
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    window.dataLayer = window.dataLayer || []
+    function gtag () { dataLayer.push(arguments) }
+    gtag('js', new Date())
     gtag('config', 'G-5MY88GRQM4', {
       page_path: window.location.pathname,
       page_title: 'Thank You'
     })
     console.log('gtag reinitialized')
+    const fetchSessionData = async (clientId: string) => {
+      const urlParams = new URLSearchParams(window.location.search)
+      const sessionId = urlParams.get('session')
+      if (!sessionId) {
+        setError('No session ID found')
+        setIsLoading(false)
+        return
+      }
+
+      try {
+        const response = await fetch('/.netlify/functions/record-purchase', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ clientId })
+        })
+
+        if (!response.ok) {
+          throw new Error('Payment verification failed')
+        }
+
+        const data = await response.json() as SessionData
+        const amount = (parseInt((data?.currency_conversion?.amount_total ?? 49900).toFixed(2) * (data?.currency_conversion?.fx_rate ?? 1)) / 100) ?? 499.00
+        const currency = data?.currency?.toUpperCase() ?? 'USD'
+        gtag('event', 'conversion', { send_to: 'AW-16667981876/mKp3CMnUsckZELTw9Is-', value: amount, currency, transaction_id: sessionId })
+        try {
+          console.log('Sending GA4 purchase event with data:', {
+            transaction_id: sessionId,
+            value: amount,
+            currency,
+            items: [
+              {
+                item_id: 'prod_RFzvkkUvOF5PmX',
+                item_name: 'Partner',
+                price: amount,
+                quantity: Math.ceil(((parseInt(data?.currency_conversion?.amount_subtotal ?? 49900) / 100).toFixed(2)) / 499.00) || 1,
+                index: 0
+              }
+            ]
+          })
+
+          console.log('GA4 purchase event sent successfully')
+        } catch (err) {
+          console.error('Error sending GA4 event:', err)
+          setError('Unable to verify payment. Please contact support.')
+        }
+        console.log('Sent to ga4')
+        setSessionData(data)
+      } catch (err) {
+        setError('Unable to verify payment. Please contact support.')
+      } finally {
+        setIsLoading(false)
+      }
+    }
     // Ensure gtag is available
     if (typeof gtag === 'function') {
       gtag('get', 'G-5MY88GRQM4', 'client_id', (clientId: string) => {
         console.log('clientId', clientId)
         // Store or use the clientId as needed
+        fetchSessionData(clientId)
       })
     } else {
       console.warn('Google Analytics not initialized')
-    }
-    // const fetchSessionData = async () => {
-    //   const urlParams = new URLSearchParams(window.location.search)
-    //   const sessionId = urlParams.get('session')
-    //   if (!sessionId) {
-    //     setError('No session ID found')
-    //     setIsLoading(false)
-    //     return
-    //   }
-
-    //   try {
-    //     const response = await fetch('/.netlify/functions/checkout', {
-    //       method: 'POST',
-    //       headers: {
-    //         'Content-Type': 'application/json'
-    //       },
-    //       body: JSON.stringify({ session: sessionId })
-    //     })
-
-    //     if (!response.ok) {
-    //       throw new Error('Payment verification failed')
-    //     }
-
-    //     const data = await response.json() as SessionData
-    //     const amount = (parseInt((data?.currency_conversion?.amount_total ?? 49900).toFixed(2) * (data?.currency_conversion?.fx_rate ?? 1)) / 100) ?? 499.00
-    //     const currency = data?.currency?.toUpperCase() ?? 'USD'
-    //     gtag('event', 'conversion', { send_to: 'AW-16667981876/mKp3CMnUsckZELTw9Is-', value: amount, currency, transaction_id: sessionId })
-    //     try {
-    //       console.log('Sending GA4 purchase event with data:', {
-    //         transaction_id: sessionId,
-    //         value: amount,
-    //         currency,
-    //         items: [
-    //           {
-    //             item_id: 'prod_RFzvkkUvOF5PmX',
-    //             item_name: 'Partner',
-    //             price: amount,
-    //             quantity: Math.ceil(((parseInt(data?.currency_conversion?.amount_subtotal ?? 49900) / 100).toFixed(2)) / 499.00) || 1,
-    //             index: 0
-    //           }
-    //         ]
-    //       })
-
-    //       // First, verify gtag exists
-    //       if (typeof gtag !== 'function') {
-    //         console.error('gtag is not defined!')
-    //         return
-    //       }
-
-    //       gtag('event', 'purchase', {
-    //         // transaction_id: sessionId,
-    //         value: amount,
-    //         currency,
-    //         items: [
-    //           {
-    //             item_id: 'prod_RFzvkkUvOF5PmX',
-    //             item_name: 'Partner',
-    //             price: amount,
-    //             quantity: Math.ceil(((parseInt(data?.currency_conversion?.amount_subtotal ?? 49900) / 100).toFixed(2)) / 499.00) || 1,
-    //             index: 0
-    //           }
-    //         ]
-    //       })
-
-    //       console.log('GA4 purchase event sent successfully')
-    //     } catch (err) {
-    //       console.error('Error sending GA4 event:', err)
-    //       setError('Unable to verify payment. Please contact support.')
-    //     }
-    //     console.log('Sent to ga4')
-    //     setSessionData(data)
-    //   } catch (err) {
-    //     setError('Unable to verify payment. Please contact support.')
-    //   } finally {
-    //     setIsLoading(false)
-    //   }
-    // }
-
-    // void fetchSessionData()
-
-    const getGAClientId = () => {
-      const cookies = document.cookie.split(';');
-      const gaCookie = cookies.find(cookie => cookie.trim().startsWith('_ga='));
-      if (gaCookie) {
-        // _ga cookie format is: GA1.2.CLIENTID.TIMESTAMP
-        const clientId = gaCookie.trim().split('.').slice(-2).join('.');
-        console.log('GA Client ID from cookie:', clientId);
-        return clientId;
-      }
-      return null;
-    };
-
-    // Try to get client ID
-    const clientId = getGAClientId();
-    if (!clientId) {
-      console.warn('GA Client ID not found in cookies');
     }
   }, [])
 
