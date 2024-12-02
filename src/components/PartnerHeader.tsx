@@ -24,12 +24,12 @@ export default function PartnerHeader (): JSX.Element {
   const [showBanner, setShowBanner] = useState<boolean>(false)
 
   const closeBanner = (): void => {
-    window.localStorage.setItem('showReserveBanner', 'false')
+    window.localStorage.setItem('showChristmasBanner', 'false')
     setShowBanner(false)
   }
 
   const shouldShow = (): void => {
-    if (window.localStorage.getItem('showReserveBanner') === null && window.location.pathname === '/partner/') {
+    if (window.localStorage.getItem('showChristmasBanner') === null && window.location.pathname === '/partner/') {
       setShowBanner(true)
     }
   }
@@ -40,7 +40,7 @@ export default function PartnerHeader (): JSX.Element {
 
   return (
     <div className='sticky top-0 z-50'>
-      {/* <Banner show={showBanner} onClose={closeBanner} /> */}
+      <Banner show={showBanner} onClose={closeBanner} />
       <header className='relative' >
         <AnimatePresence >
           {open && (

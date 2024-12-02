@@ -34,7 +34,7 @@ export default function Banner ({ show, onClose }: IBanner): JSX.Element {
   return (
     <div className={` bg-t-dark-green font-avenirBold text-t-off-white flex flex-row items-center drop-shadow-lg transition-all duration-800 ease-in-out overflow-hidden ${show ? 'lg:h-14 h-20' : 'h-0'}`} >
         <a href='/reserve' rel="noreferrer" className='py-3 cursor-pointer ml-auto w-full text-left text-xs mobilem:text-xs mobilel:text-sm mobilel:text-center md:mr-0 sm:mr-20 mr-14 pl-5 2xl:text-lg '>
-          Thanks for the overwhelming support! Only 17 units are available for the early backer offer. <span className='underline'>Reserve yours now!</span>
+          Reserve by Dec.10th and get a mini Partner 3D-printed gift under your Christmas tree!
         </a>
         <button className=' absolute z-10 right-[5%]' onClick={onClose} ><X className='size-8' /></button>
     </div>
