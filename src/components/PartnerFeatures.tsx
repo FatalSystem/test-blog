@@ -172,7 +172,7 @@ const PartnerFeatures = (): JSX.Element => {
             {handleContent(content)}
         </PartnerPopup>
         <div
-            className="flex rounded-xl flex-row gap-10 overflow-x-scroll mx-5 flex-nowrap [&::-webkit-scrollbar]:hidden"
+            className="flex rounded-l-xl flex-row gap-10 overflow-x-scroll ml-5 pr-5 flex-nowrap [&::-webkit-scrollbar]:hidden"
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
