@@ -115,6 +115,24 @@ export default function ThankYouContentDebug (): JSX.Element {
     // }
 
     // void fetchSessionData()
+
+    const getGAClientId = () => {
+      const cookies = document.cookie.split(';');
+      const gaCookie = cookies.find(cookie => cookie.trim().startsWith('_ga='));
+      if (gaCookie) {
+        // _ga cookie format is: GA1.2.CLIENTID.TIMESTAMP
+        const clientId = gaCookie.trim().split('.').slice(-2).join('.');
+        console.log('GA Client ID from cookie:', clientId);
+        return clientId;
+      }
+      return null;
+    };
+
+    // Try to get client ID
+    const clientId = getGAClientId();
+    if (!clientId) {
+      console.warn('GA Client ID not found in cookies');
+    }
   }, [])
 
   if (isLoading) {
