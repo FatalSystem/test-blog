@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import PartnerPopup from './PartnerPopup'
-import { X } from 'lucide-react'
+import { X, MoveDiagonal } from 'lucide-react'
 
 const PartnerFeatures = (): JSX.Element => {
   const [showPopup, setShowPopup] = useState<boolean>(false)
@@ -172,34 +172,70 @@ const PartnerFeatures = (): JSX.Element => {
             {handleContent(content)}
         </PartnerPopup>
         <div
-            className="flex flex-row gap-10 overflow-x-scroll mx-5 flex-nowrap [&::-webkit-scrollbar]:hidden"
+            className="flex rounded-xl flex-row gap-10 overflow-x-scroll mx-5 flex-nowrap [&::-webkit-scrollbar]:hidden"
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
             onMouseMove={handleMouseMove}
         >
-            <a onClick={() => { handleCardClick('specs') }} className="cursor-pointer relative h-[60vh] min-w-[290px] rounded-xl hover:rounded-3xl flex flex-col justify-center px-10 overflow-hidden transition-all duration-500" >
+            <a onClick={() => { handleCardClick('specs') }} className="cursor-pointer relative h-[60vh] min-w-[290px] rounded-xl hover:rounded-3xl flex flex-col justify-end p-10 overflow-hidden transition-all duration-500" >
                 <div className="absolute inset-0 bg-[url('/images/partner/partner-specs.webp')] bg-cover bg-center transition-transform duration-500 hover:scale-105" />
+                <button
+                    onClick={() => { handleCardClick('specs') }}
+                    className="bg-black/30 text-white p-2 z-10 md:hidden absolute backdrop-blur-sm top-[3%] right-[3%] rounded-full hover:bg-black/50"
+                >
+                    <MoveDiagonal className="w-4 h-4" />
+                </button>
                 <p className="relative z-10 font-avenir text-t-off-white uppercase text-2xl mt-[10vh]" >Specs</p>
             </a>
-            <a onClick={() => { handleCardClick('match') }} className="cursor-pointer relative h-[60vh] min-w-[290px] rounded-xl hover:rounded-3xl flex flex-col justify-center px-10 overflow-hidden transition-all duration-500" >
+            <a onClick={() => { handleCardClick('match') }} className="cursor-pointer relative h-[60vh] min-w-[290px] rounded-xl hover:rounded-3xl flex flex-col justify-end p-10 overflow-hidden transition-all duration-500" >
                 <div className="absolute inset-0 bg-[url('/images/partner/partner-match.webp')] bg-cover bg-center transition-transform duration-500 hover:scale-105" />
+                <button
+                    onClick={() => { handleCardClick('match') }}
+                    className="bg-black/30 text-white p-2 z-10 md:hidden absolute backdrop-blur-sm top-[3%] right-[3%] rounded-full hover:bg-black/50"
+                >
+                    <MoveDiagonal className="w-4 h-4" />
+                </button>
                 <p className="relative z-10 font-avenir text-t-off-white uppercase text-2xl mt-[10vh]" >Match my level</p>
             </a>
-            <a onClick={() => { handleCardClick('portable') }} className="cursor-pointer relative h-[60vh] min-w-[290px] rounded-xl hover:rounded-3xl flex flex-col justify-center px-10 overflow-hidden transition-all duration-500" >
+            <a onClick={() => { handleCardClick('portable') }} className="cursor-pointer relative h-[60vh] min-w-[290px] rounded-xl hover:rounded-3xl flex flex-col justify-end p-10 overflow-hidden transition-all duration-500" >
                 <div className="absolute inset-0 bg-[url('/images/partner/partner-portable.webp')] bg-cover bg-center transition-transform duration-500 hover:scale-105" />
+                <button
+                    onClick={() => { handleCardClick('portable') }}
+                    className="bg-black/30 text-white p-2 z-10 md:hidden absolute backdrop-blur-sm top-[3%] right-[3%] rounded-full hover:bg-black/50"
+                >
+                    <MoveDiagonal className="w-4 h-4" />
+                </button>
                 <p className="relative z-10 font-avenir text-t-off-white uppercase text-2xl mt-[10vh]" >Portable</p>
             </a>
-            <a onClick={() => { handleCardClick('human') }} className="cursor-pointer relative h-[60vh] min-w-[290px] rounded-xl hover:rounded-3xl flex flex-col justify-center px-10 overflow-hidden transition-all duration-500" >
+            <a onClick={() => { handleCardClick('human') }} className="cursor-pointer relative h-[60vh] min-w-[290px] rounded-xl hover:rounded-3xl flex flex-col justify-end p-10 overflow-hidden transition-all duration-500" >
                 <div className="absolute inset-0 bg-[url('/images/partner/partner-human.webp')] bg-cover bg-center transition-transform duration-500 hover:scale-105" />
+                <button
+                    onClick={() => { handleCardClick('human') }}
+                    className="bg-black/30 text-white p-2 z-10 md:hidden absolute backdrop-blur-sm top-[3%] right-[3%] rounded-full hover:bg-black/50"
+                >
+                    <MoveDiagonal className="w-4 h-4" />
+                </button>
                 <p className="relative z-10 font-avenir text-t-off-white uppercase text-2xl mt-[13vh]" >Human-like playability</p>
             </a>
-            <a onClick={() => { handleCardClick('follow') }} className="cursor-pointer relative h-[60vh] min-w-[290px] rounded-xl hover:rounded-3xl flex flex-col justify-center px-10 overflow-hidden transition-all duration-500" >
+            <a onClick={() => { handleCardClick('follow') }} className="cursor-pointer relative h-[60vh] min-w-[290px] rounded-xl hover:rounded-3xl flex flex-col justify-end p-10 overflow-hidden transition-all duration-500" >
                 <div className="absolute inset-0 bg-[url('/images/partner/partner-follow.webp')] bg-cover bg-center transition-transform duration-500 hover:scale-105" />
+                <button
+                    onClick={() => { handleCardClick('follow') }}
+                    className="bg-black/30 text-white p-2 z-10 md:hidden absolute backdrop-blur-sm top-[3%] right-[3%] rounded-full hover:bg-black/50"
+                >
+                    <MoveDiagonal className="w-4 h-4" />
+                </button>
                 <p className="relative z-10 font-avenir text-t-off-white uppercase text-2xl mt-[10vh]" >Follow me</p>
             </a>
-            <a onClick={() => { handleCardClick('safety') }} className="cursor-pointer relative h-[60vh] min-w-[290px] rounded-xl hover:rounded-3xl flex flex-col justify-center px-10 overflow-hidden transition-all duration-500" >
+            <a onClick={() => { handleCardClick('safety') }} className="cursor-pointer relative h-[60vh] min-w-[290px] rounded-xl hover:rounded-3xl flex flex-col justify-end p-10 overflow-hidden transition-all duration-500" >
                 <div className="absolute inset-0 bg-[url('/images/partner/partner-safety.webp')] bg-cover bg-center transition-transform duration-500 hover:scale-105" />
+                <button
+                    onClick={() => { handleCardClick('safety') }}
+                    className="bg-black/30 text-white p-2 z-10 md:hidden absolute backdrop-blur-sm top-[3%] right-[3%] rounded-full hover:bg-black/50"
+                >
+                    <MoveDiagonal className="w-4 h-4" />
+                </button>
                 <p className="relative z-10 font-avenir text-t-off-white uppercase text-2xl mt-[10vh]" >Intelligent safety</p>
             </a>
         </div>

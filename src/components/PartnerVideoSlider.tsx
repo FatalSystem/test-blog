@@ -133,7 +133,7 @@ export default function PartnerVideoSlider ({ type }: IProps): JSX.Element {
                   <p className="font-pluto text-t-off-white text-sm" >The most human ball machine you have ever practiced with! The Partner detects your movements and moves around the court to ensure a challenging practice for any shot you can think of.</p>
               </div>
           </>,
-        style: 'bg-black md:h-[80vh] h-[550px] cc-slider'
+        style: 'bg-t-off-black md:h-[80vh] h-[550px] cc-slider'
       },
       {
         content: <>
@@ -196,7 +196,7 @@ export default function PartnerVideoSlider ({ type }: IProps): JSX.Element {
           <p className="font-pluto text-t-off-white text-sm" >Perfect your bajada and chiquita with AI-powered drills that adapt to your style, keeping each rally challenging so you stay on your toes every time you step on the court.</p>
           </div>
       </>,
-        style: 'bg-black md:h-[80vh] h-[550px] cc-slider'
+        style: 'bg-t-off-black md:h-[80vh] h-[550px] cc-slider'
       },
       {
         content: <>
@@ -259,7 +259,7 @@ export default function PartnerVideoSlider ({ type }: IProps): JSX.Element {
               <p className="font-pluto text-t-off-white text-sm" >Dinks, drives, and third shot drops - Practice any shot you want, anywhere on the court with the most realistic gameplay a ball machine can provide.</p>
               </div>
           </>,
-        style: 'bg-black md:h-[80vh] h-[550px] cc-slider'
+        style: 'bg-t-off-black md:h-[80vh] h-[550px] cc-slider'
       }
     ]
   }
@@ -267,7 +267,7 @@ export default function PartnerVideoSlider ({ type }: IProps): JSX.Element {
   return (
     <TSlider
     slides={slides[type]}
-    contentContainerStyle="p-10 sm:w-[80%] bg-black h-full m-auto"
+    contentContainerStyle="p-10 sm:w-[80%] bg-t-off-black h-full m-auto"
     arrowsStyle="lg:bottom-[15%] min-[640px]:bottom-[50%] mobilel:bottom-[5%] bottom-[12%]"
     dotContainerStyle="tablet:hidden mobilel:bottom-[3%] flex gap-7"
     dotContainerDesktopStyle="tablet:flex lg:bottom-[10%] mobilel:bottom-[3%] bottom-[10%] gap-7"
