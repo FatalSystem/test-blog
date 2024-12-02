@@ -17,6 +17,14 @@ export default function ThankYouContentDebug (): JSX.Element {
 
   useEffect(() => {
     console.log('wow')
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5MY88GRQM4', {
+      page_path: window.location.pathname,
+      page_title: 'Thank You'
+    })
+    console.log('gtag reinitialized')
     gtag('get', 'G-5MY88GRQM4', 'client_id', (clientId: string) => {
       console.log('clientId', clientId)
     })
