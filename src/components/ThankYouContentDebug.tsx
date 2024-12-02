@@ -10,6 +10,9 @@ interface SessionData {
   }
 }
 
+// Type declaration for gtag
+declare function gtag(...args: any[]): void;
+
 export default function ThankYouContentDebug (): JSX.Element {
   const [sessionData, setSessionData] = useState<SessionData | null>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -25,9 +28,15 @@ export default function ThankYouContentDebug (): JSX.Element {
       page_title: 'Thank You'
     })
     console.log('gtag reinitialized')
-    gtag('get', 'G-5MY88GRQM4', 'client_id', (clientId: string) => {
-      console.log('clientId', clientId)
-    })
+    // Ensure gtag is available
+    if (typeof gtag === 'function') {
+      gtag('get', 'G-5MY88GRQM4', 'client_id', (clientId: string) => {
+        console.log('clientId', clientId)
+        // Store or use the clientId as needed
+      })
+    } else {
+      console.warn('Google Analytics not initialized')
+    }
     // const fetchSessionData = async () => {
     //   const urlParams = new URLSearchParams(window.location.search)
     //   const sessionId = urlParams.get('session')
