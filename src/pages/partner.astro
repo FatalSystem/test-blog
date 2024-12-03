@@ -26,7 +26,7 @@ import DraggablePartnerAction from "@components/DraggablePartnerAction"
             <p class="font-avenir text-t-off-white text-left uppercase md:text-xl text-md" >
                 The only ball machine<br class="md:hidden" /> that moves like a human.
             </p>
-            <a href={Pages.RESERVE} class={`mt-10 w-64 tablet:w-64 2xl:w-80 text-xl 2xl:text-2xl 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green`}>Reserve</a>
+            <a href={Pages.RESERVE} class={`mt-10 w-64 tablet:w-64 2xl:w-80 text-xl 2xl:text-2xl 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>Reserve</a>
         </div>
 
         <div class="w-[50%] mx-auto pb-[15vh] z-10 flex flex-col justify-end" >
@@ -59,27 +59,27 @@ import DraggablePartnerAction from "@components/DraggablePartnerAction"
         </div>
       </section>
 
-      <section class="relative hidden lg:block bg-black" >
+      <section class="relative hidden lg:block bg-t-off-black" >
         <div class="w-[80%] mx-auto pt-24 pb-10" >
             <h2 class="font-avenirBold text-t-green text-center uppercase md:text-3xl mobilem:text-2xl text-xl" >Train without limits</h2>
         </div>
         <PartnerVideoDisplay client:load />
     </section>
 
-    <section class="relative block lg:hidden bg-black" >
+    <section class="relative block lg:hidden bg-t-off-black" >
         <div class="w-[80%] mx-auto pt-24 pb-10" >
             <h2 class="font-avenirBold text-t-green text-center uppercase md:text-3xl mobilem:text-2xl text-xl" >Train without limits</h2>
         </div>
         <PartnerVideoSlider type="tennis" client:load />
     </section>
 
-      <section class="bg-black" >
+      <section class="bg-t-off-black" >
         <div class="w-[80%] mx-auto pt-16 pb-10" >
             <h2 class="font-avenirBold text-t-green text-center uppercase md:text-3xl mobilem:text-2xl text-xl" >Why Tennibot?</h2>
             <p class="font-pluto text-t-off-white text-center mt-5 md:text-lg mobilem:text-md text-sm" >We invented intelligent court training – the rest are just playing catch-up.</p>
         </div>
 
-        <div class="w-[80%] mx-auto flex lg:flex-row flex-col lg:gap-15 gap-10 pt-5 pb-16" >
+        <div class="w-[80%] 2xl:w-[65%] mx-auto flex lg:flex-row flex-col lg:gap-15 gap-10 pt-5 pb-16" >
             <div class="w-[100%] border-2 md:max-w-[50%] md:mx-auto border-t-off-white rounded-xl text-left py-8 px-5" >
                 <h5 class="font-avenirBold uppercase text-xl text-t-off-white mb-3" >Premium Quality</h5>
                 <p class="font-pluto text-t-off-white text-sm text-pretty" >Tennibot is the only ball machine company that offers a <span class="text-t-green">3-year warranty</span>. We stand behind our quality, while others don't.</p>
@@ -95,8 +95,8 @@ import DraggablePartnerAction from "@components/DraggablePartnerAction"
         </div>
       </section>
 
-      <section class="bg-black" >
-        <div class="w-[80%] mx-auto flex md:flex-row flex-col justify-center pt-10 md:pb-36 pb-16" >
+      <section class="bg-t-off-black" >
+        <div class="w-[80%] 2xl:w-[65%] mx-auto flex md:flex-row flex-col justify-center pt-10 md:pb-36 pb-16" >
             <div class=" flex flex-col md:items-center items-start md:w-[50%]" >
                 <h5 class="font-avenirBold md:text-2xl text-xl uppercase text-left text-t-off-white mb-5" >
                     Designed and<br class="" /> assembled in the USA
@@ -106,52 +106,50 @@ import DraggablePartnerAction from "@components/DraggablePartnerAction"
                 <p class="font-avenir md:text-md text-sm text-t-off-white mb-8" >
                     Tennibot's products are proudly designed and assembled in Auburn, Alabama.<br class="md:block hidden" /> Crafted with care by fellow tennis, pickle, & padel players.
                 </p>
-                <a href={Pages.RESERVE} class={`tablet:w-64 w-full 2xl:w-80 text-xl 2xl:text-2xl 2xl: 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green`}>Reserve</a>
+                <a href={Pages.RESERVE} class={`tablet:w-64 w-full 2xl:w-80 text-xl 2xl:text-2xl 2xl: 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>Reserve</a>
             </div>
         </div>
 
-        <div class="w-[80%] mx-auto flex flex-row justify-center gap-10 pt-5 pb-16" >
+        <div class="w-[80%] 2xl:w-[65%] mx-auto flex flex-row justify-center gap-10 pt-5 pb-16" >
             <p class="font-avenir text-t-off-white text-center text-md md:text-lg" >
                 "Finally, a ball machine that moves and adapts like a real player. I have been waiting for this invention for years!"<br /> <br />James C., Tennis Coach | Burlingame, CA
             </p>
         </div>
       </section>
       
-      <section class="bg-black pt-5 md:pb-36 pb-16" >
+      <section class="bg-t-off-black pt-5 md:pb-36 pb-16" >
         <PartnerFeatures client:load />
       </section>
 
-      <section class="bg-black md:pb-36 pb-16 pt-10" >
+      <section class="bg-t-off-black md:pb-36 pb-16 pt-10" >
         <div class="w-[80%] mx-auto" >
             <h2 class="font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl uppercase" >How partner works</h2>
             <p class="font-pluto text-t-off-white text-center md:text-lg mobilem:text-lg text-sm mt-5 mb-10" >In three easy steps...</p>
         </div>
         <PartnerHowItWorksSlider client:load />
       </section>
-      <section class="bg-black pt-16 md:pb-36 pb-16" >
+      <section class="bg-t-off-black pt-16 md:pb-36 pb-16" >
         <div class="" >
             <h2 class="w-[80%] mx-auto font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl mb-10" >Intelligent. Powerful. Unmatched.</h2>
-            <div class="lg:bg-t-off-black lg:w-[80%] lg:mx-auto lg:p-10 rounded-xl flex flex-col">
+            <div class="lg:bg-t-off-black lg:w-[80%] 2xl:w-[65%] lg:mx-auto lg:p-10 rounded-xl flex flex-col">
                 <p class="md:mx-5 mx-auto font-avenir uppercase text-t-off-white md:text-2xl mobilem:text-xl mb-5">See it in action</p>
                 <DraggablePartnerAction client:load />
             </div>
         </div>
       </section>
-      <section class="bg-black pt-16 pb-36" >
+      <section class="bg-t-off-black pt-16 pb-36" >
         <div class="" >
             <h2 class="font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl mb-10" >But don't take our word for it!</h2>
-            <!-- <div class="px-5 flex flex-row gap-10 overflow-x-scroll flex-nowrap [&::-webkit-scrollbar]:hidden" > -->
             <DraggableSlider client:load className="gap-10" >
                 <TestimonialItem client:load quote={`"It’s fantastic for drilling, practice points, and even doubles drills. I really enjoyed it."`} name="Sylvana Jordyn" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406658" className="bg-[url('/images/partner/testimonial-one.png')]" />
                 <TestimonialItem client:load quote={`“I worked on rapid-fire volleys, reflexes, and range at the net—it’s perfect for sharpening your skills.”`} name="Logan West" location="Washington, DC" videoSource="https://player.vimeo.com/video/1031406854" className="bg-[url('/images/partner/testimonial-two.png')]" />
                 <TestimonialItem client:load quote={`“What surprised me the most was how much I had to move and anticipate—it felt just like a real hitting session.”`} name="Alex Chan" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406731" className="bg-[url('/images/partner/testimonial-three.png')]" />
                 <TestimonialItem client:load quote={`“The Tennibot Partner is an amazing ball machine—it moves, evolves, and offers an experience unlike any other ball machine I’ve played with before.”`} name="Mo Eldemerdash" location="Auburn, AL" videoSource="https://player.vimeo.com/video/1031426621" className="bg-[url('/images/partner/testimonial-four.png')]" />
             </DraggableSlider>
-            <!-- </div> -->
         </div>
       </section>
 
-      <!-- <section class="bg-black pt-16 md:pb-44 pb-16" >
+      <!-- <section class="bg-t-off-black pt-16 md:pb-44 pb-16" >
         <div class="w-[80%] md:bg-t-off-black rounded-xl mx-auto px-0 md:px-14 py-16" >
             <h2 class="font-avenirBold text-t-green text-center text-3xl  mobilem:text-2xl mb-5" >Reserve your spot now </h2>
             <p class="font-avenir text-t-off-white text-center text-lg mb-10" >Be one of the Early Backers - only 150 units available</p>

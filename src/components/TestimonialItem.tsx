@@ -30,7 +30,7 @@ export default function TestimonialItem ({ className, quote, name, location, vid
 
   return (
     <>
-        <div className="group bg-t-off-black rounded-xl flex border-[1px] md:border-transparent border-t-off-white lg:flex-row flex-col justify-between overflow-hidden md:min-h-[250px] md:min-w-[40%] min-w-[80%]" >
+        <div className="group bg-t-off-black rounded-xl flex border-[1px] border-t-off-white lg:flex-row flex-col justify-between overflow-hidden md:min-h-[250px] md:min-w-[40%] min-w-[80%]" >
             <div className={`${className} bg-cover lg:bg-center lg:w-[80%]`} >
                 <button onClick={() => { setIsOpen(true) }} className="w-full relative flex flex-col justify-center items-center lg:h-full md:h-[25vh] h-[35vh]" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 57 72" fill="none" className="fill-t-off-white group-hover:fill-t-green" >
