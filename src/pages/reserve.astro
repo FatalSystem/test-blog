@@ -1,5 +1,9 @@
 ---
 import Layout from "layouts/Layout.astro"
+import customization from '@assets/partner/customization-icon.svg'
+import shipping from '@assets/partner/shipping-icon.svg'
+import moneyBack from '@assets/partner/return-icon.svg'
+import warranty from '@assets/partner/warranty-icon.svg'
 ---
 <Layout title="Reserve | Tennibot" showFooter={false} showHeader={false} >
     <!-- Trackdesk set client_reference_id help fuction begin -->
@@ -69,7 +73,53 @@ import Layout from "layouts/Layout.astro"
                   </div>
                 </button>
               </div>
-              <p class="font-avenir text-t-green text-sm" >Free US Shipping</p>
+              <!-- <p class="font-avenir text-t-green text-sm" >Free US Shipping</p> -->
+            </div>
+            <div class="px-5 flex flex-col gap-y-5" >
+              <div class="border-[1px] border-t-green rounded-lg px-5 py-3" >
+                <div class="flex flex-row gap-x-2 items-center" >
+                  <img
+                    src={shipping.src}
+                    width={25}
+                    height={25}
+                  />
+                  <p class="font-avenirBold text-t-off-white text-sm" >Shipping</p>
+                </div>
+                <div class="mt-4" >
+                  <p class="font-avenir text-t-gray text-xs" >US: Free</p>
+                  <p class="font-avenir text-t-gray text-xs" >International (Europe, Middle East, Australia & Asia): $149</p>
+                </div>
+              </div>
+
+              <div class="border-[1px] border-t-green rounded-lg px-5 py-3" >
+                <div class="flex flex-row gap-x-2 items-center fill-t-green" >
+                  <img
+                    src={moneyBack.src}
+                    width={25}
+                    height={25}
+                    class="fill-t-green stroke-t-green"
+                  />
+                  <p class="font-avenirBold text-t-off-white text-sm" >60-day-money-back-guarantee</p>
+                </div>
+                <div class="mt-4 mb-2" >
+                  <p class="font-avenir text-t-gray text-xs" >Try Partner for 60 days. Free returns within 60 days.</p>
+                </div>
+              </div>
+
+              <div class="border-[1px] border-t-green rounded-lg px-5 py-3" >
+                <div class="flex flex-row gap-x-2 items-center stroke-t-green fill-t-green" >
+                  <img
+                    src={warranty.src}
+                    width={25}
+                    height={25}
+                    class="fill-t-green stroke-t-green"
+                  />
+                  <p class="font-avenirBold text-t-off-white text-sm" >3 Year Warranty</p>
+                </div>
+                <div class="mt-4 mb-2" >
+                  <p class="font-avenir text-t-gray text-xs" >Purchase with peace of mind.</p>
+                </div>
+              </div>
             </div>
             <!-- <div class="bg-white p-5 mt-2" >
               <p class="font-avenir text-[#A6A6A6] text-xl">Deposit</p>
