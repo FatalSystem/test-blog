@@ -15,16 +15,23 @@ export default function ThankYouContent (): JSX.Element {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
+  const generateClientId = (): string => {
+    const randomPart1 = Math.floor(Math.random() * 1e10) // Random 10-digit number
+    const randomPart2 = Math.floor(Math.random() * 1e10) // Random 10-digit number
+    return `${randomPart1}.${randomPart2}`
+  }
+
   useEffect(() => {
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    window.dataLayer = window.dataLayer || []
+    function gtag () { dataLayer.push(arguments) }
+    gtag('js', new Date())
     gtag('config', 'G-5MY88GRQM4', {
       page_path: window.location.pathname,
       page_title: 'Thank You'
     })
     console.log('gtag reinitialized')
-    const fetchSessionData = async () => {
+    const fetchSessionData = async (clientId: string) => {
+      console.log('Fetching session data')
       const urlParams = new URLSearchParams(window.location.search)
       const sessionId = urlParams.get('session')
       if (!sessionId) {
@@ -34,12 +41,12 @@ export default function ThankYouContent (): JSX.Element {
       }
 
       try {
-        const response = await fetch('/.netlify/functions/checkout', {
+        const response = await fetch('/.netlify/functions/record-purchase', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ session: sessionId })
+          body: JSON.stringify({ session: sessionId, clientId })
         })
 
         if (!response.ok) {
@@ -47,53 +54,9 @@ export default function ThankYouContent (): JSX.Element {
         }
 
         const data = await response.json() as SessionData
-        const amount = (parseInt((data?.currency_conversion?.amount_total ?? 49900).toFixed(2) * (data?.currency_conversion?.fx_rate ?? 1)) / 100) ?? 499.00
-        const currency = data?.currency?.toUpperCase() ?? 'USD'
-        gtag('event', 'conversion', { send_to: 'AW-16667981876/mKp3CMnUsckZELTw9Is-', value: amount, currency, transaction_id: sessionId })
-        try {
-          console.log('Sending GA4 purchase event with data:', {
-            transaction_id: sessionId,
-            value: amount,
-            currency,
-            items: [
-              {
-                item_id: 'prod_RFzvkkUvOF5PmX',
-                item_name: 'Partner',
-                price: amount,
-                quantity: Math.ceil(((parseInt(data?.currency_conversion?.amount_subtotal ?? 49900) / 100).toFixed(2)) / 499.00) || 1,
-                index: 0
-              }
-            ]
-          })
-
-          // First, verify gtag exists
-          if (typeof gtag !== 'function') {
-            console.error('gtag is not defined!')
-            return
-          }
-
-          gtag('event', 'purchase', {
-            // transaction_id: sessionId,
-            value: amount,
-            currency,
-            items: [
-              {
-                item_id: 'prod_RFzvkkUvOF5PmX',
-                item_name: 'Partner',
-                price: amount,
-                quantity: Math.ceil(((parseInt(data?.currency_conversion?.amount_subtotal ?? 49900) / 100).toFixed(2)) / 499.00) || 1,
-                index: 0
-              }
-            ]
-          })
-
-          console.log('GA4 purchase event sent successfully')
-        } catch (err) {
-          console.error('Error sending GA4 event:', err)
-          setError('Unable to verify payment. Please contact support.')
-        }
-        console.log('Sent to ga4')
+        gtag('event', 'conversion', { send_to: 'AW-16667981876/mKp3CMnUsckZELTw9Is-', value: data.amount, currency: data.currency, transaction_id: sessionId })
         setSessionData(data)
+        setIsLoading(false)
       } catch (err) {
         setError('Unable to verify payment. Please contact support.')
       } finally {
@@ -101,7 +64,19 @@ export default function ThankYouContent (): JSX.Element {
       }
     }
 
-    void fetchSessionData()
+    if (typeof gtag === 'function') {
+      gtag('get', 'G-5MY88GRQM4', 'client_id', (clientId: string) => {
+        console.log('clientId', clientId)
+        // Store or use the clientId as needed
+        console.log('Are we getting here?')
+        fetchSessionData(clientId)
+      })
+    } else {
+      console.log('Getting here?')
+      const randomClientId = generateClientId()
+      fetchSessionData(randomClientId)
+      console.warn('Google Analytics not initialized')
+    }
   }, [])
 
   if (isLoading) {
@@ -112,9 +87,6 @@ export default function ThankYouContent (): JSX.Element {
     )
   }
 
-  const amount = (parseInt((sessionData?.currency_conversion?.amount_total ?? 49900).toFixed(2) * (sessionData?.currency_conversion?.fx_rate ?? 1)) / 100) ?? 499.00
-  const currency = sessionData?.currency?.toUpperCase() ?? 'USD'
-
   return (
     <main className="overflow-hidden text-t-off-white">
         <section className="mx-auto md:h-[100vh] h-[150vh] flex md:flex-row flex-col-reverse justify-center">
@@ -123,12 +95,12 @@ export default function ThankYouContent (): JSX.Element {
                     <div>
                         <img src={tennibotLogo.src} width={30} alt="Tennibot Logo" />
                         <p className="font-avenir text-t-gray mt-3">Pay Tennibot</p>
-                        <p className="font-avenirBold text-t-off-white text-2xl mt-3">${amount} {currency}</p>
+                        <p className="font-avenirBold text-t-off-white text-2xl mt-3">${sessionData?.amount} {sessionData?.currency}</p>
                     </div>
                     <div className="mt-5 border-b-[1px] pb-10 border-[#afafae5f] " >
                         <div className="flex flex-row justify-between" >
                             <p className="font-avenir text-t-off-white">Partner</p>
-                            <p className="font-avenir text-t-off-white">${amount} {currency}</p>
+                            <p className="font-avenir text-t-off-white">${sessionData?.amount} {sessionData?.currency}</p>
                         </div>
                         <p className="font-avenir text-t-gray text-sm mt-3">Thank you for you reservation. The expected shipping date is April 2025.</p>
                         <div className="bg-[#afafae5f] rounded-md px-2 py-[1.5px] flex flex-col justify-center mt-3 w-fit ">
@@ -137,7 +109,7 @@ export default function ThankYouContent (): JSX.Element {
                     </div>
                     <div className="flex flex-row justify-between mt-5" >
                         <p className="font-avenir text-t-off-white">Total paid</p>
-                        <p className="font-avenir text-t-off-white">${amount} {currency}</p>
+                        <p className="font-avenir text-t-off-white">${sessionData?.amount} {sessionData?.currency}</p>
                     </div>
                 </div>
             </div>
@@ -150,7 +122,7 @@ export default function ThankYouContent (): JSX.Element {
                         <p className="font-avenir text-t-gray mt-3">A payment to TENNIBOT will appear on your statement.</p>
                         <div className="bg-[#afafae5f] rounded-md px-5 py-5 flex flex-row justify-between mt-3 w-full">
                             <p className="font-avenirBold uppercase text-[#595959dc]">Tennibot</p>
-                            <p className="font-avenir text-[#595959dc]">${amount.toFixed(2)} {currency}</p>
+                            <p className="font-avenir text-[#595959dc]">${sessionData.amount.toFixed(2)} {sessionData.currency}</p>
                         </div>
                         <div className="flex flex-row gap-5">
                             <a href={Pages.TERMS} className="font-avenir text-t-gray mt-3">Terms</a>
