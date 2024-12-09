@@ -322,7 +322,7 @@ export default function PartnerVideoSlider ({ type }: IProps): JSX.Element {
                       onPlay={() => { setIsPlaying(true) }}
                       onPause={() => { setIsPlaying(false) }}
                   >
-                      <source src="/videos/rapid-demo.mp4" type="video/mp4" />
+                      <source src="/videos/fast-demo-mobile.mp4" type="video/mp4" />
                       {'Your browser doesn\'t support the video tag.'}
                   </video>
               </div>
