@@ -99,7 +99,7 @@ export default function InvestForm ({ from, listId }: { from: string, listId: st
                   render={({ field }) => (
                       <FormItem className='flex flex-col w-full gap-1' >
                           <FormControl>
-                              <Input {...field} placeholder='Name' className={inputStyle} />
+                              <Input {...field} placeholder='Name*' className={inputStyle} />
                           </FormControl>
                           <FormMessage />
                       </FormItem>
@@ -114,7 +114,7 @@ export default function InvestForm ({ from, listId }: { from: string, listId: st
                       <FormItem className='flex flex-col w-full gap-1 lg:w-full' >
                           <FormLabel className={labelStyle} >Email address*</FormLabel>
                           <FormControl>
-                              <Input {...field} placeholder='Email Address' value={sent ? 'Thank you!' : field.value} style={{ borderRadius: sent ? '0.35rem 0.35rem 0.35rem 0.35rem' : '0.35rem 0 0 0.35rem', width: '100%' }} type='email' className={`${inputStyle} border-l-2 border-t-2 border-b-2 border-r-0 pl-5 border-t-green mb-0 ${sent && 'text-t-off-black bg-t-green text-center pl-0'}`} />
+                              <Input {...field} placeholder='Email Address*' value={sent ? 'Thank you!' : field.value} style={{ borderRadius: sent ? '0.35rem 0.35rem 0.35rem 0.35rem' : '0.35rem 0 0 0.35rem', width: '100%' }} type='email' className={`${inputStyle} border-l-2 border-t-2 border-b-2 border-r-0 pl-5 border-t-green mb-0 ${sent && 'text-t-off-black bg-t-green text-center pl-0'}`} />
                           </FormControl>
                           <FormMessage />
                       </FormItem>

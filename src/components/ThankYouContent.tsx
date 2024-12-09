@@ -31,37 +31,38 @@ export default function ThankYouContent (): JSX.Element {
     })
     console.log('gtag reinitialized')
     const fetchSessionData = async (clientId: string) => {
-      console.log('Fetching session data')
-      const urlParams = new URLSearchParams(window.location.search)
-      const sessionId = urlParams.get('session')
-      if (!sessionId) {
-        setError('No session ID found')
-        setIsLoading(false)
-        return
-      }
+      // console.log('Fetching session data')
+      // const urlParams = new URLSearchParams(window.location.search)
+      // const sessionId = urlParams.get('session')
+      // if (!sessionId) {
+      //   setError('No session ID found')
+      //   setIsLoading(false)
+      //   return
+      // }
 
-      try {
-        const response = await fetch('/.netlify/functions/record-purchase', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ session: sessionId, clientId })
-        })
+      // try {
+      //   const response = await fetch('/.netlify/functions/record-purchase', {
+      //     method: 'POST',
+      //     headers: {
+      //       'Content-Type': 'application/json'
+      //     },
+      //     body: JSON.stringify({ session: sessionId, clientId })
+      //   })
 
-        if (!response.ok) {
-          throw new Error('Payment verification failed')
-        }
+      //   if (!response.ok) {
+      //     throw new Error('Payment verification failed')
+      //   }
 
-        const data = await response.json() as SessionData
-        gtag('event', 'conversion', { send_to: 'AW-16667981876/mKp3CMnUsckZELTw9Is-', value: data.amount, currency: data.currency, transaction_id: sessionId })
-        setSessionData(data)
-        setIsLoading(false)
-      } catch (err) {
-        setError('Unable to verify payment. Please contact support.')
-      } finally {
-        setIsLoading(false)
-      }
+      //   const data = await response.json() as SessionData
+      //   gtag('event', 'conversion', { send_to: 'AW-16667981876/mKp3CMnUsckZELTw9Is-', value: data.amount, currency: data.currency, transaction_id: sessionId })
+      //   setSessionData(data)
+      //   setIsLoading(false)
+      // } catch (err) {
+      //   setError('Unable to verify payment. Please contact support.')
+      // } finally {
+      //   setIsLoading(false)
+      // }
+      console.log('Fetching session data', clientId)
     }
 
     if (typeof gtag === 'function') {
@@ -69,12 +70,12 @@ export default function ThankYouContent (): JSX.Element {
         console.log('clientId', clientId)
         // Store or use the clientId as needed
         console.log('Are we getting here?')
-        fetchSessionData(clientId)
+        void fetchSessionData(clientId)
       })
     } else {
       console.log('Getting here?')
       const randomClientId = generateClientId()
-      fetchSessionData(randomClientId)
+      void fetchSessionData(randomClientId)
       console.warn('Google Analytics not initialized')
     }
   }, [])

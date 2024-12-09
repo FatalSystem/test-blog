@@ -39,7 +39,7 @@ export default function PartnerFooterForm ({ formClassName, inputClassName, butt
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email: values.email, from: 'Footer', rcToken: token, listId: 'URW7Es' })
+        body: JSON.stringify({ email: values.email, from: 'Footer', rcToken: token, listId: 'WuJSx3' })
       })
       if (response.status !== 200) {
         setErrorSubmitting(true)
