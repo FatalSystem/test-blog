@@ -9,13 +9,13 @@ const PartnerVideoDisplay = (): JSX.Element => {
   const handleVideoSource = (tab: number): string => {
     switch (tab) {
       case 0:
-        return '/videos/tennis-partner-im.mp4'
+        return '/videos/tennis-partner-desktop.mp4'
       case 1:
         return '/videos/padel-partner.mp4'
       case 2:
         return '/videos/pickle-partner.mp4'
       default:
-        return '/videos/tennis-partner-im.mp4'
+        return '/videos/tennis-partner-desktop.mp4'
     }
   }
 
