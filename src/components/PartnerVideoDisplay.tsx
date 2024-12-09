@@ -15,7 +15,7 @@ const PartnerVideoDisplay = (): JSX.Element => {
       case 2:
         return '/videos/pickle-partner.mp4'
       default:
-        return '/videos/tennis-partner.mp4'
+        return '/videos/tennis-partner-im.mp4'
     }
   }
 
