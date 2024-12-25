@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { Volume2, VolumeX, Fullscreen } from 'lucide-react'
 import { TSlider } from './TSlider/TSlider'
+import { useMediaQuery } from 'usehooks-ts'
 
 const containerStyle = 'font-avenir text-t-off-white flex flex-col size-full justify-center md:justify-start tablet:mt-0 mt-[-15%] sm:pt-[7vh] 2xl:pt-[7%] lg:max-w-[85%] 2xl:max-w-[75%] mx-auto '
 const titleStyle = 'uppercase font-avenirBold text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl mb-5'
@@ -15,6 +16,7 @@ export default function PartnerVideoSlider ({ type }: IProps): JSX.Element {
   const [isMuted, setIsMuted] = useState<boolean>(true)
   const [isPlaying, setIsPlaying] = useState<boolean>(true)
   const [showControls, setShowControls] = useState<boolean>(false)
+  const isMobile = useMediaQuery('(max-width: 500px)')
 
   const handleFullscreen = (videoElement: HTMLVideoElement) => {
     if (!videoElement) return
@@ -322,7 +324,7 @@ export default function PartnerVideoSlider ({ type }: IProps): JSX.Element {
                       onPlay={() => { setIsPlaying(true) }}
                       onPause={() => { setIsPlaying(false) }}
                   >
-                      <source src="/videos/fast-demo-mobile.mp4" type="video/mp4" />
+                      <source src={isMobile ? '/videos/fast-demo-mobile.mp4' : '/videos/fast-demo.mp4'} type="video/mp4" />
                       {'Your browser doesn\'t support the video tag.'}
                   </video>
               </div>

@@ -1,9 +1,11 @@
 import { Fullscreen, Volume2, VolumeX } from 'lucide-react'
 import { useState } from 'react'
+import { useMediaQuery } from 'usehooks-ts'
 
 export default function ReservePageVideo (): JSX.Element {
   const [isMuted, setIsMuted] = useState<boolean>(true)
   const [isPlaying, setIsPlaying] = useState<boolean>(true)
+  const isMobile = useMediaQuery('(max-width: 500px)')
 
   const handleFullscreen = (videoElement: HTMLVideoElement) => {
     if (!videoElement) return
@@ -111,7 +113,7 @@ export default function ReservePageVideo (): JSX.Element {
                     onPlay={() => { setIsPlaying(true) }}
                     onPause={() => { setIsPlaying(false) }}
                 >
-                    <source src="/videos/fast-demo-mobile.mp4" type="video/mp4" />
+                    <source src={isMobile ? '/videos/fast-demo-mobile.mp4' : '/videos/fast-demo.mp4'} type="video/mp4" />
                     {'Your browser doesn\'t support the video tag.'}
                 </video>
             </div>
