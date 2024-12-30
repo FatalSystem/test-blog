@@ -72,7 +72,7 @@ const PartnerVideoDisplay = (): JSX.Element => {
   return (
     <>
         {selectedTab === 0 && (
-            <div className="aspect-[16/9] w-[80%] 2xl:w-[65%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
+            <div className="aspect-[16/9] bg-[url('/images/partner/partner-tennis-thumbnail.webp')] w-[80%] 2xl:w-[65%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
                 <div className="absolute bottom-4 right-4 z-10 flex gap-2">
                     <button
                         onClick={(e) => {
@@ -129,7 +129,7 @@ const PartnerVideoDisplay = (): JSX.Element => {
             </div>
         )}
         {selectedTab === 1 && (
-            <div className="bg-[url('/images/general/bm.webp')] aspect-[16/9] w-[80%] 2xl:w-[65%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
+            <div className="bg-[url('/images/partner/padel-partner-thumbnail.webp')] aspect-[16/9] w-[80%] 2xl:w-[65%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
                 <div className="absolute bottom-4 right-4 z-10 flex gap-2">
                     <button
                         onClick={(e) => {
@@ -171,14 +171,14 @@ const PartnerVideoDisplay = (): JSX.Element => {
                         <Fullscreen className="w-4 h-4" />
                     </button>
                 </div>
-                <video style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} className="w-full h-full object-cover bg-cover bg-center" autoPlay loop muted={isMuted} playsInline onPlay={() => { setIsPlaying(true) }} onPause={() => { setIsPlaying(false) }}>
+                <video className="w-full h-full object-cover bg-cover bg-center" autoPlay loop muted={isMuted} playsInline onPlay={() => { setIsPlaying(true) }} onPause={() => { setIsPlaying(false) }}>
                     <source src={handleVideoSource(selectedTab)} type="video/mp4" />
                     {'Your browser doesn\'t support the video tag.'}
                 </video>
             </div>
         )}
         {selectedTab === 2 && (
-            <div className="bg-[url('/images/general/bm.webp')] aspect-[16/9] w-[80%] 2xl:w-[65%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
+            <div className="bg-[url('/images/partner/pickle-partner-thumbnial.webp')] aspect-[16/9] w-[80%] 2xl:w-[65%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
                 <div className="absolute bottom-4 right-4 z-10 flex gap-2">
                     <button
                         onClick={(e) => {
@@ -220,7 +220,7 @@ const PartnerVideoDisplay = (): JSX.Element => {
                         <Fullscreen className="w-4 h-4" />
                     </button>
                 </div>
-                <video style={{ boxShadow: 'inset 4px 4px 4px 6px black' }} className="w-full h-full object-cover bg-cover bg-center" autoPlay loop muted={isMuted} playsInline onPlay={() => { setIsPlaying(true) }} onPause={() => { setIsPlaying(false) }}>
+                <video className="w-full h-full object-cover bg-cover bg-center" autoPlay loop muted={isMuted} playsInline onPlay={() => { setIsPlaying(true) }} onPause={() => { setIsPlaying(false) }}>
                     <source src={handleVideoSource(selectedTab)} type="video/mp4" />
                     {'Your browser doesn\'t support the video tag.'}
                 </video>
