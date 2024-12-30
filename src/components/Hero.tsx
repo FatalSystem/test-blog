@@ -7,8 +7,8 @@ export default function Herot (): JSX.Element {
   // const isTablet = useMediaQuery('(max-width: 720px)')
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
-  // const videoSource = isTablet ? '/videos/tennibot-preview-tablet.mp4' : '/videos/tennibot-preview.mp4'
-  const videoSource = '/videos/tennibot-preview-2.webm'
+  // const videoSource = isTablet ? 'https://d21pdw38fc8384.cloudfront.net/tennibot-preview-tablet.mp4' : 'https://d21pdw38fc8384.cloudfront.net/tennibot-preview.mp4'
+  const videoSource = 'https://d21pdw38fc8384.cloudfront.net/tennibot-preview-2.webm'
 
   return (
     <section className="h-screen relative overflow-hidden" >

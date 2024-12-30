@@ -4,14 +4,14 @@ import { TSliderTwo } from './TSliderTwo'
 const slides = [
   {
     content: <video className="w-full h-full object-cover bg-[url('/images/ball-collection-cover.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
-    <source src='/videos/ball-collection.mp4' type="video/mp4" />
+    <source src='https://d21pdw38fc8384.cloudfront.net/ball-collection.mp4' type="video/mp4" />
     {'Your browser doesn\'t support the video tag.'}
 </video>,
     style: "bg-[url('/images/buy/ball-collection-cover.webp')] sm:h-[70vh] h-[45vh]"
   },
   {
     content: <video className="w-full h-full object-cover bg-[url('/images/buy/court-sweeping-cover.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
-    <source src='/videos/court-sweeping.mp4' type="video/mp4" />
+    <source src='https://d21pdw38fc8384.cloudfront.net/court-sweeping.mp4' type="video/mp4" />
     {'Your browser doesn\'t support the video tag.'}
 </video>,
     style: "bg-[url('/images/buy/court-sweeping-cover.webp')] sm:h-[70vh] h-[45vh]"
@@ -24,7 +24,7 @@ const slides = [
   },
   {
     content: <video className="w-full h-full object-cover bg-[url('/images/buy/stat-tracking-cover.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
-    <source src='/videos/stat-tracking.mp4' type="video/mp4" />
+    <source src='https://d21pdw38fc8384.cloudfront.net/stat-tracking.mp4' type="video/mp4" />
     {'Your browser doesn\'t support the video tag.'}
 </video>,
     style: "bg-[url('/images/buy/stat-tracking-cover.webp')] sm:h-[70vh] h-[45vh]"

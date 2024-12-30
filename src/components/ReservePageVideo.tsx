@@ -112,7 +112,7 @@ export default function ReservePageVideo (): JSX.Element {
             onPlay={() => { setIsPlaying(true) }}
             onPause={() => { setIsPlaying(false) }}
         >
-            <source src={isMobile ? '/videos/fast-demo-mobile.mp4' : '/videos/fast-demo.mp4'} type="video/mp4" />
+            <source src={isMobile ? 'https://d21pdw38fc8384.cloudfront.net/fast-demo-mobile.mp4' : 'https://d21pdw38fc8384.cloudfront.net/fast-demo.mp4'} type="video/mp4" />
             {'Your browser doesn\'t support the video tag.'}
         </video>
       </div>
