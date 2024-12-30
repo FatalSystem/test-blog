@@ -11,7 +11,7 @@ const PartnerVideoDisplay = (): JSX.Element => {
       case 0:
         return '/videos/tennis-partner-desktop.mp4'
       case 1:
-        return '/videos/padel-partner.mp4'
+        return 'https://tennibot-videos.s3.us-east-1.amazonaws.com/padel-partner.mp4'
       case 2:
         return '/videos/pickle-partner.mp4'
       default:
