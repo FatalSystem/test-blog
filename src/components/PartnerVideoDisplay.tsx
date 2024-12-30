@@ -9,13 +9,13 @@ const PartnerVideoDisplay = (): JSX.Element => {
   const handleVideoSource = (tab: number): string => {
     switch (tab) {
       case 0:
-        return 'https://tennibot-videos.s3.us-east-1.amazonaws.com/tennis-partner-desktop.mp4'
+        return 'https://d21pdw38fc8384.cloudfront.net/tennis-partner-desktop.mp4'
       case 1:
-        return 'https://tennibot-videos.s3.us-east-1.amazonaws.com/padel-partner.mp4'
+        return 'https://d21pdw38fc8384.cloudfront.net/padel-partner.mp4'
       case 2:
-        return 'https://tennibot-videos.s3.us-east-1.amazonaws.com/pickle-partner.mp4'
+        return 'https://d21pdw38fc8384.cloudfront.net/pickle-partner.mp4'
       default:
-        return 'https://tennibot-videos.s3.us-east-1.amazonaws.com/tennis-partner-desktop.mp4'
+        return 'https://d21pdw38fc8384.cloudfront.net/tennis-partner-desktop.mp4'
     }
   }
 

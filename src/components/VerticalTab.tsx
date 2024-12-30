@@ -7,18 +7,18 @@ const tabItemStyle = 'text-nowrap cursor-pointer text-lg pl-4 transition-all dur
 export default function VerticalTab (): JSX.Element {
 //   const isTablet = useMediaQuery('(max-width: 720px)')
   const [selectedTab, setSelectedTab] = useState<number>(0)
-  const videoSource = '/videos/ball-collection.mp4'
+  const videoSource = 'https://d21pdw38fc8384.cloudfront.net/ball-collection.mp4'
 
   const handleVideoSource = (tab: number): string => {
     switch (tab) {
       case 0:
-        return '/videos/ball-collection.mp4'
+        return 'https://d21pdw38fc8384.cloudfront.net/ball-collection.mp4'
       case 1:
-        return '/videos/court-sweeping.mp4'
+        return 'https://d21pdw38fc8384.cloudfront.net/court-sweeping.mp4'
       case 4:
-        return '/videos/stat-tracking.mp4'
+        return 'https://d21pdw38fc8384.cloudfront.net/stat-tracking.mp4'
       default:
-        return '/videos/ball-collection.mp4'
+        return 'https://d21pdw38fc8384.cloudfront.net/ball-collection.mp4'
     }
   }
 
