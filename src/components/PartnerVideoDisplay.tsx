@@ -9,13 +9,13 @@ const PartnerVideoDisplay = (): JSX.Element => {
   const handleVideoSource = (tab: number): string => {
     switch (tab) {
       case 0:
-        return '/videos/tennis-partner-desktop.mp4'
+        return 'https://tennibot-videos.s3.us-east-1.amazonaws.com/tennis-partner-desktop.mp4'
       case 1:
         return 'https://tennibot-videos.s3.us-east-1.amazonaws.com/padel-partner.mp4'
       case 2:
-        return '/videos/pickle-partner.mp4'
+        return 'https://tennibot-videos.s3.us-east-1.amazonaws.com/pickle-partner.mp4'
       default:
-        return '/videos/tennis-partner-desktop.mp4'
+        return 'https://tennibot-videos.s3.us-east-1.amazonaws.com/tennis-partner-desktop.mp4'
     }
   }
 
@@ -129,7 +129,7 @@ const PartnerVideoDisplay = (): JSX.Element => {
             </div>
         )}
         {selectedTab === 1 && (
-            <div className="bg-[url('/images/general/bm.webp')] aspect-[16/9] w-[80%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
+            <div className="bg-[url('/images/general/bm.webp')] aspect-[16/9] w-[80%] 2xl:w-[65%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
                 <div className="absolute bottom-4 right-4 z-10 flex gap-2">
                     <button
                         onClick={(e) => {
@@ -178,7 +178,7 @@ const PartnerVideoDisplay = (): JSX.Element => {
             </div>
         )}
         {selectedTab === 2 && (
-            <div className="bg-[url('/images/general/bm.webp')] aspect-[16/9] w-[80%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
+            <div className="bg-[url('/images/general/bm.webp')] aspect-[16/9] w-[80%] 2xl:w-[65%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
                 <div className="absolute bottom-4 right-4 z-10 flex gap-2">
                     <button
                         onClick={(e) => {
