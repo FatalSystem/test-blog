@@ -90,10 +90,8 @@ import sportsIcon from '../assets/partner/sports-icon.svg'
                     <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 30 30" fill="none">
                       <path d="M15 0C6.71625 0 0 6.71625 0 15C0 23.2838 6.71625 30 15 30C23.2838 30 30 23.2838 30 15C30 6.71625 23.2838 0 15 0ZM16.25 22.5H13.75V13.75H16.25V22.5ZM15 10.625C13.965 10.625 13.125 9.785 13.125 8.75C13.125 7.715 13.965 6.875 15 6.875C16.035 6.875 16.875 7.715 16.875 8.75C16.875 9.785 16.035 10.625 15 10.625Z" fill="#8E9088"/>
                     </svg>
-                    <div class="tooltip absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden w-56 p-5 text-xs text-t-off-white bg-t-off-black rounded-lg shadow-lg border border-t-green">
-                      <p class="font-avenir text-t-gray text-xs" >US Shipping: Free</p>
-                      <p class="font-avenir text-t-gray text-xs" >International Shipping (Europe, Middle East, Australia & Asia): $149</p>
-                      <p class="font-avenir text-t-gray text-xs mt-3" >You can cancel your reservation anytime.</p>
+                    <div class="tooltip absolute bottom-full left-0 -translate-x-[calc(100%-26px)] mb-2 hidden w-56 p-5 text-xs text-t-off-white bg-t-off-black rounded-lg shadow-lg border border-t-green">
+                      <p class="font-avenir text-t-gray text-xs">The Partner comes in two models: one compatible with both tennis and padel, and another made just for pickleball lovers</p>
                     </div>
                   </button>
                 </div>
@@ -103,9 +101,21 @@ import sportsIcon from '../assets/partner/sports-icon.svg'
                 </div>
               </div>
               <div>
-                <div class="flex flex-row items-center mb-2" >
+                <div class="flex flex-row flex-wrap items-center mb-2" >
                   <img src={sportsIcon.src} width={20} class="mr-1" alt="Warranty Icon" />
                   <p class="font-avenir text-t-green text-sm" >Tennis, Padel & Pickleball</p>
+                  <button 
+                  class="relative ml-2"
+                  aria-label="Shipping information"
+                  onclick="this.querySelector('.tooltip').classList.toggle('hidden')"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 30 30" fill="none">
+                      <path d="M15 0C6.71625 0 0 6.71625 0 15C0 23.2838 6.71625 30 15 30C23.2838 30 30 23.2838 30 15C30 6.71625 23.2838 0 15 0ZM16.25 22.5H13.75V13.75H16.25V22.5ZM15 10.625C13.965 10.625 13.125 9.785 13.125 8.75C13.125 7.715 13.965 6.875 15 6.875C16.035 6.875 16.875 7.715 16.875 8.75C16.875 9.785 16.035 10.625 15 10.625Z" fill="#8E9088"/>
+                    </svg>
+                    <div class="tooltip absolute bottom-full left-0 -translate-x-[calc(100%-26px)] mb-2 hidden w-56 p-5 text-xs text-t-off-white bg-t-off-black rounded-lg shadow-lg border border-t-green">
+                      <p class="font-avenir text-t-gray text-xs">The Partner comes in two models: one compatible with both tennis and padel, and another made just for pickleball lovers.</p>
+                    </div>
+                  </button>
                 </div>
                 <div class="flex flex-row items-center md:mb-0 mb-2" >
                   <img src={cancelIcon.src} width={20} class="mr-1" alt="Warranty Icon" />
