@@ -24,12 +24,12 @@ export default function PartnerHeader (): JSX.Element {
   const [showBanner, setShowBanner] = useState<boolean>(false)
 
   const closeBanner = (): void => {
-    window.localStorage.setItem('showJanOfferBanner', 'false')
+    window.localStorage.setItem('showTCBanner', 'false')
     setShowBanner(false)
   }
 
   const shouldShow = (): void => {
-    if (window.localStorage.getItem('showJanOfferBanner') === null && window.location.pathname === '/partner/') {
+    if (window.localStorage.getItem('showTCBanner') === null && window.location.pathname === '/partner/') {
       setShowBanner(true)
     }
   }
