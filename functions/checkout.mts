@@ -22,7 +22,8 @@ export default async (event: Request, context: Context): Promise<Response> => {
     const payload = {
       currency,
       value,
-      quantity
+      quantity,
+      email: checkout.customer_details?.email
     }
 
     return new Response(JSON.stringify(payload))
