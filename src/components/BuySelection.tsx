@@ -12,15 +12,28 @@ export const tabs = [
 
 export default function BuySelection (): JSX.Element {
   const [isChecked, setIsChecked] = useState<boolean>(false)
-  const [selected, setSelected] = useState<number>(0)
+  const [selected, setSelected] = useState<number>(2)
   // const [viewMore, setViewMore] = useState({ first: false, second: false, third: false })
+
+  const calculateReviewCount = (): number => {
+    const startDate = new Date('2025-01-06') // Starting date with 34 reviews
+    const startCount = 34
+    const today = new Date()
+    const daysDiff = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24))
+
+    // Increase by 2-4 reviews per day (using 3 as average)
+    const newCount = startCount + (daysDiff * 3)
+
+    // Cap at 800 reviews
+    return Math.min(newCount, 800)
+  }
 
   const handleNavigation = (product: number): void => {
     var _learnq = _learnq || []
     if (product === 0) {
       if (isChecked) {
         _learnq.push(['track', 'Initiate Checkout', {
-          'productType' : 'Annual Plan'
+          productType: 'Annual Plan'
         }])
         edgetag('tag', 'initiateCheckout', {
           currency: 'USD',
@@ -40,7 +53,7 @@ export default function BuySelection (): JSX.Element {
       }
 
       _learnq.push(['track', 'Initiate Checkout', {
-        'productType' : 'Monthly Plan'
+        productType: 'Monthly Plan'
       }])
 
       edgetag('tag', 'initiateCheckout', {
@@ -80,7 +93,7 @@ export default function BuySelection (): JSX.Element {
 
     if (product === 2) {
       _learnq.push(['track', 'Initiate Checkout', {
-        'productType' : 'One Time'
+        productType: 'One Time'
       }])
       edgetag('tag', 'initiateCheckout', {
         currency: 'USD',
@@ -111,18 +124,12 @@ export default function BuySelection (): JSX.Element {
                 <img src="/images/buy/stars.svg" alt="5 stars" className="w-4" />
                 <img src="/images/buy/stars.svg" alt="5 stars" className="w-4" />
                 <img src="/images/buy/star-half.svg" alt="5 stars" className="w-4" />
-                <p className="font-pluto text-xs">(4.8) based on 34 reviews</p>
+                <p className="font-pluto text-xs">(4.8) based on {calculateReviewCount()} reviews</p>
               </div>
             </div>
-            {/* <div className="absolute lg:block hidden top-[-15%] w-[50%] border-t-2 border-r-2 border-t-off-white rounded-r-lg h-[30%]" >
-                <h2 className="font-avenir uppercase text-t-off-white text-3xl bg-t-off-black pr-3 absolute top-[-15%]" >Rent-to-own</h2>
-            </div>
-            <div className="absolute lg:block hidden top-[-15%] right-[13%] w-[17%] md:border-t-2 md:border-r-2 md:border-t-off-white rounded-r-lg h-[30%]" >
-                <h2 className="font-avenir uppercase text-t-off-white text-nowrap text-3xl bg-t-off-black pr-3 absolute top-[-15%]" >Buy</h2>
-            </div> */}
             <div className='flex-row gap-5 mt-[2vh] hidden tablet:flex' >
-              <a onClick={() => { setSelected(0) }} className={`${selected !== 2 ? 'font-avenirBold underline underline-offset-2 tablet:no-underline' : 'font-avenir'} cursor-pointer uppercase text-t-off-white text-xl transition-all duration-300 ease-in-out`} >Rent-to-own</a>
-              <a onClick={() => { setSelected(2) }} className={`${selected === 2 ? 'font-avenirBold' : 'font-avenir'} cursor-pointer uppercase text-t-off-white text-xl transition-all duration-300 ease-in-out`} >Buy</a>
+              <a onClick={() => { setSelected(2) }} className={`${selected === 2 ? 'font-avenirBold' : 'font-avenirBold opacity-70'} cursor-pointer uppercase text-t-off-white text-xl transition-all duration-300 ease-in-out`} >Buy 🎾</a>
+              <a onClick={() => { setSelected(0) }} className={`${selected !== 2 ? 'font-avenirBold underline underline-offset-2 tablet:no-underline' : 'font-avenirBold opacity-70'} cursor-pointer uppercase text-t-off-white text-xl transition-all duration-300 ease-in-out`} >Rent-to-own</a>
             </div>
             <ul className='flex w-full md:pb-10 pb-5 flex-row tablet:justify-center justify-around mt-5 tablet:hidden' >
                 {tabs.map((item, index) => {
@@ -135,7 +142,7 @@ export default function BuySelection (): JSX.Element {
                           }
                         }}>
                             <div className='w-fit' >
-                                <h4 className={`font-avenirBold uppercase font-black lg:text-3xl md:text-2xl tablet:text-xl mobilem:text-xl text-lg text-t-off-white`} >{item.label}</h4>
+                                <h4 className={'font-avenirBold uppercase font-black lg:text-3xl md:text-2xl tablet:text-xl mobilem:text-xl text-lg text-t-off-white'} >{item.label}</h4>
                                 {index === selected || (index !== 0 && selected === 2)
                                   ? (
                                     <motion.div className="bottom-[-1px] rounded-xl w-full h-[4px] bg-t-off-white" layoutId="underline" />
@@ -146,6 +153,37 @@ export default function BuySelection (): JSX.Element {
                   )
                 })}
             </ul>
+            <div onClick={() => { setSelected(2) }} className={`${selected === 2 ? 'lg:border-t-green' : 'hover:opacity-100 opacity-50 border-t-off-white'} cursor-pointer bg-t-darker-green relative flex-[0_0_30%] border-2 lg:hover:border-t-green rounded-lg px-5 mobilel:px-7 md:px-5 lg:px-7 pb-8 lg:pb-5 py-5 flex flex-col justify-start transition-all duration-300 ease-in-out`} >
+              <div className='flex flex-row justify-between' >
+                <div className='flex flex-row gap-2 items-center' >
+                  <h3 className={`${titleStyle} `} >$2,995</h3>
+                  <span className=" text-[#C85855] font-avenirBold line-through text-lg md:text-xl lg:text-lg xl:text-xl">$3,500</span>
+                </div>
+                <div className='bg-[#707070] flex flex-row justify-center items-center text-t-off-white px-3 rounded-full text-sm' >
+                  <p className='text-center font-avenirBold text-xs' >
+                    Save 14%
+                  </p>
+                </div>
+              </div>
+                <div className={'flex lg:flex-col md:flex-row flex-col w-full md:w-auto transition-all ease-in-out duration-500'} >
+                  <ul className={'list-disc list-inside mt-2 text-left flex flex-col gap-2 transition-all ease-in-out duration-500'} >
+                      <li className={`font-plutoLight list-item text-t-off-white text-pretty ${itemStyle}`} >60 day money-back guarantee</li>
+                      <li className={`font-plutoLight list-item text-t-off-white text-pretty ${itemStyle}`} >Free shipping in the US</li>
+                      <li className={`font-plutoLight list-item text-t-off-white text-pretty ${itemStyle}`} >Comprehensive customer service and <a href="#faq" className='underline text-t-green' >warranty</a></li>
+                  </ul>
+                </div>
+                {/* <div className="w-full flex flex-col items-center mt-10 md:hidden " >
+                    <a onClick={() => {
+                      handleNavigation(2)
+                    }} target='_blank' className=" text-center cursor-pointer tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
+                        Proceed to Checkout
+                    </a>
+                    <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 5-6 weeks</label>
+                </div> */}
+                {/* <div className='hidden lg:flex size-6 p-1 border-[1px] border-t-off-white rounded-full absolute flex-col justify-center items-center bottom-[3.5%] right-[3.5%] '>
+                    <div className={`${selected === 2 ? 'bg-t-green' : 'bg-transparent'} size-full rounded-full transition-all duration-500 ease-in-out`} />
+                </div> */}
+            </div>
             <div onClick={() => { setSelected(0) }} className={`${selected === 0 ? 'lg:border-t-green' : ' hover:opacity-100 opacity-50 border-t-off-white'} cursor-pointer bg-t-darker-green relative flex-[0_0_30%] border-2 lg:hover:border-t-green rounded-lg px-5 mobilel:px-7 md:px-5 lg:px-7 md:pb-8 lg:pb-5 py-5 flex flex-col lg:justify-start justify-center transition-all duration-300 ease-in-out`} >
                 <div className="flex flex-col tablet:flex-row tablet:justify-start tablet:items-baseline items-start justify-between w-full" >
                     <h3 className={titleStyle} >{`${isChecked ? '$995' : '$95'} / ${isChecked ? 'Year' : 'Month'}`}</h3>
@@ -213,70 +251,19 @@ export default function BuySelection (): JSX.Element {
                       <li className={`font-plutoLight list-item text-t-off-white text-pretty ${itemStyle}`} >Comprehensive customer service and <a href="#faq" className='underline text-t-green' >warranty</a></li>
                   </ul>
                 </div>
-                {/* <div className="w-full flex flex-col items-center mt-10 md:hidden " >
-                    <a onClick={() => {
-                      handleNavigation(0)
-                    }} target='_blank' className="text-center cursor-pointer tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
-                        Proceed to Checkout
-                    </a>
-                    <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 5-6 weeks</label>
-                </div> */}
-                {/* <div className='hidden lg:flex size-6 p-1 border-[1px] border-t-off-white rounded-full absolute flex-col justify-center items-center bottom-[3.5%] right-[3.5%] '>
-                    <div className={`${selected === 0 ? 'bg-t-green' : 'bg-transparent'} size-full rounded-full transition-all duration-500 ease-in-out`} />
-                </div> */}
-            </div>
-
-            {/* <button onClick={() => { setSelected(1) }} className={`${selected === 1 ? 'lg:border-t-green' : 'border-t-off-white'} bg-t-off-black relative flex-[0_0_30%] border-2 lg:hover:border-t-green rounded-lg px-5 mobilem:px-10 md:px-5 lg:px-7 md:pb-8 lg:pb-5 py-5 flex flex-col justify-start transition-all duration-300 ease-in-out`} >
-                <h3 className={`${titleStyle} mb-7 `} >$995 / Year</h3>
-                <div className={`flex lg:flex-col md:flex-row flex-col w-full md:w-auto transition-all ease-in-out duration-500`} >
-                  <ul className={`list-disc list-inside text-left flex flex-col gap-4 mt-4 transition-all ease-in-out duration-500`} >
-                      <li className={`font-plutoLight list-item text-t-green text-pretty ${itemStyle}`} >Cancel anytime</li>
-                      <li className={`font-plutoLight list-item text-t-green text-pretty ${itemStyle}`} >Own your Tennibot after 4 years</li>
-                      <li className={`font-plutoLight list-item text-t-green text-pretty ${itemStyle}`} >Comprehensive customer service and <a href="#faq" className='underline' >warranty</a></li>
-                  </ul>
-                </div>
-                <div className="w-full flex flex-col items-center mt-10 md:hidden " >
-                    <a onClick={() => {
-                      handleNavigation(1)
-                    }} target='_blank' className=" text-center cursor-pointer tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
-                        Proceed to Checkout
-                    </a>
-                    <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 5-6 weeks</label>
-                </div>
-                <div className='hidden lg:flex size-6 p-1 border-[1px] border-t-off-white rounded-full absolute flex-col justify-center items-center bottom-[3.5%] right-[3.5%] '>
-                    <div className={`${selected === 1 ? 'bg-t-green' : 'bg-transparent'} size-full rounded-full transition-all duration-500 ease-in-out`} />
-                </div>
-            </button> */}
-
-            {/* <h2 className="lg:hidden font-avenir uppercase text-t-off-white text-3xl mb-[-1rem]" >Buy</h2> */}
-            <div onClick={() => { setSelected(2) }} className={`${selected === 2 ? 'lg:border-t-green' : 'hover:opacity-100 opacity-50 border-t-off-white'} cursor-pointer bg-t-darker-green relative flex-[0_0_30%] border-2 lg:hover:border-t-green rounded-lg px-5 mobilel:px-7 md:px-5 lg:px-7 pb-8 lg:pb-5 py-5 flex flex-col justify-start transition-all duration-300 ease-in-out`} >
-                <h3 className={`${titleStyle} `} >$2,995</h3>
-                <div className={'flex lg:flex-col md:flex-row flex-col w-full md:w-auto transition-all ease-in-out duration-500'} >
-                  <ul className={'list-disc list-inside mt-2 text-left flex flex-col gap-2 transition-all ease-in-out duration-500'} >
-                      <li className={`font-plutoLight list-item text-t-off-white text-pretty ${itemStyle}`} >60 day money-back guarantee</li>
-                      <li className={`font-plutoLight list-item text-t-off-white text-pretty ${itemStyle}`} >Free shipping in the US</li>
-                      <li className={`font-plutoLight list-item text-t-off-white text-pretty ${itemStyle}`} >Comprehensive customer service and <a href="#faq" className='underline text-t-green' >warranty</a></li>
-                  </ul>
-                </div>
-                {/* <div className="w-full flex flex-col items-center mt-10 md:hidden " >
-                    <a onClick={() => {
-                      handleNavigation(2)
-                    }} target='_blank' className=" text-center cursor-pointer tablet:w-64 w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-80 rounded-full py-2 font-avenir border-2 transition duration-300 text-t-off-black bg-t-green border-t-green md:text-t-green md:bg-transparent hover:bg-t-green hover:text-t-off-black" rel="noreferrer" >
-                        Proceed to Checkout
-                    </a>
-                    <label className="font-plutoLight text-t-off-white text-pretty mt-5" >Ships in 5-6 weeks</label>
-                </div> */}
-                {/* <div className='hidden lg:flex size-6 p-1 border-[1px] border-t-off-white rounded-full absolute flex-col justify-center items-center bottom-[3.5%] right-[3.5%] '>
-                    <div className={`${selected === 2 ? 'bg-t-green' : 'bg-transparent'} size-full rounded-full transition-all duration-500 ease-in-out`} />
-                </div> */}
             </div>
         </div>
         <div className="w-full flex-col items-center mt-[3vh] flex" >
             <a onClick={() => {
               handleNavigation(selected)
-            }} target='_blank' className="sm:mr-3 text-center tablet:w-72 cursor-pointer w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-96 rounded-full py-2 font-avenir border-2 transition duration-300 border-t-green lg:text-t-green lg:bg-transparent hover:bg-t-green hover:text-t-off-black bg-t-green text-t-off-black" rel="noreferrer" >
-                Proceed to Checkout
+            }} target='_blank' className="sm:mr-3 text-center font-avenirBold tablet:w-72 cursor-pointer w-full max-sm:mx-auto text-lg 2xl:text-2xl 2xl: 2xl:py-3 2xl:w-96 rounded-full py-2 font-avenir border-2 transition duration-300 border-t-green hover:bg-t-green hover:text-t-off-black bg-t-green text-t-off-black" rel="noreferrer" >
+                Buy Now
             </a>
+            <div className="flex justify-center w-[80%] mx-auto mt-5">
+              <p className="font-avenirBold text-t-off-white text-center text-pretty flex-wrap" >
+                Questions? Give us a ring at <br className="sm:hidden lg:block md:block" /> <a href='tel:251-277-8022' className='text-t-off-white underline flex-wrap' >251-277-8022</a>
+            </p>
+          </div>
             {/* <label className="font-plutoLight text-xs text-t-off-white text-pretty text-center mt-[2vh]" >Due to high demand,<br /> new orders will ship in 5-6 weeks.</label> */}
         </div>
     </section>
