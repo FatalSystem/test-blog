@@ -155,10 +155,8 @@ export default function BuySelection (): JSX.Element {
             </ul>
             <div onClick={() => { setSelected(2) }} className={`${selected === 2 ? 'lg:border-t-green' : 'hover:opacity-100 opacity-50 border-t-off-white'} cursor-pointer bg-t-darker-green relative flex-[0_0_30%] border-2 lg:hover:border-t-green rounded-lg px-5 mobilel:px-7 md:px-5 lg:px-7 pb-8 lg:pb-5 py-5 flex flex-col justify-start transition-all duration-300 ease-in-out`} >
               <div className='flex flex-row justify-between' >
-                <div className='flex flex-row gap-2 items-center' >
-                  <h3 className={`${titleStyle} `} >$2,995</h3>
-                  <span className=" text-[#C85855] font-avenirBold line-through text-lg md:text-xl lg:text-lg xl:text-xl">$3,500</span>
-                </div>
+                <h3 className={`${titleStyle} `} >$2,995</h3>
+                <span className=" text-[#C85855] font-avenirBold line-through text-lg md:text-xl lg:text-lg xl:text-xl">$3,500</span>
               </div>
                 <div className={'flex lg:flex-col md:flex-row flex-col w-full md:w-auto transition-all ease-in-out duration-500'} >
                   <ul className={'list-disc list-inside mt-2 text-left flex flex-col gap-2 transition-all ease-in-out duration-500'} >
