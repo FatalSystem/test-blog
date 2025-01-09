@@ -1,10 +1,5 @@
 ---
 import Layout from "layouts/Layout.astro"
-import customization from '@assets/partner/customization-icon.svg'
-import shipping from '@assets/partner/shipping-icon.svg'
-import moneyBack from '@assets/partner/return-icon.svg'
-import warranty from '@assets/partner/warranty-icon.svg'
-import { Package } from "lucide-react"
 import ReservePageVideo from "@components/ReservePageVideo"
 import shippingIcon from '../assets/partner/shipping-icon.svg'
 import warrantyIcon from '../assets/partner/warranty-icon.svg'
@@ -40,6 +35,16 @@ import sportsIcon from '../assets/partner/sports-icon.svg'
       trackdesk('tennibot', 'conversion', {
         conversionType: 'sale'
       });
+    </script>
+    <script>
+      import mixpanel from "mixpanel-browser"
+ 
+      // Near entry of your product, init Mixpanel
+      mixpanel.init("16d06bcdf9b0f6e260ccb622aa0cc19a", {
+        debug: true,
+        track_pageview: true,
+        persistence: "localStorage",
+      })
     </script>
     <!-- Trackdesk tracker optional types help script end -->
     <main class="w-full bg-t-off-black relative text-t-off-white" >

@@ -102,6 +102,16 @@ const FAQ = [
 ---
 
 <Layout title="Buy | Tennibot">
+    <script>
+      import mixpanel from "mixpanel-browser"
+
+      // Near entry of your product, init Mixpanel
+      mixpanel.init("16d06bcdf9b0f6e260ccb622aa0cc19a", {
+        debug: true,
+        track_pageview: true,
+        persistence: "localStorage",
+      })
+    </script>
     <main class="bg-t-off-black relative text-t-off-white flex lg:flex-row flex-col-reverse" >
       <section class="lg:w-[60%] w-full" >
         <!-- <section class="min-[570px]:w-[80%] w-full 2xl:w-[65%] mx-auto py-20" > -->
