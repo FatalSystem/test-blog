@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Switch } from './Switch'
+import { useMixpanel } from '@hooks'
 
 const titleStyle = 'text-t-off-white text-left font-avenirBold text-2xl md:text-2xl lg:text-xl xl:text-2xl'
 const itemStyle = 'mobilem:text-sm text-xs md:text-sm xl:text-sm 2xl:text-base'
@@ -13,6 +14,7 @@ export const tabs = [
 export default function BuySelection (): JSX.Element {
   const [isChecked, setIsChecked] = useState<boolean>(false)
   const [selected, setSelected] = useState<number>(2)
+  const { initialize, trackEvent } = useMixpanel()
   // const [viewMore, setViewMore] = useState({ first: false, second: false, third: false })
 
   const calculateReviewCount = (): number => {
@@ -28,6 +30,8 @@ export default function BuySelection (): JSX.Element {
     return Math.min(newCount, 800)
   }
 
+  console.log('isChecked', isChecked)
+
   const handleNavigation = (product: number): void => {
     var _learnq = _learnq || []
     if (product === 0) {
@@ -35,6 +39,11 @@ export default function BuySelection (): JSX.Element {
         _learnq.push(['track', 'Initiate Checkout', {
           productType: 'Annual Plan'
         }])
+
+        trackEvent('Initiate Checkout', {
+          name: 'Rover Annual Plan'
+        })
+
         edgetag('tag', 'initiateCheckout', {
           currency: 'USD',
           value: 995,
@@ -55,6 +64,10 @@ export default function BuySelection (): JSX.Element {
       _learnq.push(['track', 'Initiate Checkout', {
         productType: 'Monthly Plan'
       }])
+
+      trackEvent('Initiate Checkout', {
+        name: 'Rover Monthly Plan'
+      })
 
       edgetag('tag', 'initiateCheckout', {
         currency: 'USD',
@@ -111,6 +124,10 @@ export default function BuySelection (): JSX.Element {
       window.location.href = 'https://store.tennibot.com/cart/44311234936995:1?channel=buy_button'
     }
   }
+
+  useEffect(() => {
+    initialize()
+  }, [])
 
   return (
     <section className="lg:max-w-[80%] tablet:max-w-[26rem] max-w-[80%] 2xl:w-[65%] mx-auto pt-10 pb-20" >
