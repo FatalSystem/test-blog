@@ -41,7 +41,8 @@ export default function BuySelection (): JSX.Element {
         }])
 
         trackEvent('Initiate Checkout', {
-          name: 'Rover Annual Plan'
+          name: 'Rover Annual Plan',
+          price: 995
         })
 
         edgetag('tag', 'initiateCheckout', {
@@ -66,7 +67,8 @@ export default function BuySelection (): JSX.Element {
       }])
 
       trackEvent('Initiate Checkout', {
-        name: 'Rover Monthly Plan'
+        name: 'Rover Monthly Plan',
+        price: 95
       })
 
       edgetag('tag', 'initiateCheckout', {
