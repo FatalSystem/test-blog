@@ -110,6 +110,10 @@ export default function BuySelection (): JSX.Element {
       _learnq.push(['track', 'Initiate Checkout', {
         productType: 'One Time'
       }])
+      trackEvent('Initiate Checkout', {
+        name: 'Rover One Time Purchase',
+        price: 2995
+      })
       edgetag('tag', 'initiateCheckout', {
         currency: 'USD',
         value: 2995,
