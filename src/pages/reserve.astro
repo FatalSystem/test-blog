@@ -7,6 +7,26 @@ import cancelIcon from '../assets/partner/cancel-icon.svg'
 import sportsIcon from '../assets/partner/sports-icon.svg'
 ---
 <Layout title="Reserve | Tennibot" showFooter={false} showHeader={false} >
+  <script type="text/javascript" >
+    import mixpanel from "mixpanel-browser"
+
+    // Near entry of your product, init Mixpanel
+    mixpanel.init("16d06bcdf9b0f6e260ccb622aa0cc19a", {
+      api_host: 'https://mixpanel-tracking-proxy-625719360183.us-central1.run.app/',
+      debug: true,
+      track_pageview: true,
+      persistence: "localStorage",
+      loaded: function(mixpanel) {
+        const reserveButton = document.getElementById('reserve-button');
+        reserveButton.addEventListener('click', () => {
+          mixpanel.track('Initiate Checkout', {
+            name: 'Partner Reserve',
+            price: 499
+          })
+        })
+      }
+    })
+  </script>
     <!-- Trackdesk set client_reference_id help fuction begin -->
   <script>
     (function () {
@@ -35,26 +55,6 @@ import sportsIcon from '../assets/partner/sports-icon.svg'
       trackdesk('tennibot', 'conversion', {
         conversionType: 'sale'
       });
-    </script>
-    <script type="text/javascript" >
-      import mixpanel from "mixpanel-browser"
- 
-      // Near entry of your product, init Mixpanel
-      mixpanel.init("16d06bcdf9b0f6e260ccb622aa0cc19a", {
-        api_host: 'https://mixpanel-tracking-proxy-625719360183.us-central1.run.app/',
-        debug: true,
-        track_pageview: true,
-        persistence: "localStorage",
-        loaded: function(mixpanel) {
-          const reserveButton = document.getElementById('reserve-button');
-          reserveButton.addEventListener('click', () => {
-            mixpanel.track('Initiate Checkout', {
-              name: 'Partner Reserve',
-              price: 499
-            })
-          })
-        }
-      })
     </script>
     <!-- Trackdesk tracker optional types help script end -->
     <main class="w-full bg-t-off-black relative text-t-off-white" >

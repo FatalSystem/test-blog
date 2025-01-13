@@ -30,8 +30,6 @@ export default function BuySelection (): JSX.Element {
     return Math.min(newCount, 800)
   }
 
-  console.log('isChecked', isChecked)
-
   const handleNavigation = (product: number): void => {
     var _learnq = _learnq || []
     if (product === 0) {
