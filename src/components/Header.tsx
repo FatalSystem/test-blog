@@ -3,7 +3,6 @@ import tennibotLogo from '../assets/tennibot-logo.svg'
 import { Pages } from '@utils'
 import { AnimatePresence, motion } from 'framer-motion'
 import Banner from './Banner'
-import { useMixpanel } from '@hooks'
 
 const links = [
   { label: 'Home', href: Pages.HOME },
@@ -20,8 +19,7 @@ const links = [
 // TODO: Remake with framer motion
 export default function Header (): JSX.Element {
   const [open, setOpen] = useState<boolean>(false)
-  const handleOpen = (): void => { setOpen(!open) }
-  const { initialize, trackEvent } = useMixpanel()
+  const handleOpen = (): void => { setOpen(!open) } 
 
   const [showBanner, setShowBanner] = useState<boolean>(false)
 
@@ -38,7 +36,6 @@ export default function Header (): JSX.Element {
 
   useEffect(() => {
     shouldShow()
-    initialize()
   }, [])
 
   return (
@@ -58,12 +55,7 @@ export default function Header (): JSX.Element {
                   {links.map((link, index) => (
                     <a
                       key={index}
-                      onClick={() => {
-                        if (link.label === 'Buy') {
-                          trackEvent('Navigate to buy')
-                        }
-                        window.location.href = link.href
-                      }}
+                      href={link.href}
                       className={`text-xl font-avenirBold text-t-off-white uppercase mb-10 transform ${[3, 4, 5].includes(index) ? 'pl-5' : ''} cursor-pointer hover:text-t-green transition duration-${
                         (index + 1) * 100
                       } ${open ? 'opacity-100' : 'opacity-0'} ease-in-out`}
@@ -87,11 +79,7 @@ export default function Header (): JSX.Element {
                 Home
               </a>
               <a
-              // href={Pages.BUY}
-              onClick={() => {
-                trackEvent('Navigate to buy')
-                window.location.href = '/buy'
-              }}
+              href={Pages.BUY}
               className={`text-xl text-t-off-white font-avenirBold uppercase transform cursor-pointer hover:text-t-green transition duration-500 ${open ? 'opacity-0' : 'opacity-100'} ease-in-out`}>
                 Buy
               </a>

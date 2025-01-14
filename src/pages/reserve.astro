@@ -7,7 +7,7 @@ import cancelIcon from '../assets/partner/cancel-icon.svg'
 import sportsIcon from '../assets/partner/sports-icon.svg'
 ---
 <Layout title="Reserve | Tennibot" showFooter={false} showHeader={false} >
-  <script type="text/javascript" >
+  <!-- <script type="text/javascript" >
     import mixpanel from "mixpanel-browser"
 
     // Near entry of your product, init Mixpanel
@@ -26,7 +26,7 @@ import sportsIcon from '../assets/partner/sports-icon.svg'
         })
       }
     })
-  </script>
+  </script> -->
     <!-- Trackdesk set client_reference_id help fuction begin -->
   <script>
     (function () {
@@ -152,7 +152,7 @@ import sportsIcon from '../assets/partner/sports-icon.svg'
             </p>
           </div>
           <div class="bg-t-off-black p-10 flex-col items-center mt-10 flex justify-center md:pb-20" >
-            <a id="reserve-button" href="https://buy.stripe.com/6oEdTp8pygzo5AA9AC" class={`w-72 text-xl 2xl:text-2xl 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>Reserve</a>
+            <a data-tracking="partner-reserve-button" href="https://buy.stripe.com/6oEdTp8pygzo5AA9AC" class={`w-72 text-xl 2xl:text-2xl 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>Reserve</a>
             <div class="flex items-center gap-x-2 mt-3" >
               <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 45 45" fill="none">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M43.125 22.5001C43.125 33.8909 33.8908 43.1251 22.5 43.1251C11.1091 43.1251 1.875 33.8909 1.875 22.5001C1.875 11.1091 11.1091 1.875 22.5 1.875C33.8908 1.875 43.125 11.1091 43.125 22.5001ZM5.63781 22.5001C5.63781 27.352 7.68719 31.7255 10.9676 34.802C11.3944 34.187 11.9003 33.3905 12.4072 32.4374C13.7181 29.9725 15.0002 26.5272 15.0002 22.5005C15.0002 18.4737 13.7181 15.0284 12.4072 12.5635C11.9002 11.6101 11.3941 10.8134 10.9672 10.1984C7.68702 13.2748 5.63781 17.6481 5.63781 22.5001ZM22.5 39.3621C19.3884 39.3621 16.4738 38.5193 13.9718 37.0497C14.4882 36.314 15.1037 35.3536 15.7181 34.1982C17.2198 31.3746 18.7502 27.32 18.7502 22.5005C18.7502 17.681 17.2198 13.6263 15.7181 10.8027C15.1035 9.64698 14.4878 8.6864 13.9713 7.95055C16.4734 6.48068 19.3882 5.63781 22.5 5.63781C25.6117 5.63781 28.5268 6.48074 31.029 7.9507C30.5124 8.68653 29.8969 9.64705 29.2822 10.8027C27.7805 13.6263 26.2502 17.681 26.2502 22.5005C26.2502 27.32 27.7805 31.3746 29.2822 34.1982C29.8967 35.3536 30.5121 36.3138 31.0284 37.0495C28.5264 38.5193 25.6115 39.3621 22.5 39.3621ZM34.0327 34.8018C37.3129 31.7253 39.3622 27.352 39.3622 22.5001C39.3622 17.6482 37.313 13.275 34.0331 10.1986C33.6062 10.8136 33.1001 11.6103 32.5931 12.5635C31.2823 15.0284 30.0002 18.4737 30.0002 22.5005C30.0002 26.5272 31.2823 29.9725 32.5931 32.4374C33.0999 33.3905 33.6058 34.187 34.0327 34.8018Z" fill="#BBDC00"/>
@@ -164,3 +164,17 @@ import sportsIcon from '../assets/partner/sports-icon.svg'
       </section>
     </main>
 </Layout>
+
+<script>
+  // Astro button tracking
+  document.querySelectorAll('[data-tracking]').forEach(button => {
+      button.addEventListener('click', (e) => {
+          const buttonId = (e.target as HTMLElement).dataset.tracking;
+          window.mixpanel?.track('Initiate Checkout', {
+            buttonId,
+            product: 'Partner Reservation',
+            price: 499,
+          });
+      });
+  });
+</script>

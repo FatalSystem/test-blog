@@ -3,8 +3,6 @@ import tennibotLogo from '../assets/tennibot-logo.svg'
 import { Pages } from '@utils'
 import { AnimatePresence, motion } from 'framer-motion'
 import Banner from './Banner'
-import mixpanel from 'mixpanel-browser'
-import { useMixpanel } from '@hooks'
 
 const links = [
   { label: 'Home', href: Pages.HOME },
@@ -20,7 +18,6 @@ const links = [
 ]
 // TODO: Remake with framer motion
 export default function PartnerHeader (): JSX.Element {
-  const { initialize, trackEvent } = useMixpanel()
   const [open, setOpen] = useState<boolean>(false)
   // const handleOpen = (): void => { setOpen(!open) }
 
@@ -39,7 +36,6 @@ export default function PartnerHeader (): JSX.Element {
 
   useEffect(() => {
     shouldShow()
-    initialize()
   }, [])
 
   return (
@@ -78,10 +74,7 @@ export default function PartnerHeader (): JSX.Element {
           <div className='flex flex-row items-center justify-center'>
             <div className=' flex flex-row gap-16' >
               <a
-              onClick={() => {
-                trackEvent('Home to reserve')
-                window.location.href = '/reserve'
-              }}
+              href='/reserve'
               className={`text-xl text-t-off-white font-avenirBold uppercase transform cursor-pointer hover:text-t-green transition duration-500 ${open ? 'opacity-0' : 'opacity-100'} ease-in-out`}>
                 Reserve
               </a>
