@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Switch } from './Switch'
+import { track } from '@utils'
 
 const titleStyle = 'text-t-off-white text-left font-avenirBold text-2xl md:text-2xl lg:text-xl xl:text-2xl'
 const itemStyle = 'mobilem:text-sm text-xs md:text-sm xl:text-sm 2xl:text-base'
@@ -36,10 +37,11 @@ export default function BuySelection (): JSX.Element {
           productType: 'Annual Plan'
         }])
 
-        // trackEvent('Initiate Checkout', {
-        //   name: 'Rover Annual Plan',
-        //   price: 995
-        // })
+        track('Initiate Checkout', {
+          product: 'Rover',
+          plan: 'Annual',
+          price: 995
+        })
 
         edgetag('tag', 'initiateCheckout', {
           currency: 'USD',
@@ -62,10 +64,11 @@ export default function BuySelection (): JSX.Element {
         productType: 'Monthly Plan'
       }])
 
-      // trackEvent('Initiate Checkout', {
-      //   name: 'Rover Monthly Plan',
-      //   price: 95
-      // })
+      track('Initiate Checkout', {
+        product: 'Rover',
+        plan: 'Monthly',
+        price: 95
+      })
 
       edgetag('tag', 'initiateCheckout', {
         currency: 'USD',
@@ -106,10 +109,11 @@ export default function BuySelection (): JSX.Element {
       _learnq.push(['track', 'Initiate Checkout', {
         productType: 'One Time'
       }])
-      // trackEvent('Initiate Checkout', {
-      //   name: 'Rover One Time Purchase',
-      //   price: 2995
-      // })
+      track('Initiate Checkout', {
+        product: 'Rover',
+        plan: 'One Time',
+        price: 2995
+      })
       edgetag('tag', 'initiateCheckout', {
         currency: 'USD',
         value: 2995,
