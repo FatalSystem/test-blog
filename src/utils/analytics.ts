@@ -13,7 +13,8 @@ export const initMixpanel = (): void => {
       persistence: 'localStorage',
       ignore_dnt: true,
       record_sessions_percent: 50,
-      record_min_ms: 10000
+      record_min_ms: 10000,
+      record_collect_fonts: true
     })
   }
 }
