@@ -1,6 +1,7 @@
 ---
 import Layout from "layouts/Layout.astro"
 import ReactTrackingButton from "../components/ReactTrackingButton";
+import ReserveButton from "@components/ReserveButton";
 ---
 <Layout title="Reserve | Tennibot" showFooter={false} showHeader={false} >
     <div class="p-4">
@@ -15,6 +16,7 @@ import ReactTrackingButton from "../components/ReactTrackingButton";
 
         <!-- React Button -->
         <ReactTrackingButton client:load />
+        <ReserveButton client:load />
     </div>
 </Layout>
 

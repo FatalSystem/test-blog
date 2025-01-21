@@ -26,6 +26,13 @@ export const track = (eventName: string, properties?: Record<string, any>): void
   }
 }
 
+export const getDistinctId = (): string => {
+  if (window?.mixpanel) {
+    return window.mixpanel.get_distinct_id()
+  }
+  return ''
+}
+
 export const identify = (userId: string, properties?: Record<string, any>): void => {
   if (window?.mixpanel) {
     window.mixpanel.identify(userId)
