@@ -1,11 +1,14 @@
-import { useEffect } from 'react'
 import { getDistinctId, track } from '@utils'
+import { useState, useEffect } from 'react'
+import { Loader2 } from 'lucide-react'
 
 export default function ReserveButton (): JSX.Element {
-  const handleCreateCheckout = async (): Promise<void> => {
+  const [isLoading, setIsLoading] = useState(false)
+  const [checkoutUrl, setCheckoutUrl] = useState<string | null>(null)
+
+  const createCheckout = async (trackClick = false): Promise<string | null> => {
     try {
       const distinctId = getDistinctId()
-      console.log('distinctId', distinctId)
       const response = await fetch('/.netlify/functions/create-checkout', {
         method: 'POST',
         headers: {
@@ -13,14 +16,60 @@ export default function ReserveButton (): JSX.Element {
         },
         body: JSON.stringify({ distinctId })
       })
+
+      if (trackClick) {
+        track('Initiate Checkout', {
+          buttonId: 'partner-reserve-button',
+          product: 'Partner Reservation',
+          price: 499
+        })
+      }
+
       const data = await response.json()
-      console.log(data)
+      return data.url
     } catch (error) {
       console.error(error)
+      return null
     }
   }
 
+  const handleCreateCheckout = async (): Promise<void> => {
+    setIsLoading(true)
+    if (checkoutUrl) {
+      window.location.href = checkoutUrl
+      return
+    }
+
+    console.log('Generating checkout URL...')
+    const url = await createCheckout(true)
+    if (url) {
+      window.location.href = url
+    } else {
+      // Fallback to Stripe payment link, no tracking :(
+      window.location.href = 'https://buy.stripe.com/6oEdTp8pygzo5AA9AC'
+    }
+    setIsLoading(false)
+  }
+
+  useEffect(() => {
+    const timer = setTimeout(async () => {
+      const url = await createCheckout(false)
+      setCheckoutUrl(url)
+    }, 5000)
+
+    return () => { clearTimeout(timer) }
+  }, [])
+
   return (
-        <a data-tracking="partner-reserve-button" onClick={handleCreateCheckout} /* href="https://buy.stripe.com/6oEdTp8pygzo5AA9AC" */ className="w-72 cursor-pointer text-xl 2xl:text-2xl 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">Reserve</a>
+    <a
+      data-tracking="partner-reserve-button"
+      onClick={handleCreateCheckout}
+      className={`w-72 cursor-pointer text-xl 2xl:text-2xl 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black ${isLoading ? 'opacity-50 cursor-wait' : ''}`}
+    >
+      <span className="flex  place-items-center justify-center">
+        Reserve
+        {isLoading && <Loader2 className="ml-2 size-4 mb-1 animate-spin " />}
+      </span>
+    </a>
   )
 }

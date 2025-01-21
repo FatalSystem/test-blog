@@ -13,10 +13,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
     const { distinctId } = data
     const stripe = new Stripe(STRIPE_KEY)
     const checkout = await stripe.checkout.sessions.create({
-      success_url: 'https://www.tennibot.com/thank-you',
-      adaptive_pricing: {
-        enabled: true
-      },
+      success_url: 'https://www.tennibot.com/thank-you?session={CHECKOUT_SESSION_ID}',
       line_items: [
         {
           price: 'price_1QNTvQRqXimb7JbcIw6HpQmV',
