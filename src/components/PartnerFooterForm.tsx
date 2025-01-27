@@ -18,7 +18,7 @@ const formSchema = z.object({
   })
 })
 
-export default function PartnerFooterForm ({ formClassName, inputClassName, buttonClassName }): React.JSX.Element {
+export default function PartnerFooterForm ({ formClassName, inputClassName, buttonClassName, listId }: { formClassName: string, inputClassName: string, buttonClassName: string, listId: string }): React.JSX.Element {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -39,7 +39,7 @@ export default function PartnerFooterForm ({ formClassName, inputClassName, butt
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email: values.email, from: 'Footer', rcToken: token, listId: 'WuJSx3' })
+        body: JSON.stringify({ email: values.email, from: 'Footer', rcToken: token, listId })
       })
       if (response.status !== 200) {
         setErrorSubmitting(true)
