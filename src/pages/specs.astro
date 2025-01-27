@@ -1,0 +1,101 @@
+---
+import { Button } from "@components/Button";
+import { Pages } from "@utils";
+import Layout from "layouts/Layout.astro";
+import Text from "@components/core/Text.astro"
+import PartnerFooter from "@components/PartnerFooter.astro";
+
+---
+<Layout title="Partner | Tennibot" showFooter={false} showHeader={false} showPartnerHeader={true} >
+    <main class="w-full bg-t-off-black text-t-off-white" >
+        <section class="relative h-[60vh] bg-[url('/images/partner/partner-hero.webp')] bg-cover md:bg-left bg-[position:10%_75%] flex flex-col justify-center" >
+            <div class="absolute inset-0 bg-gradient-to-l md:from-black/70 from-black/40 from-0% md:to-transparent to-black/40 md:to-90%"></div>
+            <div class="flex flex-col justify-start w-fit self-center md:items-center items-start z-10  p-5" >
+                <h1 class="font-avenir text-t-off-white uppercase mb-3 lg:text-6xl text-4xl text-center" >The <span class="font-avenirBold" >Partner</span></h1>
+                <p class="font-avenir text-t-off-white text-left uppercase md:text-xl text-md" >
+                    Specifications
+                </p>
+                <!-- <a href={Pages.RESERVE} class={`mt-10 w-64 tablet:w-64 2xl:w-80 text-xl 2xl:text-2xl 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>Reserve</a> -->
+            </div>
+          </section>
+          
+          <section class="w-[80%] mx-auto pt-24 md:pt-24 pb-10" >
+            <div class="flex md:flex-row flex-col-reverse justify-between items-center" >
+                <div class="w-full md:w-[40%] md:h-full rounded-lg overflow-hidden" >
+                    <div class=" xl:bg-[url('/images/tennis/padel.webp')] bg-[url('/images/tennis/padel-mobile.webp')] bg-cover bg-top" >
+                        <div class="h-[40vh] flex flex-col items-center justify-between py-5">
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-[55%] md:h-full mb-10 md:mb-0 flex flex-col h-full justify-center" >
+                    <ul class="list-disc font-avenir flex flex-col gap-3 text-t-off-white text-lg" >
+                        <li><span class="font-avenirBold" >Custom Drills:</span> Program unlimited custom drills </li>
+                        <li><span class="font-avenirBold" >Pre-loaded drills:</span> Hundreds of drills available to download through our app</li>
+                        <li><span class="font-avenirBold" >Horizontal Oscillation:</span> Yes. Capable of delivering balls to all points across the entire width of the court</li>
+                        <li><span class="font-avenirBold" >Vertical Oscillation:</span> Yes. The Partner can deliver balls just over the net and high overhead lobs.</li>
+                        <li><span class="font-avenirBold" >Spin types:</span> top spin, back spin, no spin (flat)</li>
+                    </ul>
+                </div>
+            </div>
+          </section>
+          
+          <section class="w-[80%] mx-auto pt-12 md:pt-24 pb-10" >
+              <div class="flex md:flex-row flex-col justify-between items-center" >
+                  <div class="w-full md:w-[45%] md:h-full flex flex-col h-full justify-center" >
+                      <ul class="list-disc font-avenir mb-10 md:mb-0 flex flex-col gap-3 text-t-off-white text-lg" >
+                          <li><span class="font-avenirBold" >Ball Speed:</span> 10-70 mph</li>
+                          <li><span class="font-avenirBold" >Feed rate:</span> 2-15 seconds</li>
+                          <li><span class="font-avenirBold" >Elevation:</span> 10-40 degrees</li>
+                          <li><span class="font-avenirBold" >Ball capacity:</span> 140 </li>
+                          <li><span class="font-avenirBold" >Active Breaking:</span> Yes</li>
+                        </ul>
+                    </div>
+                    <div class="w-full md:w-[55%] md:h-full rounded-lg overflow-hidden" >
+                        <div class=" xl:bg-[url('/images/tennis/padel.webp')] bg-[url('/images/tennis/padel-mobile.webp')] bg-cover bg-top" >
+                            <div class="h-[40vh] flex flex-col items-center justify-between py-5">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="w-[80%] mx-auto pt-12 md:pt-24 pb-10" >
+              <div class="flex md:flex-row flex-col-reverse justify-between items-center" >
+                  <div class="w-full md:w-[40%] md:h-full rounded-lg overflow-hidden" >
+                      <div class=" xl:bg-[url('/images/tennis/padel.webp')] bg-[url('/images/tennis/padel-mobile.webp')] bg-cover bg-top" >
+                          <div class="h-[40vh] flex flex-col items-center justify-between py-5">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="w-full md:w-[55%] mb-10 md:mb-0 flex flex-col h-full justify-center" >
+                      <ul class="list-disc font-avenir flex flex-col gap-3 text-t-off-white text-lg" >
+                          <li><span class="font-avenirBold" >Remote Control:</span> iPhone or Android App </li>
+                          <li><span class="font-avenirBold" >Dimensions:</span> 27x22x26</li>
+                          <li><span class="font-avenirBold" >Weight:</span> 33 lbs</li>
+                          <li><span class="font-avenirBold" >Battery:</span> Standard Greenworks 24v</li>
+                          <li><span class="font-avenirBold" >Battery Life:</span> About 4 hours</li>
+                          <li><span class="font-avenirBold" >Charge Time:</span> 2 hours</li>
+                          <li><span class="font-avenirBold" >Battery Charger:</span> Included</li>
+                      </ul>
+                  </div>
+              </div>
+            </section>
+
+            <section class="w-[80%] mx-auto pt-24 pb-10" >
+                <h3 class="font-avenirBold text-t-off-white md:text-2xl text-xl text-center" >Why would I buy a Tennibot Partner<br class="md:block hidden" /> instead of all the others ballmachines out there?</h3>
+                <p class="font-avenir text-t-off-white text-md md:text-lg text-left mt-10" >
+                    Great question; the Partner is the only ball machine that moves on the court. This allows it to create human-like shots (think of being able to receive forehand shots down the line and then inside out in the same practice, just like playing with a person.<br /><br />
+
+                    Also, it is the only ball machine to “see” you are on the court. This means it can either hit wherever you are on the court or make you run based on your preference (just like a coach will do).<br /><br />
+
+                    So, to sum it up, it’s 10 times better than anything else on the market right now.<br /><br />
+                </p>
+
+                <div class="md:w-[50%] mt-6 flex flex-col justify-between" >
+                    <a href={Pages.RESERVE} class={`tablet:w-64 w-full 2xl:w-80 text-xl 2xl:text-2xl 2xl: 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>Reserve</a>
+                </div>
+
+            </section>
+    </main>
+</Layout>
+<PartnerFooter />

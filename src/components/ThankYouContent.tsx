@@ -76,8 +76,6 @@ export default function ThankYouContent (): JSX.Element {
     void fetchSessionData()
   }, [])
 
-  console.log(sessionData)
-
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
