@@ -161,6 +161,10 @@ const PartnerFeatures = (): JSX.Element => {
   const handleCardClick = (contentType: string) => {
     const dragTime = Date.now() - dragStartTime
     if (dragTime < 200) {
+      if (contentType === 'specs') {
+        window.location.href = '/specs'
+        return
+      }
       setContent(contentType)
       setShowPopup(true)
     }
