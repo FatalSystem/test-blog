@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import PartnerPopup from './PartnerPopup'
 import { X, MoveDiagonal } from 'lucide-react'
+import { Pages } from '@utils'
 
 const PartnerFeatures = (): JSX.Element => {
   const [showPopup, setShowPopup] = useState<boolean>(false)
@@ -242,6 +243,9 @@ const PartnerFeatures = (): JSX.Element => {
                 </button>
                 <p className="relative z-10 font-avenir text-t-off-white uppercase text-2xl mt-[10vh]" >Intelligent safety</p>
             </a>
+        </div>
+        <div className="md:w-[50%] mt-14 flex flex-col justify-center items-center mx-auto" >
+            <a href="/specs" className={'tablet:w-64 w-[80%] 2xl:w-80 text-xl 2xl:text-2xl 2xl: 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black'}>Detailed specs</a>
         </div>
     </>
   )
