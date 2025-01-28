@@ -15,7 +15,7 @@ export const initMixpanel = (): void => {
       record_sessions_percent: 100,
       record_min_ms: 10000,
       record_collect_fonts: true,
-      maskAllText: true
+      maskAllText: false
     })
   }
 }
