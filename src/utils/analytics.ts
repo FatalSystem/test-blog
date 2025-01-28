@@ -12,7 +12,7 @@ export const initMixpanel = (): void => {
       track_pageview: true,
       persistence: 'localStorage',
       ignore_dnt: true,
-      record_sessions_percent: 50,
+      record_sessions_percent: 100,
       record_min_ms: 10000,
       record_collect_fonts: true,
       maskAllText: true
