@@ -8,7 +8,7 @@ export const initMixpanel = (): void => {
   if (window?.mixpanel) {
     window.mixpanel.init('16d06bcdf9b0f6e260ccb622aa0cc19a', {
       api_host: 'https://mixpanel-tracking-proxy-625719360183.us-central1.run.app/',
-      debug: true,
+      debug: false,
       track_pageview: true,
       persistence: 'localStorage',
       ignore_dnt: true,
