@@ -22,7 +22,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
     if (hear !== '') mergeFields = { ...mergeFields, hear }
     if (competitor !== '') mergeFields = { ...mergeFields, competitor }
 
-    const response = await fetch(`https://a.klaviyo.com/api/v2/list/XPBLEH/subscribe?api_key=${KY_API_KEY}`,
+    const response = await fetch(`https://a.klaviyo.com/api/v2/list/V2cRxG/subscribe?api_key=${KY_API_KEY}`,
       {
         method: 'POST',
         headers: {
