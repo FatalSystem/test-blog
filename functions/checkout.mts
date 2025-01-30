@@ -14,6 +14,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
     const checkout = await stripe.checkout.sessions.retrieve(data.session, {
       apiKey: STRIPE_KEY
     })
+    console.log('Checkout:', checkout)
 
     const value = (parseInt((checkout?.amount ?? 49900).toFixed(2)) / 100) ?? 499.00
     const currency = checkout?.currency?.toUpperCase() ?? 'USD'
