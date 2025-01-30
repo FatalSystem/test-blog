@@ -121,7 +121,7 @@ export default function ThankYouContentDebug (): JSX.Element {
                             <p className="font-avenir text-t-off-white">Partner</p>
                             <p className="font-avenir text-t-off-white">${amount} {currency}</p>
                         </div>
-                        <p className="font-avenir text-t-gray text-sm mt-3">Thank you for you reservation. The expected shipping date is April 2025.</p>
+                        <p className="font-avenir text-t-gray text-sm mt-3">Thank you for you reservation. The expected shipping date is May 2025.</p>
                         <div className="bg-[#afafae5f] rounded-md px-2 py-[1.5px] flex flex-col justify-center mt-3 w-fit ">
                             <p className="font-avenir text-t-off-white text-sm" >Qty {Math.ceil(((parseInt(sessionData?.currency_conversion?.amount_subtotal ?? 49900) / 100).toFixed(2)) / 499.00) || 1}</p>
                         </div>
