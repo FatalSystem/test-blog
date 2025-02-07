@@ -70,7 +70,7 @@ const PartnerVideoDisplay = (): JSX.Element => {
   }
 
   return (
-    <>
+    <div className="hidden lg:block" >
         {selectedTab === 0 && (
             <div className="aspect-[16/9] bg-[url('/images/partner/partner-tennis-thumbnail.webp')] w-[80%] 2xl:w-[65%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
                 <div className="absolute bottom-4 right-4 z-10 flex gap-2">
@@ -240,7 +240,7 @@ const PartnerVideoDisplay = (): JSX.Element => {
                 <p className="font-pluto text-t-off-white text-sm" >Dinks, drives, and third shot drops - Practice any shot you want, anywhere on the court with the most realistic gameplay a ball machine can provide.</p>
             </a>
         </div>
-    </>
+    </div>
   )
 }
 export default PartnerVideoDisplay

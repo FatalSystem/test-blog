@@ -73,11 +73,35 @@ export default function PartnerHeader (): JSX.Element {
           </a>
           <div className='flex flex-row items-center justify-center'>
             <div className=' flex flex-row gap-16' >
-              <a
+              {/* <a
               href='/reserve'
               className={`text-xl text-t-off-white font-avenirBold uppercase transform cursor-pointer hover:text-t-green transition duration-500 ${open ? 'opacity-0' : 'opacity-100'} ease-in-out`}>
                 Reserve
-              </a>
+              </a> */}
+              <div className="relative my-auto flex flex-row">
+              <button onClick={() => { setOpen(!open) }} aria-label="Main Menu" className="w-12 h-10 ">
+                <div className="block w-10  absolute left-1/2 top-1/2   transform  -translate-x-1/2 -translate-y-1/2">
+                  <span
+                    aria-hidden="true"
+                    className={`block rounded-md absolute h-0.5 w-10 bg-t-off-white transform transition duration-500 ease-in-out ${
+                      open ? 'rotate-45' : '-translate-y-2.5'
+                    }`}
+                  ></span>
+                  <span
+                    aria-hidden="true"
+                    className={`block absolute rounded-md h-0.5 w-10 bg-t-off-white  transform transition  duration-500  ease-in-out  ${
+                      open && 'opacity-0'
+                    } `}
+                  ></span>
+                  <span
+                    aria-hidden="true"
+                    className={`block absolute rounded-md h-0.5 w-10  bg-t-off-white transform  transition duration-500 ease-in-out ${
+                      open ? '-rotate-45' : ' translate-y-2.5'
+                    } `}
+                  ></span>
+                </div>
+              </button>
+            </div>
             </div>
           </div>
         </div>
