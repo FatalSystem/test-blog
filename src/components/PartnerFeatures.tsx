@@ -183,7 +183,7 @@ const PartnerFeatures = (): JSX.Element => {
             onMouseLeave={handleMouseUp}
             onMouseMove={handleMouseMove}
         >
-            <a onClick={() => { handleCardClick('specs') }} className="cursor-pointer relative h-[60vh] min-w-[290px] rounded-xl hover:rounded-3xl flex flex-col justify-end p-10 overflow-hidden transition-all duration-500" >
+            {/* <a onClick={() => { handleCardClick('specs') }} className="cursor-pointer relative h-[60vh] min-w-[290px] rounded-xl hover:rounded-3xl flex flex-col justify-end p-10 overflow-hidden transition-all duration-500" >
                 <div className="absolute inset-0 bg-[url('/images/partner/partner-specs.webp')] bg-cover bg-center transition-transform duration-500 hover:scale-105" />
                 <button
                     onClick={() => { handleCardClick('specs') }}
@@ -192,7 +192,7 @@ const PartnerFeatures = (): JSX.Element => {
                     <MoveDiagonal className="w-4 h-4" />
                 </button>
                 <p className="relative z-10 font-avenir text-t-off-white uppercase text-2xl mt-[10vh]" >Specs</p>
-            </a>
+            </a> */}
             <a onClick={() => { handleCardClick('match') }} className="cursor-pointer relative h-[60vh] min-w-[290px] rounded-xl hover:rounded-3xl flex flex-col justify-end p-10 overflow-hidden transition-all duration-500" >
                 <div className="absolute inset-0 bg-[url('/images/partner/partner-match.webp')] bg-cover bg-center transition-transform duration-500 hover:scale-105" />
                 <button

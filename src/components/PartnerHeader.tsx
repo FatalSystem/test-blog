@@ -6,15 +6,11 @@ import Banner from './Banner'
 
 const links = [
   { label: 'Home', href: Pages.HOME },
-  { label: 'Buy', href: Pages.BUY },
-  { label: 'Tennis', href: Pages.TENNIS },
-  { label: 'The rover', href: Pages.ROVER },
-  { label: 'The station', href: Pages.STATION },
-  { label: 'Clubs and Coaches', href: Pages.CLUBS },
-  { label: 'Pickleball', href: Pages.PICKLEBALL },
-  { label: 'Padel', href: Pages.PADEL },
-  { label: 'About us', href: Pages.ABOUT },
-  { label: 'FAQs', href: Pages.FAQ }
+  { label: 'Reserve', href: Pages.RESERVE },
+  { label: 'FAQ', href: '/partner-faq' },
+  { label: 'Invest', href: 'invest' },
+  { label: 'The Rover', href: '/tennis' },
+  { label: 'The Partner', href: '/partner' }
 ]
 // TODO: Remake with framer motion
 export default function PartnerHeader (): JSX.Element {
@@ -56,7 +52,7 @@ export default function PartnerHeader (): JSX.Element {
                     <a
                       key={index}
                       href={link.href}
-                      className={`text-xl font-avenirBold text-t-off-white uppercase mb-10 transform ${[3, 4, 5].includes(index) ? 'pl-5' : ''} cursor-pointer hover:text-t-green transition duration-${
+                      className={`text-xl font-avenirBold text-t-off-white uppercase mb-10 transform cursor-pointer hover:text-t-green transition duration-${
                         (index + 1) * 100
                       } ${open ? 'opacity-100' : 'opacity-0'} ease-in-out`}
                     >
@@ -73,11 +69,16 @@ export default function PartnerHeader (): JSX.Element {
           </a>
           <div className='flex flex-row items-center justify-center'>
             <div className=' flex flex-row gap-16' >
-              {/* <a
-              href='/reserve'
-              className={`text-xl text-t-off-white font-avenirBold uppercase transform cursor-pointer hover:text-t-green transition duration-500 ${open ? 'opacity-0' : 'opacity-100'} ease-in-out`}>
-                Reserve
-              </a> */}
+              <a
+              href='/tennis'
+              className={`text-xl hidden sm:block text-t-off-white my-auto font-avenirBold uppercase transform cursor-pointer hover:text-t-green transition duration-500 ${open ? 'opacity-0' : 'opacity-100'} ease-in-out`}>
+                The Rover
+              </a>
+              <a
+              href='/partner'
+              className={`text-xl hidden sm:block text-t-off-white my-auto font-avenirBold uppercase transform cursor-pointer hover:text-t-green transition duration-500 ${open ? 'opacity-0' : 'opacity-100'} ease-in-out`}>
+                The Partner
+              </a>
               <div className="relative my-auto flex flex-row">
               <button onClick={() => { setOpen(!open) }} aria-label="Main Menu" className="w-12 h-10 ">
                 <div className="block w-10  absolute left-1/2 top-1/2   transform  -translate-x-1/2 -translate-y-1/2">
