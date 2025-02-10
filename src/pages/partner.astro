@@ -16,7 +16,7 @@ import { Pages } from "@utils"
 import PartnerHowItWorksSlider from "@components/PartnerHowItWorksSlider"
 import DraggableSlider from "@components/DraggableSlider"
 import DraggablePartnerAction from "@components/DraggablePartnerAction"
-import hero from '@assets/partner/partner-hero.png'
+import hero from '@assets/partner/partner-hero-cut.png'
 import { Image } from 'astro:assets'
 ---
 <Layout title="Partner | Tennibot" showFooter={false} showHeader={false} showPartnerHeader={true} showSecondaryHeader={true}>
@@ -67,13 +67,13 @@ import { Image } from 'astro:assets'
                 <p class="md:text-sm lg:text-base" >Limited-time offer: Save 30% today!</p>
             </div>
         </div>
-        <div class="lg:w-[50%] md:w-[400px] sm:w-[350px] w-[300px] mx-auto flex flex-col justify-center items-center">
+        <div class="lg:h-[700px] md:h-[700px] sm:w-[350px] w-[300px] mx-auto flex flex-col justify-center items-center">
             <Image 
                 src={hero.src} 
                 alt="Tennibot Partner"
                 width={800}
-                height={1000}
-                class="w-full h-full max-h-[80vh] object-contain"
+                height={1500}
+                class="w-full md:h-full md:max-h-[100vh] h-[400px] object-contain"
                 quality={100}
             />
         </div>
