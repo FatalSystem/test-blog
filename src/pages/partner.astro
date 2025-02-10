@@ -67,8 +67,15 @@ import { Image } from 'astro:assets'
                 <p class="md:text-sm lg:text-base" >Limited-time offer: Save 30% today!</p>
             </div>
         </div>
-        <div class="md:w-[50%] sm:w-[255px] w-[255px] mx-auto flex flex-col justify-center items-center" >
-            <Image src={hero.src} class="w-full" alt="Tennibot Partner" width={800} height={1000} />
+        <div class="lg:w-[50%] md:w-[400px] sm:w-[350px] w-[300px] mx-auto flex flex-col justify-center items-center">
+            <Image 
+                src={hero.src} 
+                alt="Tennibot Partner"
+                width={800}
+                height={1000}
+                class="w-full h-full max-h-[80vh] object-contain"
+                quality={100}
+            />
         </div>
         <div class="flex md:w-[45%] flex-col justify-start self-center md:items-center items-start z-10 pt-[8vh]" >
             <p class="font-avenir text-t-off-white text-center uppercase lg:text-2xl md:text-base text-md" >
@@ -79,7 +86,7 @@ import { Image } from 'astro:assets'
 
       <section class="bg-t-off-black pt-16 md:pb-36 pb-16" >
         <div class="" >
-            <h2 class="w-[80%] mx-auto font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl mb-10" >Robotics + Racket Sports = The Future of Training.</h2>
+            <h2 class="w-[80%] mx-auto font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl mb-10" >Robotics + Racquet Sports = The Future of Training.</h2>
             <!-- <div class="lg:bg-t-off-black lg:w-[80%] 2xl:w-[65%] lg:mx-auto lg:p-10 rounded-xl flex flex-col"> -->
                 <!-- <p class="md:mx-5 mx-auto font-avenir uppercase text-t-off-white md:text-2xl mobilem:text-xl mb-5">See it in action</p> -->
                 <DraggablePartnerAction client:load />
@@ -95,7 +102,7 @@ import { Image } from 'astro:assets'
         <PartnerFeatures client:load />
       </section>
 
-      <section id="specs" class="bg-t-off-black w-[80%] mx-auto pt-5 md:pb-36 pb-16" >
+      <section id="specs" class="bg-t-off-black w-[80%] mx-auto pt-5 md:pb-36 pb-16 scroll-mt-[100px]" >
         <div class="w-[80%] mx-auto mb-10" >
             <h2 class="font-avenirBold text-t-green text-center uppercase md:text-2xl mobilem:text-xl text-xl" >Designed for players who demand more</h2>
         </div>
@@ -280,7 +287,7 @@ import { Image } from 'astro:assets'
         <div class="w-[80%] 2xl:w-[65%] mx-auto flex lg:flex-row flex-col lg:gap-15 gap-10 pt-5 pb-16" >
             <div class="w-[100%] border-2 md:max-w-[50%] md:mx-auto border-t-off-white rounded-xl text-left py-8 px-5" >
                 <h5 class="font-avenirBold uppercase text-xl text-t-off-white mb-3" >Premium Quality</h5>
-                <p class="font-pluto text-t-off-white text-sm text-pretty" >Tennibot is one of the only ball machine company that offers a <span class="text-t-green">3-year warranty</span>. We stand behind our quality, while others don't.</p>
+                <p class="font-pluto text-t-off-white text-sm text-pretty" >One of the only ball machines that comes with a <span class="text-t-green">3-year warranty</span>. We stand behind our quality, while others don't.</p>
             </div>
             <div class="w-[100%] border-2 md:max-w-[50%] md:mx-auto border-t-off-white rounded-xl text-left py-8 px-5" >
                 <h5 class="font-avenirBold uppercase text-xl text-t-off-white mb-3" >Track Record</h5>
