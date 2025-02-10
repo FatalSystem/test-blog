@@ -30,6 +30,9 @@ const DraggablePartnerAction = (): JSX.Element => {
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
         onMouseMove={handleMouseMove} className="px-5 flex flex-row gap-5 overflow-x-scroll flex-nowrap [&::-webkit-scrollbar]:hidden justify-between items-center" >
+            <PartnerActionVideo title="" videoSource="https://player.vimeo.com/video/1055078058" className="bg-[url('/images/partner/partner-drone-fat-thumbnail.png')] lg:min-w-[20%] min-w-[40%] w-full" />
+            <PartnerActionVideo title="" videoSource="https://player.vimeo.com/video/1055078071" className="bg-[url('/images/partner/partner-drone-top-thumbnail.png')] lg:min-w-[20%] min-w-[40%] w-full" />
+            <PartnerActionVideo title="" videoSource="https://player.vimeo.com/video/1055078131" className="bg-[url('/images/partner/partner-pickle-glasses-thumbnial.png')] lg:min-w-[20%] min-w-[40%] w-full" />
             <PartnerActionVideo title="" videoSource="https://player.vimeo.com/video/1031773084" className="bg-[url('/images/partner/event-thumbnail.png')] lg:min-w-[20%] min-w-[40%] w-full" />
             <PartnerActionVideo title="" videoSource="https://player.vimeo.com/video/1031782201" className="bg-[url('/images/partner/pickle-thumbnail.png')] lg:min-w-[20%] min-w-[40%] w-full" />
             <PartnerActionVideo title="" videoSource="https://player.vimeo.com/video/1031748865" className="bg-[url('/images/partner/first-person-thumbnail.png')] lg:min-w-[20%] min-w-[40%] w-full" />
