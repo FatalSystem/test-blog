@@ -6,6 +6,7 @@ import Banner from './Banner'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from './Dropdown'
 import { Button } from './Button'
 import { ChevronDown, ChevronRight } from 'lucide-react'
+import { eventBus } from '../utils/eventBus'
 
 const links = [
   { label: 'Overview', href: 'overview' },
@@ -18,9 +19,18 @@ const links = [
 // TODO: Remake with framer motion
 export default function PartnerHeader (): JSX.Element {
   const [open, setOpen] = useState<boolean>(false)
+  const [showBanner, setShowBanner] = useState<boolean>(false)
+
+  useEffect(() => {
+    const unsubscribe = eventBus.subscribe('bannerStateChange', (show: boolean) => {
+      setShowBanner(show)
+    })
+
+    return () => unsubscribe()
+  }, [])
 
   return (
-    <div className='sticky top-0 z-50'>
+    <div className={`sticky ${showBanner ? 'top-20 lg:top-14' : 'top-0'} z-50`}>
       <header className='relative' >
         <AnimatePresence >
           {open && (
