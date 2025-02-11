@@ -20,12 +20,12 @@ export default function PartnerHeader (): JSX.Element {
   const [showBanner, setShowBanner] = useState<boolean>(false)
 
   const closeBanner = (): void => {
-    window.localStorage.setItem('showPartnerLeftBanner', 'false')
+    window.localStorage.setItem('showRSoonerBanner', 'false')
     setShowBanner(false)
   }
 
   const shouldShow = (): void => {
-    if (window.localStorage.getItem('showPartnerLeftBanner') === null && window.location.pathname === '/partner/') {
+    if (window.localStorage.getItem('showRSoonerBanner') === null && window.location.pathname === '/partner/') {
       setShowBanner(true)
     }
   }
