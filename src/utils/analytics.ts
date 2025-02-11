@@ -16,6 +16,10 @@ export const initMixpanel = (): void => {
       record_min_ms: 8000,
       record_mask_text_selector: ''
     })
+
+    window.mixpanel.register({
+      version: 'Partner B' // or however you determine your version
+    })
   }
 }
 
