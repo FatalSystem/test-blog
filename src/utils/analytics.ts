@@ -16,9 +16,17 @@ export const initMixpanel = (): void => {
       record_min_ms: 10000,
       record_mask_text_selector: ''
     })
-    window.mixpanel.register({
-      version: 'Partner A' // or however you determine your version
-    })
+    const MAX_RETRIES = 50 // 10 seconds total (50 * 200ms)
+    let retries = 0
+    const waitForMixpanel = setInterval(() => {
+      if (typeof window.mixpanel !== 'undefined' && window.mixpanel.get_property) {
+        window.mixpanel.register({ version: 'Partner A' })
+        clearInterval(waitForMixpanel)
+      } else if (retries >= MAX_RETRIES) {
+        clearInterval(waitForMixpanel)
+      }
+      retries++
+    }, 200)
   }
 }
 
