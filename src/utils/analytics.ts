@@ -16,7 +16,6 @@ export const initMixpanel = (): void => {
       record_min_ms: 8000,
       record_mask_text_selector: ''
     })
-
     const MAX_RETRIES = 50 // 10 seconds total (50 * 200ms)
     let retries = 0
     const waitForMixpanel = setInterval(() => {
