@@ -21,7 +21,7 @@ export const initMixpanel = (): void => {
     let retries = 0
     const waitForMixpanel = setInterval(() => {
       if (typeof window.mixpanel !== 'undefined' && window.mixpanel.get_property) {
-        window.mixpanel.register({ version: 'Partner B' })
+        window.mixpanel.register({ version: 'Partner A' })
         clearInterval(waitForMixpanel)
       } else if (retries >= MAX_RETRIES) {
         clearInterval(waitForMixpanel)
