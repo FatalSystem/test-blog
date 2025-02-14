@@ -183,21 +183,21 @@ const PartnerFeatures = (): JSX.Element => {
             onMouseLeave={handleMouseUp}
             onMouseMove={handleMouseMove}
         >
-            <a onClick={() => { handleCardClick('specs') }} className="cursor-pointer relative h-[60vh] min-w-[290px] rounded-xl hover:rounded-3xl flex flex-col justify-end p-10 overflow-hidden transition-all duration-500" >
+            {/* <a onClick={() => { handleCardClick('specs') }} className="cursor-pointer relative h-[60vh] min-w-[290px] rounded-xl hover:rounded-3xl flex flex-col justify-end p-10 overflow-hidden transition-all duration-500" >
                 <div className="absolute inset-0 bg-[url('/images/partner/partner-specs.webp')] bg-cover bg-center transition-transform duration-500 hover:scale-105" />
                 <button
                     onClick={() => { handleCardClick('specs') }}
-                    className="bg-black/30 text-white p-2 z-10 md:hidden absolute backdrop-blur-sm top-[3%] right-[3%] rounded-full hover:bg-black/50"
+                    className="bg-black/30 text-white p-2 z-10 absolute backdrop-blur-sm top-[3%] right-[3%] rounded-full hover:bg-black/50"
                 >
                     <MoveDiagonal className="w-4 h-4" />
                 </button>
                 <p className="relative z-10 font-avenir text-t-off-white uppercase text-2xl mt-[10vh]" >Specs</p>
-            </a>
+            </a> */}
             <a onClick={() => { handleCardClick('match') }} className="cursor-pointer relative h-[60vh] min-w-[290px] rounded-xl hover:rounded-3xl flex flex-col justify-end p-10 overflow-hidden transition-all duration-500" >
                 <div className="absolute inset-0 bg-[url('/images/partner/partner-match.webp')] bg-cover bg-center transition-transform duration-500 hover:scale-105" />
                 <button
                     onClick={() => { handleCardClick('match') }}
-                    className="bg-black/30 text-white p-2 z-10 md:hidden absolute backdrop-blur-sm top-[3%] right-[3%] rounded-full hover:bg-black/50"
+                    className="bg-black/30 text-white p-2 z-10 absolute backdrop-blur-sm top-[3%] right-[3%] rounded-full hover:bg-black/50"
                 >
                     <MoveDiagonal className="w-4 h-4" />
                 </button>
@@ -207,7 +207,7 @@ const PartnerFeatures = (): JSX.Element => {
                 <div className="absolute inset-0 bg-[url('/images/partner/partner-portable.webp')] bg-cover bg-center transition-transform duration-500 hover:scale-105" />
                 <button
                     onClick={() => { handleCardClick('portable') }}
-                    className="bg-black/30 text-white p-2 z-10 md:hidden absolute backdrop-blur-sm top-[3%] right-[3%] rounded-full hover:bg-black/50"
+                    className="bg-black/30 text-white p-2 z-10 absolute backdrop-blur-sm top-[3%] right-[3%] rounded-full hover:bg-black/50"
                 >
                     <MoveDiagonal className="w-4 h-4" />
                 </button>
@@ -217,7 +217,7 @@ const PartnerFeatures = (): JSX.Element => {
                 <div className="absolute inset-0 bg-[url('/images/partner/partner-human.webp')] bg-cover bg-center transition-transform duration-500 hover:scale-105" />
                 <button
                     onClick={() => { handleCardClick('human') }}
-                    className="bg-black/30 text-white p-2 z-10 md:hidden absolute backdrop-blur-sm top-[3%] right-[3%] rounded-full hover:bg-black/50"
+                    className="bg-black/30 text-white p-2 z-10 absolute backdrop-blur-sm top-[3%] right-[3%] rounded-full hover:bg-black/50"
                 >
                     <MoveDiagonal className="w-4 h-4" />
                 </button>
@@ -227,7 +227,7 @@ const PartnerFeatures = (): JSX.Element => {
                 <div className="absolute inset-0 bg-[url('/images/partner/partner-follow.webp')] bg-cover bg-center transition-transform duration-500 hover:scale-105" />
                 <button
                     onClick={() => { handleCardClick('follow') }}
-                    className="bg-black/30 text-white p-2 z-10 md:hidden absolute backdrop-blur-sm top-[3%] right-[3%] rounded-full hover:bg-black/50"
+                    className="bg-black/30 text-white p-2 z-10 absolute backdrop-blur-sm top-[3%] right-[3%] rounded-full hover:bg-black/50"
                 >
                     <MoveDiagonal className="w-4 h-4" />
                 </button>
@@ -237,15 +237,12 @@ const PartnerFeatures = (): JSX.Element => {
                 <div className="absolute inset-0 bg-[url('/images/partner/partner-safety.webp')] bg-cover bg-center transition-transform duration-500 hover:scale-105" />
                 <button
                     onClick={() => { handleCardClick('safety') }}
-                    className="bg-black/30 text-white p-2 z-10 md:hidden absolute backdrop-blur-sm top-[3%] right-[3%] rounded-full hover:bg-black/50"
+                    className="bg-black/30 text-white p-2 z-10 absolute backdrop-blur-sm top-[3%] right-[3%] rounded-full hover:bg-black/50"
                 >
                     <MoveDiagonal className="w-4 h-4" />
                 </button>
                 <p className="relative z-10 font-avenir text-t-off-white uppercase text-2xl mt-[10vh]" >Intelligent safety</p>
             </a>
-        </div>
-        <div className="md:w-[50%] mt-14 flex flex-col justify-center items-center mx-auto" >
-            <a href="/specs" className={'tablet:w-64 w-[80%] 2xl:w-80 text-xl 2xl:text-2xl 2xl: 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black'}>Detailed specs</a>
         </div>
     </>
   )

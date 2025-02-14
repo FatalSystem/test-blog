@@ -5,14 +5,17 @@ import Header from "@components/Header"
 import Popup from "@components/Popup"
 import Banner from "@components/Banner"
 import PartnerHeader from "@components/PartnerHeader"
+import SecondaryPartnerHeader from "@components/SecondaryPartnerHeader"
+import { Pages } from "@utils"
 export interface Props {
   title: string
   showHeader?: boolean
   showFooter?: boolean
   showPartnerHeader?: boolean
+  showSecondaryHeader?: boolean
 }
 
-const { title, showHeader = true, showFooter = true, showPartnerHeader = false } = Astro.props
+const { title, showHeader = true, showFooter = true, showPartnerHeader = false, showSecondaryHeader = false } = Astro.props
 ---
 
 <!DOCTYPE html>
@@ -129,6 +132,7 @@ const { title, showHeader = true, showFooter = true, showPartnerHeader = false }
     <!-- <Popup client:only="react" /> -->
     {showHeader && <Header client:load />}
     {showPartnerHeader && <PartnerHeader client:load />}
+    {showSecondaryHeader && <SecondaryPartnerHeader client:load />}
     <slot />
     {showFooter && <Footer />}
   </body>

@@ -73,15 +73,15 @@ export default function Header (): JSX.Element {
           </a>
           <div className='flex flex-row items-center justify-center'>
             <div className='pr-16 hidden sm:flex flex-row gap-16' >
-              <a
-              href={Pages.HOME}
-              className={`text-xl text-t-off-white font-avenirBold uppercase transform cursor-pointer hover:text-t-green transition duration-500 ${open ? 'opacity-0' : 'opacity-100'} ease-in-out`}>
-                Home
+            <a
+              href='/tennis'
+              className={`text-xl hidden sm:block text-t-off-white my-auto font-avenirBold uppercase transform cursor-pointer hover:text-t-green transition duration-500 ${open ? 'opacity-0' : 'opacity-100'} ease-in-out`}>
+                The Rover
               </a>
               <a
-              href={Pages.BUY}
-              className={`text-xl text-t-off-white font-avenirBold uppercase transform cursor-pointer hover:text-t-green transition duration-500 ${open ? 'opacity-0' : 'opacity-100'} ease-in-out`}>
-                Buy
+              href='/partner'
+              className={`text-xl hidden sm:block text-t-off-white my-auto font-avenirBold uppercase transform cursor-pointer hover:text-t-green transition duration-500 ${open ? 'opacity-0' : 'opacity-100'} ease-in-out`}>
+                The Partner
               </a>
             </div>
             <div className="relative my-auto flex flex-row">

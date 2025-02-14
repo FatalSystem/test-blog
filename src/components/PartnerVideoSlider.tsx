@@ -269,7 +269,7 @@ export default function PartnerVideoSlider ({ type }: IProps): JSX.Element {
   }
 
   return (
-    <div className="w-[80%] mx-auto">
+    <div className="w-[80%] mx-auto block lg:hidden">
               <div className="aspect-[16/9] w-[100%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative"
                   onClick={() => { setShowControls(true) }}
                   onMouseLeave={() => { setShowControls(false) }}
