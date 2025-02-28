@@ -51,7 +51,7 @@ export default function ThankYouContent (): JSX.Element {
           }
 
           const data = await response.json() as SessionData
-          gtag('event', 'conversion', {
+          gtag('event', 'Purchase', {
             send_to: 'AW-16667981876/mKp3CMnUsckZELTw9Is-',
             value: data.value,
             currency: data.currency,
