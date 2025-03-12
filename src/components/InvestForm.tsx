@@ -14,12 +14,21 @@ import SportSelectorForm from './SportSelectorForm'
 const formSchema = z.object({
   name: z.string().min(2, {
     message: 'Required'
+  }).max(100, {
+    message: 'Invalid name.'
   }),
   email: z.string().email({
     message: 'Invalid email address.'
+  }).max(100, {
+    message: 'Invalid email address.'
   }),
   // phone: z.string().optional(),
-  call: z.boolean().optional()
+  call: z.boolean().optional(),
+  linkedin: z.string().min(10, {
+    message: 'Required'
+  }).max(100, {
+    message: 'Invalid LinkedIn profile URL.'
+  })
 })
 
 const inputStyle = 'bg-transparent border-2 p-2.5 border-t-green rounded-md focus:outline-none focus:ring-indigo-500 focus:border-t-green mb-5'
@@ -31,6 +40,7 @@ export default function InvestForm ({ from, listId }: { from: string, listId: st
     defaultValues: {
       name: '',
       email: '',
+      linkedin: '',
       call: true
     }
   })
@@ -58,7 +68,7 @@ export default function InvestForm ({ from, listId }: { from: string, listId: st
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email: values.email, from, fname: firstName ?? values.name, lname: lastName ?? '', rcToken: token, listId: 'URW7Es' })
+        body: JSON.stringify({ email: values.email, from, fname: firstName ?? values.name, lname: lastName ?? '', rcToken: token, listId: 'URW7Es', linkedin: values.linkedin })
       })
       if (response.status !== 200) {
         setErrorSubmitting(true)
@@ -106,6 +116,20 @@ export default function InvestForm ({ from, listId }: { from: string, listId: st
                   )}
                   />
               </div>
+              <div className='flex md:flex-row flex-col md:gap-2'>
+                  <FormField
+                  control={form.control}
+                  name="linkedin"
+                  render={({ field }) => (
+                      <FormItem className='flex flex-col w-full gap-1' >
+                          <FormControl>
+                              <Input {...field} placeholder='LinkedIn Profile URL*' className={inputStyle} />
+                          </FormControl>
+                          <FormMessage />
+                      </FormItem>
+                  )}
+                  />
+              </div>
               <div className='flex w-full flex-row flex-nowrap mb-5' >
                   <FormField
                   control={form.control}
@@ -120,6 +144,7 @@ export default function InvestForm ({ from, listId }: { from: string, listId: st
                       </FormItem>
                   )}
                   />
+
                   {!sent && (
                   <Button disabled={form.formState.disabled || !form.formState.isValid || form.formState.isSubmitting || (form.formState.isSubmitSuccessful && !errorSubmitting)} className="border-t-green md:bg-t-off-black md:hover:bg-t-green border-2 rounded-r-md p-3 stroke-t-off-black md:stroke-t-green md:hover:stroke-t-green relative bg-t-green md:hover:stroke-t-off-black transition-all duration-300 ease-in-out" >
                           {form.formState.isSubmitting && <Loader2 className="size-5 animate-spin absolute inset-0 m-auto md:stroke-t-green stroke-t-off-black" />}
