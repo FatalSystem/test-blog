@@ -19,7 +19,7 @@ export default function ReserveButton (): JSX.Element {
         source: urlParams.get('utm_source'),
         term: urlParams.get('utm_term')
       }
-      console.log('UTM params:', utmParams)
+      // console.log('UTM params:', utmParams)
       const response = await fetch('/.netlify/functions/create-checkout', {
         method: 'POST',
         headers: {
