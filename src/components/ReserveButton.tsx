@@ -9,12 +9,26 @@ export default function ReserveButton (): JSX.Element {
   const createCheckout = async (trackClick = false): Promise<string | null> => {
     try {
       const distinctId = getDistinctId()
+      // Get UTM parameters from URL
+      const urlParams = new URLSearchParams(window.location.search)
+      const utmParams = {
+        campaign: urlParams.get('utm_campaign'),
+        content: urlParams.get('utm_content'),
+        id: urlParams.get('utm_id'),
+        medium: urlParams.get('utm_medium'),
+        source: urlParams.get('utm_source'),
+        term: urlParams.get('utm_term')
+      }
+      console.log('UTM params:', utmParams)
       const response = await fetch('/.netlify/functions/create-checkout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ distinctId })
+        body: JSON.stringify({
+          distinctId,
+          utmParams
+        })
       })
 
       if (trackClick) {
@@ -43,6 +57,7 @@ export default function ReserveButton (): JSX.Element {
     console.log('Generating checkout URL...')
     const url = await createCheckout(true)
     if (url) {
+      console.log('c')
       window.location.href = url
     } else {
       // Fallback to Stripe payment link, no tracking :(
