@@ -37,11 +37,11 @@ export default function BuySelection (): JSX.Element {
           productType: 'Annual Plan'
         }])
 
-        track('Initiate Checkout', {
-          product: 'Rover',
-          plan: 'Annual',
-          price: 995
-        })
+        // track('Initiate Checkout', {
+        //   product: 'Rover',
+        //   plan: 'Annual',
+        //   price: 995
+        // })
 
         edgetag('tag', 'initiateCheckout', {
           currency: 'USD',
@@ -64,11 +64,11 @@ export default function BuySelection (): JSX.Element {
         productType: 'Monthly Plan'
       }])
 
-      track('Initiate Checkout', {
-        product: 'Rover',
-        plan: 'Monthly',
-        price: 95
-      })
+      // track('Initiate Checkout', {
+      //   product: 'Rover',
+      //   plan: 'Monthly',
+      //   price: 95
+      // })
 
       edgetag('tag', 'initiateCheckout', {
         currency: 'USD',
@@ -109,11 +109,11 @@ export default function BuySelection (): JSX.Element {
       _learnq.push(['track', 'Initiate Checkout', {
         productType: 'One Time'
       }])
-      track('Initiate Checkout', {
-        product: 'Rover',
-        plan: 'One Time',
-        price: 2995
-      })
+      // track('Initiate Checkout', {
+      //   product: 'Rover',
+      //   plan: 'One Time',
+      //   price: 2995
+      // })
       edgetag('tag', 'initiateCheckout', {
         currency: 'USD',
         value: 2995,
