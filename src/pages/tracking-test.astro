@@ -2,25 +2,16 @@
 import Layout from "layouts/Layout.astro"
 import ReactTrackingButton from "../components/ReactTrackingButton";
 import ReserveButton from "@components/ReserveButton";
+import ReserveButtonTest from "@components/ReserveButtonTest";
 ---
 <Layout title="Reserve | Tennibot" showFooter={false} showHeader={false} >
     <div class="p-4">
         <h1>Tracking Test</h1>
-        
-        <!-- Astro Button -->
-        <button 
-            data-tracking="astro-button"
-            class="bg-blue-500 text-white px-4 py-2 rounded mr-4">
-            Track with Astro
-        </button>
-
-        <!-- React Button -->
-        <ReactTrackingButton client:load />
-        <ReserveButton client:load />
+        <ReserveButtonTest client:load />
     </div>
 </Layout>
 
-<script>
+<!-- <script>
     // Astro button tracking
     document.querySelectorAll('[data-tracking]').forEach(button => {
         button.addEventListener('click', (e) => {
@@ -32,4 +23,4 @@ import ReserveButton from "@components/ReserveButton";
             });
         });
     });
-</script>
+</script> -->
