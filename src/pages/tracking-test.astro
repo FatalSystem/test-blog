@@ -1,35 +1,16 @@
 ---
 import Layout from "layouts/Layout.astro"
-import ReactTrackingButton from "../components/ReactTrackingButton";
-import ReserveButton from "@components/ReserveButton";
 ---
 <Layout title="Reserve | Tennibot" showFooter={false} showHeader={false} >
     <div class="p-4">
         <h1>Tracking Test</h1>
-        
-        <!-- Astro Button -->
-        <button 
-            data-tracking="astro-button"
-            class="bg-blue-500 text-white px-4 py-2 rounded mr-4">
-            Track with Astro
-        </button>
-
-        <!-- React Button -->
-        <ReactTrackingButton client:load />
-        <ReserveButton client:load />
+        <a href="/checkout?type=onetime" class="group cursor-pointer mt-8 flex flex-row justify-center items-center border-t-green bg-t-green border-2 rounded-md p-3 stroke-t-off-black md:stroke-t-green md:hover:stroke-t-green relative transition-all duration-300 ease-in-out">
+            One Time
+        </a>
+        <a href="/checkout?type=monthly" class="group cursor-pointer mt-8 flex flex-row justify-center items-center border-t-green bg-t-green border-2 rounded-md p-3 stroke-t-off-black md:stroke-t-green md:hover:stroke-t-green relative transition-all duration-300 ease-in-out">
+            Monthly Subscription
+        </a>
+        <a href="/checkout?type=annual" class="group cursor-pointer mt-8 flex flex-row justify-center items-center border-t-green bg-t-green border-2 rounded-md p-3 stroke-t-off-black md:stroke-t-green md:hover:stroke-t-green relative transition-all duration-300 ease-in-out"
+        >Annual Subscription</a>
     </div>
 </Layout>
-
-<script>
-    // Astro button tracking
-    document.querySelectorAll('[data-tracking]').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const buttonId = (e.target as HTMLElement).dataset.tracking;
-            window.mixpanel?.track('Button Clicked', {
-                buttonId,
-                framework: 'astro',
-                page: 'Tracking Test'
-            });
-        });
-    });
-</script>
