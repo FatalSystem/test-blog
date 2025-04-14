@@ -21,8 +21,8 @@ export default async (event: Request, context: Context): Promise<Response> => {
 
     const defaultCheckoutOptions = {
       ui_mode: 'embedded',
-      // success_url: 'https://www.tennibot.com/thank-you?session={CHECKOUT_SESSION_ID}',
-      return_url: 'https://www.tennibot.com/buy',
+      return_url: 'https://www.tennibot.com/thank-you?session={CHECKOUT_SESSION_ID}',
+      // return_url: 'https://www.tennibot.com/buy',
       allow_promotion_codes: true,
       phone_number_collection: {
         enabled: true
