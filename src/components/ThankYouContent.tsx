@@ -11,6 +11,9 @@ interface SessionData {
   email: string
 }
 
+const urlParams = new URLSearchParams(window.location.search)
+const productType = urlParams.get('type')
+
 export default function ThankYouContent (): JSX.Element {
   const [sessionData, setSessionData] = useState<SessionData | null>()
   const [isLoading, setIsLoading] = useState(true)
@@ -51,12 +54,12 @@ export default function ThankYouContent (): JSX.Element {
           }
 
           const data = await response.json() as SessionData
-          gtag('event', 'conversion', {
-            send_to: 'AW-16667981876/xXM_CKul5qYaELTw9Is-',
-            value: data.value,
-            currency: data.currency,
-            transaction_id: sessionId
-          })
+          // gtag('event', 'conversion', {
+          //   send_to: 'AW-16667981876/xXM_CKul5qYaELTw9Is-',
+          //   value: data.value,
+          //   currency: data.currency,
+          //   transaction_id: sessionId
+          // })
           setSessionData(data)
           setIsLoading(false)
           return // Success! Exit the retry loop
@@ -96,10 +99,10 @@ export default function ThankYouContent (): JSX.Element {
                     </div>
                     <div className="mt-5 border-b-[1px] pb-10 border-[#afafae5f] " >
                         <div className="flex flex-row justify-between" >
-                            <p className="font-avenir text-t-off-white">Partner</p>
+                            <p className="font-avenir text-t-off-white">{productType === 'rover' ? 'Rover' : 'Partner'}</p>
                             <p className="font-avenir text-t-off-white">${sessionData?.value ?? 499.00} {sessionData?.currency ?? 'USD'}</p>
                         </div>
-                        <p className="font-avenir text-t-gray text-sm mt-3">Reserve for only $499 today to secure your partner. Pay the remaining $1595 before shipping in May 2025.</p>
+                        <p className="font-avenir text-t-gray text-sm mt-3">{productType === 'rover' ? 'Autonomous Ball Collector' : 'Reserve for only $499 today to secure your partner. Pay the remaining $1595 before shipping in May 2025.'}</p>
                         <div className="bg-[#afafae5f] rounded-md px-2 py-[1.5px] flex flex-col justify-center mt-3 w-fit ">
                             <p className="font-avenir text-t-off-white text-sm" >Qty {sessionData?.quantity ?? 1}</p>
                         </div>

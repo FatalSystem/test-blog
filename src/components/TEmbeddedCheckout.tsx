@@ -10,6 +10,7 @@ const checkoutType = urlParams.get('type')
 export default function TEmbeddedCheckout (): JSX.Element {
   const fetchClientSecret = useCallback(async () => {
     // Create a Checkout Session
+    const distinctId = getDistinctId()
     const urlParams = new URLSearchParams(window.location.search)
     const utmParams = {
     //   campaign: urlParams.get('utm_campaign'),
@@ -25,8 +26,7 @@ export default function TEmbeddedCheckout (): JSX.Element {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        // TODO: Uncomment this when deploying to prod
-        //   distinctId,
+        distinctId,
         checkoutType,
         utmParams
       })
