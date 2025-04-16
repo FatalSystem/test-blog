@@ -139,7 +139,7 @@ export default function ReserveButtonTest (): JSX.Element {
       >
         <EmbeddedCheckout />
       </EmbeddedCheckoutProvider> */}
-      <button onClick={handleTest}>Get distinct ID</button>
+      <button onClick={handleTest} className={`${window?.mixpanel ? 'bg-t-green' : 'bg-t-red'}`} >Get distinct ID</button>
 
     </div>
   )

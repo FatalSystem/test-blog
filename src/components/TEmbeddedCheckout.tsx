@@ -1,4 +1,4 @@
-import { getDistinctId, track } from '@utils'
+import { getDistinctId } from '@utils'
 import { useCallback } from 'react'
 import { loadStripe, type ResultAction, type StripeEmbeddedCheckoutShippingDetailsChangeEvent } from '@stripe/stripe-js'
 import { EmbeddedCheckoutProvider, EmbeddedCheckout } from '@stripe/react-stripe-js'
