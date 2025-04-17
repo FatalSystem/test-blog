@@ -1,16 +1,70 @@
 import { getDistinctId } from '@utils'
-import { useCallback } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { loadStripe, type ResultAction, type StripeEmbeddedCheckoutShippingDetailsChangeEvent } from '@stripe/stripe-js'
 import { EmbeddedCheckoutProvider, EmbeddedCheckout } from '@stripe/react-stripe-js'
 // const stripePromise = loadStripe(import.meta.env.STRIPE_PUBLISHABLE_KEY as string)
 const stripePromise = loadStripe('pk_live_51POCzIRqXimb7JbceMZQnSwe4vG9cnnYTvf6ynI2wneqONH2jLrP1L22hqV6SDQOLBRKFHaeB4UDQFM7yBvkPwfU008tk3uWTO')
 
 const urlParams = new URLSearchParams(window.location.search)
+const MAX_RETRIES = 4 // Maximum number of retries
 const checkoutType = urlParams.get('type')
 export default function TEmbeddedCheckout (): JSX.Element {
+  const [sessionId, setSessionId] = useState<string | null>(null)
+  const [metadataUpdated, setMetadataUpdated] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (!sessionId || metadataUpdated) {
+      return // Don't do anything if we don't have a sessionId or already updated
+    }
+
+    let attempts = 0
+    let interval: NodeJS.Timeout | null = null
+
+    const updateSessionWithDistinctId = async () => {
+      // console.log('Trying to update session with distinctId', attempts)
+      const distinctId = getDistinctId()
+      if (!distinctId) {
+        attempts++
+        if (attempts >= MAX_RETRIES) {
+          clearInterval(interval!)
+        }
+        return
+      }
+
+      try {
+        await fetch('/.netlify/functions/update-checkout-metadata', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            sessionId,
+            distinctId
+          })
+        })
+        setMetadataUpdated(true)
+        clearInterval(interval!)
+      } catch (error) {
+        console.error('Failed to update session metadata:', error)
+        attempts++
+        if (attempts >= MAX_RETRIES) {
+          clearInterval(interval!)
+        }
+      }
+    }
+
+    interval = setInterval(updateSessionWithDistinctId, 3000)
+
+    return () => {
+      if (interval) {
+        clearInterval(interval)
+      }
+    }
+  }, [sessionId, metadataUpdated]) // Remove retryCount from dependencies
+
   const fetchClientSecret = useCallback(async () => {
     // Create a Checkout Session
-    const distinctId = getDistinctId()
+    // const distinctId = getDistinctId()
     const urlParams = new URLSearchParams(window.location.search)
     const utmParams = {
     //   campaign: urlParams.get('utm_campaign'),
@@ -26,14 +80,17 @@ export default function TEmbeddedCheckout (): JSX.Element {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        distinctId,
+        // distinctId,
         checkoutType,
         utmParams
       })
     }).then(async (res) => {
       const resp = await res.json()
       return resp
-    }).then((data) => data.client_secret)
+    }).then((data) => {
+      setSessionId(data.id)
+      return data.client_secret
+    })
   }, [])
 
   // Call your backend to set shipping options
@@ -57,7 +114,12 @@ export default function TEmbeddedCheckout (): JSX.Element {
     }
   }
 
-  const options = checkoutType === 'onetime' ? { fetchClientSecret, onShippingDetailsChange } : { fetchClientSecret }
+  const options = useMemo(() =>
+    checkoutType === 'onetime'
+      ? { fetchClientSecret, onShippingDetailsChange }
+      : { fetchClientSecret },
+  [checkoutType, fetchClientSecret, onShippingDetailsChange]
+  )
 
   return (
     <div id="checkout" className="p-4">

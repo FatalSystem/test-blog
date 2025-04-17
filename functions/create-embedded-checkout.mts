@@ -34,7 +34,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
         enabled: false
       },
       metadata: {
-        distinct_id: distinctId,
+        // distinct_id: distinctId,
         // ...(data.utmParams?.campaign && { utm_campaign: data.utmParams.campaign }),
         // ...(data.utmParams?.content && { utm_content: data.utmParams.content }),
         // ...(data.utmParams?.id && { utm_id: data.utmParams.id }),
@@ -93,7 +93,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
     const stripe = new Stripe(STRIPE_KEY)
     const checkout = await stripe.checkout.sessions.create(checkoutType === 'onetime' ? oneTimeCheckoutOptions : subscriptionCheckoutOptions)
 
-    console.log('checkout', checkout)
+    // console.log('checkout', checkout)
     return new Response(JSON.stringify(checkout))
   } catch (error) {
     console.error(error)
