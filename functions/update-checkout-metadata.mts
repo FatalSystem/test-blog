@@ -11,11 +11,12 @@ export default async (event: Request, context: Context): Promise<Response> => {
     // Update the checkout session metadata
     const updatedSession = await stripe.checkout.sessions.update(sessionId, {
       metadata: {
-        distinct_id: distinctId
+        distinct_id: distinctId,
+        product: 'rover'
       }
     })
 
-    console.log('updatedSession', updatedSession)
+    // console.log('updatedSession', updatedSession)
 
     return new Response(JSON.stringify({ success: true }))
   } catch (error) {

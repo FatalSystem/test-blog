@@ -68,6 +68,11 @@ export default async (event: Request, context: Context): Promise<Response> => {
           shipping_rate: 'shr_1QHg8RRqXimb7JbcyiCOmKix'
         }
       ],
+      payment_intent_data: {
+        metadata: {
+          product: 'rover'
+        }
+      },
       mode: 'payment'
     }
 
@@ -87,13 +92,18 @@ export default async (event: Request, context: Context): Promise<Response> => {
       shipping_address_collection: {
         allowed_countries: ['US']
       },
+      subscription_data: {
+        metadata: {
+          product: 'rover'
+        }
+      },
       mode: 'subscription'
     }
 
     const stripe = new Stripe(STRIPE_KEY)
     const checkout = await stripe.checkout.sessions.create(checkoutType === 'onetime' ? oneTimeCheckoutOptions : subscriptionCheckoutOptions)
 
-    // console.log('checkout', checkout)
+    // console.log('create checkout', checkout)
     return new Response(JSON.stringify(checkout))
   } catch (error) {
     console.error(error)

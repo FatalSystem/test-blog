@@ -25,7 +25,11 @@ export default async (event: Request, context: Context): Promise<Response> => {
     // if (sport !== '' && sport) mergeFields = { ...mergeFields, sport }
     // if (call) mergeFields = { ...mergeFields, call: 'Yes' }
 
-    const response = await fetch(`https://a.klaviyo.com/api/v2/list/V2cRxG/subscribe?api_key=${KY_API_KEY}`,
+    console.log(data.data.object.metadata.product)
+
+    const isRover = data.data.object.metadata.product === 'rover'
+
+    const response = await fetch(`https://a.klaviyo.com/api/v2/list/${ isRover ? 'SFEUTS' : 'V2cRxG'}/subscribe?api_key=${KY_API_KEY}`,
       {
         method: 'POST',
         headers: {
