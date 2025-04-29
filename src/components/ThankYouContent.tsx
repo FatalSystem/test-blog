@@ -103,9 +103,11 @@ export default function ThankYouContent (): JSX.Element {
                             <p className="font-avenir text-t-off-white">${sessionData?.value ?? 499.00} {sessionData?.currency ?? 'USD'}</p>
                         </div>
                         <p className="font-avenir text-t-gray text-sm mt-3">{productType === 'rover' ? 'Autonomous Ball Collector' : 'Reserve for only $499 today to secure your partner. Pay the remaining $1595 before shipping in May 2025.'}</p>
-                        <div className="bg-[#afafae5f] rounded-md px-2 py-[1.5px] flex flex-col justify-center mt-3 w-fit ">
+                        {productType !== 'rover' &&
+                          <div className="bg-[#afafae5f] rounded-md px-2 py-[1.5px] flex flex-col justify-center mt-3 w-fit ">
                             <p className="font-avenir text-t-off-white text-sm" >Qty {sessionData?.quantity ?? 1}</p>
-                        </div>
+                          </div>
+                        }
                     </div>
                     <div className="flex flex-row justify-between mt-5" >
                         <p className="font-avenir text-t-off-white">Total paid</p>
