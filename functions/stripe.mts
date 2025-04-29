@@ -29,7 +29,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
 
     const isRover = data.data.object.metadata.product === 'rover'
 
-    const response = await fetch(`https://a.klaviyo.com/api/v2/list/${ isRover ? 'SFEUTS' : 'V2cRxG'}/subscribe?api_key=${KY_API_KEY}`,
+    const response = await fetch(`https://a.klaviyo.com/api/v2/list/${isRover ? 'Smrijw' : 'V2cRxG'}/subscribe?api_key=${KY_API_KEY}`,
       {
         method: 'POST',
         headers: {
@@ -42,6 +42,8 @@ export default async (event: Request, context: Context): Promise<Response> => {
         })
       }
     )
+
+    console.log(response)
 
     return new Response(JSON.stringify(response))
   } catch (error) {
