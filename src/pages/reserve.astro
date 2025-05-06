@@ -4,6 +4,7 @@ import ReservePageVideo from "@components/ReservePageVideo"
 import shippingIcon from '../assets/partner/shipping-icon.svg'
 import warrantyIcon from '../assets/partner/warranty-icon.svg'
 import cancelIcon from '../assets/partner/cancel-icon.svg'
+import returnIcon from '../assets/partner/return-icon.svg'
 import sportsIcon from '../assets/partner/sports-icon.svg'
 import ReserveButton from "@components/ReserveButton"
 ---
@@ -96,6 +97,10 @@ import ReserveButton from "@components/ReserveButton"
             <div class="flex flex-row items-center justify-around gap-x-5 my-7" >
               <div>
                 <div class="flex flex-row items-center mb-2" >
+                  <img src={returnIcon.src} width={20} class="mr-1" alt="Warranty Icon" />
+                  <p class="font-avenir text-t-green text-sm" >60 day money-back guarantee</p>
+                </div>
+                <div class="flex flex-row items-center mb-2" >
                   <img src={shippingIcon.src} width={20} class="mr-1" alt="Shipping Icon" />
                   <p class="font-avenir text-t-green text-sm" >Worldwide Shipping</p>
                   <button 
@@ -136,6 +141,10 @@ import ReserveButton from "@components/ReserveButton"
                   </button>
                 </div>
                 <div class="flex flex-row items-center md:mb-0 mb-2" >
+                  <img src={cancelIcon.src} width={20} class="mr-1" alt="Warranty Icon" />
+                  <p class="font-avenir text-t-green text-sm" >Cancel Anytime</p>
+                </div>
+                <div class="flex opacity-0 flex-row items-center md:mb-0 mb-2" >
                   <img src={cancelIcon.src} width={20} class="mr-1" alt="Warranty Icon" />
                   <p class="font-avenir text-t-green text-sm" >Cancel Anytime</p>
                 </div>
