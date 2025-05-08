@@ -6,7 +6,7 @@ import { Pages } from "@utils"
 import PartnerFooter from "@components/PartnerFooter.astro"
 ---
 
-<Layout title="Compare | Tennibot" showFooter={false} showHeader={false} showPartnerHeader={true} showSecondaryHeader={true} showSecondaryMenu={false}>
+<Layout title="Compare | Tennibot" showFooter={false} showHeader={false} showPartnerHeader={true} showSecondaryHeader={false} showSecondaryMenu={false}>
     <main class="bg-t-off-black overflow-hidden text-t-off-white" >
         <section class="bg-cover bg-center h-[90vh] bg-[url('/images/compare/partner-compare-hero.webp')] min-[450px]:bg-[url('/images/compare/partner-compare-hero.webp')] min-[800px]:bg-[url('/images/compare/partner-compare-hero.webp')] xl:bg-[url('/images/compare/partner-compare-hero.webp')] " >
             <div class="flex flex-col items-center h-full lg:items-start lg:justify-end" >
@@ -23,25 +23,25 @@ import PartnerFooter from "@components/PartnerFooter.astro"
 
             <div class="w-[80%] mx-auto" >
                 <div class="flex flex-row gap-5" >
-                    <a class="bg-t-green rounded-[999px] w-44 h-44 flex items-center justify-center mx-auto" >
-                        <p class="text-t-off-black font-avenirBold text-xl uppercase text-center" >Tennibot vs<br /> Lobster</p>
+                    <a class="text-t-green cursor-pointer border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black rounded-[999px] w-44 h-44 flex items-center justify-center mx-auto" >
+                        <p class="font-avenirBold text-xl uppercase text-center" >Tennibot <br/>vs<br /> Lobster</p>
                     </a>
-                    <a class="bg-t-green rounded-[999px] w-44 h-44 flex items-center justify-center mx-auto" >
-                        <p class="text-t-off-black font-avenirBold text-xl uppercase text-center" >Tennibot vs<br /> Spinfire</p>
+                    <a class="text-t-green cursor-pointer border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black rounded-[999px] w-44 h-44 flex items-center justify-center mx-auto" >
+                        <p class="font-avenirBold text-xl uppercase text-center" >Tennibot <br/>vs<br /> Spinfire</p>
                     </a>
-                    <a class="bg-t-green rounded-[999px] w-44 h-44 flex items-center justify-center mx-auto" >
-                        <p class="text-t-off-black font-avenirBold text-xl uppercase text-center" >Tennibot vs<br /> Volley</p>
+                    <a class="text-t-green cursor-pointer border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black rounded-[999px] w-44 h-44 flex items-center justify-center mx-auto" >
+                        <p class="font-avenirBold text-xl uppercase text-center" >Tennibot <br/>vs<br /> Volley</p>
                     </a>
                 </div>
                 <div class="flex flex-row gap-5 mt-10" >
-                    <a class="bg-t-green rounded-[999px] w-44 h-44 flex items-center justify-center mx-auto" >
-                        <p class="text-t-off-black font-avenirBold text-xl uppercase text-center" >Tennibot vs<br /> Playmate</p>
+                    <a class="text-t-green cursor-pointer border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black rounded-[999px] w-44 h-44 flex items-center justify-center mx-auto" >
+                        <p class="font-avenirBold text-xl uppercase text-center" >Tennibot <br/>vs<br /> Hydrogen</p>
                     </a>
-                    <a class="bg-t-green rounded-[999px] w-44 h-44 flex items-center justify-center mx-auto" >
-                        <p class="text-t-off-black font-avenirBold text-xl uppercase text-center" >Tennibot vs<br /> Teniix</p>
+                    <a class="text-t-green cursor-pointer border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black rounded-[999px] w-44 h-44 flex items-center justify-center mx-auto" >
+                        <p class="font-avenirBold text-xl uppercase text-center" >Tennibot <br/>vs<br /> Tenniix</p>
                     </a>
-                    <a class="bg-t-green rounded-[999px] w-44 h-44 flex items-center justify-center mx-auto" >
-                        <p class="text-t-off-black font-avenirBold text-xl uppercase text-center" >Tennibot vs<br /> Acemate</p>
+                    <a class="text-t-green cursor-pointer border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black rounded-[999px] w-44 h-44 flex items-center justify-center mx-auto" >
+                        <p class="font-avenirBold text-xl uppercase text-center" >Tennibot <br/>vs<br /> Acemate</p>
                     </a>
                 </div>
             </div>
@@ -50,7 +50,8 @@ import PartnerFooter from "@components/PartnerFooter.astro"
         <section class=" w-[70%] mx-auto mt-56 mb-24" >
             <h2 class="font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl mb-5" >Still comparing? Or ready to level up?</h2>
             <p class="font-plutoLight text-t-off-white text-center md:text-xl mobilem:text-lg text-md mb-10">
-                <span class="font-avenir text-t-off-white uppercase md:text-xl mobilem:text-lg text-md text-center" >The <span class="font-avenirBold" >Partner</span></span> isn’t just another ball machine—it’s a smarter training partner that adapts, learns, and elevates your game every session. Whether you're a weekend warrior or a competitive player, there's no match for what The Partner brings to the court.</p>
+                When you buy the Tennibot Partner, you're not just getting another ball machine—you’re joining a smart training ecosystem built for modern racquet sports. Backed by advanced vision technology, autonomous movement, and a US-based support team, the Partner delivers more than just reps—it delivers real results.
+            </p>
             <div class="flex flex-row justify-center items-center mt-20" >
                 <div class="w-[50%]" >
                     <p class="font-avenirBold text-t-off-white text-center text-2xl uppercase" >Join the players who<br /> refure to settle</p>
