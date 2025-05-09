@@ -16,11 +16,10 @@ import { Pages } from "@utils"
 import PartnerHowItWorksSlider from "@components/PartnerHowItWorksSlider"
 import DraggableSlider from "@components/DraggableSlider"
 import DraggablePartnerAction from "@components/DraggablePartnerAction"
-import RecordPartnerB from "@components/RecordPartnerB"
 ---
-<Layout title="Partner | Tennibot" showFooter={false} showHeader={false} showPartnerHeader={true} showSecondaryHeader={true}>
+<Layout title="Partner | Tennibot" showFooter={false} showHeader={false} showPartnerHeader={true} >
     <main class="w-full bg-t-off-black text-t-off-white" >
-      <!-- <section id="overview" class="relative h-[100vh] bg-[url('/images/partner/partner-hero.webp')] bg-cover md:bg-left bg-[position:10%_75%] flex flex-col justify-between" >
+      <section class="relative h-[100vh] bg-[url('/images/partner/partner-hero.webp')] bg-cover md:bg-left bg-[position:10%_75%] flex flex-col justify-between" >
         <div class="absolute inset-0 bg-gradient-to-l md:from-black/70 from-black/40 from-0% md:to-transparent to-black/40 md:to-90%"></div>
         <div class="flex flex-col justify-start w-fit self-center md:items-center items-start z-10 pt-[8vh] p-5" >
             <h1 class="font-avenir text-t-off-white uppercase mb-3 lg:text-6xl text-4xl text-center" >The <span class="font-avenirBold" >Partner</span></h1>
@@ -58,224 +57,20 @@ import RecordPartnerB from "@components/RecordPartnerB"
                 />
             </div>
         </div>
-      </section> -->
-      <RecordPartnerB client:load />
-      <section id="overview" class="relative lg:h-[90vh] md:h-[70vh] h-[600px] flex md:flex-row flex-col-reverse md:justify-between items-center justify-end md:gap-0 gap-3 scroll-mt-[200px]" >
-        <div class="flex flex-col justify-center items-center md:w-[30%] md:ml-5 mx-auto">
-            <div class="text-t-off-white text-center font-avenir" >
-                <h2 class="text-t-green lg:text-4xl md:text-2xl text-2xl" >$2095<span class="ml-3 line-through text-t-gray" >$3000</span></h2>
-                <p class="md:text-sm lg:text-base" >Limited-time offer: Save 30% today!</p>
-            </div>
-        </div>
-        <div class="md:max-h-[90vh] lg:h-[800px] xl:h-[1200px] md:w-[25%] md:h-[700px] sm:w-[350px] w-[300px] h-[400px] bg-[url('/images/partner/partner-hero-cut.png')] bg-contain bg-center bg-no-repeat mx-auto flex flex-col justify-center items-center">
-            <!-- <Image 
-                src={hero.src} 
-                alt="Tennibot Partner"
-                width={800}
-                height={1500}
-                class="w-full md:h-full md:max-h-[100vh] h-[400px] object-contain"
-                quality={100}
-            /> -->
-        </div>
-        <div class="flex md:w-[45%] flex-col justify-start self-center md:items-center items-start z-10 pt-[8vh]" >
-            <p class="font-avenir text-t-off-white text-center uppercase lg:text-2xl md:text-base text-md" >
-                The only ball machine that<br class="" /> <span class="font-avenirBold" >moves like a human.</span>
-            </p>
-        </div>
       </section>
 
-      <section class="bg-t-off-black pt-16 md:pb-36 pb-16" >
-        <div class="" >
-            <h2 class="w-[80%] mx-auto font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl mb-10" >Robotics + Racquet Sports = The Future of Training.</h2>
-            <!-- <div class="lg:bg-t-off-black lg:w-[80%] 2xl:w-[65%] lg:mx-auto lg:p-10 rounded-xl flex flex-col"> -->
-                <!-- <p class="md:mx-5 mx-auto font-avenir uppercase text-t-off-white md:text-2xl mobilem:text-xl mb-5">See it in action</p> -->
-                <DraggablePartnerAction client:load />
-            <!-- </div> -->
-        </div>
-      </section>
-
-      <section class="bg-t-off-black pt-5 md:pb-36 pb-16 scroll-mt-[100px]" >
-        <div class="w-[80%] mx-auto mb-10" >
-            <h2 class="font-avenirBold text-t-green text-center uppercase md:text-xl mobilem:text-lg text-md text-pretty" >Why is Partner unlike any ball machine you’ve seen before?</h2>
-            <p class="font-avenir text-t-off-white text-center mt-5 md:text-lg mobilem:text-md text-sm text-pretty" >It’s the only ball machine that moves and adapts, delivering realistic, human-like shots - forehands down the line, hitting to your position, or making you chase shots just like a coach would.</p>
-        </div>
-        <PartnerFeatures client:load />
-      </section>
-
-      <section id="specs" class="bg-t-off-black w-[80%] mx-auto pt-5 md:pb-36 pb-16 scroll-mt-[100px]" >
-        <div class="w-[80%] mx-auto mb-10" >
-            <h2 class="font-avenirBold text-t-green text-center uppercase md:text-2xl mobilem:text-xl text-xl" >Designed for players who demand more</h2>
-        </div>
-        <div class="flex lg:flex-row flex-col justify-center gap-10" >
-            <div class="w-full bg-[#1E201C] rounded-lg overflow-hidden" >
-                <div class="w-full lg:h-[45vh] md:bg-center h-[30vh] bg-[url('/images/partner/partner-specs-1.jpg')] bg-cover bg-top" >
-                </div>
-                <ul class="list-disc font-avenir flex flex-col gap-2 text-t-off-white px-10 py-5" >
-                    <li>
-                        <span class="font-avenirBold" >AI-Powered Precision:</span> 3D object tracking & on-device neural network inference
-                    </li>
-                    <li>
-                        <span class="font-avenirBold" >Advanced Sensors:</span> 4k cameras & high-resolution encoders
-                    </li>
-                    <li>
-                        <span class="font-avenirBold" >Smart Sensors:</span> IMU & ultrasonic for real-time adjustments
-                    </li>
-                    <li>
-                        <span class="font-avenirBold" >High-Speed Processing:</span> 8 TOPS power for AI-driven performance
-                    </li>
-                    <li>
-                        <span class="font-avenirBold" >Custom Drills:</span> Program unlimited personalized drills
-                    </li>
-                    <li>
-                        <span class="font-avenirBold" >Pre-loaded Drills:</span> Access hundreds of drills via our app
-                    </li>
-                </ul>
-            </div>
-            <!-- <div class="lg:w-[45%] w-full bg-[#1E201C] rounded-lg overflow-hidden" >
-                <div class="w-full h-[30vh] bg-[url('/images/partner/partner-specs-2.jpg')] bg-cover bg-top" >
-                </div>
-                <ul class="list-disc font-avenir flex flex-col gap-2 text-t-off-white px-10 py-5" >
-                    <li>
-                        <span class="font-avenirBold" >Ball Speed:</span> 10-70 mph
-                    </li>
-                    <li>
-                        <span class="font-avenirBold" >Feed Rate:</span> 2-15 seconds
-                    </li>
-                    <li>
-                        <span class="font-avenirBold" >Elevation:</span> 10-40 degrees
-                    </li>
-                    <li>
-                        <span class="font-avenirBold" >Ball Capacity:</span> 140
-                    </li>
-                    <li>
-                        <span class="font-avenirBold" >Remote Control:</span> iPhone or Android App
-                    </li>
-                    <li>
-                        <span class="font-avenirBold" >Max Spin:</span> 3000 rpm
-                    </li>
-                    <li>
-                        <span class="font-avenirBold" >Spin Options:</span> Topspin, backspin or flat shots
-                    </li>
-                    <li>
-                        <span class="font-avenirBold" >Oscillation:</span> Full-court horizontal& vertical ball delivery
-                    </li>
-                </ul>
-            </div> -->
-        </div>
-        <div class="md:w-[50%] mt-14 flex flex-col justify-center items-center mx-auto" >
-            <a href="/specs" class={'tablet:w-64 w-[80%] 2xl:w-80 text-xl 2xl:text-2xl 2xl: 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black'}>Detailed specs</a>
-        </div>
-      </section>
-
-      <section id="how-it-works" class="bg-t-off-black md:pb-36 pb-16 pt-10 scroll-mt-[100px]" >
-        <div class="w-[80%] mx-auto" >
-            <h2 class="font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl uppercase" >How partner works</h2>
-            <p class="font-pluto text-t-off-white text-center md:text-lg mobilem:text-lg text-sm mt-5 mb-10" >In three easy steps...</p>
-        </div>
-        <PartnerHowItWorksSlider client:load />
-      </section>
-
-      <section id="testimonials" class="bg-t-off-black pt-16 pb-10 scroll-mt-[100px]" >
-        <div class="" >
-            <h2 class="font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl mb-10" >But don't take our word for it!</h2>
-            <DraggableSlider client:load className="gap-10" >
-                <TestimonialItem client:load quote={`"It’s fantastic for drilling, practice points, and even doubles drills. I really enjoyed it."`} name="Sylvana Jordyn" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406658" className="bg-[url('/images/partner/testimonial-one.png')]" />
-                <TestimonialItem client:load quote={`“I worked on rapid-fire volleys, reflexes, and range at the net—it’s perfect for sharpening your skills.”`} name="Logan West" location="Washington, DC" videoSource="https://player.vimeo.com/video/1031406854" className="bg-[url('/images/partner/testimonial-two.png')]" />
-                <TestimonialItem client:load quote={`“What surprised me the most was how much I had to move and anticipate—it felt just like a real hitting session.”`} name="Alex Chan" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406731" className="bg-[url('/images/partner/testimonial-three.png')]" />
-                <TestimonialItem client:load quote={`“The Tennibot Partner is an amazing ball machine—it moves, evolves, and offers an experience unlike any other ball machine I’ve played with before.”`} name="Mo Eldemerdash" location="Auburn, AL" videoSource="https://player.vimeo.com/video/1031426621" className="bg-[url('/images/partner/testimonial-four.png')]" />
-            </DraggableSlider>
-        </div>
-        <div class="w-[80%] 2xl:w-[65%] mx-auto flex flex-row justify-center gap-10 pt-16 " >
-            <p class="font-avenir text-t-off-white text-center text-md md:text-lg" >
-                "Finally, a ball machine that moves and adapts like a real player. I have been waiting for this invention for years!"<br /> <br />James C., Tennis Coach | Burlingame, CA
-            </p>
-        </div>
-      </section>
-
-    <section id="sports" class="relative bg-t-off-black scroll-mt-[100px]" >
+      <section class="relative hidden lg:block bg-t-off-black" >
         <div class="w-[80%] mx-auto pt-24 pb-10" >
             <h2 class="font-avenirBold text-t-green text-center uppercase md:text-3xl mobilem:text-2xl text-xl" >Train without limits</h2>
         </div>
         <PartnerVideoDisplay client:load />
-        <PartnerVideoSlider type="tennis" client:load />
     </section>
 
-    <!-- <section id="sports-mobile" class="relative bg-t-off-black" >
+    <section class="relative block lg:hidden bg-t-off-black" >
         <div class="w-[80%] mx-auto pt-24 pb-10" >
             <h2 class="font-avenirBold text-t-green text-center uppercase md:text-3xl mobilem:text-2xl text-xl" >Train without limits</h2>
         </div>
         <PartnerVideoSlider type="tennis" client:load />
-    </section> -->
-
-    <section id="compare" class="bg-t-off-black scroll-mt-[100px]" >
-        <div class="md:w-[80%] w-full mx-auto pt-24 pb-10" >
-            <div class="grid md:grid-cols-[1fr_1fr_1fr_1fr] grid-cols-[1fr_1fr_1fr] gap-y-5 grid-rows-5 font-avenir text-t-off-black text-center" >
-                <div class="hidden md:block" >
-
-                </div>
-                <div class="flex flex-col justify-center items-center">
-                    <p class="uppercase text-t-off-white " >The <span class="font-avenirBold" >Partner</span></p>
-                </div>
-                <div class="flex flex-col justify-center items-center">
-                    <p class="text-t-off-white" >Other "Smart" Ball Machines</p>
-                </div>
-                <div class="flex flex-col justify-center items-center">
-                    <p class="text-t-off-white" >Old-School Ball Machines</p>
-                </div>
-
-                <div class="bg-[#CBF14E] p-3 md:flex hidden flex-row items-center font-avenirBold text-left" >
-                    <p>Human Like Movement</p>
-                </div>
-                <div class="bg-[#CBF14E] p-3 flex text-sm md:text-base flex-col justify-center items-center" >
-                    <p class="font-avenirBold md:font-avenir" >Moves on the court, delivering realistic shots.</p>
-                </div>
-                <div class="bg-[#CBF14E] p-3 flex flex-col justify-center items-center" >
-                    <p>Stationary.</p>
-                </div>
-                <div class="bg-[#CBF14E] p-3 flex flex-col justify-center items-center" >
-                    <p>Stationary.</p>
-                </div>
-
-                <div class="font-avenirBold p-3 md:flex hidden flex-row items-center bg-[#9FBD3C] text-left" >
-                    <p>Match Your Level</p>
-                </div>
-                <div class="bg-[#9FBD3C] p-3 flex text-sm md:text-base flex-col justify-center items-center" >
-                    <p class="font-avenirBold md:font-avenir" >Tracks your returns and adapts to you.</p>
-                </div>
-                <div class="bg-[#9FBD3C] p-3 flex flex-col justify-center items-center" >
-                    <p>Limited.</p>
-                </div>
-                <div class="bg-[#9FBD3C] p-3 flex flex-col justify-center items-center" >
-                    <p>Clueless.</p>
-                </div>
-
-                <div class="font-avenirBold p-3 md:flex hidden flex-row items-center bg-[#CBF14E] text-left" >
-                    <p>Unlimited Drills</p>
-                </div>
-                <div class="bg-[#CBF14E] p-3 flex text-sm md:text-baseflex-col justify-center items-center" >
-                    <p class="font-avenirBold md:font-avenir" >Pre-set + unlimited custom drills via the app.</p>
-                </div>
-                <div class="bg-[#CBF14E] p-3 flex flex-col justify-center items-center">
-                    <p>Limited.</p>
-                </div>
-                <div class="bg-[#CBF14E] p-3 flex flex-col justify-center items-center">
-                    <p>Limited.</p>
-                </div>
-
-                <div class="font-avenirBold p-3 md:flex hidden flex-row items-center bg-[#9FBD3C] text-left" >
-                    <p>Convenience</p>
-                </div>
-                <div class="bg-[#9FBD3C] p-3 flex text-sm md:text-base flex-col justify-center items-center" >
-                    <p class="font-avenirBold md:font-avenir" >Compact and portable.</p>
-                </div>
-                <div class="bg-[#9FBD3C] p-3 flex flex-col justify-center items-center">
-                    <p>Bulky.</p>
-                </div>
-                <div class="bg-[#9FBD3C] p-3 flex flex-col justify-center items-center">
-                    <p>Heavy.</p>
-                </div>
-            </div>
-        </div>
     </section>
 
       <section class="bg-t-off-black" >
@@ -287,7 +82,7 @@ import RecordPartnerB from "@components/RecordPartnerB"
         <div class="w-[80%] 2xl:w-[65%] mx-auto flex lg:flex-row flex-col lg:gap-15 gap-10 pt-5 pb-16" >
             <div class="w-[100%] border-2 md:max-w-[50%] md:mx-auto border-t-off-white rounded-xl text-left py-8 px-5" >
                 <h5 class="font-avenirBold uppercase text-xl text-t-off-white mb-3" >Premium Quality</h5>
-                <p class="font-pluto text-t-off-white text-sm text-pretty" >One of the only ball machines that comes with a <span class="text-t-green">3-year warranty</span>. We stand behind our quality, while others don't.</p>
+                <p class="font-pluto text-t-off-white text-sm text-pretty" >Tennibot is the only ball machine company that offers a <span class="text-t-green">3-year warranty</span>. We stand behind our quality, while others don't.</p>
             </div>
             <div class="w-[100%] border-2 md:max-w-[50%] md:mx-auto border-t-off-white rounded-xl text-left py-8 px-5" >
                 <h5 class="font-avenirBold uppercase text-xl text-t-off-white mb-3" >Track Record</h5>
@@ -313,6 +108,44 @@ import RecordPartnerB from "@components/RecordPartnerB"
                 </p>
                 <a href={Pages.RESERVE} class={`tablet:w-64 w-full 2xl:w-80 text-xl 2xl:text-2xl 2xl: 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>Reserve</a>
             </div>
+        </div>
+
+        <div class="w-[80%] 2xl:w-[65%] mx-auto flex flex-row justify-center gap-10 pt-5 pb-16" >
+            <p class="font-avenir text-t-off-white text-center text-md md:text-lg" >
+                "Finally, a ball machine that moves and adapts like a real player. I have been waiting for this invention for years!"<br /> <br />James C., Tennis Coach | Burlingame, CA
+            </p>
+        </div>
+      </section>
+      
+      <section class="bg-t-off-black pt-5 md:pb-36 pb-16" >
+        <PartnerFeatures client:load />
+      </section>
+
+      <section class="bg-t-off-black md:pb-36 pb-16 pt-10" >
+        <div class="w-[80%] mx-auto" >
+            <h2 class="font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl uppercase" >How partner works</h2>
+            <p class="font-pluto text-t-off-white text-center md:text-lg mobilem:text-lg text-sm mt-5 mb-10" >In three easy steps...</p>
+        </div>
+        <PartnerHowItWorksSlider client:load />
+      </section>
+      <section class="bg-t-off-black pt-16 md:pb-36 pb-16" >
+        <div class="" >
+            <h2 class="w-[80%] mx-auto font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl mb-10" >Intelligent. Powerful. Unmatched.</h2>
+            <div class="lg:bg-t-off-black lg:w-[80%] 2xl:w-[65%] lg:mx-auto lg:p-10 rounded-xl flex flex-col">
+                <p class="md:mx-5 mx-auto font-avenir uppercase text-t-off-white md:text-2xl mobilem:text-xl mb-5">See it in action</p>
+                <DraggablePartnerAction client:load />
+            </div>
+        </div>
+      </section>
+      <section class="bg-t-off-black pt-16 pb-36" >
+        <div class="" >
+            <h2 class="font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl mb-10" >But don't take our word for it!</h2>
+            <DraggableSlider client:load className="gap-10" >
+                <TestimonialItem client:load quote={`"It’s fantastic for drilling, practice points, and even doubles drills. I really enjoyed it."`} name="Sylvana Jordyn" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406658" className="bg-[url('/images/partner/testimonial-one.png')]" />
+                <TestimonialItem client:load quote={`“I worked on rapid-fire volleys, reflexes, and range at the net—it’s perfect for sharpening your skills.”`} name="Logan West" location="Washington, DC" videoSource="https://player.vimeo.com/video/1031406854" className="bg-[url('/images/partner/testimonial-two.png')]" />
+                <TestimonialItem client:load quote={`“What surprised me the most was how much I had to move and anticipate—it felt just like a real hitting session.”`} name="Alex Chan" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406731" className="bg-[url('/images/partner/testimonial-three.png')]" />
+                <TestimonialItem client:load quote={`“The Tennibot Partner is an amazing ball machine—it moves, evolves, and offers an experience unlike any other ball machine I’ve played with before.”`} name="Mo Eldemerdash" location="Auburn, AL" videoSource="https://player.vimeo.com/video/1031426621" className="bg-[url('/images/partner/testimonial-four.png')]" />
+            </DraggableSlider>
         </div>
       </section>
 
@@ -361,8 +194,3 @@ import RecordPartnerB from "@components/RecordPartnerB"
     </main>
 </Layout>
 <PartnerFooter />
-<div class="sticky lg:hidden bottom-0 z-50">
-    <div class="bg-[#262424] px-5 py-4 flex flex-row w-full justify-between items-center z-20">
-        <a href={Pages.RESERVE} class={'w-full mx-auto tablet:w-52 2xl:w-80 text-md 2xl:text-xl 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black'}>Reserve for $499</a>
-    </div>
-</div>
