@@ -17,7 +17,7 @@ const links = [
   { label: 'Compare', href: 'compare' }
 ]
 // TODO: Remake with framer motion
-export default function PartnerHeader (): JSX.Element {
+export default function PartnerHeader ({ showSecondaryMenu }: { showSecondaryMenu: boolean }): JSX.Element {
   const [open, setOpen] = useState<boolean>(false)
   const [showBanner, setShowBanner] = useState<boolean>(false)
 
@@ -61,37 +61,48 @@ export default function PartnerHeader (): JSX.Element {
           <a href="/partner" className="align-middle flex z-20">
             <p className="font-avenir text-t-off-white uppercase lg:text-2xl text-md text-center" >The <span className="font-avenirBold" >Partner</span></p>
           </a>
-          <div className='lg:flex hidden flex-row gap-5 text-sm xl:text-base xl:gap-8 flex-wrap text-t-off-white' >
-            {links.map((link, index) => {
-              return (
-                    <a key={index} onClick={() => {
-                      const element = document.getElementById(link.href)
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth' })
-                      }
-                    }} className='cursor-pointer font-avenir' >{link.label}</a>
-              )
-            })}
-          </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger className='cursor-pointer lg:hidden flex flex-row items-center text-sm text-t-off-white font-avenir border-[1px] border-t-off-white rounded-lg px-4 py-2' >
-                Overview
-                <ChevronDown size={16} className="text-t-off-white ml-2" />
-            </DropdownMenuTrigger >
-            <DropdownMenuContent className=' mt-2 bg-[#262424] text-t-off-white' >
+          {showSecondaryMenu && (
+            <>
+              <div className='lg:flex hidden flex-row gap-5 text-sm xl:text-base xl:gap-8 flex-wrap text-t-off-white' >
                 {links.map((link, index) => {
                   return (
-                        <DropdownMenuItem key={index} onClick={() => {
+                        <a key={index} onClick={() => {
+                          if (link.href === 'compare') {
+                            window.location.href = '/compare'
+                            return
+                          }
                           const element = document.getElementById(link.href)
-                          console.log(element)
                           if (element) {
                             element.scrollIntoView({ behavior: 'smooth' })
                           }
-                        }} className='cursor-pointer font-avenir' >{link.label}</DropdownMenuItem>
+                        }} className='cursor-pointer font-avenir' >{link.label}</a>
                   )
                 })}
-            </DropdownMenuContent>
-          </DropdownMenu>
+              </div>
+              <DropdownMenu>
+                <DropdownMenuTrigger className='cursor-pointer lg:hidden flex flex-row items-center text-sm text-t-off-white font-avenir border-[1px] border-t-off-white rounded-lg px-4 py-2' >
+                    Overview
+                    <ChevronDown size={16} className="text-t-off-white ml-2" />
+                </DropdownMenuTrigger >
+                <DropdownMenuContent className=' mt-2 bg-[#262424] text-t-off-white' >
+                    {links.map((link, index) => {
+                      return (
+                            <DropdownMenuItem key={index} onClick={() => {
+                              if (link.href === 'compare') {
+                                window.location.href = '/compare'
+                                return
+                              }
+                              const element = document.getElementById(link.href)
+                              if (element) {
+                                element.scrollIntoView({ behavior: 'smooth' })
+                              }
+                            }} className='cursor-pointer font-avenir' >{link.label}</DropdownMenuItem>
+                      )
+                    })}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </>
+          )}
 
           <div className='lg:flex flex-row hidden  items-center justify-center'>
             <div className=' flex flex-row gap-5' >

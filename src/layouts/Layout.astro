@@ -13,9 +13,10 @@ export interface Props {
   showFooter?: boolean
   showPartnerHeader?: boolean
   showSecondaryHeader?: boolean
+  showSecondaryMenu?: boolean
 }
 
-const { title, showHeader = true, showFooter = true, showPartnerHeader = false, showSecondaryHeader = false } = Astro.props
+const { title, showHeader = true, showFooter = true, showPartnerHeader = false, showSecondaryHeader = false, showSecondaryMenu = true } = Astro.props
 ---
 
 <!DOCTYPE html>
@@ -132,7 +133,7 @@ const { title, showHeader = true, showFooter = true, showPartnerHeader = false, 
     <!-- <Popup client:only="react" /> -->
     {showHeader && <Header client:load />}
     {showPartnerHeader && <PartnerHeader client:load />}
-    {showSecondaryHeader && <SecondaryPartnerHeader client:load />}
+    {showSecondaryHeader && <SecondaryPartnerHeader showSecondaryMenu={showSecondaryMenu} client:load />}
     <slot />
     {showFooter && <Footer />}
   </body>

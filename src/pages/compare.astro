@@ -1,0 +1,85 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Text from "@components/core/Text.astro"
+import { Pages } from "@utils"
+import PartnerFooter from "@components/PartnerFooter.astro"
+---
+
+<Layout title="Compare | Tennibot" showFooter={false} showHeader={false} showPartnerHeader={true} showSecondaryHeader={false} showSecondaryMenu={false}>
+    <main class="bg-t-off-black overflow-hidden text-t-off-white" >
+        <section class="bg-cover bg-center h-[90vh] bg-[url('/images/compare/partner-compare-hero.webp')] min-[450px]:bg-[url('/images/compare/partner-compare-hero.webp')] min-[800px]:bg-[url('/images/compare/partner-compare-hero.webp')] xl:bg-[url('/images/compare/partner-compare-hero.webp')] " >
+            <div class="flex flex-col items-center h-full lg:items-start lg:justify-end" >
+                <Text tag="h1" className="z-[1] font-avenir mt-[25%] sm:mt-[15%] lg:mt-[5%] lg:ml-[15%] 2xl:ml-[11%] text-t-off-white uppercase text-xl mobilem:text-2xl sm:text-4xl 2xl:text-5xl px-3 tablet:px-0 text-center lg:text-left" ><span class="font-avenirBold" >The partner vs. the rest:<br />You be the judge.</Text>
+                <Text tag="p" className="z-[1] mb-[50%] font-avenir mt-[2%] text-t-off-white uppercase text-base sm:text-lg px-3 tablet:px-0 text-center lg:text-left" >See how the partner stacks up against others</Text>
+                <!-- <div class="z-[1] mx-auto min-[520px]:flex-row justify-center gap-5 flex flex-col lg:items-start items-center lg:w-fit  w-[80%] max-tablet:w-[80%] mt-5 lg:ml-[15%] 2xl:ml-[11%]" >
+                    <Button href={Pages.BUY} theme="green" className="tablet:w-64 w-full " >Buy now</Button>
+                </div> -->
+            </div>
+        </section>
+        <section class="my-36 w-[80%] mx-auto" >
+            <h2 class="font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl mb-3" >We're not afraid of a little comparison.</h2>
+            <p class="font-plutoLight text-t-off-white text-center md:text-xl mobilem:text-lg text-md mb-10">Click any brand below to see why <span class="font-avenir text-t-off-white uppercase md:text-xl mobilem:text-lg text-md text-center" >The <span class="font-avenirBold" >Partner</span></span> outplays them all.</p>
+
+            <div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-5 lg:gap-10" >
+                    <a href="/tennibot-vs-playmate" class="text-t-green cursor-pointer border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black rounded-[999px] lg:size-44 mobilem:size-36 size-32 flex items-center justify-center mx-auto" >
+                        <p class="font-avenirBold text-base lg:text-xl uppercase text-center" >Tennibot <br/>vs<br /> Playmate</p>
+                    </a>
+                    <a href="/tennibot-vs-spinfire" class="text-t-green cursor-pointer border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black rounded-[999px] lg:size-44 mobilem:size-36 size-32 flex items-center justify-center mx-auto" >
+                        <p class="font-avenirBold text-base lg:text-xl uppercase text-center" >Tennibot <br/>vs<br /> Spinfire</p>
+                    </a>
+                    <a href="/tennibot-vs-volley" class="text-t-green cursor-pointer border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black rounded-[999px] lg:size-44 mobilem:size-36 size-32 flex items-center justify-center mx-auto" >
+                        <p class="font-avenirBold text-base lg:text-xl uppercase text-center" >Tennibot <br/>vs<br /> Volley</p>
+                    </a>
+                    <a href="/tennibot-vs-hydrogen" class="text-t-green cursor-pointer border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black rounded-[999px] lg:size-44 mobilem:size-36 size-32 flex items-center justify-center mx-auto" >
+                        <p class="font-avenirBold text-base lg:text-xl uppercase text-center" >Tennibot <br/>vs<br /> Hydrogen</p>
+                    </a>
+                    <a href="/tennibot-vs-tenniix" class="text-t-green cursor-pointer border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black rounded-[999px] lg:size-44 mobilem:size-36 size-32 flex items-center justify-center mx-auto" >
+                        <p class="font-avenirBold text-base lg:text-xl uppercase text-center" >Tennibot <br/>vs<br /> Tenniix</p>
+                    </a>
+                    <a href="/tennibot-vs-acemate" class="text-t-green cursor-pointer border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black rounded-[999px] lg:size-44 mobilem:size-36 size-32 flex items-center justify-center mx-auto" >
+                        <p class="font-avenirBold text-base lg:text-xl uppercase text-center" >Tennibot <br/>vs<br /> Acemate</p>
+                    </a>
+                </div>
+                <!-- <div class="flex flex-row gap-5" >
+                    <a class="text-t-green cursor-pointer border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black rounded-[999px] w-44 h-44 flex items-center justify-center mx-auto" >
+                        <p class="font-avenirBold text-xl uppercase text-center" >Tennibot <br/>vs<br /> Lobster</p>
+                    </a>
+                    <a class="text-t-green cursor-pointer border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black rounded-[999px] w-44 h-44 flex items-center justify-center mx-auto" >
+                        <p class="font-avenirBold text-xl uppercase text-center" >Tennibot <br/>vs<br /> Spinfire</p>
+                    </a>
+                    <a class="text-t-green cursor-pointer border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black rounded-[999px] w-44 h-44 flex items-center justify-center mx-auto" >
+                        <p class="font-avenirBold text-xl uppercase text-center" >Tennibot <br/>vs<br /> Volley</p>
+                    </a>
+                </div>
+                <div class="flex flex-row gap-5 mt-10" >
+                    <a class="text-t-green cursor-pointer border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black rounded-[999px] w-44 h-44 flex items-center justify-center mx-auto" >
+                        <p class="font-avenirBold text-xl uppercase text-center" >Tennibot <br/>vs<br /> Hydrogen</p>
+                    </a>
+                    <a class="text-t-green cursor-pointer border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black rounded-[999px] w-44 h-44 flex items-center justify-center mx-auto" >
+                        <p class="font-avenirBold text-xl uppercase text-center" >Tennibot <br/>vs<br /> Tenniix</p>
+                    </a>
+                    <a class="text-t-green cursor-pointer border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black rounded-[999px] w-44 h-44 flex items-center justify-center mx-auto" >
+                        <p class="font-avenirBold text-xl uppercase text-center" >Tennibot <br/>vs<br /> Acemate</p>
+                    </a>
+                </div> -->
+            </div>
+        </section>
+
+        <section class=" lg:w-[70%] w-[80%] mx-auto lg:mt-56 mt-36 mb-24" >
+            <h2 class="font-avenirBold text-t-green text-center md:text-3xl mobilem:text-2xl text-xl mb-5" >Still comparing? Or ready to level up?</h2>
+            <p class="font-plutoLight text-t-off-white text-center lg:text-xl  mb-10">
+                When you buy the Tennibot Partner, you're not just getting another ball machine—you’re joining a smart training ecosystem built for modern racquet sports. Backed by advanced vision technology, autonomous movement, and a US-based support team, the Partner delivers more than just reps—it delivers real results.
+            </p>
+            <div class="flex lg:flex-row flex-col justify-center items-center mt-20" >
+                <div class="lg:w-[50%]" >
+                    <p class="font-avenirBold text-t-off-white text-center text-2xl uppercase" >Join the players who<br /> refuse to settle</p>
+                </div>
+                <div class="lg:w-[50%] lg:mt-0 mt-10" >
+                    <a href={Pages.RESERVE} class={`px-14 py-3 w-80 text-2xl 2xl:text-3xl rounded-full font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>Reserve now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+<PartnerFooter />
