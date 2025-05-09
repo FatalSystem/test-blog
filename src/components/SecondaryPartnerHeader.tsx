@@ -67,6 +67,10 @@ export default function PartnerHeader ({ showSecondaryMenu }: { showSecondaryMen
                 {links.map((link, index) => {
                   return (
                         <a key={index} onClick={() => {
+                          if (link.href === 'compare') {
+                            window.location.href = '/compare'
+                            return
+                          }
                           const element = document.getElementById(link.href)
                           if (element) {
                             element.scrollIntoView({ behavior: 'smooth' })
@@ -84,8 +88,11 @@ export default function PartnerHeader ({ showSecondaryMenu }: { showSecondaryMen
                     {links.map((link, index) => {
                       return (
                             <DropdownMenuItem key={index} onClick={() => {
+                              if (link.href === 'compare') {
+                                window.location.href = '/compare'
+                                return
+                              }
                               const element = document.getElementById(link.href)
-                              console.log(element)
                               if (element) {
                                 element.scrollIntoView({ behavior: 'smooth' })
                               }

@@ -41,6 +41,11 @@ export default async (event: Request, context: Context): Promise<Response> => {
         // ...(data.utmParams?.medium && { utm_medium: data.utmParams.medium }),
         ...(data.utmParams?.source && { utm_source: data.utmParams.source })
         // ...(data.utmParams?.term && { utm_term: data.utmParams.term })
+      },
+      custom_text: {
+        terms_of_service_acceptance: {
+          message: 'I agree to receive communications by text message regarding tech support and/or answers to sales inquiries from Tennibot. You may opt out by replying STOP or ask for more information by replying HELP. Message frequency varies. Message and data rates may apply. You may review our [Terms of Service](https://www.tennibot.com/terms) and [Privacy Policy](https://www.tennibot.com/privacy) to learn how your data is used.'
+        }
       }
     }
 
