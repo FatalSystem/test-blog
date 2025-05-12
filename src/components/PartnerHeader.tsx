@@ -6,7 +6,7 @@ import Banner from './Banner'
 
 const links = [
   { label: 'Home', href: Pages.HOME },
-  { label: 'Reserve', href: Pages.RESERVE },
+  { label: 'Buy', href: '/buy-partner' },
   { label: 'FAQ', href: '/partner-faq' },
   { label: 'Invest', href: 'invest' },
   { label: 'The Rover', href: '/tennis' },

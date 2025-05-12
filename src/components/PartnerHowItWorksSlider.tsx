@@ -48,7 +48,7 @@ const PartnerHowItWorksSlider = (): JSX.Element => {
                 <p className="font-avenirBold text-t-off-white text-3xl" >3.</p>
                 <div className="mb-10">
                     <h5 className="font-avenirBold text-t-off-white md:text-3xl text-xl mb-5" >Create your perfect practice</h5>
-                    <p className="font-pluto text-t-off-white md:text-xl " >Use the app to create a custom drilling experience so you can practice exactly what you need to.</p>
+                    <p className="font-pluto text-t-off-white md:text-xl " >Use the app to play with the Partner like a human or create a custom drill so you can practice exactly what you need.</p>
                 </div>
             </div>
         </div>
