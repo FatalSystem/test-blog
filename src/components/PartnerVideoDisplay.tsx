@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { VolumeX, Volume2, Fullscreen } from 'lucide-react'
+import { useMediaQuery } from 'usehooks-ts'
 
 const PartnerVideoDisplay = (): JSX.Element => {
   const [selectedTab, setSelectedTab] = useState<number>(0)
   const [isMuted, setIsMuted] = useState<boolean>(true)
   const [isPlaying, setIsPlaying] = useState<boolean>(true)
+  const isMobile = useMediaQuery('(max-width: 500px)')
 
   const handleVideoSource = (tab: number): string => {
     switch (tab) {
@@ -71,64 +73,62 @@ const PartnerVideoDisplay = (): JSX.Element => {
 
   return (
     <div className="hidden lg:block" >
-        {selectedTab === 0 && (
-            <div className="aspect-[16/9] bg-[url('/images/partner/partner-tennis-thumbnail.webp')] w-[80%] 2xl:w-[65%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
-                <div className="absolute bottom-4 right-4 z-10 flex gap-2">
-                    <button
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          setIsPlaying(!isPlaying)
-                          const video = e.currentTarget.parentElement?.parentElement?.querySelector('video')
-                          if (video) {
-                            isPlaying ? video.pause() : video.play()
-                          }
-                        }}
-                        className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
-                    >
-                        {isPlaying
-                          ? (
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <rect x="6" y="4" width="4" height="16"/>
-                                <rect x="14" y="4" width="4" height="16"/>
-                            </svg>
-                            )
-                          : (
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <polygon points="5 3 19 12 5 21 5 3"/>
-                            </svg>
-                            )}
-                    </button>
-                    <button
-                        onClick={() => { setIsMuted(!isMuted) }}
-                        className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
-                    >
-                        {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-                    </button>
-                    <button
-                        onClick={(e) => {
-                          const video = e.currentTarget.parentElement?.parentElement?.querySelector('video')
-                          if (video) handleFullscreen(video)
-                        }}
-                        className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
-                    >
-                        <Fullscreen className="w-4 h-4" />
-                    </button>
-                </div>
-                <video
-                    className="w-full h-full object-cover bg-cover bg-center"
-                    autoPlay
-                    loop
-                    muted={isMuted}
-                    playsInline
-                    onPlay={() => { setIsPlaying(true) }}
-                    onPause={() => { setIsPlaying(false) }}
+        <div className="aspect-[16/9] bg-[url('/images/rapid-demo-thumbnail.webp')] w-[80%] 2xl:w-[65%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
+            <div className="absolute bottom-4 right-4 z-10 flex gap-2">
+                <button
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      setIsPlaying(!isPlaying)
+                      const video = e.currentTarget.parentElement?.parentElement?.querySelector('video')
+                      if (video) {
+                        isPlaying ? video.pause() : video.play()
+                      }
+                    }}
+                    className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
                 >
-                    <source src={handleVideoSource(selectedTab)} type="video/mp4" />
-                    {'Your browser doesn\'t support the video tag.'}
-                </video>
+                    {isPlaying
+                      ? (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <rect x="6" y="4" width="4" height="16"/>
+                            <rect x="14" y="4" width="4" height="16"/>
+                        </svg>
+                        )
+                      : (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <polygon points="5 3 19 12 5 21 5 3"/>
+                        </svg>
+                        )}
+                </button>
+                <button
+                    onClick={() => { setIsMuted(!isMuted) }}
+                    className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
+                >
+                    {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                </button>
+                <button
+                    onClick={(e) => {
+                      const video = e.currentTarget.parentElement?.parentElement?.querySelector('video')
+                      if (video) handleFullscreen(video)
+                    }}
+                    className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
+                >
+                    <Fullscreen className="w-4 h-4" />
+                </button>
             </div>
-        )}
-        {selectedTab === 1 && (
+            <video
+                className="w-full h-full object-cover bg-cover bg-center"
+                autoPlay
+                loop
+                muted={isMuted}
+                playsInline
+                onPlay={() => { setIsPlaying(true) }}
+                onPause={() => { setIsPlaying(false) }}
+            >
+                <source src={isMobile ? 'https://d21pdw38fc8384.cloudfront.net/fast-demo-mobile.mp4' : 'https://d21pdw38fc8384.cloudfront.net/fast-demo.mp4'} type="video/mp4" />
+                {'Your browser doesn\'t support the video tag.'}
+            </video>
+        </div>
+        {/* {selectedTab === 1 && (
             <div className="bg-[url('/images/partner/padel-partner-thumbnail.webp')] aspect-[16/9] w-[80%] 2xl:w-[65%] mx-auto bg-cover bg-center rounded-xl overflow-hidden relative" >
                 <div className="absolute bottom-4 right-4 z-10 flex gap-2">
                     <button
@@ -225,7 +225,7 @@ const PartnerVideoDisplay = (): JSX.Element => {
                     {'Your browser doesn\'t support the video tag.'}
                 </video>
             </div>
-        )}
+        )} */}
         <div className="w-[80%] 2xl:w-[65%] mx-auto flex flex-row gap-5 pt-10 pb-24" >
             <a onClick={() => { setSelectedTab(0) }} className={`border-t-2 pt-5 cursor-pointer w-[100%] ${selectedTab === 0 ? 'border-t-green' : 'border-transparent opacity-50 hover:opacity-80'} transition-all duration-500 ease-in-out`} >
                 <h3 className="font-avenirBold text-t-green text-2xl mb-2" >Tennis</h3>

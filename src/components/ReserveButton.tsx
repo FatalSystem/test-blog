@@ -82,7 +82,7 @@ export default function ReserveButton (): JSX.Element {
       className={`w-72 cursor-pointer text-xl 2xl:text-2xl 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black ${isLoading ? 'opacity-50 cursor-wait' : ''}`}
     >
       <span className="flex  place-items-center justify-center">
-        Reserve
+        Buy
         {isLoading && <Loader2 className="ml-2 size-4 mb-1 animate-spin " />}
       </span>
     </a>
