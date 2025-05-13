@@ -8,7 +8,13 @@ export default async (event: Request, context: Context): Promise<Response> => {
 
   const STRIPE_KEY = Netlify.env.get('STRIPE_KEY')
 
-  const calculateShippingOptions = (shippingDetails) => {
+  const calculateShippingOptions = (shippingDetails: any, checkoutType: string): string => {
+    if (checkoutType === 'partner') {
+      if (shippingDetails.address.country === 'US') {
+        return 'shr_1QHg8RRqXimb7JbcyiCOmKix'
+      }
+      return 'shr_1RORGbRqXimb7JbcecrPI5Ja'
+    }
     // Free shr_1QHg8RRqXimb7JbcyiCOmKix
     // 95 shr_1RCqOURqXimb7JbcSi1wp8AE
     // 395 shr_1RCqPLRqXimb7JbcL3CQ3lzS
@@ -47,9 +53,9 @@ export default async (event: Request, context: Context): Promise<Response> => {
 
   try {
     const data = await event.json()
-    const { checkout_session_id, shipping_details } = data
+    const { checkout_session_id, shipping_details, checkout_type } = data
     const stripe = new Stripe(STRIPE_KEY)
-    const shippingRate = calculateShippingOptions(shipping_details)
+    const shippingRate = calculateShippingOptions(shipping_details, checkout_type)
     const updatedCheckout = await stripe.checkout.sessions.update(checkout_session_id, {
       collected_information: { shipping_details },
       shipping_options: [

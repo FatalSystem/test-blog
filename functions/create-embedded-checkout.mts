@@ -21,8 +21,6 @@ export default async (event: Request, context: Context): Promise<Response> => {
 
     const defaultCheckoutOptions = {
       ui_mode: 'embedded',
-      return_url: 'https://www.tennibot.com/thank-you?session={CHECKOUT_SESSION_ID}&type=rover',
-      // return_url: 'https://www.tennibot.com/buy',
       allow_promotion_codes: true,
       phone_number_collection: {
         enabled: true
@@ -41,16 +39,71 @@ export default async (event: Request, context: Context): Promise<Response> => {
         // ...(data.utmParams?.medium && { utm_medium: data.utmParams.medium }),
         ...(data.utmParams?.source && { utm_source: data.utmParams.source })
         // ...(data.utmParams?.term && { utm_term: data.utmParams.term })
-      },
-      custom_text: {
-        terms_of_service_acceptance: {
-          message: 'I agree to receive communications by text message regarding tech support and/or answers to sales inquiries from Tennibot. You may opt out by replying STOP or ask for more information by replying HELP. Message frequency varies. Message and data rates may apply. You may review our [Terms of Service](https://www.tennibot.com/terms) and [Privacy Policy](https://www.tennibot.com/privacy) to learn how your data is used.'
-        }
       }
     }
 
-    const oneTimeCheckoutOptions = {
+    const partnerCheckoutOptions: Stripe.Checkout.SessionCreateParams = {
       ...defaultCheckoutOptions,
+      return_url: 'https://www.tennibot.com/thank-you?session={CHECKOUT_SESSION_ID}',
+      permissions: {
+        update_shipping_details: 'server_only'
+      },
+      line_items: [
+        {
+          price: 'price_1ROQUsRqXimb7Jbcyk6fbOHp',
+          quantity: 1,
+          adjustable_quantity: {
+            enabled: true,
+            minimum: 1,
+            maximum: 100
+          }
+        }
+      ],
+      shipping_address_collection: {
+        allowed_countries: ['AC', 'AD', 'AE', 'AF', 'AG', 'AI', 'AL', 'AM', 'AO', 'AQ', 'AR', 'AT', 'AU', 'AW', 'AX', 'AZ', 'BA', 'BB', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BL', 'BM', 'BN', 'BO', 'BQ', 'BR', 'BS', 'BT', 'BV', 'BW', 'BY', 'BZ', 'CA', 'CD', 'CF', 'CG', 'CH', 'CI', 'CK', 'CL', 'CM', 'CO', 'CR', 'CV', 'CW', 'CY', 'CZ', 'DE', 'DJ', 'DK', 'DM', 'DO', 'DZ', 'EC', 'EE', 'EG', 'EH', 'ER', 'ES', 'ET', 'FI', 'FJ', 'FK', 'FO', 'FR', 'GA', 'GB', 'GD', 'GE', 'GF', 'GG', 'GH', 'GI', 'GL', 'GM', 'GN', 'GP', 'GQ', 'GR', 'GS', 'GT', 'GU', 'GW', 'GY', 'HN', 'HR', 'HT', 'HU', 'ID', 'IE', 'IL', 'IM', 'IN', 'IO', 'IQ', 'IS', 'IT', 'JE', 'JM', 'JO', 'JP', 'KE', 'KG', 'KH', 'KI', 'KM', 'KN', 'KR', 'KW', 'KY', 'KZ', 'LA', 'LB', 'LC', 'LI', 'LK', 'LR', 'LS', 'LT', 'LU', 'LV', 'LY', 'MA', 'MC', 'MD', 'ME', 'MF', 'MG', 'MK', 'ML', 'MM', 'MN', 'MO', 'MQ', 'MR', 'MS', 'MT', 'MU', 'MV', 'MW', 'MX', 'MY', 'MZ', 'NA', 'NC', 'NI', 'NL', 'NO', 'NP', 'NR', 'NU', 'NZ', 'OM', 'PA', 'PE', 'PF', 'PG', 'PH', 'PK', 'PL', 'PM', 'PN', 'PR', 'PS', 'PT', 'PY', 'QA', 'RE', 'RO', 'RS', 'RU', 'RW', 'SA', 'SB', 'SC', 'SE', 'SG', 'SH', 'SI', 'SJ', 'SK', 'SL', 'SM', 'SN', 'SO', 'SR', 'SS', 'ST', 'SV', 'SX', 'SZ', 'TA', 'TC', 'TD', 'TF', 'TG', 'TH', 'TJ', 'TK', 'TL', 'TM', 'TN', 'TO', 'TR', 'TT', 'TV', 'TW', 'TZ', 'UA', 'UG', 'US', 'UY', 'UZ', 'VA', 'VC', 'VE', 'VG', 'VN', 'VU', 'WF', 'WS', 'XK', 'YE', 'YT', 'ZA', 'ZM', 'ZW', 'ZZ']
+      },
+      shipping_options: [
+        {
+          shipping_rate: 'shr_1QHg8RRqXimb7JbcyiCOmKix'
+        }
+      ],
+      payment_intent_data: {
+        metadata: {
+          product: 'partner'
+        }
+      },
+      custom_fields: [
+        {
+          key: 'sport',
+          label: {
+            type: 'custom',
+            custom: 'What sport are you buying the Partner for?'
+          },
+          type: 'dropdown',
+          dropdown: {
+            options: [
+              {
+                label: 'Tennis',
+                value: 'tennis'
+              },
+              {
+                label: 'Padel',
+                value: 'padel'
+              },
+              {
+                label: 'Pickleball',
+                value: 'pickleball'
+              }
+            ]
+          }
+        }
+      ],
+      mode: 'payment'
+    }
+
+    const oneTimeCheckoutOptions: Stripe.Checkout.SessionCreateParams = {
+      ...defaultCheckoutOptions,
+      return_url: 'https://www.tennibot.com/thank-you?session={CHECKOUT_SESSION_ID}&type=rover',
       permissions: {
         update_shipping_details: 'server_only'
       },
@@ -78,11 +131,17 @@ export default async (event: Request, context: Context): Promise<Response> => {
           product: 'rover'
         }
       },
-      mode: 'payment'
+      mode: 'payment',
+      custom_text: {
+        terms_of_service_acceptance: {
+          message: 'I agree to receive communications by text message regarding tech support and/or answers to sales inquiries from Tennibot. You may opt out by replying STOP or ask for more information by replying HELP. Message frequency varies. Message and data rates may apply. You may review our [Terms of Service](https://www.tennibot.com/terms) and [Privacy Policy](https://www.tennibot.com/privacy) to learn how your data is used.'
+        }
+      }
     }
 
-    const subscriptionCheckoutOptions = {
+    const subscriptionCheckoutOptions: Stripe.Checkout.SessionCreateParams = {
       ...defaultCheckoutOptions,
+      return_url: 'https://www.tennibot.com/thank-you?session={CHECKOUT_SESSION_ID}&type=rover',
       line_items: [
         {
           price: handleSubscriptionPrice(),
@@ -102,11 +161,26 @@ export default async (event: Request, context: Context): Promise<Response> => {
           product: 'rover'
         }
       },
-      mode: 'subscription'
+      mode: 'subscription',
+      custom_text: {
+        terms_of_service_acceptance: {
+          message: 'I agree to receive communications by text message regarding tech support and/or answers to sales inquiries from Tennibot. You may opt out by replying STOP or ask for more information by replying HELP. Message frequency varies. Message and data rates may apply. You may review our [Terms of Service](https://www.tennibot.com/terms) and [Privacy Policy](https://www.tennibot.com/privacy) to learn how your data is used.'
+        }
+      }
+    }
+
+    const handleCheckoutOptions = (): Stripe.Checkout.SessionCreateParams => {
+      if (checkoutType === 'partner') {
+        return partnerCheckoutOptions
+      }
+      if (checkoutType === 'onetime') {
+        return oneTimeCheckoutOptions
+      }
+      return subscriptionCheckoutOptions
     }
 
     const stripe = new Stripe(STRIPE_KEY)
-    const checkout = await stripe.checkout.sessions.create(checkoutType === 'onetime' ? oneTimeCheckoutOptions : subscriptionCheckoutOptions)
+    const checkout = await stripe.checkout.sessions.create(handleCheckoutOptions())
 
     // console.log('create checkout', checkout)
     return new Response(JSON.stringify(checkout))
