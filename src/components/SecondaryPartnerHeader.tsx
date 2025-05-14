@@ -9,12 +9,12 @@ import { ChevronDown, ChevronRight } from 'lucide-react'
 import { eventBus } from '../utils/eventBus'
 
 const links = [
-  { label: 'Overview', href: 'overview' },
-  { label: 'Specs', href: 'specs' },
-  { label: 'How It Works', href: 'how-it-works' },
-  { label: 'Testimonials', href: 'testimonials' },
-  { label: 'Sports', href: 'sports' },
-  { label: 'Compare', href: 'compare' }
+  { label: 'Detailed Specs', href: '/specs' },
+  { label: 'Tennibot vs. Others', href: '/compare' }
+  // { label: 'How It Works', href: 'how-it-works' },
+  // { label: 'Testimonials', href: 'testimonials' },
+  // { label: 'Sports', href: 'sports' },
+  // { label: 'Compare', href: 'compare' }
 ]
 // TODO: Remake with framer motion
 export default function PartnerHeader ({ showSecondaryMenu }: { showSecondaryMenu: boolean }): JSX.Element {
@@ -67,14 +67,13 @@ export default function PartnerHeader ({ showSecondaryMenu }: { showSecondaryMen
                 {links.map((link, index) => {
                   return (
                         <a key={index} onClick={() => {
-                          if (link.href === 'compare') {
-                            window.location.href = '/compare'
-                            return
-                          }
-                          const element = document.getElementById(link.href)
-                          if (element) {
-                            element.scrollIntoView({ behavior: 'smooth' })
-                          }
+                          window.location.href = link.href
+                          //   return
+                          // }
+                          // const element = document.getElementById(link.href)
+                          // if (element) {
+                          //   element.scrollIntoView({ behavior: 'smooth' })
+                          // }
                         }} className='cursor-pointer font-avenir' >{link.label}</a>
                   )
                 })}
@@ -88,14 +87,11 @@ export default function PartnerHeader ({ showSecondaryMenu }: { showSecondaryMen
                     {links.map((link, index) => {
                       return (
                             <DropdownMenuItem key={index} onClick={() => {
-                              if (link.href === 'compare') {
-                                window.location.href = '/compare'
-                                return
-                              }
-                              const element = document.getElementById(link.href)
-                              if (element) {
-                                element.scrollIntoView({ behavior: 'smooth' })
-                              }
+                              window.location.href = link.href
+                              // const element = document.getElementById(link.href)
+                              // if (element) {
+                              //   element.scrollIntoView({ behavior: 'smooth' })
+                              // }
                             }} className='cursor-pointer font-avenir' >{link.label}</DropdownMenuItem>
                       )
                     })}
@@ -106,12 +102,7 @@ export default function PartnerHeader ({ showSecondaryMenu }: { showSecondaryMen
 
           <div className='lg:flex flex-row hidden  items-center justify-center'>
             <div className=' flex flex-row gap-5' >
-              {/* <a
-              href='/reserve'
-              className={`text-xl text-t-off-white font-avenirBold uppercase transform cursor-pointer hover:text-t-green transition duration-500 ${open ? 'opacity-0' : 'opacity-100'} ease-in-out`}>
-                Reserve
-              </a> */}
-              <a href={Pages.RESERVE} className={'w-28 tablet:w-52 2xl:w-80 text-md 2xl:text-xl 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black'}>Reserve for $499</a>
+              <a href='/buy-partner' className={'w-28 tablet:w-52 text-md rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black'}>Buy</a>
             </div>
           </div>
         </div>

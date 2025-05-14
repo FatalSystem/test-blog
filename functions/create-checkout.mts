@@ -19,7 +19,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
       },
       line_items: [
         {
-          price: 'price_1QNTvQRqXimb7JbcIw6HpQmV',
+          price: 'price_1R5s5xRqXimb7Jbc5PM01Oqf',
           quantity: 1,
           adjustable_quantity: {
             enabled: true,

@@ -39,7 +39,8 @@ export default function TEmbeddedCheckout (): JSX.Element {
           },
           body: JSON.stringify({
             sessionId,
-            distinctId
+            distinctId,
+            checkoutType
           })
         })
         setMetadataUpdated(true)
@@ -103,7 +104,8 @@ export default function TEmbeddedCheckout (): JSX.Element {
       method: 'POST',
       body: JSON.stringify({
         checkout_session_id: checkoutSessionId,
-        shipping_details: shippingDetails
+        shipping_details: shippingDetails,
+        checkout_type: checkoutType
       })
     })
 
@@ -114,11 +116,15 @@ export default function TEmbeddedCheckout (): JSX.Element {
     }
   }
 
-  const options = useMemo(() =>
-    checkoutType === 'onetime'
-      ? { fetchClientSecret, onShippingDetailsChange }
-      : { fetchClientSecret },
-  [checkoutType, fetchClientSecret, onShippingDetailsChange]
+  const options = useMemo(() => {
+    if (checkoutType === 'partner') {
+      return { fetchClientSecret, onShippingDetailsChange }
+    }
+    if (checkoutType === 'onetime') {
+      return { fetchClientSecret, onShippingDetailsChange }
+    }
+    return { fetchClientSecret }
+  }, [checkoutType, fetchClientSecret, onShippingDetailsChange]
   )
 
   return (

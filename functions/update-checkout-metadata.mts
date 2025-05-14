@@ -5,14 +5,14 @@ export default async (event: Request, context: Context): Promise<Response> => {
   const STRIPE_KEY = Netlify.env.get('STRIPE_KEY')
 
   try {
-    const { sessionId, distinctId } = await event.json()
+    const { sessionId, distinctId, checkoutType } = await event.json()
     const stripe = new Stripe(STRIPE_KEY)
 
     // Update the checkout session metadata
     const updatedSession = await stripe.checkout.sessions.update(sessionId, {
       metadata: {
         distinct_id: distinctId,
-        product: 'rover'
+        product: checkoutType === 'partner' ? 'partner' : 'rover'
       }
     })
 
