@@ -113,7 +113,7 @@ const PartnerFeatures = (): JSX.Element => {
                             Oh, and another feature we think you&apos;ll enjoy... The Partner rolls itself! No more lugging your ball machine behind you; simply set it in the &quot;Follow Me&quot; Mode, and The Partner will tag along behind you to walk to the court - Granted, there aren&apos;t any stairs :)
                         </p>
                     </div>
-                    <div className="w-[100%] h-full bg-[url('/images/partner/partner-follow-2.webp')] bg-cover bg-center">
+                    <div className="w-[100%] h-full bg-[url('/images/partner/partner-follow-2.png')] bg-cover bg-center">
                     </div>
                 </div>
             </>
