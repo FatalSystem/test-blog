@@ -26,7 +26,9 @@ export default defineConfig({
     '/meeting': 'https://calendly.com/haithameletrabi/15-minute-call?month=2024-06',
     '/help': 'https://www.youtube.com/watch?v=BerTwqWqAPo',
     '/onboarding': 'https://calendly.com/haithameletrabi/onboarding',
-    '/racketx': '/'
+    '/racketx': '/',
+    '/partner-unbox': 'https://www.youtube.com/watch?v=JDwLmwHBj4A&t=1s'
+
   },
   integrations: [tailwind(), sitemap(), react({
     experimentalReactChildren: true
