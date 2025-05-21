@@ -30,7 +30,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
       ],
       allow_promotion_codes: true,
       phone_number_collection: {
-        enabled: true
+        enabled: false
       },
       consent_collection: {
         terms_of_service: 'required'
