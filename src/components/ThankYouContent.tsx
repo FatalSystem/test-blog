@@ -61,6 +61,13 @@ export default function ThankYouContent (): JSX.Element {
           //   transaction_id: sessionId
           // })
           setSessionData(data)
+          edgetag('tag', 'Purchase', {
+            currency: data.currency,
+            value: data.value,
+            quantity: data.quantity,
+            email: data.email
+          })
+          console.log('Purchase tag sent')
           setIsLoading(false)
           return // Success! Exit the retry loop
         } catch (err) {
@@ -95,12 +102,12 @@ export default function ThankYouContent (): JSX.Element {
                     <div>
                         <img src={tennibotLogo.src} width={30} alt="Tennibot Logo" />
                         <p className="font-avenir text-t-gray mt-3">Pay Tennibot</p>
-                        <p className="font-avenirBold text-t-off-white text-2xl mt-3">${sessionData?.value ?? 499.00} {sessionData?.currency ?? 'USD'}</p>
+                        <p className="font-avenirBold text-t-off-white text-2xl mt-3">${sessionData?.value ?? 2195.00} {sessionData?.currency ?? 'USD'}</p>
                     </div>
                     <div className="mt-5 border-b-[1px] pb-10 border-[#afafae5f] " >
                         <div className="flex flex-row justify-between" >
                             <p className="font-avenir text-t-off-white">{productType === 'rover' ? 'Rover' : 'Partner'}</p>
-                            <p className="font-avenir text-t-off-white">${sessionData?.value ?? 499.00} {sessionData?.currency ?? 'USD'}</p>
+                            <p className="font-avenir text-t-off-white">${sessionData?.value ?? 2195.00} {sessionData?.currency ?? 'USD'}</p>
                         </div>
                         <p className="font-avenir text-t-gray text-sm mt-3">{productType === 'rover' ? 'Autonomous Ball Collector' : 'Smart Ball Machine'}</p>
                         {productType !== 'rover' &&
@@ -111,7 +118,7 @@ export default function ThankYouContent (): JSX.Element {
                     </div>
                     <div className="flex flex-row justify-between mt-5" >
                         <p className="font-avenir text-t-off-white">Total paid</p>
-                        <p className="font-avenir text-t-off-white">${sessionData?.value ?? 499.00} {sessionData?.currency ?? 'USD'}</p>
+                        <p className="font-avenir text-t-off-white">${sessionData?.value ?? 2195.00} {sessionData?.currency ?? 'USD'}</p>
                     </div>
                 </div>
             </div>

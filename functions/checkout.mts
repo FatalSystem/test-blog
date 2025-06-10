@@ -16,9 +16,9 @@ export default async (event: Request, context: Context): Promise<Response> => {
     })
     console.log('Checkout:', checkout)
 
-    const value = (parseInt((checkout?.amount_total ?? 49900).toFixed(2)) / 100) ?? 499.00
+    const value = (parseInt((checkout?.amount_total ?? 219500).toFixed(2)) / 100) ?? 2195.00
     const currency = checkout?.currency?.toUpperCase() ?? 'USD'
-    const quantity = Math.ceil(value / 499.00) || 1
+    const quantity = Math.ceil(value / 2995.00) || 1
 
     const payload = {
       currency,
