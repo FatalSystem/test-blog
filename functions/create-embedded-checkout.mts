@@ -23,7 +23,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
       ui_mode: 'embedded',
       allow_promotion_codes: true,
       phone_number_collection: {
-        enabled: false
+        enabled: true
       },
       consent_collection: {
         terms_of_service: 'required'
