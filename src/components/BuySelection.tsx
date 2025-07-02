@@ -199,9 +199,10 @@ export default function BuySelection (): JSX.Element {
                     <div className={`${selected === 2 ? 'bg-t-green' : 'bg-transparent'} size-full rounded-full transition-all duration-500 ease-in-out`} />
                 </div> */}
             </div>
-            <div onClick={() => { setSelected(0) }} className={`${selected === 0 ? 'lg:border-t-green' : ' hover:opacity-100 opacity-50 border-t-off-white'} cursor-pointer bg-t-darker-green relative flex-[0_0_30%] border-2 lg:hover:border-t-green rounded-lg px-5 mobilel:px-7 md:px-5 lg:px-7 md:pb-8 lg:pb-5 py-5 flex flex-col lg:justify-start justify-center transition-all duration-300 ease-in-out`} >
+            <div onClick={() => { /* setSelected(0) */ }} className={`${selected === 0 ? 'lg:border-t-green' : 'opacity-50 border-t-off-white'} cursor-not-allowed bg-t-darker-green relative flex-[0_0_30%] border-2  rounded-lg px-5 mobilel:px-7 md:px-5 lg:px-7 md:pb-8 lg:pb-5 py-5 flex flex-col lg:justify-start justify-center transition-all duration-300 ease-in-out`} >
+                <label className="font-plutoBold text-red-500 text-pretty" >Sold out</label>
                 <div className="flex flex-col tablet:flex-row tablet:justify-start tablet:items-baseline items-start justify-between w-full" >
-                    <h3 className={titleStyle} >{`${isChecked ? '$995' : '$95'} / ${isChecked ? 'Year' : 'Month'}`}</h3>
+                    <h3 className={`${titleStyle}`} >{`${isChecked ? '$995' : '$95'} / ${isChecked ? 'Year' : 'Month'}`}</h3>
                     <label className={`font-plutoBold ml-[5%] hidden ${!isChecked && 'line-through'} tablet:block`} >{isChecked ? '57% Off!' : '$195 / Month'}</label>
                     <div className=" mr-3 absolute right-0 tablet:w-[30%] tablet:min-w-20 flex flex-col tablet:gap-2 gap-0 items-center justify-between mb-5 transition-all duration-300 ease-in-out" >
                         {/* <label className={`tablet:hidden font-plutoLight text-xs ${!isChecked ? 'text-t-off-white' : 'text-t-disabled'}`} >Annual Plan</label> */}
