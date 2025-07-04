@@ -27,7 +27,7 @@ export default defineConfig({
     '/help': 'https://www.youtube.com/watch?v=BerTwqWqAPo',
     '/onboarding': 'https://calendly.com/haithameletrabi/onboarding',
     '/racketx': '/',
-    '/partner-unbox': 'https://www.youtube.com/watch?v=JDwLmwHBj4A&t=1s',
+    '/partner-unbox': 'https://m.youtube.com/watch?v=aztB2Ba18Es&feature=youtu.be',
     '/setup': 'https://www.youtube.com/shorts/nLEld7vUvtw'
 
   },
