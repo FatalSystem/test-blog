@@ -4,5 +4,15 @@ import ThankYouContent from "../components/ThankYouContent";
 ---
 
 <Layout title="Thank you | Tennibot" showFooter={false} showHeader={false}>
+    <!-- Trackdesk tracker optional types help script begin -->
+    <script async src="//cdn.trackdesk.com/tracking.js"></script>
+    <script>
+      (function(t,d,k){(t[k]=t[k]||[]).push(d);t[d]=t[d]||t[k].f||function(){(t[d].q=t[d].q||[]).push(arguments)}})(window,"trackdesk","TrackdeskObject");
+
+      trackdesk('tennibot', 'conversion', {
+        conversionType: 'sale'
+      });
+    </script>
+    <!-- Trackdesk tracker optional types help script end -->
     <ThankYouContent client:only="react" />
 </Layout>
