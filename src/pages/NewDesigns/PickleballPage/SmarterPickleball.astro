@@ -1,0 +1,29 @@
+---
+import GradientImage from '../../../assets/newdesignimages/Gradient.png';
+import SmarterPickleballback from '../../../assets/newdesignimages/SmarterPickleballback.png';
+import '../../../../public/styles/global.css'
+---
+
+<section class="relative bg-gradient-to-b from-gray-800 to-gray-900 py-20 overflow-hidden" style={`background-image: url(${SmarterPickleballback.src}); background-size: cover; background-position: center; background-repeat: no-repeat;`}>
+  <img 
+    src={GradientImage.src} 
+    alt="Gradient Overlay" 
+    class="absolute top-0 left-0 w-full h-full object-cover pointer-events-none z-10" 
+  />
+  <div class="container mx-auto px-12 text-center relative z-10">
+    <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">
+     SMARTER PICKLEBALL STARTS HERE.<br/>
+<span class="text-lime-400">ARE YOU READY</span>
+     
+    </h2>
+    
+    <div class="flex justify-center gap-4 mb-102">
+      <button class="bg-lime-400 text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-lime-300 transition-colors">
+        SHOP AI PICKLEBALL 
+      </button>
+      <button class="border-2 border-lime-400 text-lime-400 px-8 py-3 rounded-full font-semibold hover:bg-lime-400 hover:text-gray-900 transition-all">
+        BOOK A DEMO
+      </button>
+    </div>
+  </div>
+</section>

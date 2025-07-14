@@ -1,0 +1,103 @@
+---
+import Boxicon from "../../../assets/newdesignimages/BuiltforIcon.png";
+import Mapicon from "../../../assets/newdesignimages/Mapicon.png";
+import CleanupIcon from "../../../assets/newdesignimages/CleanupIcon.png";
+import WatchIcon from "../../../assets/newdesignimages/WatchIcon.png";
+import AIballIcon from "../../../assets/newdesignimages/AIballIcon.png";
+import PlayerBackground from "../../../assets/newdesignimages/PlayerBackground.png";
+import GradientImage from "../../../assets/newdesignimages/Gradient.png";
+import '../../../../public/styles/global.css'
+---
+
+<section
+  class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 bg-gradient-to-b from-slate-800 to-slate-900 relative overflow-hidden"
+>
+  <div class="absolute inset-0 z-0">
+    <img
+      src={PlayerBackground.src}
+      alt="Tennibot Machine"
+      class="w-full h-full object-cover opacity-40"
+    />
+
+    <img
+      src={GradientImage.src}
+      alt="Gradient Overlay"
+      class="absolute top-0 left-0 w-full h-full object-cover pointer-events-none z-10"
+    />
+  </div>
+
+  <div class="max-w-6xl mx-auto relative z-10">
+    <div class="text-center mb-12 sm:mb-16">
+      <h2
+        class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight text-white uppercase"
+      >
+        Why Choose an Automatic <br />
+        <span class="text-lime-400">Pickleball Ball Collector?</span>
+      </h2>
+    </div>
+
+    <div class="mb-8 sm:mb-82"></div>
+
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="flex items-start gap-4">
+          <img
+            src={CleanupIcon.src}
+            alt="Automate"
+            class="w-6 h-6 object-contain mt-1"
+          />
+          <h3 class="text-white font-semibold mb-2">Hands-free cleanup</h3>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <img
+            src={AIballIcon.src}
+            alt="Save up"
+            class="w-6 h-6 object-contain mt-1"
+          />
+          <h3 class="text-white font-semibold mb-2">AI ball recognition</h3>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <img
+            src={WatchIcon.src}
+            alt="Built for all"
+            class="w-6 h-6 object-contain mt-1"
+          />
+          <h3 class="text-white font-semibold mb-2">Saves energy and time</h3>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <img
+            src={Boxicon.src}
+            alt="Lightweight"
+            class="w-6 h-6 object-contain mt-1"
+          />
+          <h3 class="text-white font-semibold mb-2">
+            Works on all court surfaces
+          </h3>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <img
+            src={Mapicon.src}
+            alt="Trusted by coaches"
+            class="w-6 h-6 object-contain mt-1"
+          />
+          <h3 class="text-white font-semibold mb-2">
+            Avoids obstacles and adjusts
+          </h3>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <img
+            src={CleanupIcon.src}
+            alt="No manual"
+            class="w-6 h-6 object-contain mt-1"
+          />
+          <h3 class="text-white font-semibold mb-2">Designed for pickleball</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

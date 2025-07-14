@@ -10,7 +10,8 @@ const links = [
   { label: 'FAQ', href: '/partner-faq' },
   { label: 'Invest', href: 'invest' },
   { label: 'The Rover', href: '/tennis' },
-  { label: 'The Partner', href: '/partner' }
+  { label: 'The Partner', href: '/partner' },
+    { label: 'New Design', href: '/NewDesigns/HomePage' }
 ]
 // TODO: Remake with framer motion
 export default function PartnerHeader (): JSX.Element {

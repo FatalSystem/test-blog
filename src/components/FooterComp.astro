@@ -1,0 +1,150 @@
+---
+import InstaIcon from '../assets/newdesignimages/InstaIcon.png';
+import linkdinIcon from '../assets/newdesignimages/linkdinIcon.png';
+import twitterIcon from '../assets/newdesignimages/twitterIcon.png';
+import YoutubeIcon from '../assets/newdesignimages/YoutubeIcon.png';
+import RightArrowIcon from '../assets/newdesignimages/RightArrowIcon.png';
+import WebLogo from '../assets/newdesignimages/LogoGreen.png';
+import Tennibot from '../assets/newdesignimages/Tennibot.png';
+
+import Emailiconwithemail from '../assets/newdesignimages/Emailiconwithemail.png';
+import phoneiconwithnumber from '../assets/newdesignimages/phoneiconwithnumber.png';
+import AddressIconwithadres from '../assets/newdesignimages/AddressIconwithadres.png';
+import '../../public/styles/global.css'
+
+---
+
+<footer class="bg-black py-16 border-t border-gray-800">
+  <div class="container mx-auto px-6 lg:px-12">
+    <div class="grid md:grid-cols-4 gap-16 max-w-7xl mx-auto">
+    <!-- <div class="grid md:grid-cols-4 gap-8 mb-12"> -->
+      <div class="md:col-span-1">
+<div class="max-w-md mx-auto">
+    <!-- Logo Section -->
+    <div class="flex items-center mb-8">
+        <img     
+          src={WebLogo.src}     
+          alt="LinkedIn"     
+          class="w-8 h-8 object-cover mr-3 mb-2"   
+        />
+      <img     
+          src={Tennibot.src}     
+          alt="LinkedIn"     
+          class="w-36 h-8 object-cover"   
+        />
+    </div>
+    
+    
+    <div class="flex gap-8 mb-8">
+      <a href="#" class="text-gray-400 hover:text-white transition-colors">
+        <img     
+          src={linkdinIcon.src}     
+          alt="LinkedIn"     
+          class="w-6 h-6 object-cover"   
+        />
+      </a>
+      <a href="#" class="text-gray-400 hover:text-white transition-colors">
+        <img     
+          src={InstaIcon.src}     
+          alt="Instagram"     
+          class="w-6 h-6 object-cover"   
+        />
+      </a>
+      <a href="#" class="text-gray-400 hover:text-white transition-colors">
+        <img     
+          src={twitterIcon.src}     
+          alt="Twitter"     
+          class="w-6 h-6 object-cover"   
+        />
+      </a>
+      <a href="#" class="text-gray-400 hover:text-white transition-colors">
+        <img     
+          src={YoutubeIcon.src}     
+          alt="YouTube"     
+          class="w-6 h-6 object-cover"   
+        />
+      </a>
+    </div>
+    
+<form class="mb-6 relative w-full max-w-md">
+  <input 
+    type="email" 
+    placeholder="Email Address" 
+    class="bg-[#1E1E1D] text-white placeholder-[#757575] px-6 py-4 text-sm focus:outline-none rounded-full w-full pr-20"
+  />
+  
+  <button 
+    type="submit" 
+    class="absolute top-1/2 -translate-y-1/2 right-1 bg-[#BAD432] hover:opacity-90 transition-colors px-6 py-3 flex items-center justify-center rounded-[30px] shadow-md"
+  >
+    <img 
+      src={RightArrowIcon.src} 
+      alt="Submit" 
+      class="w-5 h-5 object-contain"
+      style={{ filter: 'brightness(0)' }}  
+    />
+  </button>
+</form>
+
+
+
+    
+    <!-- Description Text -->
+    <p class="text-gray-400 text-sm leading-relaxed">
+      Be the first to hear about new products and features
+    </p>
+  </div>
+      </div>
+      
+      <div class="md:col-span-1"></div>
+      
+      <div class="md:col-span-1">
+        <h3 class="text-white font-semibold mb-4">Quick Links</h3>
+       <ul class="space-y-2">
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">ABOUT US</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">INVEST</a></li>
+        </ul>
+      </div>
+      
+<div class="md:col-span-1">
+  <h3 class="text-white font-semibold mb-4">Get in touch:</h3>
+  <ul class="space-y-4">
+  
+      <img
+        src={Emailiconwithemail.src}
+        alt="Email"
+        class="w-48 h-6 object-contain"
+      />
+   
+   
+   
+      <img
+        src={phoneiconwithnumber.src}
+        alt="Phone"
+         class="w-18 h-5 object-contain"
+      />
+     
+ 
+      <img
+        src={AddressIconwithadres.src}
+        alt="Address"
+          class="w-58 h-10 object-contain"
+      />
+     
+   
+  </ul>
+</div>
+
+    </div>
+   <div class="max-w-7xl mx-auto">
+    <div class=" pt-8 flex justify-between items-center">
+       <a href="#" class="text-gray-400 hover:text-white transition-colors border-white underline">Terms and Conditions</a>
+
+         <p class="text-gray-400">Copyright © 2025 Tennibot, Inc.</p>
+        <a href="#" class="text-gray-400 hover:text-white transition-colors underline text-sm">Privacy Policy</a>
+    </div>
+    </div>
+  </div>
+</footer>
+

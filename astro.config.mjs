@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config'
-import tailwind from '@astrojs/tailwind'
+import tailwind from '@astrojs/tailwind';
 import { astroImageTools } from 'astro-imagetools'
 import react from '@astrojs/react'
 import { sanityIntegration } from '@sanity/astro'

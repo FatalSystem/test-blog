@@ -1,0 +1,91 @@
+---
+import TenisBoyPhoto from '../../../assets/newdesignimages/TenisBoyPhoto.png';
+import TenisGirlphoto from '../../../assets/newdesignimages/TenisGirlphoto.png';
+import WhiteBoyPhoto from '../../../assets/newdesignimages/WhiteBoyPhoto.png';
+import '../../../../public/styles/global.css'
+const testimonials = [
+  {
+    id: 1,
+    image: TenisGirlphoto,
+    quote: "It's fantastic for drilling, practice points, and even doubles drills. I really enjoyed it.",
+    name: "SYLVANA JORDYN",
+    location: "ROCKVILLE, MD"
+  },
+  {
+    id: 2,
+    image: TenisBoyPhoto,
+    quote: "I worked on rapid-fire volleys, reflexes, and range at the net—it's perfect for sharpening your skills.",
+    name: "LOGAN WEST",
+    location: "WASHINGTON, DC"
+  },
+  {
+    id: 3,
+    image: WhiteBoyPhoto,
+    quote: "Working with TenniBot has completely transformed my training routine. The consistency and precision are incredible.",
+    name: "ALEX CHEN",
+    location: "AUSTIN, TX"
+  }
+];
+---
+<section class="bg-black py-12 sm:py-16 lg:py-20">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-12">
+    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center mb-8 sm:mb-12">
+      WHAT <span class="text-lime-400">PLAYERS & COACHES</span> SAY ABOUT TENNIBOT
+    </h2>
+    
+    <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {testimonials.map((testimonial) => (
+        <div class="flex bg-gray-900 rounded-lg  relative " >
+          <div class="aspect-video bg-gray-800 rounded-lg mb-4 relative overflow-hidden">
+            <img 
+              src={testimonial.image.src} 
+              alt={`${testimonial.name} testimonial`} 
+              class="w-full h-full object-cover"
+            />
+           
+          </div>
+		  <div class="p-6">
+          <p class="text-white font-medium mb-4 text-sm sm:text-base leading-relaxed">
+            "{testimonial.quote}"
+          </p>
+          <p class="text-gray-400 text-sm font-medium">{testimonial.name}</p>
+          <p class="text-gray-500 text-xs mb-3">{testimonial.location}</p>
+          <a href="#" class="text-lime-400 text-sm inline-flex items-center hover:text-lime-300 ">
+            WATCH VIDEO
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+		  </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="md:hidden">
+      <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+        {testimonials.map((testimonial) => (
+          <div class="bg-gray-900 rounded-lg p-4 relative flex-shrink-0 w-80">
+            <div class="aspect-video bg-gray-800 rounded-lg mb-4 relative overflow-hidden">
+              <img 
+                src={testimonial.image.src} 
+                alt={`${testimonial.name} testimonial`} 
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <p class="text-white font-medium mb-4 text-sm leading-relaxed">
+              "{testimonial.quote}"
+            </p>
+            <p class="text-gray-400 text-sm font-medium">{testimonial.name}</p>
+            <p class="text-gray-500 text-xs mb-3">{testimonial.location}</p>
+            <a href="#" class="text-lime-400 text-sm inline-flex items-center hover:text-lime-300 transition-colors">
+              WATCH VIDEO
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
