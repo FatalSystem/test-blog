@@ -1,0 +1,40 @@
+---
+import InnovativeTennis from '../../../assets/newdesignimages/InnovativeTennis.png';
+import '../../../../public/styles/global.css'
+
+---
+
+<section class="relative bg-gray-900 min-h-screen flex items-center overflow-hidden">
+  <div class="absolute right-0 top-0 bottom-0 w-1/2 flex items-center justify-center">
+    <img     
+      src={InnovativeTennis.src}
+      alt="Innovative Tennis Equipment"     
+      fetchpriority="high"
+      class="max-w-full max-h-full object-contain opacity-90"
+    />
+  </div>
+  <div class="container mx-auto px-12 relative z-10">
+    <div class="max-w-2xl">
+      <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+        INNOVATIVE TENNIS<br/>
+        EQUIPMENT THAT <span class="text-lime-400">SAVES TIME</span><br/>
+        & <span class="text-lime-400">BOOSTS PERFORMANCE</span>
+      </h1>
+      <p class="text-gray-300 text-lg mb-4 leading-relaxed">
+        Tennibot offers premium ball machines and automatic ball collectors
+        for players at every level. Our machines are designed for precision
+        training, while our collectors eliminate time-consuming cleanup of the
+        court.
+      </p>
+      
+      <p class="text-gray-300 text-lg mb-8">
+        Whether you're a coach or a weekend warrior, Tennibot enhances your
+        performance and optimizes your training routine. Our ball machines and
+        ball collectors are available for tennis, padel, and pickleball.
+      </p>
+      <a href="#rover-details" class="inline-block px-6 py-2 sm:px-8 sm:py-3 border-2 border-lime-400 rounded-full text-lime-400 font-semibold text-xs sm:text-sm hover:bg-lime-400 hover:text-black hover:translate-y-1 transition-all duration-300 uppercase tracking-wide">
+                BROWSE MODELS
+      </a>
+    </div>
+  </div>
+</section>

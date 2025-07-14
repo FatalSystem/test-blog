@@ -1,0 +1,292 @@
+---
+
+import tennibotlogo from '../../../assets/newdesignimages/tennibotlogo.png';
+
+import PhonesImage from '../../../assets/newdesignimages/PhonesImage.png';
+import stationherodesktopxl from '../../../assets/newdesignimages/stationherodesktopxl.png';
+import TenniTraining from './TenniTraining.astro';
+import TrainingSolutions from './TrainingSolutions.astro';
+import WhyChoose from './WhyChoose.astro';
+import BallLaunchera from './BallLaunchera.astro';
+import Innovativetennis from './Innovativetennis.astro';
+import BallMachines from './BallMachines.astro';
+import Shopbycategory from './Shopbycategory.astro';
+import InstaIcon from '../../../assets/newdesignimages/InstaIcon.png';
+import linkdinIcon from '../../../assets/newdesignimages/linkdinIcon.png';
+import twitterIcon from '../../../assets/newdesignimages/twitterIcon.png';
+import YoutubeIcon from '../../../assets/newdesignimages/YoutubeIcon.png';
+import RightArrowIcon from '../../../assets/newdesignimages/RightArrowIcon.png';
+import GradientImage from '../../../assets/newdesignimages/Gradient.png';
+import WhatPlayersSay from '../PickleballPage/WhatPlayersSay.astro';
+import '../../../../public/styles/global.css'
+
+---
+
+<nav class="fixed top-0 w-full px-4 sm:px-6 lg:px-12 py-4 sm:py-5 flex justify-between items-center bg-black z-50 transition-all duration-300">
+  <div class="w-10 h-10 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-white text-lg sm:text-xl">
+    <img     
+      id="background"     
+      src={tennibotlogo.src}     
+      alt=""     
+      class="w-10 h-10 rounded-full object-cover pointer-events-none z-0"   
+    />
+  </div>
+
+  <ul class="hidden md:flex gap-6 lg:gap-10 list-none">
+    <li><a href="#rover" class="text-white font-medium hover:text-lime-400 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-lime-400 after:transition-all after:duration-300 hover:after:w-full">THE ROVER</a></li>
+    <li><a href="#partner" class="text-white font-medium hover:text-lime-400 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-lime-400 after:transition-all after:duration-300 hover:after:w-full">THE PARTNER</a></li>
+  </ul>
+
+  <div class="md:hidden flex flex-col gap-1 cursor-pointer hamburger-menu" id="hamburger">
+    <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+    <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+    <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+  </div>
+
+  <div class="md:hidden fixed top-0 left-0 w-full h-full bg-black z-40 flex flex-col justify-center items-center gap-8 hidden transition-all duration-300" id="mobile-menu">
+    <a href="#rover" class="text-white text-xl font-medium hover:text-lime-400 transition-colors duration-300 mobile-nav-link">THE ROVER</a>
+    <a href="#partner" class="text-white text-xl font-medium hover:text-lime-400 transition-colors duration-300 mobile-nav-link">THE PARTNER</a>
+    <a href="#shop" class="text-white text-xl font-medium hover:text-lime-400 transition-colors duration-300 mobile-nav-link">SHOP</a>
+    <a href="#about" class="text-white text-xl font-medium hover:text-lime-400 transition-colors duration-300 mobile-nav-link">ABOUT</a>
+    <div class="absolute top-6 right-6 text-white text-3xl cursor-pointer" id="close-menu">&times;</div>
+  </div>
+</nav>
+
+
+
+<TenniTraining />
+<TrainingSolutions/>
+<WhyChoose/>
+<BallLaunchera/>
+<Innovativetennis/>
+<BallMachines/>
+<Shopbycategory/>
+<WhatPlayersSay/>
+
+
+
+
+
+
+   <section class="bg-gray-900 py-20 relative overflow-hidden">
+    <div class="container mx-auto px-12">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-5xl font-bold text-white mb-6">
+            TAKE <span class="text-lime-400">CONTROL</span>
+          </h2>
+          <p class="text-gray-300 text-lg mb-8">
+            The Tennibot app enables you to select specific regions on the<br/>
+            court, designate restricted zones to avoid, or drive it yourself.
+          </p>
+          
+          <div class="flex gap-4">
+            <a href="#" class="inline-block">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" 
+                   alt="Download on App Store" 
+                   class="h-12"/>
+            </a>
+            <a href="#" class="inline-block">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
+                   alt="Get it on Google Play" 
+                   class="h-12"/>
+            </a>
+          </div>
+        </div>
+        
+        <div class="relative">
+          <div class="flex justify-center items-end gap-4">
+          			   <img     
+      src={PhonesImage.src}
+      alt="The Rover"     
+      fetchpriority="high"     
+    />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-black py-20">
+    <div class="container mx-auto px-12">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-4xl font-bold text-white mb-4">
+            FREQUENTLY ASKED<br/>
+            QUESTIONS ABOUT<br/>
+            <span class="text-lime-400">TENNIBOT</span>
+          </h2>
+          <p class="text-gray-400 mb-8">
+            Join the revolution in tennis training. Bring<br/>
+            AI-powered coaching to your program and<br/>
+            watch your players excel.
+          </p>
+          <p class="text-gray-500 text-sm">
+            Got more questions? Give us a ring at<br/>
+            <span class="text-lime-400">251-277-8022</span>
+          </p>
+        </div>
+        
+        <div class="space-y-4">
+          <div class="border-b border-gray-800 pb-4">
+            <button class="w-full flex justify-between items-center text-left group">
+              <span class="text-white text-lg">How long does the battery last?</span>
+              <svg class="w-5 h-5 text-gray-400 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <p class="text-gray-400 mt-2 hidden">
+              The Rover and Station can last up to 5 hours on a full charge.
+            </p>
+          </div>
+          <div class="border-b border-gray-800 pb-4">
+            <button class="w-full flex justify-between items-center text-left group">
+              <span class="text-white text-lg">Is the collector safe for clay courts?</span>
+              <svg class="w-5 h-5 text-gray-400 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+          </div>
+          <div class="border-b border-gray-800 pb-4">
+            <button class="w-full flex justify-between items-center text-left group">
+              <span class="text-white text-lg">Can I use these products indoors?</span>
+              <svg class="w-5 h-5 text-gray-400 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+          </div>
+          <div class="border-b border-gray-800 pb-4">
+            <button class="w-full flex justify-between items-center text-left group">
+              <span class="text-white text-lg">What is the warranty period?</span>
+              <svg class="w-5 h-5 text-gray-400 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+          </div>
+          <div class="border-b border-gray-800 pb-4">
+            <button class="w-full flex justify-between items-center text-left group">
+              <span class="text-white text-lg">Can the Tennibot handle rain?</span>
+              <svg class="w-5 h-5 text-gray-400 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="relative bg-gradient-to-b from-gray-800 to-gray-900 py-20 overflow-hidden" style={`background-image: url(${stationherodesktopxl.src}); background-size: cover; background-position: center; background-repeat: no-repeat;`}>
+  <img 
+    src={GradientImage.src} 
+    alt="Gradient Overlay" 
+    class="absolute top-0 left-0 w-full h-full object-cover pointer-events-none z-10" 
+  />
+  <div class="container mx-auto px-12 text-center relative z-10">
+    <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">
+      READY TO TRAIN <span class="text-lime-400">SMARTER</span> WITH OUR<br/>
+      BALL MACHINES AND COLLECTORS?
+    </h2>
+    
+    <div class="flex justify-center gap-4 mb-102">
+      <button class="bg-lime-400 text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-lime-300 transition-colors">
+        SHOP NOW
+      </button>
+      <button class="border-2 border-lime-400 text-lime-400 px-8 py-3 rounded-full font-semibold hover:bg-lime-400 hover:text-gray-900 transition-all">
+        BOOK A DEMO
+      </button>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-black py-16 border-t border-gray-800">
+  <div class="container mx-auto px-12">
+    <div class="grid md:grid-cols-4 gap-8 mb-12">
+      <div class="md:col-span-1">
+        <h3 class="text-white text-sm font-semibold mb-4 italic">
+          BE THE FIRST TO HEAR ABOUT<br/>
+          NEW PRODUCTS AND FEATURES
+        </h3>
+         <form class="flex">
+         <div class="flex items-center border-2 border-[#C0F20C] rounded">
+  <input 
+    type="email" 
+    placeholder="Email Address" 
+    class="bg-transparent text-white px-4 py-2 flex-1 focus:outline-none placeholder-gray-400"
+  />
+<button class="border-l-2 border-l-[#C0F20C] bg-transparent px-4 py-2 hover:bg-lime-300 transition-colors">
+    <img          
+      src={RightArrowIcon.src}          
+      alt="Arrow Icon"          
+      class="w-8 h-5 object-cover pointer-events-none"
+    />
+  </button>
+</div>
+
+        </form>
+        
+      <div class="flex gap-10 mt-6">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <img     
+              id="background"     
+              src={linkdinIcon.src}     
+              alt=""     
+              class="w-10 h-10 object-cover pointer-events-none z-0"   
+            />
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <img     
+              id="background"     
+              src={InstaIcon.src}     
+              alt=""     
+              class="w-10 h-10 object-cover pointer-events-none z-0"   
+            />
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <img     
+              id="background"     
+              src={twitterIcon.src}     
+              alt=""     
+              class="w-10 h-10 object-cover pointer-events-none z-0"   
+            />
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors">
+            <img     
+              id="background"     
+              src={YoutubeIcon.src}     
+              alt=""     
+              class="w-10 h-10 object-cover pointer-events-none z-0"   
+            />
+          </a>
+        </div>
+      </div>
+      
+      <div class="md:col-span-1"></div>
+      
+      <div class="md:col-span-1">
+        <h3 class="text-white font-semibold mb-4">Get in touch:</h3>
+        <p class="text-gray-400 mb-2">halthame@tennibot.com</p>
+        <p class="text-gray-400 mb-4">(251)-277-8022</p>
+        <p class="text-gray-400">
+          2175 Pumphrey Ave.<br/>
+          Auburn, AL 36832
+        </p>
+      </div>
+      
+      <div class="md:col-span-1">
+        <h3 class="text-white font-semibold mb-4">More info:</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">ABOUT US</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">INVEST</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class=" pt-8 flex justify-between items-center">
+        <a href="#" class="text-gray-400 hover:text-white transition-colors">Terms and Conditions</a>
+         <p class="text-gray-400">Copyright © 2025 Tennibot, Inc.</p>
+        <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
