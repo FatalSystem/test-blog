@@ -6,4 +6,29 @@ import TEmbeddedCheckout from "@components/TEmbeddedCheckout";
     <div class="p-4">
         <TEmbeddedCheckout client:only="react" />
     </div>
+
+
+    <script type="text/javascript"> 
+     
+
+        window.dataLayer = window.dataLayer || [];
+
+        window.dataLayer.push({
+            event: 'begin_checkout',
+            ecommerce: {
+                currency: 'USD',
+                value: 2995,
+            items: [{
+                item_id: '8317998170275',
+                item_name: 'Tennibot Rover and Station',
+                price: 2999,
+                currency: 'USD',
+                quantity: 1,
+                item_category: 'Tennis Robots'
+            }]
+            }
+        });
+
+      
+      </script>
 </Layout>
