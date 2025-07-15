@@ -28,8 +28,40 @@ export default function ThankYouContent (): JSX.Element {
         setError('No session ID found')
         setIsLoading(false)
         return
+        } else {
+        // call api for data layer start
+        await fetch('/.netlify/functions/completed-payment', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            sessionId
+          })
+        }).then(async (res) => {
+          const resp = await res.json()
+
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'purchase',
+            ecommerce: {
+              currency: resp.currency,
+              transaction_id: resp.paymentIntentId,
+              name: resp.customerName,
+              phone: resp.customerPhone,
+              value: resp.value,
+              email: resp.customerEmail,
+              items: resp.products // Assuming backend includes product details
+            }
+          });
+
+          console.log(resp)
+        })
       }
 
+        // call api for data layer end
+
+        
       const MAX_RETRIES = 3
       const TIMEOUT_MS = 10000 // 10 seconds
 

@@ -235,5 +235,26 @@ const FAQ = [
       klaviyo.track("Viewed Page", {           
          PageName: "Buy Page"   
       }); 
+
+
+      window.dataLayer = window.dataLayer || [];
+
+        window.dataLayer.push({
+          event: 'view_item',
+          ecommerce: {
+              currency: 'USD',
+              value: 2995,
+            items: [{
+              item_id: '8317998170275',
+              item_name: 'Tennibot Rover and Station',
+              price: 2999,
+              currency: 'USD',
+              quantity: 1,
+              item_category: 'Tennis Robots'
+            }]
+          }
+        });
+
+
       </script>
 </Layout>
