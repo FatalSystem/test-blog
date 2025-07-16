@@ -11,6 +11,7 @@ import { Input } from './Input'
 import { Info, Loader2 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Button } from './Button'
+import { trackNewsletterSubscribed } from '@utils'
 
 const formSchema = z.object({
   email: z.string().email({
@@ -29,6 +30,13 @@ export default function PartnerFooterForm ({ formClassName, inputClassName, butt
   const [errorSubmitting, setErrorSubmitting] = useState<boolean>(false)
   const formSent = form.formState.isSubmitSuccessful && !errorSubmitting && !form.formState.isSubmitting
 
+  const [urlParams, setUrlParams] = useState<URLSearchParams>()
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setUrlParams(new URLSearchParams(window.location.search))
+    }
+  }, [])
   const onSubmit = async (values: z.infer<typeof formSchema>): Promise<void> => {
     try {
       if (errorSubmitting) setErrorSubmitting(false)
@@ -40,6 +48,16 @@ export default function PartnerFooterForm ({ formClassName, inputClassName, butt
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ email: values.email, from: 'Footer', rcToken: token, listId })
+      })
+      trackNewsletterSubscribed({
+        $email: values.email,
+        $user_id: values.email,
+        page_name: '/specs',
+        utm_campaign: urlParams?.get('utm_campaign') ?? '',
+        utm_source: urlParams?.get('utm_source') ?? '',
+        utm_content: urlParams?.get('utm_content') ?? '',
+        utm_medium: urlParams?.get('utm_medium') ?? '',
+        utm_term: urlParams?.get('utm_term') ?? ''
       })
       if (response.status !== 200) {
         setErrorSubmitting(true)

@@ -7,6 +7,7 @@ import { Input } from './Input'
 import { Button } from './Button'
 import { Info, Loader2 } from 'lucide-react'
 import { Checkbox } from './Checkbox'
+import { trackNewsletterSubscribed } from '@utils'
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -34,6 +35,13 @@ export default function LandingForm ({ from }: { from: string }): JSX.Element {
   const [token, setToken] = useState<string>('')
   const [sent, setSent] = useState<boolean>(false)
   const [errorSubmitting, setErrorSubmitting] = useState<boolean>(false)
+
+  const [urlParams, setUrlParams] = useState<URLSearchParams>()
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setUrlParams(new URLSearchParams(window.location.search))
+    }
+  }, [])
 
   const onSubmit = async (values: z.infer<typeof formSchema>): Promise<void> => {
     try {
@@ -65,6 +73,18 @@ export default function LandingForm ({ from }: { from: string }): JSX.Element {
     } catch (error) {
       setErrorSubmitting(true)
       console.error(error)
+    } finally {
+      trackNewsletterSubscribed({
+        $email: values.email,
+        $user_id: values.email,
+        page_name: '/signup',
+        name: values.name,
+        utm_campaign: urlParams?.get('utm_campaign') ?? '',
+        utm_source: urlParams?.get('utm_source') ?? '',
+        utm_content: urlParams?.get('utm_content') ?? '',
+        utm_medium: urlParams?.get('utm_medium') ?? '',
+        utm_term: urlParams?.get('utm_term') ?? ''
+      })
     }
   }
 
