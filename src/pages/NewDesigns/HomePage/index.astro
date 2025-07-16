@@ -19,49 +19,158 @@ import RightArrowIcon from '../../../assets/newdesignimages/RightArrowIcon.png';
 import GradientImage from '../../../assets/newdesignimages/Gradient.png';
 import WhatPlayersSay from '../PickleballPage/WhatPlayersSay.astro';
 import '../../../../public/styles/global.css'
+import Layout from 'layouts/Layout.astro';
+import bbcimg from "../../../assets/newdesignimages/head/bbc.png";
+import timeImg from "../../../assets/newdesignimages/head/timeVector.png";
+import digitalTraends from "../../../assets/newdesignimages/head/digital-trends.png";
+import laTimes from "../../../assets/newdesignimages/head/latimes.png";
+import mashhable from "../../../assets/newdesignimages/head/mashable.png";
+
+import bollsonground from '../../../assets/newdesignimages/bollsonground.png';
+import bollsbacket from '../../../assets/newdesignimages/bollsbacket.png';
+import bollsinbeg from '../../../assets/newdesignimages/bollsinbeg.png';
+import '../../../../public/styles/global.css'
 
 ---
+<Layout title="Home" showFooter={true} showHeader={true}>
+  <section
+  class="min-h-screen bg-[url('/images/new/home/home-hero.webp')] bg-cover bg-center relative"
+  >
+    <div class="w-full h-full min-h-screen flex flex-col justify-between">
+      <div class="text-center pt-4 mt-16">
+        <h1
+          class="text-2xl font-avenirBold sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-5 leading-snug animate-fade-in-up text-white"
+        >
+          ELEVATE YOUR<br />
+          <span class="text-t-green drop-shadow-lg font-avenirBold ">TENNIS TRAINING</span>
+        </h1>
+        <p
+          class="text-xs font-plutoLight sm:text-sm md:text-base mb-6 sm:mb-8 opacity-90 leading-relaxed animate-fade-in-up delay-200 text-white px-4 max-w-xl mx-auto"
+        >
+          AI-powered ball machines and automated ball collectors<br
+            class="hidden sm:block"
+          />
+          designed to maximize your performance with minimal effort.
+        </p>
+        <div
+          class="flex gap-3 sm:gap-4 justify-center flex-wrap animate-fade-in-up delay-400"
+        >
+        <a href='/compare' class={`tablet:w-64 w-full 2xl:w-80 text-xl 2xl:text-2xl 2xl: 2xl:py-3 rounded-full py-2 font-avenir uppercase  border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green bg-t-green `}>Shop now</a>
+        <a href='/compare' class={`tablet:w-64 w-full 2xl:w-80 text-xl 2xl:text-2xl 2xl: 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>Book a demo</a>
+        </div>
+      </div>
 
-<nav class="fixed top-0 w-full px-4 sm:px-6 lg:px-12 py-4 sm:py-5 flex justify-between items-center bg-black z-50 transition-all duration-300">
-  <div class="w-10 h-10 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-white text-lg sm:text-xl">
-    <img     
-      id="background"     
-      src={tennibotlogo.src}     
-      alt=""     
-      class="w-10 h-10 rounded-full object-cover pointer-events-none z-0"   
-    />
+      <div
+        class="flex gap-4 sm:gap-6 lg:gap-8 justify-center items-center flex-wrap px-4 mb-40"
+      >
+        <img
+          src={timeImg.src}
+          alt="TIME logo"
+          class="h-4 sm:h-5 md:h-6 hover:opacity-100 transition-opacity duration-300"
+        />
+        <img
+          src={bbcimg.src}
+          alt="BBC logo"
+          class="h-4 sm:h-5 md:h-6 hover:opacity-100 transition-opacity duration-300"
+        />
+        <img
+          src={laTimes.src}
+          alt="The LA Times logo"
+          class="h-4 sm:h-5 md:h-6  hover:opacity-100 transition-opacity duration-300"
+        />
+        <img
+          src={mashhable.src}
+          alt="Mashable logo"
+          class="h-4 sm:h-5 md:h-6  hover:opacity-100 transition-opacity duration-300"
+        />
+        <img
+          src={digitalTraends.src}
+          alt="Digital Trends logo"
+          class="h-4 sm:h-5 md:h-6 hover:opacity-100 transition-opacity duration-300"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-12 bg-[#191A16] relative z-10">
+    <div class="text-center mb-12 sm:mb-16 lg:mb-20">
+      <h2 class="text-3xl font-avenirBold sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight text-white">
+        AI-POWERED TRAINING <span class="text-lime-400">SOLUTIONS</span>
+      </h2>
+      <p class="font-plutoLight text-lg sm:text-xl text-t-off-white px-4">
+        Explore Our Smart Ball Machines & Automatic Ball Retrievers
+      </p>
+    </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+    <div id="partner" class="relative rounded-2xl overflow-hidden ">
+      <img     
+        src={bollsbacket.src}
+        alt="The Partner"     
+        fetchpriority="high"     
+      />
+      
+      <div class="absolute flex flex-col justify-end bottom-0 top-0 left-0 right-0 p-6 sm:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+        <h3 class="text-xl sm:text-2xl font-avenirBold mb-2 text-white"><span class="font-plutoLight" >THE</span> PARTNER</h3>
+        <p class="text-gray-200 mb-4 font-pluto sm:mb-6 leading-relaxed text-sm sm:text-base">
+          Launch precision shots with programmable drills.
+        </p>
+        <a href="#partner-details" class={`w-full text-sm sm:text-base rounded-full py-3 px-8 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>
+           BROWSE MODELS
+         </a>
+      </div>
+    </div>
+  
+    <div id="rover" class="relative rounded-2xl overflow-hidden">
+      <img     
+        src={bollsonground.src}
+        alt="The Rover"     
+        fetchpriority="high"     
+      />
+      
+      <div class="absolute flex flex-col justify-end bottom-0 top-0 left-0 right-0 p-6 sm:p-8 bg-gradient-to-t from-black/60 via-black/40 to-transparent">
+        <h3 class="text-xl sm:text-2xl font-avenirBold mb-2 sm:mb-3 text-white"><span class="font-plutoLight" >THE</span> ROVER</h3>
+        <p class="text-gray-200 font-pluto mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+          Pick up balls in seconds, hands-free.
+        </p>
+                 <a href="#rover-details" class={`w-full text-sm sm:text-base rounded-full py-3 px-8 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>
+           SEE COLLECTORS
+         </a>
+      </div>
+    </div>
+  
+    <div class="relative rounded-2xl overflow-hidden border-solid border-t-green border-2 ">
+      <div class="absolute top-4 sm:top-5 font-pluto right-4 sm:right-5 bg-lime-400 text-black px-3 py-1 sm:px-4 sm:py-2 rounded-full text-xs font-bold z-10">
+        RECOMMENDED
+      </div>
+      
+      <img     
+        src={bollsinbeg.src}    
+        alt="The Bundle"     
+        fetchpriority="high"     
+      />
+      
+      <div class="absolute flex flex-col justify-end bottom-0 top-0  left-0 right-0 p-6 sm:p-8 bg-gradient-to-t from-black/60 via-black/40 to-transparent">
+        <h3 class="text-xl sm:text-2xl font-avenirBold mb-2 sm:mb-3 text-white"><span class="font-plutoLight" >THE</span> BUNDLE</h3>
+        <p class="text-gray-200 font-pluto mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+          PARTNER + ROVER<br>
+          Complete AI training solution
+        </p>
+               <a href="#rover-details" class={`w-full text-sm sm:text-base rounded-full py-3 px-8 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>
+        BUY NOW
+         </a>
+      </div>
+    </div>
   </div>
+  </section>
+  <WhyChoose/>
+  <BallLaunchera/>
+  <Innovativetennis/>
+  <BallMachines/>
+  <Shopbycategory/>
+  <WhatPlayersSay/>
+</Layout>
 
-  <ul class="hidden md:flex gap-6 lg:gap-10 list-none">
-    <li><a href="#rover" class="text-white font-medium hover:text-lime-400 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-lime-400 after:transition-all after:duration-300 hover:after:w-full">THE ROVER</a></li>
-    <li><a href="#partner" class="text-white font-medium hover:text-lime-400 transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-lime-400 after:transition-all after:duration-300 hover:after:w-full">THE PARTNER</a></li>
-  </ul>
-
-  <div class="md:hidden flex flex-col gap-1 cursor-pointer hamburger-menu" id="hamburger">
-    <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
-    <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
-    <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
-  </div>
-
-  <div class="md:hidden fixed top-0 left-0 w-full h-full bg-black z-40 flex flex-col justify-center items-center gap-8 hidden transition-all duration-300" id="mobile-menu">
-    <a href="#rover" class="text-white text-xl font-medium hover:text-lime-400 transition-colors duration-300 mobile-nav-link">THE ROVER</a>
-    <a href="#partner" class="text-white text-xl font-medium hover:text-lime-400 transition-colors duration-300 mobile-nav-link">THE PARTNER</a>
-    <a href="#shop" class="text-white text-xl font-medium hover:text-lime-400 transition-colors duration-300 mobile-nav-link">SHOP</a>
-    <a href="#about" class="text-white text-xl font-medium hover:text-lime-400 transition-colors duration-300 mobile-nav-link">ABOUT</a>
-    <div class="absolute top-6 right-6 text-white text-3xl cursor-pointer" id="close-menu">&times;</div>
-  </div>
-</nav>
-
-
-
-<TenniTraining />
-<TrainingSolutions/>
-<WhyChoose/>
-<BallLaunchera/>
-<Innovativetennis/>
-<BallMachines/>
-<Shopbycategory/>
-<WhatPlayersSay/>
 
 
 
