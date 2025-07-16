@@ -43,7 +43,7 @@ export default function ThankYouContent (): JSX.Element {
 
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
-            event: 'purchase',
+            event: 'payment_completed',
             ecommerce: {
               currency: resp.currency,
               transaction_id: resp.paymentIntentId,
