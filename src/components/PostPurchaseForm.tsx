@@ -2,8 +2,8 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { encode } from '@utils'
-import { useState } from 'react'
+import { encode, trackFeedbackSubmitted } from '@utils'
+import { useEffect, useState } from 'react'
 import { Loader2 } from 'lucide-react'
 import { Button } from './Button'
 
@@ -19,6 +19,12 @@ export default function PostPurchaseForm ({ email }: { email: string }): JSX.Ele
   const [sent, setSent] = useState<boolean>(false)
   const [errorSubmitting, setErrorSubmitting] = useState<boolean>(false)
 
+  const [urlParams, setUrlParams] = useState<URLSearchParams>()
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setUrlParams(new URLSearchParams(window.location.search))
+    }
+  }, [])
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -46,6 +52,19 @@ export default function PostPurchaseForm ({ email }: { email: string }): JSX.Ele
     } catch (error) {
       setErrorSubmitting(true)
       console.error(error)
+    } finally {
+      trackFeedbackSubmitted({
+        $email: email,
+        $user_id: email,
+        hear_about_us: values.hear,
+        reason_choosing_us: values.competitor,
+        page_name: '/thank-you',
+        utm_campaign: urlParams?.get('utm_campaign') ?? '',
+        utm_source: urlParams?.get('utm_source') ?? '',
+        utm_content: urlParams?.get('utm_content') ?? '',
+        utm_medium: urlParams?.get('utm_medium') ?? '',
+        utm_term: urlParams?.get('utm_term') ?? ''
+      })
     }
   }
   console.log(email)

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Switch } from './Switch'
-import { track } from '@utils'
+import { trackProductAdded } from '@utils'
 
 const titleStyle = 'text-t-off-white text-left font-avenirBold text-2xl md:text-2xl lg:text-xl xl:text-2xl'
 const itemStyle = 'mobilem:text-sm text-xs md:text-sm xl:text-sm 2xl:text-base'
@@ -15,6 +15,13 @@ export default function BuySelection (): JSX.Element {
   const [isChecked, setIsChecked] = useState<boolean>(false)
   const [selected, setSelected] = useState<number>(2)
   // const [viewMore, setViewMore] = useState({ first: false, second: false, third: false })
+
+  const [urlParams, setUrlParams] = useState<URLSearchParams>()
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setUrlParams(new URLSearchParams(window.location.search))
+    }
+  }, [])
 
   const calculateReviewCount = (): number => {
     const startDate = new Date('2025-01-06') // Starting date with 34 reviews
@@ -43,6 +50,19 @@ export default function BuySelection (): JSX.Element {
         //   price: 995
         // })
 
+        trackProductAdded({
+          // $email: 'email@email.com', // TODO
+          // $user_id: 'user_id',
+          page_name: '/buy',
+          cart: [{ product_name: 'Rover (Annual Plan)', price: 995 }],
+          utm_campaign: urlParams?.get('utm_campaign') ?? '',
+          utm_source: urlParams?.get('utm_source') ?? '',
+          utm_content: urlParams?.get('utm_content') ?? '',
+          utm_medium: urlParams?.get('utm_medium') ?? '',
+          utm_term: urlParams?.get('utm_term') ?? ''
+
+        })
+
         edgetag('tag', 'initiateCheckout', {
           currency: 'USD',
           value: 995,
@@ -70,6 +90,18 @@ export default function BuySelection (): JSX.Element {
       //   plan: 'Monthly',
       //   price: 95
       // })
+
+      trackProductAdded({
+        // $email: 'email@email.com', // TODO
+        // $user_id: 'user_id',
+        page_name: '/buy',
+        cart: [{ product_name: 'Rover (Monthly Plan)', price: 95 }],
+        utm_campaign: urlParams?.get('utm_campaign') ?? '',
+        utm_source: urlParams?.get('utm_source') ?? '',
+        utm_content: urlParams?.get('utm_content') ?? '',
+        utm_medium: urlParams?.get('utm_medium') ?? '',
+        utm_term: urlParams?.get('utm_term') ?? ''
+      })
 
       edgetag('tag', 'initiateCheckout', {
         currency: 'USD',
@@ -116,6 +148,17 @@ export default function BuySelection (): JSX.Element {
       //   plan: 'One Time',
       //   price: 2995
       // })
+      trackProductAdded({
+        // $email: 'email@email.com', // TODO
+        // $user_id: 'user_id',
+        page_name: '/buy', // Current page
+        cart: [{ product_name: 'Rover (One Time Purchase)', price: 2995 }],
+        utm_campaign: urlParams?.get('utm_campaign') ?? '',
+        utm_source: urlParams?.get('utm_source') ?? '',
+        utm_content: urlParams?.get('utm_content') ?? '',
+        utm_medium: urlParams?.get('utm_medium') ?? '',
+        utm_term: urlParams?.get('utm_term') ?? ''
+      })
       edgetag('tag', 'initiateCheckout', {
         currency: 'USD',
         value: 2995,

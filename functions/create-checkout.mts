@@ -10,10 +10,11 @@ export default async (event: Request, context: Context): Promise<Response> => {
 
   try {
     const data = await event.json()
-    const { distinctId } = data
+    const { distinctId, email } = data
     const stripe = new Stripe(STRIPE_KEY)
     const checkout = await stripe.checkout.sessions.create({
       success_url: 'https://www.tennibot.com/thank-you?session={CHECKOUT_SESSION_ID}',
+      customer_email: email,
       adaptive_pricing: {
         enabled: false
       },
@@ -66,6 +67,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
       },
       metadata: {
         distinct_id: distinctId,
+        email,
         ...(data.utmParams?.campaign && { utm_campaign: data.utmParams.campaign }),
         ...(data.utmParams?.content && { utm_content: data.utmParams.content }),
         ...(data.utmParams?.id && { utm_id: data.utmParams.id }),

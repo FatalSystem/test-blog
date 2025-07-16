@@ -7,6 +7,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { Button } from './Button'
 import { ChevronDown, ChevronRight } from 'lucide-react'
 import { eventBus } from '../utils/eventBus'
+import CTAButton from './CTAButton'
 
 const links = [
   { label: 'Detailed Specs', href: '/specs' },
@@ -102,7 +103,13 @@ export default function PartnerHeader ({ showSecondaryMenu }: { showSecondaryMen
 
           <div className='lg:flex flex-row hidden  items-center justify-center'>
             <div className=' flex flex-row gap-5' >
-              <a href='/buy-partner' className={'w-28 tablet:w-52 text-md rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black'}>Buy</a>
+              <CTAButton
+                href="/buy-partner"
+                ctaText="Buy"
+                ctaType="checkout"
+                className='w-28 tablet:w-52 text-md rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black'
+              />
+              {/* <a href='/buy-partner' className={'w-28 tablet:w-52 text-md rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black'}>Buy</a> */}
             </div>
           </div>
         </div>

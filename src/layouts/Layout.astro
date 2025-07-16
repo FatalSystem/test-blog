@@ -7,6 +7,7 @@ import Banner from "@components/Banner"
 import PartnerHeader from "@components/PartnerHeader"
 import SecondaryPartnerHeader from "@components/SecondaryPartnerHeader"
 import { Pages } from "@utils"
+import TrackPageView from "@components/TrackPageView.astro"
 export interface Props {
   title: string
   showHeader?: boolean
@@ -124,6 +125,7 @@ const { title, showHeader = true, showFooter = true, showPartnerHeader = false, 
     </script>
   </head>
   <body class="bg-t-off-black overflow-x-hidden" >
+    <TrackPageView />
         <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLCDBFS5"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

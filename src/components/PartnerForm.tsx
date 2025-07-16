@@ -8,7 +8,7 @@ import { Button } from './Button'
 import { Info, Loader2 } from 'lucide-react'
 import { Checkbox } from './Checkbox'
 import PhoneForm from './PhoneForm'
-import { listIds } from '@utils'
+import { listIds, trackNewsletterSubscribed } from '@utils'
 import SportSelectorForm from './SportSelectorForm'
 
 const formSchema = z.object({
@@ -41,6 +41,13 @@ export default function PartnerForm ({ from, listId }: { from: string, listId: s
   const [showSportSelector, setShowSportSelector] = useState<boolean>(false)
   const [currentEmail, setCurrentEmail] = useState<string>('')
 
+  const [urlParams, setUrlParams] = useState<URLSearchParams>()
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setUrlParams(new URLSearchParams(window.location.search))
+    }
+  }, [])
+
   const onSubmit = async (values: z.infer<typeof formSchema>): Promise<void> => {
     try {
       if (errorSubmitting) setErrorSubmitting(false)
@@ -71,6 +78,18 @@ export default function PartnerForm ({ from, listId }: { from: string, listId: s
     } catch (error) {
       setErrorSubmitting(true)
       console.error(error)
+    } finally {
+      trackNewsletterSubscribed({
+        $email: values.email,
+        $user_id: values.email,
+        page_name: '/partner-newsletter',
+        name: values.name,
+        utm_campaign: urlParams?.get('utm_campaign') ?? '',
+        utm_source: urlParams?.get('utm_source') ?? '',
+        utm_content: urlParams?.get('utm_content') ?? '',
+        utm_medium: urlParams?.get('utm_medium') ?? '',
+        utm_term: urlParams?.get('utm_term') ?? ''
+      })
     }
   }
 

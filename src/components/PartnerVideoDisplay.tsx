@@ -1,12 +1,34 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { VolumeX, Volume2, Fullscreen } from 'lucide-react'
 import { useMediaQuery } from 'usehooks-ts'
+import { trackProductViewed } from '@utils'
 
 const PartnerVideoDisplay = (): JSX.Element => {
   const [selectedTab, setSelectedTab] = useState<number>(0)
   const [isMuted, setIsMuted] = useState<boolean>(true)
   const [isPlaying, setIsPlaying] = useState<boolean>(true)
   const isMobile = useMediaQuery('(max-width: 500px)')
+
+  const [urlParams, setUrlParams] = useState<URLSearchParams>()
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setUrlParams(new URLSearchParams(window.location.search))
+    }
+  }, [])
+
+  useEffect(() => {
+    trackProductViewed({
+      // $email: 'email@email.com', // TODO
+      // $user_id: 'user_id',
+      page_name: '/tennis',
+      cart: [{ product_name: 'Rover', price: 2195 }],
+      utm_campaign: urlParams?.get('utm_campaign') ?? '',
+      utm_source: urlParams?.get('utm_source') ?? '',
+      utm_content: urlParams?.get('utm_content') ?? '',
+      utm_medium: urlParams?.get('utm_medium') ?? '',
+      utm_term: urlParams?.get('utm_term') ?? ''
+    })
+  }, [])
 
   const handleVideoSource = (tab: number): string => {
     switch (tab) {
