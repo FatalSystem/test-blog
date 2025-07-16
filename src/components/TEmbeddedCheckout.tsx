@@ -102,25 +102,25 @@ export default function TEmbeddedCheckout (): JSX.Element {
     const { checkoutSessionId, shippingDetails } = shippingDetailsChangeEvent
 
 
-  // // add dataLayer start
-  //     window.dataLayer = window.dataLayer || [];
-  //     window.dataLayer.push({
-  //     event: 'add_shipping_info',
-  //     ecommerce: {
-  //         currency: 'USD',
-  //         value: 2995,
-  //       items: [{
-  //         item_id: '8317998170275',
-  //         item_name: 'Tennibot Rover and Station',
-  //         price: 2999,
-  //         currency: 'USD',
-  //         quantity: 1,
-  //         item_category: 'Tennis Robots',
-  //         ...shippingDetails
-  //       }]
-  //     }
-  //   });
-  // // add dataLayer end
+  // add dataLayer start
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+      event: 'add_shipping_info',
+      ecommerce: {
+          currency: 'USD',
+          value: 2995,
+        items: [{
+          item_id: '8317998170275',
+          item_name: 'Tennibot Rover and Station',
+          price: 2999,
+          currency: 'USD',
+          quantity: 1,
+          item_category: 'Tennis Robots',
+          ...shippingDetails
+        }]
+      }
+    });
+  // add dataLayer end
 
     const response = await fetch('/.netlify/functions/calculate-shipping', {
       method: 'POST',
