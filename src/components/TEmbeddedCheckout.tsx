@@ -164,8 +164,8 @@ export default function TEmbeddedCheckout(): JSX.Element {
               currency: 'USD',
               quantity: 1,
               item_category: 'Tennis Robots',
-              ...shippingDetails
-            }]
+            }],
+            ...shippingDetails
           }
         });
       } else if (checkoutType == "partner") {
@@ -181,8 +181,8 @@ export default function TEmbeddedCheckout(): JSX.Element {
               currency: 'USD',
               quantity: 1,
               item_category: 'Tennis Robots',
-              ...shippingDetails
-            }]
+            }],
+            ...shippingDetails
           }
         });
       }
