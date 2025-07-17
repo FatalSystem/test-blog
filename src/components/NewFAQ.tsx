@@ -51,7 +51,7 @@ const NewFAQ = (): JSX.Element => {
   return (
     <div>
       {FAQ.map((item, index) => (
-        <NewFAQItem key={index} idx={index} selected={index === selected} onClick={() => { 
+        <NewFAQItem key={index} idx={index} selected={index === selected} onClick={() => {
           if (index === selected) {
             setSelected(-1)
           } else {
