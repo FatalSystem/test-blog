@@ -54,7 +54,14 @@ export default function BuySelection (): JSX.Element {
           // $email: 'email@email.com', // TODO
           // $user_id: 'user_id',
           page_name: '/buy',
-          cart: [{ product_name: 'Rover (Annual Plan)', price: 995 }],
+          cart: [{
+            brand: 'Tennibot',
+            category: 'ROVER',
+            product_name: 'Rover (Annual Plan)',
+            price: 995,
+            quantity: 1,
+            currency: 'USD'
+          }],
           utm_campaign: urlParams?.get('utm_campaign') ?? '',
           utm_source: urlParams?.get('utm_source') ?? '',
           utm_content: urlParams?.get('utm_content') ?? '',
@@ -95,7 +102,14 @@ export default function BuySelection (): JSX.Element {
         // $email: 'email@email.com', // TODO
         // $user_id: 'user_id',
         page_name: '/buy',
-        cart: [{ product_name: 'Rover (Monthly Plan)', price: 95 }],
+        cart: [{
+          brand: 'Tennibot',
+          category: 'ROVER',
+          product_name: 'Rover (Monthly Plan)',
+          price: 95,
+          quantity: 1,
+          currency: 'USD'
+        }],
         utm_campaign: urlParams?.get('utm_campaign') ?? '',
         utm_source: urlParams?.get('utm_source') ?? '',
         utm_content: urlParams?.get('utm_content') ?? '',
@@ -152,7 +166,14 @@ export default function BuySelection (): JSX.Element {
         // $email: 'email@email.com', // TODO
         // $user_id: 'user_id',
         page_name: '/buy', // Current page
-        cart: [{ product_name: 'Rover (One Time Purchase)', price: 2995 }],
+        cart: [{
+          brand: 'Tennibot',
+          category: 'ROVER',
+          product_name: 'Rover (One Time Purchase)',
+          price: 2995,
+          quantity: 1,
+          currency: 'USD'
+        }],
         utm_campaign: urlParams?.get('utm_campaign') ?? '',
         utm_source: urlParams?.get('utm_source') ?? '',
         utm_content: urlParams?.get('utm_content') ?? '',
