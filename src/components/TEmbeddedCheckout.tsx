@@ -8,7 +8,7 @@ const stripePromise = loadStripe('pk_live_51POCzIRqXimb7JbceMZQnSwe4vG9cnnYTvf6y
 const urlParams = new URLSearchParams(window.location.search)
 const MAX_RETRIES = 4 // Maximum number of retries
 const checkoutType = urlParams.get('type')
-export default function TEmbeddedCheckout (): JSX.Element {
+export default function TEmbeddedCheckout(): JSX.Element {
   const [sessionId, setSessionId] = useState<string | null>(null)
   const [metadataUpdated, setMetadataUpdated] = useState<boolean>(false)
 
@@ -68,13 +68,58 @@ export default function TEmbeddedCheckout (): JSX.Element {
     // const distinctId = getDistinctId()
     const urlParams = new URLSearchParams(window.location.search)
     const utmParams = {
-    //   campaign: urlParams.get('utm_campaign'),
-    //   content: urlParams.get('utm_content'),
-    //   id: urlParams.get('utm_id'),
-    //   medium: urlParams.get('utm_medium'),
-    //   term: urlParams.get('utm_term'),
+      //   campaign: urlParams.get('utm_campaign'),
+      //   content: urlParams.get('utm_content'),
+      //   id: urlParams.get('utm_id'),
+      //   medium: urlParams.get('utm_medium'),
+      //   term: urlParams.get('utm_term'),
       source: urlParams.get('utm_source')
     }
+
+    // added begin checkout datalayer 
+    try {
+      window.dataLayer = window.dataLayer || [];
+      if (checkoutType == "onetime") {
+        window.dataLayer.push({
+          event: 'begin_checkout',
+          ecommerce: {
+            currency: 'USD',
+            value: 2995,
+            items: [{
+              item_id: '8317998170275',
+              item_name: 'Tennibot Rover and Station',
+              price: 2999,
+              currency: 'USD',
+              quantity: 1,
+              item_category: 'Tennis Robots'
+            }]
+          }
+        })
+      } else if (checkoutType == "partner") {
+        window.dataLayer.push({
+          event: 'begin_checkout',
+          ecommerce: {
+            currency: 'USD',
+            value: 2195,
+            items: [{
+              item_id: 'partner8317998170275',
+              item_name: 'Partner',
+              price: 2195,
+              currency: 'USD',
+              quantity: 1,
+              item_category: 'Tennis Robots'
+            }]
+          }
+        })
+      }
+
+
+    } catch (error) {
+      console.log("datalayer error: ", error)
+    }
+    //checkout begin add datalayer add end
+
+
     return await fetch('/.netlify/functions/create-embedded-checkout', {
       method: 'POST',
       headers: {
@@ -102,25 +147,50 @@ export default function TEmbeddedCheckout (): JSX.Element {
     const { checkoutSessionId, shippingDetails } = shippingDetailsChangeEvent
 
 
-  // add dataLayer start
+    // add dataLayer start
+    try {
       window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-      event: 'add_shipping_info',
-      ecommerce: {
-          currency: 'USD',
-          value: 2995,
-        items: [{
-          item_id: '8317998170275',
-          item_name: 'Tennibot Rover and Station',
-          price: 2999,
-          currency: 'USD',
-          quantity: 1,
-          item_category: 'Tennis Robots',
-          ...shippingDetails
-        }]
+
+      if (checkoutType == "onetime") {
+        window.dataLayer.push({
+          event: 'add_shipping_info',
+          ecommerce: {
+            currency: 'USD',
+            value: 2995,
+            items: [{
+              item_id: '8317998170275',
+              item_name: 'Tennibot Rover and Station',
+              price: 2999,
+              currency: 'USD',
+              quantity: 1,
+              item_category: 'Tennis Robots',
+            }],
+            ...shippingDetails
+          }
+        });
+      } else if (checkoutType == "partner") {
+        window.dataLayer.push({
+          event: 'add_shipping_info',
+          ecommerce: {
+            currency: 'USD',
+            value: 2195,
+            items: [{
+              item_id: 'partner8317998170275',
+              item_name: 'Partner',
+              price: 2195,
+              currency: 'USD',
+              quantity: 1,
+              item_category: 'Tennis Robots',
+            }],
+            ...shippingDetails
+          }
+        });
       }
-    });
-  // add dataLayer end
+    } catch (error) {
+      console.log("add_shipping_info: ", error)
+    }
+
+    // add dataLayer end
 
     const response = await fetch('/.netlify/functions/calculate-shipping', {
       method: 'POST',
@@ -151,7 +221,7 @@ export default function TEmbeddedCheckout (): JSX.Element {
 
   return (
     <div id="checkout" className="p-4">
-        <EmbeddedCheckoutProvider
+      <EmbeddedCheckoutProvider
         stripe={stripePromise}
         options={options}
       >
