@@ -17,17 +17,15 @@ const PartnerVideoDisplay = (): JSX.Element => {
   }, [])
 
   useEffect(() => {
-    trackProductViewed({
-      // $email: 'email@email.com', // TODO
-      // $user_id: 'user_id',
-      page_name: '/tennis',
-      cart: [{ product_name: 'Rover', price: 2195 }],
-      utm_campaign: urlParams?.get('utm_campaign') ?? '',
-      utm_source: urlParams?.get('utm_source') ?? '',
-      utm_content: urlParams?.get('utm_content') ?? '',
-      utm_medium: urlParams?.get('utm_medium') ?? '',
-      utm_term: urlParams?.get('utm_term') ?? ''
-    })
+    // trackProductViewed({
+    //   page_name: '/partner',
+    //   cart: [{ product_name: 'Rover', price: 2195 }],
+    //   utm_campaign: urlParams?.get('utm_campaign') ?? '',
+    //   utm_source: urlParams?.get('utm_source') ?? '',
+    //   utm_content: urlParams?.get('utm_content') ?? '',
+    //   utm_medium: urlParams?.get('utm_medium') ?? '',
+    //   utm_term: urlParams?.get('utm_term') ?? ''
+    // })
   }, [])
 
   const handleVideoSource = (tab: number): string => {

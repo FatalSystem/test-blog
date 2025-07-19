@@ -91,7 +91,14 @@ export default function ReserveButton (): JSX.Element {
           // $email: 'email@email.com', // TODO
           // $user_id: 'user_id',
           page_name: '/buy-partner',
-          cart: [{ product_name: 'Partner', price: 2195 }],
+          cart: [{
+            brand: 'Tennibot',
+            category: 'PARTNER',
+            product_name: 'Partner Reserve',
+            price: 2195,
+            quantity: 1,
+            currency: 'USD'
+          }],
           utm_campaign: urlParams?.get('utm_campaign') ?? '',
           utm_source: urlParams?.get('utm_source') ?? '',
           utm_content: urlParams?.get('utm_content') ?? '',

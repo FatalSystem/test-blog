@@ -1,7 +1,8 @@
 import { Fullscreen, Volume2, VolumeX } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'usehooks-ts'
 import PartnerTestimonials from './PartnerTestimonials'
+import { derivePageMetadata, trackProductViewed } from '@utils'
 
 export default function ReservePageVideo (): JSX.Element {
   const [isMuted, setIsMuted] = useState<boolean>(true)
@@ -58,6 +59,34 @@ export default function ReservePageVideo (): JSX.Element {
       console.error('Error entering or exiting fullscreen:', error)
     }
   }
+
+  const [urlParams, setUrlParams] = useState<URLSearchParams>()
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setUrlParams(new URLSearchParams(window.location.search))
+    }
+  }, [])
+
+  useEffect(() => {
+    trackProductViewed({
+      cart: [{
+        brand: 'Tennibot',
+        category: 'PARTNER',
+        product_name: 'Partner Reserve',
+        price: 2195,
+        quantity: 1,
+        currency: 'USD'
+      }],
+      page_type: derivePageMetadata(window.location.pathname).page_type,
+      page_slug: derivePageMetadata(window.location.pathname).page_slug,
+      page_name: derivePageMetadata(window.location.pathname).page_name,
+      utm_campaign: urlParams?.get('utm_campaign') ?? '',
+      utm_source: urlParams?.get('utm_source') ?? '',
+      utm_content: urlParams?.get('utm_content') ?? '',
+      utm_medium: urlParams?.get('utm_medium') ?? '',
+      utm_term: urlParams?.get('utm_term') ?? ''
+    })
+  }, [])
 
   return (
     <div className="relative w-full">
