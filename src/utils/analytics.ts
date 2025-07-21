@@ -59,9 +59,10 @@ export const getDistinctId = (): string => {
 export const identify = (userId: string, properties?: Record<string, any>): void => {
   if (window?.mixpanel) {
     window.mixpanel.identify(userId)
-    if (properties) {
-      window.mixpanel.people.set(properties)
-    }
+    window.mixpanel.people.set({
+      $email: userId,
+      ...properties
+    })
   } else {
     console.warn(`Mixpanel not initialized. Failed to identify user: ${userId}`)
   }
@@ -94,6 +95,9 @@ export const trackCtaClicked = (properties: {
   cta_type?: string
   cta_text?: string
 }): void => {
+  if (properties.$email) {
+    identify(properties.$email)
+  }
   track('cta_clicked', properties)
 }
 
@@ -108,12 +112,11 @@ export const trackNewsletterSubscribed = (properties: {
   utm_source?: string
   utm_term?: string
 }): void => {
+  identify(properties.$email, {
+    email_subscription_date: new Date().toISOString(),
+    name: properties.name
+  })
   track('newsletter_subscribed', properties)
-  if (properties.$email) {
-    window.mixpanel.people.set({
-      email_subscription_date: new Date().toISOString()
-    })
-  }
 }
 
 export const trackFeedbackSubmitted = (properties: {
@@ -128,12 +131,12 @@ export const trackFeedbackSubmitted = (properties: {
   utm_source?: string
   utm_term?: string
 }): void => {
-  track('feedback_submitted', properties)
-  if (properties.reason_choosing_us) {
-    window.mixpanel.people.set({
+  if (properties.$email) {
+    identify(properties.$email, {
       reason_choosing_us: properties.reason_choosing_us
     })
   }
+  track('feedback_submitted', properties)
 }
 
 export const trackLeadFormSubmitted = (properties: {
@@ -153,6 +156,17 @@ export const trackLeadFormSubmitted = (properties: {
   utm_source?: string
   utm_term?: string
 }): void => {
+  if (properties.$email) {
+    identify(properties.$email, {
+      name: properties.name,
+      phoneNumber: properties.phoneNumber,
+      facility_name: properties.facility_name,
+      zip_code: properties.zip_code,
+      about_us: properties.about_us,
+      linkedin: properties.linkedin,
+      lead_type: properties.lead_type
+    })
+  }
   track('lead_form_submitted', properties)
 }
 
@@ -167,6 +181,11 @@ export const trackProductInterestSubmitted = (properties: {
   utm_source?: string
   utm_term?: string
 }): void => {
+  if (properties.$email) {
+    identify(properties.$email, {
+      name: properties.name
+    })
+  }
   track('product_interest_submitted', properties)
 }
 
@@ -183,6 +202,13 @@ export const trackQuerySubmitted = (properties: {
   utm_source?: string
   utm_term?: string
 }): void => {
+  if (properties.$email) {
+    identify(properties.$email, {
+      name: properties.name,
+      subscribed: properties.subscribed,
+      question: properties.question
+    })
+  }
   track('query_submitted', properties)
 }
 
@@ -196,6 +222,9 @@ export const trackSignUpStarted = (properties: {
   utm_source?: string
   utm_term?: string
 }): void => {
+  if (properties.$email) {
+    identify(properties.$email)
+  }
   track('Sign_up_started', properties)
 }
 
@@ -209,12 +238,10 @@ export const trackSignUpCompleted = (properties: {
   utm_source?: string
   utm_term?: string
 }): void => {
+  identify(properties.$email, {
+    registration_date: new Date().toISOString()
+  })
   track('sign_up_completed', properties)
-  if (properties.$email) {
-    window.mixpanel.people.set({
-      registration_date: new Date().toISOString()
-    })
-  }
 }
 
 export const trackLoginCompleted = (properties: {
@@ -228,6 +255,9 @@ export const trackLoginCompleted = (properties: {
   utm_source?: string
   utm_term?: string
 }): void => {
+  if (properties.$email) {
+    identify(properties.$email)
+  }
   track('login_completed', properties)
 }
 
@@ -259,6 +289,9 @@ export const trackPurchaseCompleted = (properties: {
   utm_source?: string
   utm_term?: string
 }): void => {
+  if (properties.$email) {
+    identify(properties.$email)
+  }
   track('purchase_completed', properties)
 }
 
@@ -286,6 +319,9 @@ export const trackCheckoutStarted = (properties: {
   utm_source?: string
   utm_term?: string
 }): void => {
+  if (properties.$email) {
+    identify(properties.$email)
+  }
   track('checkout_started', properties)
 }
 
@@ -294,12 +330,17 @@ export const trackProductViewed = (properties: {
   $user_id?: string
   page_name?: string
   cart?: any[]
+  page_type?: string
+  page_slug?: string
   utm_campaign?: string
   utm_content?: string
   utm_medium?: string
   utm_source?: string
   utm_term?: string
 }): void => {
+  if (properties.$email) {
+    identify(properties.$email)
+  }
   track('product_viewed', properties)
 }
 
@@ -314,6 +355,9 @@ export const trackProductAdded = (properties: {
   utm_source?: string
   utm_term?: string
 }): void => {
+  if (properties.$email) {
+    identify(properties.$email)
+  }
   track('product_added', properties)
 }
 
@@ -328,6 +372,9 @@ export const trackProductRemoved = (properties: {
   utm_source?: string
   utm_term?: string
 }): void => {
+  if (properties.$email) {
+    identify(properties.$email)
+  }
   track('product_removed', properties)
 }
 
@@ -344,6 +391,9 @@ export const trackProductsSearched = (properties: {
   utm_source?: string
   utm_term?: string
 }): void => {
+  if (properties.$email) {
+    identify(properties.$email)
+  }
   track('products_searched', properties)
 }
 
@@ -360,6 +410,9 @@ export const trackProductListFiltered = (properties: {
   utm_source?: string
   utm_term?: string
 }): void => {
+  if (properties.$email) {
+    identify(properties.$email)
+  }
   track('product_list_filtered', properties)
 }
 
