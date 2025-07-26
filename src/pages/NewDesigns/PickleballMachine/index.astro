@@ -1,26 +1,634 @@
 ---
-import HeaderComp from "../../../components/HeaderComp.astro";
-import FooterComp from "../../../components/FooterComp.astro";
-import PickleballMachineProduct from "./PickleballMachineProduct.astro";
-import PickleballMachineInfo from "./PickleballMachineInfo.astro";
-import PickleballMachineFeatures from "./PickleballMachineFeatures.astro";
-import PickleballUseCases from "./PickleballUseCases.astro";
-import TennibotPartner from "./TennibotPartner.astro";
-import WhatMakesBestPickleballMachine from "./WhatMakesBestPickleballMachine.astro";
-import WhatPlayersCoachSay from "./WhatPlayersCoachSay.astro";
-import CommonQuestions from "../PickleballPage/CommonQuestions.astro";
-import ReadyToTrainSection from "./ReadyToTrainSection.astro";
-import '../../../../public/styles/global.css'
+import SaveupIcon from "../../../assets/newdesignimages/SaveupIcon.png";
+import BuiltforIcon from "../../../assets/newdesignimages/BuiltforIcon.png";
+import AutomateIcon from "../../../assets/newdesignimages/AutomateIcon.png";
+
+import LightweightIcon from "../../../assets/newdesignimages/LightweightIcon.png";
+import AiIcon from "../../../assets/newdesignimages/AiIcon.png";
+import RustedbyIcon from "../../../assets/newdesignimages/rustedbyIcon.png";
+import SmallPhoneIcon from "../../../assets/newdesignimages/SmallPhoneIcon.png";
+import spinIcon from "../../../assets/newdesignimages/spinIcon.png";
+import AccurateIcon from "../../../assets/newdesignimages/AccurateIcon.png";
+import PlayerBackground from "../../../assets/newdesignimages/PlayerBackground.png";
+import GradientImage from "../../../assets/newdesignimages/Gradient.png";
+
+import Layout from "layouts/Layout.astro";
+import Text from "@components/core/Text.astro"
+import DraggableSlider from "@components/DraggableSlider";
+import TestimonialItem from "@components/TestimonialItem";
+import NewFAQ from "@components/NewFAQ";
+
+import MoneyBackIcon from "@assets/newdesignimages/MoneyBackIcon.png";
+import TruckIcon from "@assets/newdesignimages/TruckIcon.png";
+import protectIcon from "@assets/newdesignimages/protectIcon.png";
+
+import smarterAi from '@assets/new/pickleball/smarter-ai.webp'
+import { TSliderTwo } from "@components/TSliderTwo";
+
+import TennibotMachine from "@assets/newdesignimages/TennibotMachine.png";
+
+import bucketmachin from "@assets/newdesignimages/bucketmachin.png";
+import picklebotIcon from "@assets/newdesignimages/picklebotIcon.png";
+
+const slides = [
+  {
+    style: "tablet:bg-[url('/images/buy/rovercourt-desktopxl.webp')] bg-[url('/images/buy/rovercourt.webp')] sm:h-[70vh] h-[45vh]",
+    thumbnail: "/images/buy/rovercourt.webp"
+  },
+  {
+    style: "tablet:bg-[url('/images/buy/rover-closeup-desktopxl.webp')] bg-[url('/images/buy/rover-closeup.webp')] sm:h-[70vh] h-[45vh]",
+    thumbnail: "/images/buy/rover-closeup.webp"
+  },
+  {
+    style: "tablet:bg-[url('/images/buy/rover-transport-desktopxl.webp')] bg-[url('/images/buy/rover-transport.webp')] sm:h-[70vh] h-[45vh]",
+    thumbnail: "/images/buy/rover-transport.webp"
+  },
+  {
+    style: "tablet:bg-[url('/images/buy/stationcourt-desktopxl.webp')] bg-[url('/images/buy/stationcourt.webp')] sm:h-[70vh] h-[45vh]",
+    thumbnail: "/images/buy/stationcourt.webp"
+  },
+  {
+    style: "tablet:bg-[url('/images/buy/station-closeup-desktopxl.webp')] bg-[url('/images/buy/station-closeup.webp')] sm:h-[70vh] h-[45vh]",
+    thumbnail: "/images/buy/station-closeup.webp"
+  }
+]
 ---
 
-<HeaderComp/>
-<PickleballMachineProduct/>
-<PickleballMachineInfo/>
-<PickleballMachineFeatures/>
-<PickleballUseCases/>
-<TennibotPartner/>
-<WhatMakesBestPickleballMachine/>
-<WhatPlayersCoachSay/>
-<CommonQuestions/>
-<ReadyToTrainSection/>
-<FooterComp/>
+<!-- <HeaderComp/> -->
+ <Layout title="Pickleball Machine">
+    <section class="relative bg-[#191A16] min-h-screen overflow-hidden flex items-start justify-center mt-5">
+        <div class="max-w-7xl mx-auto px-4 py-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="relative rounded-lg overflow-hidden" >
+                <TSliderTwo
+                    client:only="react"
+                    slides={slides}
+                    contentContainerStyle="p-10 h-full sm:w-[70%]"
+                    dotContainerStyle=""
+                    dotContainerDesktopStyle=""
+                    arrowsStyle="bottom-[20%]"
+                    slideShades=""
+                    prevArrowStyle=""
+                    nextArrowStyle=""
+                    showThumbnails={true}
+                />
+            </div>
+            <div class="flex flex-col justify-between" >
+                <div>
+                    <h1 class="text-t-off-white font-avenirBold text-3xl lg:text-4xl leading-tight uppercase mb-3">
+                      PICKLEBALL BALL MACHINE FOR<br/>
+                      SMARTER TRAINING
+                    </h1>
+                    
+                    <div class="flex items-center mr-2 mb-5">
+                      <div class="flex space-x-1">
+                        <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                          <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                          <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                          <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                          <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                        </svg>
+                        <svg class="w-6 h-6 text-yellow-400 fill-current" viewBox="0 0 20 20" fill="none">
+                          <path d="M7.46579 1.11186C7.68102 0.663885 8.31888 0.663886 8.53411 1.11186L10.3464 4.88434C10.4328 5.06415 10.6039 5.18844 10.8016 5.21503L14.9495 5.77291C15.442 5.83916 15.6392 6.44581 15.2796 6.78892L12.2518 9.67834C12.1075 9.81606 12.0421 10.0171 12.0779 10.2134L12.8292 14.3307C12.9183 14.8196 12.4023 15.1945 11.9649 14.9586L8.28125 12.9719C8.10567 12.8772 7.89423 12.8772 7.71865 12.9719L4.03502 14.9586C3.5976 15.1945 3.08154 14.8196 3.17075 14.3307L3.92194 10.2134C3.95775 10.0171 3.89241 9.81606 3.74809 9.67834L0.720288 6.78892C0.360744 6.44581 0.557858 5.83916 1.05041 5.77291L5.1983 5.21503C5.39601 5.18844 5.56707 5.06415 5.65345 4.88434L7.46579 1.11186Z" fill="url(#paint0_linear_272_1214)"/>
+                          <defs>
+                            <linearGradient id="paint0_linear_272_1214" x1="-1.86562" y1="7.31965" x2="16.9108" y2="7.31965" gradientUnits="userSpaceOnUse">
+                              <stop stop-color="#FFCF42"/>
+                              <stop offset="0.53115" stop-color="#FFCF42"/>
+                              <stop offset="0.53125" stop-color="#E4E3E2"/>
+                              <stop offset="0.994792" stop-color="#E4E3E2"/>
+                            </linearGradient>
+                          </defs>
+                        </svg>
+                      </div>
+                      <span class="text-gray-400 text-sm font-plutoLight">(4.8) based on 526 reviews</span>
+                    </div>
+                    
+                    <p class="text-t-off-white font-pluto text-base leading-relaxed">
+                      Smarter sessions, accurate shots, and zero hassle - meet the future of pickleball training.
+                    </p>
+                </div>
+              
+                <div>
+                    <div class="flex items-center space-x-3 my-5">
+                      <span class="text-t-off-white text-3xl font-avenirBold">$2,195</span>
+                      <span class="text-gray-400 text-xl line-through font-avenir">$3,500</span>
+                    </div>
+                    
+                    <div class="flex space-x-4 mb-5">
+                      <!-- PickleballCollector -->
+                        <a
+                       href="/NewDesigns/PickleballCollector"
+                      class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">
+                        BUY NOW
+                    </a>
+                      <button class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">
+                        BOOK A DEMO
+                      </button>
+                    </div>
+                    <div class="flex items-center py-6 gap-x-5">
+                      <div class="flex flex-row items-center gap-x-3">
+                          <div class="h-12 w-14 p-3 rounded-lg bg-[#262424] flex items-center justify-center">
+                              <img src={TruckIcon.src} alt="Shipping" class="size-full" />
+                          </div>
+                          <p class="text-sm font-pluto text-t-off-white">Free shipping in the US</p>
+                      </div>
+                      <div class="flex flex-row items-center gap-x-3">
+                          <div class="h-12 w-14 p-3 rounded-lg bg-[#262424] flex items-center justify-center">
+                              <img src={MoneyBackIcon.src} alt="Shipping" class="size-full" />
+                          </div>
+                          <p class="text-sm font-pluto text-t-off-white">60 day money-back guarantee</p>
+                      </div>
+                      <div class="flex flex-row items-center gap-x-3">
+                          <div class="h-12 w-14 p-3 rounded-lg bg-[#262424] flex items-center justify-center">
+                              <img src={protectIcon.src} alt="Shipping" class="size-full" />
+                          </div>
+                          <p class="text-sm font-pluto text-t-off-white">3 Year Warranty</p>
+                      </div>
+                    </div>
+                </div>
+              
+              
+              <div class="border-2 border-t-green bg-[rgba(192,242,12,0.05)] rounded-lg p-6 mt-5">
+                <div class="flex items-center space-x-4">
+                  <div class="w-[30%] h-40 bg-cover bg-center bg-[url('/images/new/pickleball/ballmachine.webp')] bg-slate-600 rounded-lg overflow-hidden">
+                    
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-t-green font-avenirBold mb-2 uppercase">BUNDLE & SAVE!</h3>
+                    <p class="text-gray-300 font-pluto text-sm mb-3">
+                      Bundle PARTNER + ROVER for seamless practice — nonstop shots, zero ball pickup.
+                    </p>
+                    <div class="flex items-center space-x-3 mb-4">
+                      <span class="text-t-off-white text-xl font-avenirBold">$2,995</span>
+                      <span class="text-gray-400 line-through text-xl font-avenir">$3,500</span>
+                    </div>
+                    <div class="flex space-x-3 font-avenir">
+                      <button class="bg-t-green hover:bg-opacity-90 text-black font-semibold px-6 py-2 rounded-full text-sm transition duration-300 uppercase">
+                        BUY BUNDLE
+                      </button>
+                      <button class="border-2 border-t-green text-t-green bg-[#2b2e17] hover:bg-t-green hover:text-t-off-black font-semibold px-6 py-2 rounded-full text-sm transition duration-300 uppercase">
+                        VIEW BUNDLE
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="bg-[#191A16] py-10 pb-28 px-4">
+        <div class="max-w-7xl mx-auto">
+          <div class="lg:w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <div class="space-y-6">
+              <h2 class="text-t-off-white text-4xl lg:text-4xl font-avenirBold leading-tight uppercase">
+                What makes <span class="text-t-green">ai-Powered</span> Pickleball Machines Different?
+              </h2>
+              
+              <p class="text-t-off-white text-lg font-pluto leading-relaxed">
+                A <span class="text-t-green">traditional pickleball</span> machine serves one basic function: launching balls at fixed speeds and intervals. While helpful for repetitive drills, these machines lack variety, adaptability, and the ability to simulate real match conditions.
+              </p>
+              
+              <p class="text-t-off-white text-lg font-pluto leading-relaxed">
+                AI-powered machines, like the Tennibot Partner, take training to a whole new level.
+              </p>
+              
+              <p class="text-t-off-white text-lg font-pluto leading-relaxed">
+                Unlike conventional machines, AI-driven models offer intelligent, adaptive training. They don’t just repeat pre-set patterns—they learn from your performance and adjust in real time. Whether you're a beginner working on fundamentals or a competitive player fine-tuning strategy, these machines can tailor shot speed, spin, trajectory, and frequency to match your skill level and goals.
+              </p>
+
+              <p class="text-t-off-white text-lg font-pluto leading-relaxed">
+                You can program complex drills, simulate realistic rally scenarios, and even recreate pressure situations—all without needing a training partner. With pinpoint accuracy and endless customization options, AI-powered machines help you build muscle memory faster, correct technique more effectively, and elevate your game with every session.
+              </p>
+            </div>
+            
+            <div class="lg:pl-8">
+               <img
+                src={TennibotMachine.src}
+                alt="Tennibot Mobile App Interface"
+                fetchpriority="high"
+                class="max-w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section
+      class="py-16 sm:py-20 bg-[url('/images/new/pickleball/pickleball-ai-partner.webp')] bg-cover bg-center lg:py-24"
+      role="region"
+      aria-label="AI Partner"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 min-h-[55vh] flex flex-col justify-between relative z-10">
+        <div class="mb-8 sm:mb-12">
+            <h2
+              class="text-2xl uppercase mobilem:text-3xl mobilel:text-4xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-avenirBold leading-tight text-white"
+            >
+                Why AI Gear Elevates Your <span class="text-t-green"><br class="hidden sm:block"/>Pickleball Machine</span>
+            </h2>
+        </div>
+
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div class="flex items-start gap-4">
+                <img
+                  src={AccurateIcon.src}
+                  alt="Automate"
+                  class="w-6 h-6 object-contain mt-1"
+                />
+                <h3 class="text-t-off-white font-pluto mb-2">
+                 Adaptive shot variation
+                </h3>
+              </div>
+      
+              <div class="flex items-start gap-4">
+                <img
+                  src={SmallPhoneIcon.src}
+                  alt="Save up"
+                  class="w-6 h-6 object-contain mt-1"
+                />
+                <h3 class="text-t-off-white font-pluto mb-2">
+                 App + remote control
+                </h3>
+              </div>
+      
+              <div class="flex items-start gap-4">
+                <img
+                  src={spinIcon.src}
+                  alt="Built for all"
+                  class="w-6 h-6 object-contain mt-1"
+                />
+                <h3 class="text-t-off-white font-pluto mb-2">
+                Consistent accuracy and spin
+                </h3>
+              </div>
+      
+              <div class="flex items-start gap-4">
+                <img
+                  src={LightweightIcon.src}
+                  alt="Lightweight"
+                  class="w-6 h-6 object-contain mt-1"
+                />
+                <h3 class="text-t-off-white font-pluto mb-2">
+                 Lightweight and portable
+                </h3>
+              </div>
+      
+              <div class="flex items-start gap-4">
+                <img
+                  src={RustedbyIcon.src}
+                  alt="Trusted by coaches"
+                  class="w-6 h-6 object-contain mt-1"
+                />
+                <h3 class="text-t-off-white font-pluto mb-2">
+                 Ideal for solo practice or club drills
+                </h3>
+              </div>
+      
+              <div class="flex items-start gap-4">
+                <img
+                  src={AiIcon.src}
+                  alt="No manual"
+                  class="w-6 h-6 object-contain mt-1"
+                />
+                <h3 class="text-t-off-white font-pluto mb-2">
+                AI-powered intelligence
+                </h3>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <section class="bg-[#191A16] py-28 px-4">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-t-off-white text-4xl lg:text-5xl font-avenirBold leading-tight mb-4">
+              USE CASES FOR EVERY<br/>
+              LEVEL AND <span class="text-t-green">PLAYING STYLE</span>
+            </h2>
+            <p class="text-t-off-white text-lg font-pluto mx-auto">
+              From newcomers to seasoned pros, Tennibot's pickleball machine adapts to every style.
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="bg-[#262424] rounded-lg p-8 space-y-6">
+              <div class="inline-flex">
+                <span
+                class="bg-[#2b2e17] border-2 border-[#C0F20C] text-t-green px-5 py-2 rounded-full font-pluto text-sm uppercase tracking-wider "
+                >
+                    Beginner
+                </span>
+              </div>
+              
+              <h3 class="text-t-off-white text-xl font-avenirBold leading-tight">
+                BUILD CONSISTENCY<br/>
+                AND CONFIDENCE
+              </h3>
+              
+              <p class="text-gray-300 font-pluto text-sm leading-relaxed">
+                Start with slow, predictable shots and feeds to 
+                develop proper form and build muscle 
+                memory. The Tennibot Partner helps 
+                newcomers master the fundamentals.
+              </p>
+            </div>
+            
+            <div class="bg-[#262424] rounded-lg p-8 space-y-6">
+              <div class="inline-flex">
+                <span
+                class="bg-[#2b2e17] border-2 border-[#C0F20C] text-t-green px-5 py-2 rounded-full font-pluto text-sm uppercase tracking-wider"
+                >
+                  Intermediate
+                </span>
+              </div>
+              
+              <h3 class="text-t-off-white text-xl font-avenirBold leading-tight">
+                IMPROVE FOOTWORK<br/>
+                AND STRATEGY
+              </h3>
+              
+              <p class="text-gray-300 font-pluto text-sm leading-relaxed">
+                Challenge yourself with varied shots and 
+                court coverage drills. Perfect for players 
+                looking to elevate their tactical game.
+              </p>
+            </div>
+            
+            <div class="bg-[#262424] rounded-lg p-8 space-y-6">
+              <div class="inline-flex">
+                <span
+                class="bg-[#2b2e17] border-2 border-[#C0F20C] text-t-green px-5 py-2 rounded-full font-pluto text-sm uppercase tracking-wider"
+                >
+                  Competitive
+              </span>
+              </div>
+              
+              <h3 class="text-t-off-white text-xl font-avenirBold leading-tight">
+                CREATE MATCH-LIKE DRILLS,<br/>
+                SIMULATE REAL RALLIES
+              </h3>
+              
+              <p class="text-gray-300 font-pluto text-sm leading-relaxed">
+                Design complex training scenarios that 
+                mirror tournament play. Coaches can 
+                create specific drills for team training.
+              </p>
+            </div>
+          </div>
+        </div>
+    </section>
+    
+
+    <section class="bg-[#191A16] text-white">
+        <div class="py-16 px-6">
+            <div class="max-w-[80rem] mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8">
+                        <div class="space-y-2">
+                            <h2 class="text-t-off-white text-4xl font-avenirBold leading-tight uppercase">
+                                MEET THE TENNIBOT PARTNER:<br />
+                                <span class="text-t-green">YOUR ULTIMATE PICKLEBALL TRAINING PARTNER</span>
+                            </h2>
+                        </div>
+                        
+                        <p class="text-t-off-white text-[16px] leading-[24px] tracking-[-0.4px] font-light font-pluto max-w-md">
+                            The Tennibot Partner is the best pickleball machine for players who demand AI precision, total control, and high portability.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-6 h-6 bg-t-green rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-t-off-black" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-t-green font-avenirBold text-lg">Custom drill builder</h4>
+                                    <p class="text-t-off-white mt-1">Create and save personalized training sequences</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-6 h-6 bg-t-green rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-t-off-black" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-t-green font-avenirBold text-lg">App + remote operation</h4>
+                                    <p class="text-t-off-white mt-1">Full control from your smartphone or included remote</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-6 h-6 bg-t-green rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-t-off-black" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-t-green font-avenirBold text-lg">Trusted by clubs, coaches & advanced players</h4>
+                                    <p class="text-t-off-white mt-1">Professional-grade equipment for serious training</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative h-[586px]">
+                        <img
+                            src={bucketmachin.src}
+                            class="w-full h-full object-cover rounded-[12px] opacity-100"
+                            alt="Bucket Machine"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Second Section - Tennibot Rover -->
+        <div class="pt-16 pb-28 px-6">
+            <div class="max-w-[80rem] mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    
+                    <div class="relative h-[586px]">
+                        <img
+                            src={picklebotIcon.src}
+                            class="w-full h-full object-cover rounded-[12px] opacity-100"
+                            alt="Picklebot Icon"
+                        />
+                    </div>
+                    
+                    <!-- Right Content -->
+                    <div class="space-y-8">
+                        <div class="space-y-4">
+                            <h2 class="text-t-off-white text-4xl font-avenirBold leading-tight uppercase">
+                                COMBINE IT WITH THE TENNIBOT ROVER
+                                FOR <span class="text-t-green">COMPLETE AUTONOMY</span>
+                            </h2>
+                        </div>
+                        
+                        <p class="text-t-off-white text-base leading-relaxed font-pluto">
+                            Pair your pickleball machine with the Tennibot Rover – the AI-powered ball collector that handles cleanup while you focus on playing.
+                        </p>
+                        
+                        <!-- Features List -->
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-6 h-6 bg-t-green rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-t-off-black" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-t-green font-avenirBold text-lg">Nonstop drill sessions</h4>
+                                    <p class="text-t-off-white font-pluto mt-1">Train continuously without interruption</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-6 h-6 bg-t-green rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-t-off-black" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-t-green font-avenirBold text-lg">Automated ball pickup</h4>
+                                    <p class="text-t-off-white font-pluto mt-1">Never waste time collecting balls manually</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="w-6 h-6 bg-t-green rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-t-off-black" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-t-green font-avenirBold text-lg">Smoother training flow</h4>
+                                    <p class="text-t-off-white font-pluto mt-1">Focus entirely on skill development</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-18 sm:py-20 lg:py-28 bg-[#262424]" role="region" aria-label="Frequently asked questions">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+            <h2 class="text-2xl uppercase sm:text-3xl md:text-3xl lg:text-5xl text-center font-avenirBold text-white mb-4 sm:mb-16 leading-tight">
+                What Makes the <br class="hidden md:block" /><span class="text-t-green">Best Pickleball Machine?</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
+                <div>
+                    <Text tag="p" className="font-avenirBold text-base text-t-green text-pretty tracking-tight" >Top Features</Text> 
+
+                    <Text tag="p" className="font-pluto text-t-off-white text-sm text-pretty mt-1 tracking-tight" >
+                        When shopping for the best pickleball ball machine, it's important to focus on the features that directly impact training. The most effective machines offer customization options like adjustable speed, spin control, and programmable shot patterns. These features allow players to simulate real match scenarios and develop smarter skills—not just muscle memory. 
+                        <br /><br />Whether you're a beginner or advanced player, control over drills is essential to getting the most out of a pickleball machine.
+                    </Text>
+                </div>
+                <div>
+                    <Text tag="p" className="font-avenirBold text-base text-t-green text-pretty tracking-tight" >Portability vs. Power</Text> 
+
+                    <Text tag="p" className="font-pluto text-t-off-white text-sm text-pretty mt-1 tracking-tight" >
+                        Choosing between a portable pickleball machine and a more powerful, stationary model is a common dilemma. While some lightweight units are easy to move, they often sacrifice shot variety or speed. The best models strike a balance—delivering high performance in a compact form. 
+                        <br /><br />Look for machines with long-lasting battery life and pro-level output to ensure uninterrupted training sessions, even when you're on the go.
+                    </Text>
+                </div>
+                <div>
+                    <Text tag="p" className="font-avenirBold text-base text-t-green text-pretty tracking-tight" >Why Tennibot</Text> 
+
+                    <Text tag="p" className="font-pluto text-t-off-white text-sm text-pretty mt-1 tracking-tight" >
+                        When comparing cost and quality, Tennibot stands out as the smart investment. Their pickleball shooter systems combine AI-driven precision, mobile app integration, and adaptive learning features—offering far more than basic machines. 
+                        <br /><br />Tennibot’s commitment to innovation, ease of use, and strong customer support makes it the best pickleball machine for players who are serious about long-term improvement.
+                    </Text>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-16 sm:py-20 lg:py-24 bg-t-off-black" role="region" aria-label="Customer testimonials">
+        <div>
+            <div class="text-center max-w-[80%] mx-auto mb-12 sm:mb-16 lg:mb-20">
+              <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-avenirBold mb-4 sm:mb-6 leading-tight text-t-off-white uppercase">What <span class="text-t-green">players & coaches</span><br class="hidden sm:block"/> say about tennibot</h2>
+            </div>
+            <DraggableSlider client:load className="gap-10" >
+                <TestimonialItem client:load quote={`"It's fantastic for drilling, practice points, and even doubles drills. I really enjoyed it."`} name="Sylvana Jordyn" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406658" className="bg-[url('/images/partner/testimonial-one.png')]" />
+                <TestimonialItem client:load quote={`"I worked on rapid-fire volleys, reflexes, and range at the net—it's perfect for sharpening your skills."`} name="Logan West" location="Washington, DC" videoSource="https://player.vimeo.com/video/1031406854" className="bg-[url('/images/partner/testimonial-two.png')]" />
+                <TestimonialItem client:load quote={`"What surprised me the most was how much I had to move and anticipate—it felt just like a real hitting session."`} name="Alex Chan" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406731" className="bg-[url('/images/partner/testimonial-three.png')]" />
+                <TestimonialItem client:load quote={`"The Tennibot Partner is an amazing ball machine—it moves, evolves, and offers an experience unlike any other ball machine I've played with before."`} name="Mo Eldemerdash" location="Auburn, AL" videoSource="https://player.vimeo.com/video/1031426621" className="bg-[url('/images/partner/testimonial-four.png')]" />
+            </DraggableSlider>
+        </div>
+    </section>
+    <section class="py-16 sm:py-20 lg:py-24 bg-[#262424]" role="region" aria-label="Frequently asked questions">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+            <div>
+              <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-avenirBold text-white mb-4 sm:mb-6 leading-tight">
+                FREQUENTLY ASKED<br class="hidden lg:block" />
+                QUESTIONS ABOUT<br class="hidden lg:block" />
+                <span class="text-t-green">TENNIBOT</span>
+              </h2>
+              <p class="text-sm sm:text-base lg:text-lg font-pluto text-t-off-white opacity-95 mb-6 sm:mb-8">
+                Join the revolution in tennis training. Bring<br class="hidden md:block" />
+                AI-powered coaching to your program and<br class="hidden md:block" />
+                watch your players excel.
+              </p>
+              <p class="text-xs sm:text-sm lg:text-base font-pluto text-t-off-white">
+                Got more questions? Give us a ring at<br class="hidden md:block" />
+                <a href="tel:2512778022" class="text-t-green font-avenirBold">251-277-8022</a>
+              </p>
+            </div>
+            
+              <NewFAQ client:only="react" />
+          </div>
+        </div>
+    </section>
+    <section class="relative py-16 sm:py-20 lg:py-24 overflow-hidden" role="region" aria-label="Call to action">
+        <img 
+          src={smarterAi.src} 
+          alt="Tennibot Station and Rover tennis ball machines on the court" 
+          class="absolute bottom-0 left-0 w-full h-full object-cover object-bottom pointer-events-none z-10" 
+        />
+        <div class="min-h-[60vh] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 text-center relative z-10 flex flex-col justify-start">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase font-avenirBold text-t-off-white mb-6 sm:mb-8 leading-tight">
+            Ready to Train Smarter With an AI<br class="hidden sm:block" /> <span class="text-t-green">Pickleball Machine?</span>
+          </h2>
+          
+          <div class="flex flex-col w-full sm:flex-row justify-center gap-4 max-w-md sm:max-w-none mx-auto">
+            <a href="/compare" class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">
+              SHOP NOW
+            </a>
+            <a href="/compare" class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">
+              BOOK A DEMO
+            </a>
+          </div>
+        </div>
+    </section>
+</Layout>
+<!-- <FooterComp/> -->

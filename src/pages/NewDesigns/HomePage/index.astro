@@ -1,11 +1,6 @@
 ---
 
 import Layout from 'layouts/Layout.astro';
-import bbcimg from "../../../assets/newdesignimages/head/bbc.png";
-import timeImg from "../../../assets/newdesignimages/head/timeVector.png";
-import digitalTraends from "../../../assets/newdesignimages/head/digital-trends.png";
-import laTimes from "../../../assets/newdesignimages/head/latimes.png";
-import mashhable from "../../../assets/newdesignimages/head/mashable.png";
 
 import bollsonground from '../../../assets/newdesignimages/bollsonground.png';
 import bollsbacket from '../../../assets/newdesignimages/bollsbacket.png';
@@ -25,9 +20,6 @@ import loadPartner from '../../../assets/new/home/load-partner.webp';
 
 import InnovativeTennis from '../../../assets/newdesignimages/InnovativeTennis.png';
 
-import SeeTennibotIcon from '../../../assets/newdesignimages/SeeTennibotIcon.png';
-import RealPlayersIcon from '../../../assets/newdesignimages/RealPlayersIcon.png';
-
 import padel from '../../../assets/newdesignimages/padel.png';
 import picklebot from '../../../assets/newdesignimages/picklebot.png';
 import tennis from '../../../assets/newdesignimages/tennis.png';
@@ -42,114 +34,27 @@ import downloadAndroid from '@assets/rover/downloadandroid.svg'
 
 import stationRoverBg from '../../../assets/new/home/station-rover-bg.webp';
 import NewFAQ from '@components/NewFAQ';
-
+import VideoThumbnail from '@components/VideoThumbnail';
+import NHero from '@components/NHero.astro';
 
 ---
 <Layout title="Tennibot - AI-Powered Tennis Training Equipment | Ball Machines & Collectors" showFooter={true} showHeader={true}>
   <main>
-    <section
-    class="min-h-screen bg-[url('/images/new/home/home-hero.webp')] bg-cover bg-center relative"
-    role="banner"
-    aria-label="Hero section"
-    >
-      <div class="w-full h-full min-h-screen flex flex-col justify-between">
-        <div class="text-center pt-4 mt-16 px-4">
-          <h1
-            class="text-2xl mobilem:text-3xl mobilel:text-4xl font-avenirBold sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-5 leading-tight animate-fade-in-up text-white"
-          >
-            ELEVATE YOUR<br />
-            <span class="text-t-green drop-shadow-lg font-avenirBold ">TENNIS TRAINING</span>
-          </h1>
-          <p
-            class="text-sm font-plutoLight sm:text-base md:text-lg mb-6 sm:mb-8 opacity-90 leading-relaxed animate-fade-in-up delay-200 text-white max-w-2xl mx-auto"
-          >
-            AI-powered ball machines and automated ball collectors<br
-              class="hidden sm:block"
-            />
-            designed to maximize your performance with minimal effort.
-          </p>
-          <div
-            class="hidden sm:flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center animate-fade-in-up delay-400 max-w-md sm:max-w-none mx-auto"
-          >
-          <a href='/compare' class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">Shop now</a>
-          <a href='/compare' class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">Book a demo</a>
-          </div>
-        </div>
-
-        <!-- Mobile-only bottom section -->
-        <div class="sm:hidden px-4 pb-8">
-          <div
-            class="flex flex-wrap gap-4 justify-center items-center mb-6"
-            aria-label="Featured in major publications"
-          >
-            <img
-              src={timeImg.src}
-              alt="Featured in TIME Magazine"
-              class="h-6 hover:opacity-100 transition-opacity duration-300"
-            />
-            <img
-              src={bbcimg.src}
-              alt="Featured in BBC News"
-              class="h-6 hover:opacity-100 transition-opacity duration-300"
-            />
-            <img
-              src={laTimes.src}
-              alt="Featured in Los Angeles Times"
-              class="h-6 hover:opacity-100 transition-opacity duration-300"
-            />
-            <img
-              src={mashhable.src}
-              alt="Featured in Mashable"
-              class="h-6 hover:opacity-100 transition-opacity duration-300"
-            />
-            <img
-              src={digitalTraends.src}
-              alt="Featured in Digital Trends"
-              class="h-6 hover:opacity-100 transition-opacity duration-300"
-            />
-          </div>
-          
-          <div
-            class="flex flex-col gap-3 justify-center items-center animate-fade-in-up delay-400 max-w-md mx-auto mb-20"
-          >
-          <a href='/compare' class="w-full text-sm rounded-full py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">Shop now</a>
-          <a href='/compare' class="w-full text-sm rounded-full py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">Book a demo</a>
-          </div>
-        </div>
-
-        <!-- Desktop/tablet bottom section (original layout) -->
-        <div
-          class="hidden sm:flex flex-wrap gap-4 sm:gap-4 lg:gap-6 justify-center items-center px-4 mb-8 sm:mb-20 lg:mb-24 xl:mb-34"
-          aria-label="Featured in major publications"
-        >
-          <img
-            src={timeImg.src}
-            alt="Featured in TIME Magazine"
-            class="h-6 hover:opacity-100 transition-opacity duration-300"
-          />
-          <img
-            src={bbcimg.src}
-            alt="Featured in BBC News"
-            class="h-6 hover:opacity-100 transition-opacity duration-300"
-          />
-          <img
-            src={laTimes.src}
-            alt="Featured in Los Angeles Times"
-            class="h-6 hover:opacity-100 transition-opacity duration-300"
-          />
-          <img
-            src={mashhable.src}
-            alt="Featured in Mashable"
-            class="h-6 hover:opacity-100 transition-opacity duration-300"
-          />
-          <img
-            src={digitalTraends.src}
-            alt="Featured in Digital Trends"
-            class="h-6 hover:opacity-100 transition-opacity duration-300"
-          />
-        </div>
-      </div>
-    </section>
+    <NHero primaryCta="Shop now" secondaryCta="Book a demo" primaryCtaLink="/compare" secondaryCtaLink="/compare" >
+      <h1
+      slot="title"
+      class="text-2xl mobilem:text-3xl mobilel:text-4xl font-avenirBold sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-5 leading-tight animate-fade-in-up text-white"
+      >
+          ELEVATE YOUR<br /> <span class="text-t-green drop-shadow-lg font-avenirBold ">TENNIS TRAINING</span>
+      </h1>
+      <p
+      slot="description"
+      class="text-sm font-plutoLight sm:text-base md:text-lg mb-6 sm:mb-8 opacity-90 leading-relaxed animate-fade-in-up delay-200 text-white max-w-2xl mx-auto"
+      >
+          AI-powered ball machines and automated ball collectors<br class="hidden sm:block"/>
+          designed to maximize your performance with minimal effort.
+      </p>
+    </NHero>
 
     <section id="products" class="py-16 sm:py-20 lg:py-24 bg-[#191A16] relative z-10" role="region" aria-label="Product showcase">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
@@ -162,8 +67,8 @@ import NewFAQ from '@components/NewFAQ';
           </p>
         </div>
     
-    <div class="flex flex-col md:grid md:grid-cols-3 gap-6 sm:gap-8">
-      <article id="partner" class="relative rounded-2xl lg:h-full h-56 md:h-full sm:h-72 overflow-hidden">
+    <div class="flex flex-col sm:overflow-x-scroll sm:flex-row sm:flex-nowrap sm:[&::-webkit-scrollbar]:hidden gap-6 sm:gap-5 md:gap-8">
+      <article id="partner" class="relative sm:min-w-[285px] rounded-2xl lg:h-full h-56 sm:h-full overflow-hidden">
         <img     
           src={bollsbacket.src}
           alt="Tennibot Partner - AI-powered tennis ball machine with programmable drills"     
@@ -182,7 +87,7 @@ import NewFAQ from '@components/NewFAQ';
         </div>
       </article>
     
-      <article id="rover" class="relative rounded-2xl lg:h-full h-56 md:h-full sm:h-72 overflow-hidden">
+      <article id="rover" class="relative sm:min-w-[285px] rounded-2xl lg:h-full h-56 sm:h-full overflow-hidden">
         <img     
           src={bollsonground.src}
           alt="Tennibot Rover - Automatic tennis ball collector and retriever"     
@@ -201,7 +106,7 @@ import NewFAQ from '@components/NewFAQ';
         </div>
       </article>
     
-      <article class="relative rounded-2xl lg:h-full h-56 md:h-full sm:h-72 overflow-hidden border-solid border-t-green border-2">
+      <article class="relative sm:min-w-[285px] rounded-2xl lg:h-full h-56 sm:h-full overflow-hidden border-solid border-t-green border-2">
         <div class="absolute top-4 sm:top-5 font-pluto right-4 sm:right-5 bg-lime-400 text-black px-3 py-1 sm:px-4 sm:py-2 rounded-full text-xs font-bold z-10">
           RECOMMENDED
         </div>
@@ -228,358 +133,343 @@ import NewFAQ from '@components/NewFAQ';
       </div>
     </section>
 
-  <section
-    class="py-16 sm:py-20 bg-[url('/images/new/home/why-bg.webp')] bg-cover bg-center lg:py-24"
-    role="region"
-    aria-label="Why choose Tennibot"
-  >
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 min-h-[55vh] flex flex-col justify-between relative z-10">
-      
-      <h2
-        class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-avenirBold mb-8 sm:mb-12 leading-tight text-white"
-      >
-        WHY <span class="text-t-green">CHOOSE</span> OUR BALL MACHINES<br class="hidden sm:block" />
-        <span class="text-t-off-white">AND BALL COLLECTORS?</span>
-      </h2>
+    <section
+      class="py-16 sm:py-20 bg-[url('/images/new/home/why-bg.webp')] bg-cover bg-center lg:py-24"
+      role="region"
+      aria-label="Why choose Tennibot"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 min-h-[55vh] flex flex-col justify-between relative z-10">
+        
+        <h2
+          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-avenirBold mb-8 sm:mb-12 leading-tight text-white"
+        >
+          WHY <span class="text-t-green">CHOOSE</span> OUR BALL MACHINES<br class="hidden sm:block" />
+          <span class="text-t-off-white">AND BALL COLLECTORS?</span>
+        </h2>
 
-      <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          <div class="flex items-center gap-3 sm:gap-4">
-            <img
-              src={AutomateIcon.src}
-              alt="Automate training sessions icon"
-              class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
-            />
-            <p class="text-sm sm:text-base font-pluto text-t-off-white">
-              Automate your training sessions
-            </p>
-          </div>
+        <div class="max-w-6xl mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div class="flex items-center gap-3 sm:gap-4">
+              <img
+                src={AutomateIcon.src}
+                alt="Automate training sessions icon"
+                class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
+              />
+              <p class="text-sm sm:text-base font-pluto text-t-off-white">
+                Automate your training sessions
+              </p>
+            </div>
 
-          <div class="flex items-center gap-3 sm:gap-4">
-            <img
-              src={SaveupIcon.src}
-              alt="Save court time icon"
-              class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
-            />
-            <p class="text-sm sm:text-base font-pluto text-t-off-white">
-            Save up to 40% court time
-            </p>
-          </div>
+            <div class="flex items-center gap-3 sm:gap-4">
+              <img
+                src={SaveupIcon.src}
+                alt="Save court time icon"
+                class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
+              />
+              <p class="text-sm sm:text-base font-pluto text-t-off-white">
+              Save up to 40% court time
+              </p>
+            </div>
 
-          <div class="flex items-center gap-3 sm:gap-4">
-            <img
-              src={BuiltforIcon.src}
-              alt="Built for all surfaces icon"
-              class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
-            />
-            <p class="text-sm sm:text-base font-pluto text-t-off-white">
-              Built for all surfaces and skill levels
-            </p>
-          </div>
+            <div class="flex items-center gap-3 sm:gap-4">
+              <img
+                src={BuiltforIcon.src}
+                alt="Built for all surfaces icon"
+                class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
+              />
+              <p class="text-sm sm:text-base font-pluto text-t-off-white">
+                Built for all surfaces and skill levels
+              </p>
+            </div>
 
-          <div class="flex items-center gap-3 sm:gap-4">
-            <img
-              src={LightweightIcon.src}
-              alt="Lightweight portable equipment icon"
-              class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
-            />
-            <p class="text-sm sm:text-base font-pluto text-t-off-white">
-              Lightweight, portable, powerful
-            </p>
-          </div>
+            <div class="flex items-center gap-3 sm:gap-4">
+              <img
+                src={LightweightIcon.src}
+                alt="Lightweight portable equipment icon"
+                class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
+              />
+              <p class="text-sm sm:text-base font-pluto text-t-off-white">
+                Lightweight, portable, powerful
+              </p>
+            </div>
 
-          <div class="flex items-center gap-3 sm:gap-4">
-            <img
-              src={RustedbyIcon.src}
-              alt="Trusted by coaches icon"
-              class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
-            />
-            <p class="text-sm sm:text-base font-pluto text-t-off-white">
-              Trusted by coaches and clubs worldwide
-            </p>
-          </div>
+            <div class="flex items-center gap-3 sm:gap-4">
+              <img
+                src={RustedbyIcon.src}
+                alt="Trusted by coaches icon"
+                class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
+              />
+              <p class="text-sm sm:text-base font-pluto text-t-off-white">
+                Trusted by coaches and clubs worldwide
+              </p>
+            </div>
 
-          <div class="flex items-center gap-3 sm:gap-4">
-            <img
-              src={NomanualIcon.src}
-              alt="No manual collection needed icon"
-              class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
-            />
-            <p class="text-sm sm:text-base font-pluto text-t-off-white">
-              No manual chasing or collecting needed
-            </p>
+            <div class="flex items-center gap-3 sm:gap-4">
+              <img
+                src={NomanualIcon.src}
+                alt="No manual collection needed icon"
+                class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
+              />
+              <p class="text-sm sm:text-base font-pluto text-t-off-white">
+                No manual chasing or collecting needed
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="py-16 sm:py-20 lg:py-24 bg-[#191A16] relative" role="region" aria-label="How it works">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-        <div class="text-center mb-12 sm:mb-16">
-          <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-avenirBold mb-4 sm:mb-6 leading-tight text-white">
-            HOW OUR BALL LAUNCHERS & BALL<br class="hidden sm:block" />
-            COLLECTORS <span class="text-lime-400">WORK TOGETHER</span> ON COURT
-          </h2>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-        <article class="rounded-lg overflow-hidden relative">
-          <img     
-            src={machinesReady.src}    
-            alt="Tennibot ball machines ready for training in under a minute"     
-            fetchpriority="high"
-            class="w-full h-48 sm:h-56 lg:h-64 object-cover"     
-          />
-          <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8 bg-gradient-to-t from-black/60 via-black/40 to-transparent">
-            <p class="text-sm sm:text-base font-pluto text-t-off-white">Machines are ready in under a minute</p>
+    <section class="py-16 sm:py-20 lg:py-24 bg-[#191A16] relative" role="region" aria-label="How it works">
+      <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-12 sm:mb-16">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-avenirBold mb-4 sm:mb-6 leading-tight text-white">
+              HOW OUR BALL LAUNCHERS & BALL<br class="hidden sm:block" />
+              COLLECTORS <span class="text-lime-400">WORK TOGETHER</span> ON COURT
+            </h2>
           </div>
-        </article>
-
-        <article class="rounded-lg overflow-hidden relative">
-          <img     
-            src={customDrills.src}    
-            alt="Custom tennis drills via mobile app interface"     
-            fetchpriority="high"
-            class="w-full h-48 sm:h-56 lg:h-64 object-cover"     
-          />
-          <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8 bg-gradient-to-t from-black/60 via-black/40 to-transparent">
-            <p class="text-sm sm:text-base font-pluto text-t-off-white">Run custom drills via the app</p>
-          </div>
-        </article>
-
-        <article class="rounded-lg overflow-hidden relative">
-          <img     
-            src={roverCollect.src}    
-            alt="Tennibot Rover collecting tennis balls automatically"     
-            fetchpriority="high"
-            class="w-full h-48 sm:h-56 lg:h-64 object-cover"     
-          />
-          <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8 bg-gradient-to-t from-black/60 via-black/40 to-transparent">
-            <p class="text-sm sm:text-base font-pluto text-t-off-white">Let the rover collect balls while you practice</p>
-          </div>
-        </article>
-
-        <article class="rounded-lg overflow-hidden relative">
-          <img     
-            src={loadPartner.src}    
-            alt="Loading tennis balls back into Partner ball machine"     
-            fetchpriority="high"
-            class="w-full h-48 sm:h-56 lg:h-64 object-cover"     
-          />
-          <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8 bg-gradient-to-t from-black/60 via-black/40 to-transparent">
-            <p class="text-sm sm:text-base font-pluto text-t-off-white">Load the partner back up and repeat with ease</p>
-          </div>
-        </article>
+          <DraggableSlider client:load className="gap-5 px-0" >
+            <article class="rounded-lg min-w-[290px] min-h-[40vh] overflow-hidden relative">
+              <img     
+                src={machinesReady.src}    
+                alt="Tennibot ball machines ready for training in under a minute"     
+                fetchpriority="high"
+                class="w-full h-full object-cover"     
+              />
+              <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8 bg-gradient-to-t from-black/60 via-black/40 to-transparent">
+                <p class="text-sm sm:text-base font-pluto text-t-off-white">Machines are ready in under a minute</p>
+              </div>
+            </article>
+    
+            <article class="rounded-lg min-w-[290px] min-h-[40vh] overflow-hidden relative">
+              <img     
+                src={customDrills.src}
+                alt="Custom tennis drills via mobile app interface"
+                fetchpriority="high"
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8 bg-gradient-to-t from-black/60 via-black/40 to-transparent">
+                <p class="text-sm sm:text-base font-pluto text-t-off-white">Run custom drills via the app</p>
+              </div>
+            </article>
+    
+            <article class="rounded-lg min-w-[290px] min-h-[40vh] overflow-hidden relative">
+              <img     
+                src={roverCollect.src}
+                alt="Tennibot Rover collecting tennis balls automatically"
+                fetchpriority="high"
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8 bg-gradient-to-t from-black/60 via-black/40 to-transparent">
+                <p class="text-sm sm:text-base font-pluto text-t-off-white">Let the rover collect balls while you practice</p>
+              </div>
+            </article>
+    
+            <article class="rounded-lg min-w-[290px] min-h-[40vh] overflow-hidden relative">
+              <img     
+                src={loadPartner.src}    
+                alt="Loading tennis balls back into Partner ball machine"
+                fetchpriority="high"
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8 bg-gradient-to-t from-black/60 via-black/40 to-transparent">
+                <p class="text-sm sm:text-base font-pluto text-t-off-white">Load the partner back up and repeat with ease</p>
+              </div>
+            </article>
+          </DraggableSlider>
       </div>
-    </div>
-  </section>
+    </section>
   
-  <section class="relative bg-[#191A16] min-h-screen flex items-center overflow-hidden" role="region" aria-label="Innovative tennis equipment">
-    <div class="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:flex items-center justify-center">
-      <img     
-        src={InnovativeTennis.src}
-        alt="Innovative tennis training equipment and ball machines"     
-        fetchpriority="high"
-        class="max-w-full max-h-full object-contain opacity-90"
-      />
-    </div>
-    <div class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-      <div class="max-w-2xl lg:max-w-xl xl:max-w-2xl">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl font-avenirBold text-t-off-white mb-6 leading-tight">
-          INNOVATIVE TENNIS
-          EQUIPMENT THAT <span class="text-lime-400">SAVES TIME
-          & BOOSTS PERFORMANCE</span>
-        </h2>
-        <p class="text-sm sm:text-base lg:text-lg font-pluto text-t-off-white mb-4 leading-relaxed">
-          Tennibot offers premium ball machines and automatic ball collectors
-          for players at every level. Our machines are designed for precision
-          training, while our collectors eliminate time-consuming cleanup of the
-          court.
-        </p>
-        
-        <p class="text-sm sm:text-base lg:text-lg font-pluto text-t-off-white mb-8">
-          Whether you're a coach or a weekend warrior, Tennibot enhances your
-          performance and optimizes your training routine. Our ball machines and
-          ball collectors are available for tennis, padel, and pickleball.
-        </p>
-        <a href="#rover-details" class="inline-block w-full sm:w-auto text-sm sm:text-base rounded-full py-3 px-8 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">
-          BROWSE MODELS
-        </a>
+    <section class="relative bg-[#191A16] min-h-screen flex items-center overflow-hidden" role="region" aria-label="Innovative tennis equipment">
+      <div class="absolute right-0 md:top-0 bottom-0 md:w-1/2 w-[60%] lg:flex items-center justify-center">
+        <img     
+          src={InnovativeTennis.src}
+          alt="Innovative tennis training equipment and ball machines"     
+          fetchpriority="high"
+          class="max-w-full max-h-full object-contain opacity-90"
+        />
       </div>
-    </div>
-  </section>
-
-  <section class="py-16 sm:py-20 lg:py-24 bg-[#262424]" role="region" aria-label="See Tennibot in action">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-      <div class="text-center mb-12 sm:mb-16 lg:mb-20">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-avenirBold mb-4 sm:mb-6 leading-tight text-white">
-          SEE OUR BALL MACHINES, BALL<br class="hidden sm:block" />
-          LAUNCHERS & COLLECTORS <span class="text-lime-400">IN ACTION</span>
-        </h2>
-      </div>
-      
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-        <article class="relative group cursor-pointer">
-			   <img     
-            src={SeeTennibotIcon.src}
-            alt="See Tennibot ball machines in action video"     
-            fetchpriority="high"
-            class="w-full h-48 sm:h-56 lg:h-64 object-cover rounded-lg"     
-          />
-        </article>
-        
-        <article class="relative group cursor-pointer">
-			   <img     
-            src={RealPlayersIcon.src}
-            alt="Real tennis players using Tennibot equipment video"     
-            fetchpriority="high"
-            class="w-full h-48 sm:h-56 lg:h-64 object-cover rounded-lg"     
-          />
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-16 sm:py-20 lg:py-24 bg-[#191A16]" role="region" aria-label="Shop by category">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-      <div class="text-center mb-12 sm:mb-16 lg:mb-20">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-avenirBold mb-4 sm:mb-6 leading-tight text-white">SHOP BY CATEGORY</h2>
-      </div>
-      
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-        <article class="relative group cursor-pointer">
-          <div class="relative overflow-hidden rounded-lg">
-            <img src={tennis.src} alt="Tennis ball machines and equipment for tennis training" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-105 transition-transform duration-500"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-            <div class="absolute bottom-4 left-4">
-              <h3 class="text-lg sm:text-xl lg:text-2xl font-avenirBold text-t-off-white">TENNIS</h3>
-            </div>
-            <div class="absolute bottom-4 right-4">
-              <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center">
-                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-t-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </article>
-        
-        <article class="relative group cursor-pointer">
-          <div class="relative overflow-hidden rounded-lg">
-            <img src={picklebot.src} alt="Pickleball ball machines and equipment for pickleball training" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-105 transition-transform duration-500"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-            <div class="absolute bottom-4 left-4">
-              <h3 class="text-lg sm:text-xl lg:text-2xl font-avenirBold text-t-off-white">PICKLEBALL</h3>
-            </div>
-            <div class="absolute bottom-4 right-4">
-              <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center">
-                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-t-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </article>
-        
-        <article class="relative group cursor-pointer sm:col-span-2 lg:col-span-1">
-          <div class="relative overflow-hidden rounded-lg">
-            <img src={padel.src} alt="Padel ball machines and equipment for padel training" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-105 transition-transform duration-500"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-            <div class="absolute bottom-4 left-4">
-              <h3 class="text-lg sm:text-xl lg:text-2xl font-avenirBold text-t-off-white">PADEL</h3>
-            </div>
-            <div class="absolute bottom-4 right-4">
-              <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center">
-                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-t-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-16 sm:py-20 lg:py-24 bg-t-off-black" role="region" aria-label="Customer testimonials">
-    <div>
-        <div class="text-center mb-12 sm:mb-16 lg:mb-20">
-          <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-avenirBold mb-4 sm:mb-6 leading-tight text-t-off-white uppercase">What <span class="text-t-green">players & coaches</span> say about tennibot</h2>
-        </div>
-        <DraggableSlider client:load className="gap-10" >
-            <TestimonialItem client:load quote={`"It's fantastic for drilling, practice points, and even doubles drills. I really enjoyed it."`} name="Sylvana Jordyn" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406658" className="bg-[url('/images/partner/testimonial-one.png')]" />
-            <TestimonialItem client:load quote={`"I worked on rapid-fire volleys, reflexes, and range at the net—it's perfect for sharpening your skills."`} name="Logan West" location="Washington, DC" videoSource="https://player.vimeo.com/video/1031406854" className="bg-[url('/images/partner/testimonial-two.png')]" />
-            <TestimonialItem client:load quote={`"What surprised me the most was how much I had to move and anticipate—it felt just like a real hitting session."`} name="Alex Chan" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406731" className="bg-[url('/images/partner/testimonial-three.png')]" />
-            <TestimonialItem client:load quote={`"The Tennibot Partner is an amazing ball machine—it moves, evolves, and offers an experience unlike any other ball machine I've played with before."`} name="Mo Eldemerdash" location="Auburn, AL" videoSource="https://player.vimeo.com/video/1031426621" className="bg-[url('/images/partner/testimonial-four.png')]" />
-        </DraggableSlider>
-    </div>
-  </section>
-
-  <section class="py-16 sm:py-20 lg:py-24 bg-t-off-black flex justify-center min-[550px]:items-center text-t-off-white" role="region" aria-label="Mobile app control">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 flex min-[550px]:flex-row flex-col items-center justify-center" >
-        <div class="min-[550px]:w-[50%] min-[550px]:mb-0 mb-14" >
-            <Text tag="h2" className="font-avenir text-pretty text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-left uppercase"  >Take <span class="font-avenirBold text-t-green" >control</span></Text>
-            <Text tag="p" className="font-plutoLight text-sm sm:text-base lg:text-lg xl:text-xl text-pretty my-7 tracking-tight" >The Tennibot app enables you to select specific regions on the court, designate restricted zones to avoid, or drive it yourself.</Text>
-            <div class="flex flex-row gap-3 sm:gap-5 lg:pr-10 min-[550px]:pl-0 pr-8" >
-                <a href="https://apps.apple.com/us/app/tennibot/id1438424530" target="_blank" class="cursor-pointer" aria-label="Download Tennibot app for iOS"  ><Image src={downloadIOS}  alt="Download Tennibot on iOS" class="w-32 sm:w-36 lg:w-40" /></a>
-                <a href="https://play.google.com/store/apps/details?id=com.tennibot&hl=en&gl=US" target="_blank" class="cursor-pointer" aria-label="Download Tennibot app for Android" ><Image src={downloadAndroid}   alt="Download Tennibot on Android" class="w-32 sm:w-36 lg:w-40" /></a>
-            </div>
-        </div>
-        <div class="min-[550px]:w-[50%] lg:ml-20 min-[550px]:ml-10" >
-            <picture>
-                <!-- <source srcset={lineJudgingMobile.src} media="(max-width: 425px)" /> -->
-                <Image src={roverApp} class="mx-auto w-full max-w-sm sm:max-w-md lg:max-w-lg" alt="Tennibot mobile app interface for controlling tennis ball machines" />
-            </picture>
-        </div>
-    </div>
-  </section>
-
-  <section class="py-16 sm:py-20 lg:py-24 bg-[#262424]" role="region" aria-label="Frequently asked questions">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
-        <div>
-          <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-avenirBold text-white mb-4 sm:mb-6 leading-tight">
-            FREQUENTLY ASKED<br class="hidden sm:block" />
-            QUESTIONS ABOUT<br class="hidden sm:block" />
-            <span class="text-t-green">TENNIBOT</span>
+      <div class="max-w-7xl w-full z-10 mb-80 md:mb-0 mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+        <div class="max-w-2xl lg:max-w-xl xl:max-w-2xl">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl font-avenirBold text-t-off-white mb-6 leading-tight">
+            INNOVATIVE TENNIS
+            EQUIPMENT THAT <span class="text-lime-400">SAVES TIME
+            & BOOSTS PERFORMANCE</span>
           </h2>
-          <p class="text-sm sm:text-base lg:text-lg font-pluto text-t-off-white opacity-95 mb-6 sm:mb-8">
-            Join the revolution in tennis training. Bring<br class="hidden sm:block" />
-            AI-powered coaching to your program and<br class="hidden sm:block" />
-            watch your players excel.
+          <p class="text-sm sm:text-base lg:text-lg font-pluto text-t-off-white mb-4 leading-relaxed">
+            Tennibot offers premium ball machines and automatic ball collectors
+            for players at every level. Our machines are designed for precision
+            training, while our collectors eliminate time-consuming cleanup of the
+            court.
           </p>
-          <p class="text-xs sm:text-sm lg:text-base font-pluto text-t-off-white">
-            Got more questions? Give us a ring at<br class="hidden sm:block" />
-            <a href="tel:2512778022" class="text-t-green font-avenirBold">251-277-8022</a>
+          
+          <p class="text-sm sm:text-base lg:text-lg font-pluto text-t-off-white mb-8">
+            Whether you're a coach or a weekend warrior, Tennibot enhances your
+            performance and optimizes your training routine. Our ball machines and
+            ball collectors are available for tennis, padel, and pickleball.
           </p>
+          <a href="#rover-details" class="inline-block w-full sm:w-auto text-sm sm:text-base rounded-full py-3 px-8 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">
+            BROWSE MODELS
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#262424] flex justify-center text-t-off-white" >
+      <div class="w-[95%] 2xl:w-[65%] lg:pb-24 py-16" >
+          <div class="flex flex-row justify-center" >
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-avenirBold mb-4 sm:mb-6 leading-tight text-center text-white">
+              SEE OUR BALL MACHINES<br class="hidden sm:block" />
+              & COLLECTORS <span class="text-lime-400">IN ACTION</span>
+            </h2>
+          </div>
+
+           <div class="w-full sm:grid sm:grid-cols-2 flex flex-col mt-5 gap-5" >
+               <VideoThumbnail client:idle title="setup" videoSource="https://player.vimeo.com/video/932265258" className="bg-[url('/images/rover/setupthumbnail.webp')]"  />
+               <VideoThumbnail client:idle title="Serve Practice Timelapse" videoSource="https://player.vimeo.com/video/946348494" className="bg-[url('/images/rover/timelapsethumbnail.webp')] bg-cover bg-left" />
+          </div> 
+      </div>
+    </section>
+
+    <section class="py-16 sm:py-20 lg:py-24 bg-[#191A16]" role="region" aria-label="Shop by category">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+        <div class="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-avenirBold mb-4 sm:mb-6 leading-tight text-white">SHOP BY CATEGORY</h2>
         </div>
         
-          <NewFAQ client:only="react" />
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+          <article class="relative group cursor-pointer">
+            <div class="relative overflow-hidden rounded-lg">
+              <img src={tennis.src} alt="Tennis ball machines and equipment for tennis training" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-105 transition-transform duration-500"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4">
+                <h3 class="text-lg sm:text-xl lg:text-2xl font-avenirBold text-t-off-white">TENNIS</h3>
+              </div>
+              <div class="absolute bottom-4 right-4">
+                <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center">
+                  <svg class="w-5 h-5 sm:w-6 sm:h-6 text-t-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          <article class="relative group cursor-pointer">
+            <div class="relative overflow-hidden rounded-lg">
+              <img src={picklebot.src} alt="Pickleball ball machines and equipment for pickleball training" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-105 transition-transform duration-500"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4">
+                <h3 class="text-lg sm:text-xl lg:text-2xl font-avenirBold text-t-off-white">PICKLEBALL</h3>
+              </div>
+              <div class="absolute bottom-4 right-4">
+                <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center">
+                  <svg class="w-5 h-5 sm:w-6 sm:h-6 text-t-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          <article class="relative group cursor-pointer sm:col-span-2 lg:col-span-1">
+            <div class="relative overflow-hidden rounded-lg">
+              <img src={padel.src} alt="Padel ball machines and equipment for padel training" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-105 transition-transform duration-500"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4">
+                <h3 class="text-lg sm:text-xl lg:text-2xl font-avenirBold text-t-off-white">PADEL</h3>
+              </div>
+              <div class="absolute bottom-4 right-4">
+                <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center">
+                  <svg class="w-5 h-5 sm:w-6 sm:h-6 text-t-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="relative py-16 sm:py-20 lg:py-24 overflow-hidden" role="region" aria-label="Call to action">
-    <img 
-      src={stationRoverBg.src} 
-      alt="Tennibot Station and Rover tennis ball machines on the court" 
-      class="absolute bottom-0 left-0 w-full h-full object-cover object-bottom pointer-events-none z-10" 
-    />
-    <div class="min-h-[60vh] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 text-center relative z-10 flex flex-col justify-start">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-avenirBold text-t-off-white mb-6 sm:mb-8 leading-tight">
-        READY TO TRAIN <span class="text-t-green">SMARTER</span> WITH OUR<br class="hidden sm:block" />
-        BALL MACHINES AND COLLECTORS?
-      </h2>
-      
-      <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-md sm:max-w-none mx-auto">
-        <a href="/compare" class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">
-          SHOP NOW
-        </a>
-        <a href="/compare" class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">
-          BOOK A DEMO
-        </a>
+    <section class="py-16 sm:py-20 lg:py-24 bg-t-off-black" role="region" aria-label="Customer testimonials">
+      <div>
+          <div class="text-center max-w-[80%] mx-auto mb-12 sm:mb-16 lg:mb-20">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-avenirBold mb-4 sm:mb-6 leading-tight text-t-off-white uppercase">What <span class="text-t-green">players & coaches</span><br class="hidden sm:block"/> say about tennibot</h2>
+          </div>
+          <DraggableSlider client:load className="gap-10" >
+              <TestimonialItem client:load quote={`"It's fantastic for drilling, practice points, and even doubles drills. I really enjoyed it."`} name="Sylvana Jordyn" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406658" className="bg-[url('/images/partner/testimonial-one.png')]" />
+              <TestimonialItem client:load quote={`"I worked on rapid-fire volleys, reflexes, and range at the net—it's perfect for sharpening your skills."`} name="Logan West" location="Washington, DC" videoSource="https://player.vimeo.com/video/1031406854" className="bg-[url('/images/partner/testimonial-two.png')]" />
+              <TestimonialItem client:load quote={`"What surprised me the most was how much I had to move and anticipate—it felt just like a real hitting session."`} name="Alex Chan" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406731" className="bg-[url('/images/partner/testimonial-three.png')]" />
+              <TestimonialItem client:load quote={`"The Tennibot Partner is an amazing ball machine—it moves, evolves, and offers an experience unlike any other ball machine I've played with before."`} name="Mo Eldemerdash" location="Auburn, AL" videoSource="https://player.vimeo.com/video/1031426621" className="bg-[url('/images/partner/testimonial-four.png')]" />
+          </DraggableSlider>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="py-16 sm:py-20 lg:py-24 bg-t-off-black flex justify-center min-[550px]:items-center text-t-off-white" role="region" aria-label="Mobile app control">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 flex min-[550px]:flex-row flex-col items-center justify-center" >
+          <div class="min-[550px]:w-[50%] min-[550px]:mb-0 mb-14" >
+              <Text tag="h2" className="font-avenir text-pretty text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-left uppercase"  >Take <span class="font-avenirBold text-t-green" >control</span></Text>
+              <Text tag="p" className="font-plutoLight text-sm sm:text-base lg:text-lg xl:text-xl text-pretty my-7 tracking-tight" >The Tennibot app enables you to select specific regions on the court, designate restricted zones to avoid, or drive it yourself.</Text>
+              <div class="flex flex-row gap-3 sm:gap-5 lg:pr-10 min-[550px]:pl-0 pr-8" >
+                  <a href="https://apps.apple.com/us/app/tennibot/id1438424530" target="_blank" class="cursor-pointer" aria-label="Download Tennibot app for iOS"  ><Image src={downloadIOS}  alt="Download Tennibot on iOS" class="w-28 sm:w-32 lg:w-36" /></a>
+                  <a href="https://play.google.com/store/apps/details?id=com.tennibot&hl=en&gl=US" target="_blank" class="cursor-pointer" aria-label="Download Tennibot app for Android" ><Image src={downloadAndroid}   alt="Download Tennibot on Android" class="w-32 sm:w-36 lg:w-40" /></a>
+              </div>
+          </div>
+          <div class="min-[550px]:w-[50%] lg:ml-20 min-[550px]:ml-10" >
+              <picture>
+                  <!-- <source srcset={lineJudgingMobile.src} media="(max-width: 425px)" /> -->
+                  <Image src={roverApp} class="mx-auto w-full max-w-sm sm:max-w-md lg:max-w-lg" alt="Tennibot mobile app interface for controlling tennis ball machines" />
+              </picture>
+          </div>
+      </div>
+    </section>
+
+    <section class="py-16 sm:py-20 lg:py-24 bg-[#262424]" role="region" aria-label="Frequently asked questions">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+          <div>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-avenirBold text-white mb-4 sm:mb-6 leading-tight">
+              FREQUENTLY ASKED<br class="hidden lg:block" />
+              QUESTIONS ABOUT<br class="hidden lg:block" />
+              <span class="text-t-green">TENNIBOT</span>
+            </h2>
+            <p class="text-sm sm:text-base lg:text-lg font-pluto text-t-off-white opacity-95 mb-6 sm:mb-8">
+              Join the revolution in tennis training. Bring<br class="hidden md:block" />
+              AI-powered coaching to your program and<br class="hidden md:block" />
+              watch your players excel.
+            </p>
+            <p class="text-xs sm:text-sm lg:text-base font-pluto text-t-off-white">
+              Got more questions? Give us a ring at<br class="hidden md:block" />
+              <a href="tel:2512778022" class="text-t-green font-avenirBold">251-277-8022</a>
+            </p>
+          </div>
+          
+            <NewFAQ client:only="react" />
+        </div>
+      </div>
+    </section>
+
+    <section class="relative py-16 sm:py-20 lg:py-24 overflow-hidden" role="region" aria-label="Call to action">
+      <img 
+        src={stationRoverBg.src} 
+        alt="Tennibot Station and Rover tennis ball machines on the court" 
+        class="absolute bottom-0 left-0 w-full h-full object-cover object-bottom pointer-events-none z-10" 
+      />
+      <div class="min-h-[60vh] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 text-center relative z-10 flex flex-col justify-start">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-avenirBold text-t-off-white mb-6 sm:mb-8 leading-tight">
+          READY TO TRAIN <span class="text-t-green">SMARTER</span> WITH OUR<br class="hidden sm:block" />
+          BALL MACHINES AND COLLECTORS?
+        </h2>
+        
+        <div class="flex flex-col w-full sm:flex-row justify-center gap-4 max-w-md sm:max-w-none mx-auto">
+          <a href="/compare" class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">
+            SHOP NOW
+          </a>
+          <a href="/compare" class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">
+            BOOK A DEMO
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 </Layout>
