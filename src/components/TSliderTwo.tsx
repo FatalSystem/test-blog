@@ -136,8 +136,8 @@ export function TSliderTwo ({
   }
 
   return (
-    <>
-      <div className="bg-t-off-black">
+    <div className="">
+      <div className="bg-t-off-black relative">
           <div className="overflow-hidden" ref={emblaRef} >
               <div className="flex touch-pan-y">
                   {slides.map((slide, index) => {
@@ -198,6 +198,6 @@ export function TSliderTwo ({
           onThumbnailClick={handleThumbnailClick}
         />
       )}
-    </>
+    </div>
   )
 }
