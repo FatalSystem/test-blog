@@ -1,8 +1,8 @@
 ---
-import bbcimg from "../assets/newdesignimages/head/bbc.png";
-import timeImg from "../assets/newdesignimages/head/timeVector.png";
-import digitalTraends from "../assets/newdesignimages/head/digital-trends.png";
-import laTimes from "../assets/newdesignimages/head/latimes.png";
+import bbcimg from "@assets/newdesignimages/head/bbc.png";
+import timeImg from "@assets/newdesignimages/head/timeVector.png";
+import digitalTraends from "@assets/newdesignimages/head/digital-trends.png";
+import laTimes from "@assets/newdesignimages/head/latimes.png";
 import mashhable from "../assets/newdesignimages/head/mashable.png";
 
 const { heroStyle = `bg-[url('/images/new/home/home-hero.webp')]`, primaryCta, secondaryCta, primaryCtaLink, secondaryCtaLink } = Astro.props
@@ -10,12 +10,12 @@ const { heroStyle = `bg-[url('/images/new/home/home-hero.webp')]`, primaryCta, s
 ---
 
 <section
-class={`min-h-screen bg-cover bg-center relative ${heroStyle}`}
-role="banner"
-aria-label="Hero section"
+    class={`min-h-screen mt-[-100px] bg-cover bg-center relative ${heroStyle}`}
+    role="banner"
+    aria-label="Hero section"
 >
     <div class="w-full h-full min-h-screen flex flex-col justify-between">
-        <div class="text-center pt-4 mt-16 px-4">
+        <div class="text-center pt-4 mt-36 px-4">
             <slot name="title" />
             <slot name="description" />
             <div

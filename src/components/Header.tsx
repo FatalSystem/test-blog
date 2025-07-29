@@ -19,7 +19,7 @@ const links = [
 // TODO: Remake with framer motion
 export default function Header (): JSX.Element {
   const [open, setOpen] = useState<boolean>(false)
-  const handleOpen = (): void => { setOpen(!open) } 
+  const handleOpen = (): void => { setOpen(!open) }
 
   const [showBanner, setShowBanner] = useState<boolean>(false)
 
