@@ -1,8 +1,6 @@
 ---
 import NHero from "@components/NHero.astro";
 import Layout from "layouts/Layout.astro";
-import pickleballBallMachine from '@assets/new/pickleball/ballmachine.webp';
-import pickleballBallCollector from '@assets/new/pickleball/collector.webp';
 
 import SaveupIcon from "@assets/newdesignimages/SaveupIcon.png";
 import AutomateIcon from "@assets/newdesignimages/AutomateIcon.png";
@@ -17,23 +15,49 @@ import resistantIcon from '@assets/new/pickleball/resistant.svg'
 import DraggableSlider from "@components/DraggableSlider";
 import TestimonialItem from "@components/TestimonialItem";
 import NewFAQ from "@components/NewFAQ";
+import padelPartnerBg from '@assets/new/padel/tennibot-padel-partner-side-court.webp'
 
-import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
+const padelFAQ: Array<{ question: string, answer: string }> = [
+  {
+    question: 'What makes The Partner different from other padel machines?',
+    answer: 'The Partner is the first AI-powered padel machine that moves and responds to your position on the court in real time. Unlike traditional machines, it tracks your movement and delivers shots that replicate the feel of a real opponent.'
+  },
+  {
+    question: 'How does The Partner detect players and adjust shots?',
+    answer: 'The Partner uses advanced sensors, AI, and computer vision to detect player positioning, court boundaries, and the ball. It automatically calibrates and adjusts its shots dynamically for realistic, match-like play.'
+  },
+  {
+    question: 'Is The Partner safe to use on a padel court?',
+    answer: 'Yes. The Partner features intelligent safety systems that detect humans and obstacles, pausing operation if anything gets too close.'
+  },
+  {
+    question: 'When will I receive my Partner if I order today?',
+    answer: 'Your Partner will be shipped 6–7 weeks after your order is placed.'
+  },
+  {
+    question: 'Is there a warranty on The Partner?',
+    answer: 'Yes. Every Partner unit includes a three-year warranty that covers manufacturing defects.'
+  },
+  {
+    question: 'Where is The Partner made?',
+    answer: 'The Partner is proudly designed and assembled in the USA with high-quality craftsmanship.'
+  },
+]
 
 ---
-<Layout title="Tennibot | Pickleball Ball Machines">
-    <NHero heroStyle="bg-[url('/images/new/pickleball/pickleball-hero.webp')]" primaryCta="Ball machine" secondaryCta="Ball collector" primaryCtaLink="/pickleball/ball-machine" secondaryCtaLink="/pickleball/ball-collector" >
+<Layout title="Tennibot | Padel Ball Machines">
+    <NHero heroStyle="bg-[url('/images/new/pickleball/pickleball-hero.webp')]" primaryCta="Ball machine" secondaryCta="Ball collector" primaryCtaLink="/padel/ball-machine" secondaryCtaLink="/padel/ball-collector" >
         <h1
         slot="title"
-        class="text-xl uppercase mobilem:text-2xl mobilel:text-3xl font-avenirBold sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-3 sm:mb-5 leading-tight animate-fade-in-up text-white"
+        class="text-xl uppercase mobilem:text-2xl drop-shadow-lg mobilel:text-3xl font-avenirBold sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-3 sm:mb-5 leading-tight animate-fade-in-up text-white"
         >
-            Explore AI-Powered <span class="text-t-green drop-shadow-lg font-avenirBold ">Pickleball Gear</span><br class="hidden sm:block"/> That’s Changing the game
+          Explore AI-Powered <span class="text-t-green drop-shadow-lg font-avenirBold ">Padel Gear</span><br class="hidden sm:block"/> That’s Changing the game
         </h1>
         <p
         slot="description"
-        class="text-sm font-plutoLight sm:text-base md:text-lg mb-6 sm:mb-8 opacity-90 leading-relaxed animate-fade-in-up delay-200 text-white max-w-2xl mx-auto"
+        class="text-sm drop-shadow-lg font-plutoLight sm:text-base md:text-lg mb-6 sm:mb-8 opacity-90 leading-relaxed animate-fade-in-up delay-200 text-white max-w-2xl mx-auto"
         >
-          Discover the most advanced AI pickleball machine and the <br class="hidden sm:block"/>only autonomous ball collector in the world
+          Discover the most advanced padel ball machine, and the<br class="hidden sm:block"/> only autonomous ball collector – powered by AI
         </p>
     </NHero>
 
@@ -41,7 +65,7 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
             <div class="text-center mb-12 sm:mb-16 lg:mb-20">
               <h2 class="text-xl mobilel:text-2xl uppercase sm:text-4xl lg:text-5xl font-avenirBold mb-4 sm:mb-6 leading-tight text-white">
-                    Upgrade Your Pickleball Game<br class="hidden min-[750px]:block"/> With <span class="text-t-green">AI-Powered Gear</span>
+                    Upgrade Your Padel Game<br class="hidden min-[750px]:block"/> With <span class="text-t-green">AI-Powered Gear</span>
                 </h2>
                 <p class="text-base sm:text-lg font-plutoLight text-t-off-white px-4">
                     Explore Our Smart Ball Machines & Automatic Ball Retrievers
@@ -49,40 +73,40 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
             </div>
       
             <div class="flex flex-col sm:justify-center sm:flex-row sm:flex-nowrap sm:[&::-webkit-scrollbar]:hidden gap-6 sm:gap-5 md:gap-8">
-                <article id="pickleball-ball-machine" class="relative sm:min-w-[285px] rounded-2xl lg:h-full h-[45vh] sm:h-full overflow-hidden">
-                    <img     
-                        src={pickleballBallMachine.src}
-                        alt="Tennibot Partner - AI-powered tennis ball machine with programmable drills"     
+              <article class=" bg-[url('/images/new/padel/padel-partner-on-court.webp')] bg-cover bg-center text-left relative sm:min-w-[350px] rounded-2xl md:h-[550px] h-[50vh] overflow-hidden">
+                    <!-- <img     
+                        src={padelPartnerOnCourt.src}
+                        alt="Tennibot Partner - AI-powered padel ball machine with programmable drills"     
                         fetchpriority="high"     
                         class="w-full h-full object-cover"
-                    />
+                    /> -->
                     
                     <div class="absolute flex flex-col justify-end bottom-0 top-0 left-0 right-0 p-6 sm:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                        <h3 class="text-xl uppercase sm:text-2xl font-avenirBold mb-2 text-white"><span class="font-plutoLight" >Pickleball<br /></span> Ball Machine</h3>
+                        <h3 class="text-xl uppercase sm:text-2xl font-avenirBold mb-2 text-white"><span class="font-plutoLight" >Padel<br /></span> Ball Machine</h3>
                         <p class="text-sm sm:text-base font-pluto text-gray-200 mb-4 sm:mb-6 leading-relaxed">
-                            Launch with accuracy and create custom drills using the Tennibot Partner. The AI-powered pickleball machine that moves on the court playing like a human.
+                          Train with precision and elevate your sessions using the Tennibot Partner – the AI-powered padel machine built for focused, match-like drills.
                         </p>
-                        <a href="/pickleball/ball-machine" class={`w-full text-sm sm:text-base rounded-full py-3 px-8 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>
+                        <a href="/padel/ball-machine" class={`w-full text-sm sm:text-base rounded-full py-3 px-8 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>
                             Shop now
                         </a>
                     </div>
                 </article>
 
-                <article id="pickleball-ball-collector" class="relative sm:min-w-[285px] rounded-2xl lg:h-full h-[45vh] sm:h-full overflow-hidden">
-                    <img     
-                        src={pickleballBallCollector.src}
-                        alt="Tennibot Rover - Automatic tennis ball collector and retriever"     
+                <article class=" bg-[url('/images/new/padel/padelbot-on-court.webp')] bg-cover bg-center text-left relative sm:min-w-[350px] rounded-2xl md:h-[550px] h-[50vh] overflow-hidden">
+                    <!-- <img     
+                        src={TennibotRover.src}
+                        alt="Tennibot Rover - Automatic padel ball collector and retriever"     
                         fetchpriority="high"     
                         class="w-full h-full object-cover"
-                    />
+                    /> -->
                     
                     <div class="absolute flex flex-col justify-end bottom-0 top-0 left-0 right-0 p-6 sm:p-8 bg-gradient-to-t from-black/60 via-black/40 to-transparent">
-                        <h3 class="text-xl uppercase sm:text-2xl font-avenirBold mb-2 text-white"><span class="font-plutoLight" >Pickleball<br /></span> Ball Collector</h3>
+                        <h3 class="text-xl uppercase sm:text-2xl font-avenirBold mb-2 text-white"><span class="font-plutoLight" >Padel<br /></span> Ball Collector</h3>
                         <p class="text-sm sm:text-base font-pluto text-gray-200 mb-4 sm:mb-6 leading-relaxed">
-                            Automate ball retrieval with the Tennibot Rover – a smart, portable collector built for pickleball courts. Think less time picking up balls, more time hitting them!
+                            Automate ball retrieval with the Tennibot Rover – a smart, portable collector built for every padel court.
                         </p>
-                        <a href="/pickleball/ball-collector" class={`w-full text-sm sm:text-base rounded-full py-3 px-8 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>
-                            Shop now
+                        <a href="/padel/ball-collector" class={`w-full text-sm sm:text-base rounded-full py-3 px-8 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>
+                            Reserve now
                         </a>
                     </div>
                 </article>
@@ -91,19 +115,19 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
     </section>
 
     <section
-      class="py-16 sm:py-20 bg-[url('/images/new/pickleball/pickleball-ai-partner.webp')] bg-cover bg-center lg:py-24"
+      class="py-16 sm:py-20 bg-[url('/images/new/padel/padel-wheels-bg.webp')] bg-cover bg-center lg:py-24"
       role="region"
       aria-label="AI Partner"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 min-h-[55vh] flex flex-col justify-between relative z-10">
         <div class="mb-8 sm:mb-12">
           <h2
-              class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-avenirBold uppercase mb-8 sm:mb-12 leading-tight text-white"
+              class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-avenirBold mb-5 leading-tight text-white uppercase"
             >
-                Why AI Gear Elevates Your <span class="text-t-green">Pickleball Training</span>
+                Why AI Gear Elevates Your <br class="hidden sm:block" /><span class="text-t-green">Padel Training</span>
             </h2>
-            <p class="text-sm sm:text-lg mt-2 font-plutoLight text-center text-t-off-white px-4">
-                Tennibot’s pickleball solutions let you focus on your game, without the hassle
+            <p class="text-sm sm:text-lg font-plutoLight text-center text-t-off-white px-4">
+                Tennibot’s padel solutions let you focus on your game, without the hassle
             </p>
         </div>
 
@@ -116,7 +140,7 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
                 class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
               />
               <p class="text-sm sm:text-base font-pluto text-t-off-white">
-                Smart Ball machines that moves on the court
+                Precise shot delivery with custom drills powered by AI
               </p>
             </div>
 
@@ -127,7 +151,7 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
                 class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
               />
               <p class="text-sm sm:text-base font-pluto text-t-off-white">
-                Autonomous Ball collectors that search for balls
+                Perfect for players, coaches and clubs
               </p>
             </div>
 
@@ -138,7 +162,7 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
                 class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
               />
               <p class="text-sm sm:text-base font-pluto text-t-off-white">
-                More playing time, less court cleanup
+                Human-like rallies and hundreds of drill combinations
               </p>
             </div>
           </div>
@@ -151,10 +175,10 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
             <h2
               class="text-2xl uppercase mobilem:text-3xl  sm:text-3xl md:text-4xl lg:text-5xl text-center font-avenirBold leading-tight text-white"
             >
-                Build Your Smart Pickleball<br class="hidden sm:block"/> Court With <span class="text-t-green">Tennibot</span>
+                Build Your Smart Padel<br class="hidden sm:block"/> Court With <span class="text-t-green">Tennibot</span>
             </h2>
             <p class="mobilel:text-base text-sm mt-3 font-plutoLight text-center text-t-off-white px-4">
-              Use Tennibot gear individually or as an integrated system. Pre-set & custom drills, collect<br class="hidden sm:block"/> balls hands-free, all powered by AI.
+                Use Tennibot gear individually or as an integrated system. <br class="hidden sm:block" />Automate drills and collect balls hands-free - all powered by AI.
             </p>
         </div>
 
@@ -162,13 +186,13 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
             <div class="md:w-[50%] lg:ml-20 min-[550px]:ml-10" >
                 <picture>
                     <!-- <source srcset={lineJudgingMobile.src} media="(max-width: 425px)" /> -->
-                    <Image src={roverApp} class="mx-auto w-full max-w-sm sm:max-w-md lg:max-w-lg" alt="Tennibot mobile app interface for controlling tennis ball machines and collectors" />
+                    <Image src={roverApp} class="mx-auto w-full max-w-sm sm:max-w-md lg:max-w-lg" alt="Tennibot mobile app interface for controlling padel ball machines and collectors" />
                 </picture>
             </div>
             <div class="md:w-[50%] md:mb-0 mb-14 ml-10" >
                 <div class="flex flex-row items-center gap-3 sm:gap-4 mb-10">
                     <div class="bg-[#262424] rounded-lg p-3 size-12 flex items-center justify-center" >
-                        <Image src={phoneIcon.src} alt="Tennibot mobile app interface for controlling tennis ball machines and collectors" class="size-full" />
+                        <Image src={phoneIcon.src} alt="Tennibot mobile app interface for controlling padel ball machines and collectors" class="size-full" />
                     </div>
                     <div>
                         <Text tag="p" className="font-avenirBold text-base text-pretty tracking-tight" >Shared interface and app integration</Text> 
@@ -177,16 +201,16 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
                 </div>
                 <div class="flex flex-row items-center gap-3 sm:gap-4 mb-10">
                     <div class="bg-[#262424] rounded-lg p-3 size-12 flex items-center justify-center" >
-                        <Image src={courtsIcon.src} alt="Tennibot mobile app interface for controlling tennis ball machines and collectors" class="size-full" />
+                        <Image src={courtsIcon.src} alt="Tennibot mobile app interface for controlling padel ball machines and collectors" class="size-full" />
                     </div>
                     <div>
-                        <Text tag="p" className="font-avenirBold text-base text-pretty tracking-tight" >Works with all standard pickleball courts</Text> 
+                        <Text tag="p" className="font-avenirBold text-base text-pretty tracking-tight" >Works with all standard padel courts</Text> 
                         <Text tag="p" className="font-pluto text-sm text-pretty mt-1 tracking-tight" >Easy setup on any court surface or configuration</Text>
                     </div>
                 </div>
                 <div class="flex flex-row items-center gap-3 sm:gap-4 mb-10">
                     <div class="bg-[#262424] rounded-lg p-3 size-12 flex items-center justify-center" >
-                        <Image src={resistantIcon.src} alt="Tennibot mobile app interface for controlling tennis ball machines and collectors" class="size-full" />
+                        <Image src={resistantIcon.src} alt="Tennibot mobile app interface for controlling padel ball machines and collectors" class="size-full" />
                     </div>
                     <div>
                         <Text tag="p" className="font-avenirBold text-base text-pretty tracking-tight" >Built for All Courts and Conditions</Text> 
@@ -205,39 +229,40 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
     <section class="py-24 sm:py-20 lg:py-28 bg-[#262424]" role="region" aria-label="Frequently asked questions">
         <div class="max-w-7xl w-[95%] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
             <h2 class="text-2xl uppercase sm:text-3xl md:text-3xl lg:text-5xl text-center font-avenirBold text-white mb-4 sm:mb-16 leading-tight">
-                Why Pickleball needs<br class="hidden md:block" />
+                Why Padel needs<br class="hidden md:block" />
                 <span class="text-t-green">Smart Solutions</span>
             </h2>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
                 <div>
                     <Text tag="p" className="font-avenirBold text-base mobilel:text-lg md:text-xl text-t-green text-pretty tracking-tight" >
-                      Growing Popularity
+                      A Sport on the Rise
                     </Text> 
 
                     <Text tag="p" className="font-pluto text-t-off-white sm:text-base text-sm text-pretty mt-1 tracking-tight" >
-                        Pickleball has exploded in popularity, becoming America's fastest-growing sport. With this growth comes an increasing demand for professional-grade training tools and equipment that can keep up with players' evolving needs. <br />
-                        <br />Traditional training methods often fall short, requiring constant ball collection and limited drill variety.
+                      Padel is growing rapidly across clubs and facilities worldwide, with more players demanding smarter ways to train. As the game becomes faster and more competitive, traditional training methods can’t keep up.
+                      <br /><br />Manual ball pickup, inconsistent feeds, and lack of structured drills limit player development and waste valuable court time.
                     </Text>
                 </div>
                 <div>
                   <Text tag="p" className="font-avenirBold text-base mobilel:text-lg md:text-xl text-t-green text-pretty tracking-tight" >
-                      Common Challenges
-                    </Text> 
+                    Common Challenges in Padel Training
+                  </Text> 
 
-                    <Text tag="p" className="font-pluto text-t-off-white sm:text-base text-sm text-pretty mt-1 tracking-tight" >
-                        The pain points are clear: manual ball collection interrupts training flow and inconsistent ball feeds limit skill development. 
-                        <br /><br />Players waste valuable court time on maintenance tasks instead of focusing on improvement. Coaches struggle to provide consistent, high-quality training experiences for multiple skill levels simultaneously.
-                    </Text>
+                  <Text tag="p" className="font-pluto text-t-off-white sm:text-base text-sm text-pretty mt-1 tracking-tight" >
+                    Manual ball collection breaks the rhythm of practice. Unreliable ball feeds make it hard to run structured drills or simulate match play. Inconsistent training setups limit progress and slow down development.
+                    <br /><br />Getting accurate, consistent shots from a moving ball machine used to sound like science fiction. With Tennibot Partner, it’s now part of everyday training.
+                    <br /><br />Players lose valuable court time to repetitive tasks. Coaches find it difficult to deliver consistent, high-quality training across different skill levels.
+                  </Text>
                 </div>
                 <div>
                     <Text tag="p" className="font-avenirBold text-base mobilel:text-lg md:text-xl text-t-green text-pretty tracking-tight" >
-                      Smart Solutions
+                      Smarter Padel Training Starts Here
                     </Text> 
 
                     <Text tag="p" className="font-pluto text-t-off-white sm:text-base text-sm text-pretty mt-1 tracking-tight" >
-                        Tennibot’s AI-powered gear tackles key training challenges with precision. The ball machine offers programmable feeds tailored to skill level, the robotic collector cleans up without stopping play. 
-                        <br /><br />Designed for players and coaches alike, Tennibot helps you train more effectively and focus on performance.
+                      Tennibot’s AI-powered gear is built to solve the real challenges of padel training. The Tennibot Partner delivers precise, programmable feeds so players can focus on footwork, technique, and shot selection. Meanwhile, the Rover handles ball collection automatically with no interruptions and no wasted time.
+                      <br/><br />Whether you’re training solo or coaching a team, Tennibot helps you run more efficient sessions and keep the focus where it belongs, on performance.
                     </Text>
                 </div>
             </div>
@@ -264,10 +289,10 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
             <div>
               <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-avenirBold text-white mb-4 sm:mb-6 uppercase leading-tight">
-                Common Questions<br class="hidden lg:block" /> About <span class="text-t-green">Tennibot <br class="hidden lg:block" />Pickleball Gear</span>
+                Common Questions<br class="hidden lg:block" /> About <span class="text-t-green">Tennibot <br class="hidden lg:block" />Padel Gear</span>
               </h2>
               <p class="text-sm sm:text-base lg:text-lg font-pluto text-t-off-white opacity-95 mb-6 sm:mb-8">
-                Join the revolution in pickleball training today!
+                Join the revolution in padel training today!
               </p>
               <p class="text-xs sm:text-sm lg:text-base font-pluto text-t-off-white">
                 Got more questions? Give us a ring at<br class="hidden md:block" />
@@ -275,26 +300,25 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
               </p>
             </div>
             
-              <NewFAQ client:only="react" />
+              <NewFAQ client:only="react" faq={padelFAQ} />
           </div>
         </div>
       </section>
 
       <section class="relative py-16 sm:py-20 lg:py-24 overflow-hidden" role="region" aria-label="Call to action">
         <img 
-          src={pickleballBg.src} 
+          src={padelPartnerBg.src} 
           alt="Tennibot Station and Rover tennis ball machines on the court" 
           class="absolute bottom-0 left-0 w-full h-full object-cover object-bottom pointer-events-none z-10" 
         />
         <div class="min-h-[60vh] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 text-center relative z-10 flex flex-col justify-start">
-          <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-avenirBold text-t-off-white mb-6 sm:mb-8 leading-tight">
-            READY TO TRAIN <span class="text-t-green">SMARTER</span> WITH OUR<br class="hidden sm:block" />
-            BALL MACHINES AND COLLECTORS?
+          <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-avenirBold text-t-off-white mb-6 sm:mb-8 leading-tight uppercase">
+            Smarter padel starts here.<br class="hidden sm:block" />
+            <span class="text-t-green">Are you ready?</span>
           </h2>
           
           <div class="flex flex-col w-full sm:flex-row justify-center gap-4 max-w-md sm:max-w-none mx-auto">
-            <!-- TODO: Add link to checkout -->
-            <a  class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">
+            <a href="/padel/ball-machine" class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">
               SHOP NOW
             </a>
             <a href="https://calendly.com/haithameletrabi/30-minute-meeting-tennibot-demo" target="_blank" class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">

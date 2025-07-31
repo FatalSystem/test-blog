@@ -8,48 +8,50 @@ import AccurateIcon from "@assets/newdesignimages/AccurateIcon.png";
 
 import Layout from "layouts/Layout.astro";
 import Text from "@components/core/Text.astro"
+import DraggableSlider from "@components/DraggableSlider";
+import TestimonialItem from "@components/TestimonialItem";
 import NewFAQ from "@components/NewFAQ";
 
 import MoneyBackIcon from "@assets/newdesignimages/MoneyBackIcon.png";
 import TruckIcon from "@assets/newdesignimages/TruckIcon.png";
 import protectIcon from "@assets/newdesignimages/protectIcon.png";
-import { TSliderTwo } from "@components/TSliderTwo";
 
-import TennibotMachine from "@assets/newdesignimages/TennibotMachine.png";
+import { TSliderTwo } from "@components/TSliderTwo";
 
 import pickleballMachine from "@assets/newdesignimages/bucketmachin.png";
 
-import picklebotOnCourt from "@assets/new/pickleball/picklebot-on-court.webp";
-import picklebotOnCourtBg from "@assets/new/pickleball/pickleball-on-court-bg.webp";
+import padelTennibotPartner from "@assets/new/padel/padel-tennibot-partner.webp";
 
+import tennibotPadelbot from '@assets/new/padel/tennibot-padelbot.webp'
+import tennibotPadelbotOnCourt from '@assets/new/padel/tennibot-padelbot-on-court.webp'
 import AutomateIcon from "@assets/newdesignimages/AutomateIcon.png";
 
 const slides = [
   {
-    style: "bg-[url('/images/new/pickleball/picklebot.webp')] sm:h-[70vh] h-[45vh]",
-    thumbnail: "/images/new/pickleball/picklebot.webp"
+    style: "bg-[url('/images/new/padel/padelbot-front.webp')] sm:h-[70vh] h-[45vh]",
+    thumbnail: "/images/new/padel/padelbot-front.webp"
   },
   {
-    style: "bg-[url('/images/new/pickleball/pickleball-tennibot-rover-carried.webp')] sm:h-[70vh] h-[45vh]",
-    thumbnail: "/images/new/pickleball/pickleball-tennibot-rover-carried.webp"
+    style: "bg-[url('/images/new/padel/padelbot-carried-side.webp')] sm:h-[70vh] h-[45vh]",
+    thumbnail: "/images/new/padel/padelbot-carried-side.webp"
   },
   {
-    style: "bg-[url('/images/new/pickleball/pickleball-picklebot-on-court.webp')] sm:h-[70vh] h-[45vh]",
-    thumbnail: "/images/new/pickleball/pickleball-picklebot-on-court.webp"
+    style: "bg-[url('/images/new/padel/padelbot-front-side.webp')] sm:h-[70vh] h-[45vh]",
+    thumbnail: "/images/new/padel/padelbot-front-side.webp"
   },
   {
-    style: "bg-[url('/images/new/pickleball/hitting-with-picklebot.webp')] sm:h-[70vh] h-[45vh]",
-    thumbnail: "/images/new/pickleball/hitting-with-picklebot.webp"
+    style: "bg-[url('/images/new/padel/station.webp')] sm:h-[70vh] h-[45vh]",
+    thumbnail: "/images/new/padel/station.webp"
   },
   {
-    style: "bg-[url('/images/new/pickleball/picklebot-on-court.webp')] sm:h-[70vh] h-[45vh]",
-    thumbnail: "/images/new/pickleball/picklebot-on-court.webp"
+    style: "bg-[url('/images/new/padel/padelbot-carried-back.webp')] sm:h-[70vh] h-[45vh]",
+    thumbnail: "/images/new/padel/padelbot-carried-back.webp"
   }
 ]
 ---
 
 <!-- <HeaderComp/> -->
- <Layout title="Tennibot | Pickleball Ball Collector">
+ <Layout title="Tennibot | Padel Ball Collector">
     <!-- bg-[#191A16] -->
     <section class="relative min-h-screen overflow-hidden flex items-start justify-center mt-5">
         <div class="max-w-7xl w-[95%] mx-auto px-4 py-8 ">
@@ -72,7 +74,7 @@ const slides = [
                 <div>
                     <span class="text-t-green font-avenirBold text-base uppercase pb-10">Coming 2026</span>
                     <h1 class="text-t-off-white font-avenirBold text-2xl sm:text-3xl md:text-4xl leading-tight uppercase mt-2 mb-3">
-                      Pickleball ball collector <br class="hidden sm:block lg:hidden" /> for smarter training
+                      Padel ball collector <br class="hidden sm:block lg:hidden" /> for smarter training
                     </h1>
                     
                     <!-- <div class="flex items-center mr-2 mb-5">
@@ -105,7 +107,7 @@ const slides = [
                     </div> -->
                     
                     <p class="text-t-off-white font-pluto md:text-base text-sm leading-relaxed">
-                        Tennibot Rover is the AI-powered pickleball retriever that lets you train more and pick up less.
+                        Tennibot Rover is the AI-powered padel ball retriever that lets you train more and pick up less.
                     </p>
                 </div>
               
@@ -116,11 +118,11 @@ const slides = [
                     </div>
                     
                     <div class="flex flex-col mobilel:flex-row space-y-4 mobilel:space-y-0 mobilel:space-x-4 mb-5">
-                      <!-- TODO: Add link to checkout -->
+                      <!-- PickleballCollector -->
                         <a
                         href="/NewDesigns/PickleballCollector"
                         class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">
-                            Reserve now for $99
+                            Reserve for $99
                         </a>
                         <!-- <a
                         href="/NewDesigns/PickleballCollector"
@@ -192,25 +194,25 @@ const slides = [
           <div class="lg:w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div class="space-y-6">
               <h2 class="text-t-off-white mobilem:text-2xl sm:text-3xl text-xl lg:text-4xl font-avenirBold leading-tight uppercase">
-                What Is a Pickleball Ball Collector <span class="text-t-green">and Why It Matters</span>
+                What Is a Padel Ball Collector <span class="text-t-green">and Why It Matters</span>
               </h2>
               
               <p class="text-t-off-white sm:text-lg text-base font-pluto leading-relaxed">
-                Manual ball pickup wastes <span class="text-t-green">20–30% of on-court time</span>. Every few minutes, play stops as players collect scattered balls, disrupting rhythm and reducing valuable practice time.
+                Manual ball pickup wastes <span class="text-t-green">20-30% of on-court time</span>. Every few minutes, play stops as players collect scattered balls, disrupting rhythm and reducing valuable practice time.
               </p>
               
               <p class="text-t-off-white sm:text-lg text-base font-pluto leading-relaxed">
-                A <span class="text-t-green">pickleball collector</span> eliminates this downtime entirely. Instead of stopping drills to gather balls, an automated system continuously collects them while you play, maintaining training flow and maximizing court productivity.
+                A <span class="text-t-green">padel ball collector</span> eliminates this downtime entirely. Instead of stopping drills to gather balls, an automated system continuously collects them while you play, maintaining training flow and maximizing court productivity.
               </p>
               
               <p class="text-t-off-white sm:text-lg text-base font-pluto leading-relaxed">
-                The Tennibot Rover revolutionizes ball collection with <span class="text-t-green">AI-powered tracking and navigation</span>. Unlike manual collectors that simply assist with a tedious chore, the Rover eliminates the task entirely by autonomously navigating the court to efficiently locate and collect pickleballs automatically.
+                The Tennibot Rover revolutionizes ball collection with <span class="text-t-green">AI-powered tracking and navigation</span>. Unlike manual collectors that simply assist with a tedious chore, the Rover eliminates the task entirely by autonomously navigating the court to efficiently locate and collect padel balls automatically.
               </p>
             </div>
             
             <div class="h-[50vh] md:h-[60vh] lg:h-full overflow-hidden rounded-lg">
                <img
-                src={TennibotMachine.src}
+                src={tennibotPadelbot.src}
                 alt="Tennibot Mobile App Interface"
                 fetchpriority="high"
                 class="w-full h-full object-cover"
@@ -230,7 +232,7 @@ const slides = [
             <h2
               class="text-2xl uppercase mobilem:text-2xl sm:text-4xl md:text-4xl lg:text-5xl text-center font-avenirBold leading-tight text-white"
             >
-                Why Choose an Automatic <span class="text-t-green"><br class="hidden mobilel:block"/>Pickleball Ball Collector?</span>
+                Why Choose an Automatic <span class="text-t-green"><br class="hidden mobilel:block"/>Padel Ball Collector?</span>
             </h2>
         </div>
 
@@ -243,7 +245,7 @@ const slides = [
                   class="w-6 h-6 object-contain"
                 />
                 <h3 class="text-t-off-white font-pluto text-sm sm:text-base drop-shadow-lg">
-                    Hands-free cleanup
+                    Hands-free collection
                 </h3>
               </div>
       
@@ -254,7 +256,7 @@ const slides = [
                   class="w-6 h-6 object-contain"
                 />
                 <h3 class="text-t-off-white font-pluto text-sm sm:text-base drop-shadow-lg">
-                  Sleek and easy-to-use app
+                  Simple, smart interface built for training
                 </h3>
               </div>
       
@@ -313,7 +315,7 @@ const slides = [
                 <span class="text-t-green">Ideal</span> for Players, <br class="hidden sm:block" />Coaches, and Clubs
             </h2>
             <p class="text-t-off-white text-sm sm:text-base lg:text-lg font-pluto mx-auto">
-                Whether you coach juniors or run a club, a pickleball ball collector robot<br class="hidden sm:block" /> like the Rover boosts your training flow.
+                Whether you coach juniors or run a club, a padel ball collector robot<br class="hidden sm:block" /> like the Rover boosts your training flow.
             </p>
           </div>
           
@@ -365,7 +367,7 @@ const slides = [
                         </div>
                         
                         <p class="text-t-off-white text-base md:text-sm lg:text-base leading-[24px] tracking-[-0.4px] font-pluto">
-                            Tennibot Rover is the most advanced pickleball ball collecting robot on the market. Fully automatic, lightweight, and powered by smart sensors, it's the best pickleball ball collector for players who value their time.
+                            Tennibot Rover is the most advanced padel ball collecting robot on the market. Fully automatic, lightweight, and powered by smart sensors, it's the best padel ball collector for players who value their time.
                         </p>
                         
                         <div class="space-y-6">
@@ -379,7 +381,7 @@ const slides = [
                                 </div>
                                 <div>
                                     <h4 class="text-t-green font-avenirBold lg:text-lg md:text-base text-lg">Real-time ball detection</h4>
-                                    <p class="text-t-off-white font-pluto mt-1 md:text-sm lg:text-base text-base">Advanced AI vision system identifies pickleballs instantly</p>
+                                    <p class="text-t-off-white font-pluto mt-1 md:text-sm lg:text-base text-base">Advanced AI vision system identifies padel balls instantly</p>
                                 </div>
                             </div>
                             
@@ -407,7 +409,7 @@ const slides = [
                                 </div>
                                 <div>
                                     <h4 class="text-t-green font-avenirBold lg:text-lg md:text-base text-lg">Large capacity collection tray</h4>
-                                    <p class="text-t-off-white font-pluto mt-1 md:text-sm lg:text-base text-base">Holds up to 60 pickleballs for extended sessions</p>
+                                    <p class="text-t-off-white font-pluto mt-1 md:text-sm lg:text-base text-base">Holds up to 90 padel balls for extended sessions</p>
                                 </div>
                             </div>
 
@@ -421,7 +423,7 @@ const slides = [
                                 </div>
                                 <div>
                                     <h4 class="text-t-green font-avenirBold lg:text-lg md:text-base text-lg">Long battery life, fast recharge</h4>
-                                    <p class="text-t-off-white font-pluto mt-1 md:text-sm lg:text-base text-base">4-6 hours operation, quick charging system</p>
+                                    <p class="text-t-off-white font-pluto mt-1 md:text-sm lg:text-base text-base">4-5 hours operation, quick charging system</p>
                                 </div>
                             </div>
                         </div>
@@ -429,7 +431,7 @@ const slides = [
                     
                     <div class="relative sm:h-[586px] h-[386px]">
                         <img
-                            src={picklebotOnCourt.src}
+                            src={tennibotPadelbot.src}
                             class="w-full h-full object-cover rounded-lg opacity-100"
                             alt="Bucket Machine"
                         />
@@ -444,7 +446,7 @@ const slides = [
                 <div class="md:grid  flex flex-col-reverse md:grid-cols-2 gap-12 items-center">
                     <div class="relative w-full sm:h-[586px] h-[386px]">
                         <img
-                            src={pickleballMachine.src}
+                            src={padelTennibotPartner.src}
                             class="w-full h-full object-cover rounded-lg opacity-100"
                             alt="Picklebot Icon"
                         />
@@ -459,7 +461,7 @@ const slides = [
                         </div>
                         
                         <p class="text-t-off-white text-base md:text-sm lg:text-base leading-relaxed font-pluto">
-                            Train. Shoot. Collect. Repeat. Combine Tennibot Rover with the Tennibot Partner ball machine to create a fully autonomous pickleball training system.
+                            Train. Shoot. Collect. Repeat. Combine Tennibot Rover with the Tennibot Partner ball machine to create a fully autonomous padel training system.
                         </p>
                         
                         <!-- Features List -->
@@ -501,33 +503,33 @@ const slides = [
     <section class="py-24 sm:py-20 lg:py-28 " role="region" aria-label="Frequently asked questions">
         <div class="max-w-7xl w-[95%] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
             <h2 class="text-2xl uppercase sm:text-3xl md:text-3xl lg:text-5xl text-center font-avenirBold text-white mb-4 sm:mb-16 leading-tight">
-                Do I Really Need a <span class="text-t-green">Robotic <br class="hidden md:block" />Ball Collector</span> for Pickleball?
+                What makes the <br class="hidden md:block" /><span class="text-t-green" >best</span> padel ball collector
             </h2>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
                 <div>
                     <Text tag="p" className="font-avenirBold text-base mobilel:text-lg md:text-xl text-t-green text-pretty tracking-tight" >
-                      Train Smarter, Not Slower
+                        Keep the Rally Going
                     </Text> 
 
                     <Text tag="p" className="font-pluto text-t-off-white sm:text-base text-sm text-pretty mt-1 tracking-tight" >
-                      Manually picking up pickleballs after every drill interrupts momentum, breaks focus, and wastes valuable court time. Whether you're running group clinics or training solo, a high-quality ball collector keeps the session flowing without constant stops to gather scattered balls.
+                        Traditional baskets and manual pickup stop the flow of padel training. Players lose rhythm and coaches lose time. A smart ball collector removes that friction, helping sessions run smoother and keeping the focus on footwork, technique, and game play.
                     </Text>
                 </div>
                 <div>
                     <Text tag="p" className="font-avenirBold text-base mobilel:text-lg md:text-xl text-t-green text-pretty tracking-tight" >
-                      Designed for Pickleball Play
+                        Built for the Padel Court
                     </Text> 
 
                     <Text tag="p" className="font-pluto text-t-off-white sm:text-base text-sm text-pretty mt-1 tracking-tight" >
-                      The best ball collectors are built with pickleball courts in mind. Look for a system with a collection tray that holds up to 60 pickleballs, giving you longer drills and fewer interruptions. Portability is also key if you’re moving between courts or training environments.
+                        The best padel ball collectors are compact, efficient, and designed for fast-paced environments. Look for a large-capacity tray that holds over 100 balls, perfect for multi-court use or group sessions. Portability and smart design make it easy to move between courts and extend training without downtime.
                     </Text>
                 </div>
                 <div>
-                    <Text tag="p" className="font-avenirBold text-base mobilel:text-lg md:text-xl text-t-green text-pretty tracking-tight" >Let the Tech Do the Work</Text> 
+                    <Text tag="p" className="font-avenirBold text-base mobilel:text-lg md:text-xl text-t-green text-pretty tracking-tight" >Automation That Works for You</Text> 
 
                     <Text tag="p" className="font-pluto text-t-off-white sm:text-base text-sm text-pretty mt-1 tracking-tight" >
-                      AI-powered collectors like the Tennibot Rover go beyond basic automation. They navigate courts independently, avoid players and nets, and adjust to different surfaces without input. It`s a hands-free way to get more out of every training session.
+                        AI-powered collectors like the Tennibot Rover go far beyond remote control. They map court boundaries, avoid walls and players, and adapt to different padel surfaces with zero input. The result is reliable, hands-free operation—ideal for clubs, coaches, and serious players who want to train more and collect less.
                     </Text>
                 </div>
             </div>
@@ -538,10 +540,10 @@ const slides = [
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
           <div>
             <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-avenirBold text-white mb-4 sm:mb-6 uppercase leading-tight">
-              Common Questions<br class="hidden lg:block" /> About <span class="text-t-green">Tennibot <br class="hidden lg:block" />Pickleball Gear</span>
+              Common Questions<br class="hidden lg:block" /> About <span class="text-t-green">Tennibot <br class="hidden lg:block" />Padel Gear</span>
             </h2>
             <p class="text-sm sm:text-base lg:text-lg font-pluto text-t-off-white opacity-95 mb-6 sm:mb-8">
-              Join the revolution in pickleball training today!
+              Join the revolution in padel training today!
             </p>
             <p class="text-xs sm:text-sm lg:text-base font-pluto text-t-off-white">
               Got more questions? Give us a ring at<br class="hidden md:block" />
@@ -555,7 +557,7 @@ const slides = [
     </section>
     <section class="relative py-16 sm:py-20 lg:py-24 overflow-hidden" role="region" aria-label="Call to action">
         <img 
-          src={picklebotOnCourtBg.src} 
+          src={tennibotPadelbotOnCourt.src} 
           alt="Tennibot Station and Rover tennis ball machines on the court" 
           class="absolute bottom-0 left-0 w-full h-full object-cover object-bottom pointer-events-none z-10" 
         />
@@ -565,7 +567,7 @@ const slides = [
           </h2>
           <div class="flex flex-col w-full sm:flex-row justify-center gap-4 max-w-md sm:max-w-none mx-auto">
             <!-- TODO: Add link to checkout -->
-            <a  class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">
+            <a class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">
               RESERVE NOW
             </a>
             <a href="https://calendly.com/haithameletrabi/30-minute-meeting-tennibot-demo" target="_blank" class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">

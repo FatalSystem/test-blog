@@ -8,21 +8,78 @@ import AccurateIcon from "@assets/newdesignimages/AccurateIcon.png";
 
 import Layout from "layouts/Layout.astro";
 import Text from "@components/core/Text.astro"
-import DraggableSlider from "@components/DraggableSlider";
-import TestimonialItem from "@components/TestimonialItem";
 import NewFAQ from "@components/NewFAQ";
 
 import MoneyBackIcon from "@assets/newdesignimages/MoneyBackIcon.png";
 import TruckIcon from "@assets/newdesignimages/TruckIcon.png";
 import protectIcon from "@assets/newdesignimages/protectIcon.png";
-
-import smarterAi from '@assets/new/pickleball/smarter-ai.webp'
 import { TSliderTwo } from "@components/TSliderTwo";
+import tennibotRoverCarried from '@assets/new/tennis/tennibot-rover-carried.webp'
+import AutomateIcon from "@assets/newdesignimages/AutomateIcon.png";
+import { CustomerReview, Marquee } from "@components/Marquee";
 
-import TennibotMachine from "@assets/newdesignimages/TennibotMachine.png";
+import tennibotOnCourt from "@assets/new/tennis/tennibot-rover-carried-on-court.webp";
+import tennibotRoverFolded from "@assets/new/tennis/tennis-tennibot-rover-folded.webp";
+import tennibotPartnerWithPlayer from "@assets/new/tennis/tennis-tennibot-partner-with-player.webp";
 
-import bucketmachin from "@assets/newdesignimages/bucketmachin.png";
-import picklebotIcon from "@assets/newdesignimages/picklebotIcon.png";
+const MARQUEE_CONTENT = [
+  {
+    review: 'It works well! My kids love it! It is super light and easy to move around.',
+    author: {
+      name: 'Mike D.',
+      role: 'Player',
+      location: 'Houston, TX'
+    }
+  },
+  {
+    review: 'My back feels better just looking at it!',
+    author: {
+      name: 'Rhonda S.',
+      role: 'Player',
+      location: 'KANSAS CITY, MO'
+    }
+  },
+  {
+    review: 'I can teach 6 to 8 hours a day now if I want to! I think every tennis coach should have one of these.',
+    author: {
+      name: 'Danny K.',
+      role: 'Coach',
+      location: 'San Francisco, CA'
+    }
+  },
+  {
+    review: 'Great machine! Thank you! I am loving my Tennibot!',
+    author: {
+      name: 'Bob F.',
+      role: 'Player',
+      location: 'Chicago, IL'
+    }
+  },
+  {
+    review: 'The cool factor is undeniable.',
+    author: {
+      name: 'Allen Y.',
+      role: 'Player',
+      location: 'Los Angeles, CA'
+    }
+  },
+  {
+    review: 'I like it so much that I bought a second one for our club!',
+    author: {
+      name: 'Robert M.',
+      role: 'Player',
+      location: 'Flagstaff, AZ'
+    }
+  },
+  {
+    review: 'Man! I waited for years for someone to finally build this!',
+    author: {
+      name: 'Dave M.',
+      role: 'Player',
+      location: 'Los Angeles, CA'
+    }
+  },
+]
 
 const slides = [
   {
@@ -121,29 +178,35 @@ const slides = [
                             Buy now
                         </a>
                         <a
-                        href="/NewDesigns/PickleballCollector"
+                        href="https://calendly.com/haithameletrabi/30-minute-meeting-tennibot-demo" target="_blank"
                         class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">
                             Book a demo
                         </a>
                     </div>
-                    <div class="flex flex-col sm:flex-row sm:items-center gap-y-5 sm:gap-y-0 py-6 gap-x-5">
+                    <div class="flex flex-col sm:grid sm:grid-cols-2 sm:items-center gap-y-5 sm:gap-y-5 py-6 gap-x-5">
                       <div class="flex flex-row items-center gap-x-3">
-                          <div class="size-[3rem] lg:w-[4rem] sm:w-[4rem] md:w-[3rem] p-3 rounded-lg bg-[#262424] flex items-center justify-center">
+                          <div class="size-[3rem] p-3 rounded-lg bg-[#262424] flex items-center justify-center">
                               <img src={TruckIcon.src} alt="Shipping" class="size-full" />
                           </div>
                           <p class="text-sm font-pluto text-t-off-white">Free shipping in the US</p>
                       </div>
                       <div class="flex flex-row items-center gap-x-3">
-                          <div class="size-[3rem] lg:w-[4rem] sm:w-[4rem] md:w-[3rem] p-3 rounded-lg bg-[#262424] flex items-center justify-center">
+                          <div class="size-[3rem] p-3 rounded-lg bg-[#262424] flex items-center justify-center">
                               <img src={MoneyBackIcon.src} alt="Shipping" class="size-full" />
                           </div>
                           <p class="text-sm font-pluto text-t-off-white">60 day money-back guarantee</p>
                       </div>
                       <div class="flex flex-row items-center gap-x-3">
-                          <div class="size-[3rem] lg:w-[4rem] sm:w-[4rem] md:w-[3rem] p-3 rounded-lg bg-[#262424] flex items-center justify-center">
+                          <div class="size-[3rem] p-3 rounded-lg bg-[#262424] flex items-center justify-center">
                               <img src={protectIcon.src} alt="Shipping" class="size-full" />
                           </div>
                           <p class="text-sm font-pluto text-t-off-white">3 Year Warranty</p>
+                      </div>
+                      <div class="flex flex-row items-center gap-x-3">
+                          <div class="size-[3rem] p-3 rounded-lg bg-[#262424] flex items-center justify-center">
+                              <img src={AutomateIcon.src} alt="Shipping" class="size-full" />
+                          </div>
+                          <p class="text-sm font-pluto text-t-off-white">Made in the USA</p>
                       </div>
                     </div>
                 </div>
@@ -152,7 +215,7 @@ const slides = [
               <div class="border-2 border-t-green bg-[rgba(192,242,12,0.05)] rounded-lg sm:p-6 px-4 py-6 mt-5">
                 <div class="flex flex-col sm:flex-row items-center sm:space-x-4">
                     <h3 class="text-t-green font-avenirBold mb-3 uppercase sm:hidden text-xl">BUNDLE & SAVE!</h3>
-                    <div class="sm:w-[30%] w-full sm:h-40 h-28 bg-cover bg-center bg-[url('/images/new/pickleball/ballmachine.webp')] bg-slate-600 rounded-lg overflow-hidden">
+                    <div class="sm:w-[30%] w-full sm:h-40 h-28 bg-cover bg-center bg-[url('/images/new/tennis/tennis-bundle.webp')] bg-slate-600 rounded-lg overflow-hidden">
                     </div>
                     <div class="flex-1">
                         <h3 class="text-t-green font-avenirBold mb-2 uppercase hidden sm:block">BUNDLE & SAVE!</h3>
@@ -160,8 +223,8 @@ const slides = [
                             Bundle PARTNER + ROVER for seamless practice — nonstop shots, zero ball pickup.
                         </p>
                         <div class="flex items-center space-x-3 mb-4">
-                            <span class="text-t-off-white text-xl font-avenirBold">$2,995</span>
-                            <span class="text-gray-400 line-through text-xl font-avenir">$3,500</span>
+                            <span class="text-t-off-white text-xl font-avenirBold">$3,995</span>
+                            <span class="text-gray-400 line-through text-xl font-avenir">$7,000</span>
                         </div>
                         <div class="flex flex-col mobilel:flex-row space-y-4 mobilel:space-y-0 mobilel:space-x-4 font-avenir">
                             <button class="w-full sm:w-48 lg:w-[50%] bg-t-green hover:bg-opacity-90 text-black font-semibold px-6 py-2 rounded-full text-sm transition duration-300 uppercase">
@@ -196,13 +259,13 @@ const slides = [
               </p>
               
               <p class="text-t-off-white sm:text-lg text-base font-pluto leading-relaxed">
-                The Tennibot Rover revolutionizes ball collection with <span class="text-t-green">AI-powered tracking and navigation</span>. Unlike manual collectors that simply assist with a tedious chore, the Rover eliminates the task entirely by autonomously navigating the court to efficiently locate and collect pickleballs automatically.
+                The Tennibot Rover revolutionizes ball collection with <span class="text-t-green">AI-powered tracking and navigation</span>. Unlike manual collectors that simply assist with a tedious chore, the Rover eliminates the task entirely by autonomously navigating the court to efficiently locate and collect tennis balls automatically.
               </p>
             </div>
             
             <div class="h-[50vh] md:h-[60vh] lg:h-full overflow-hidden rounded-lg">
                <img
-                src={TennibotMachine.src}
+                src={tennibotRoverCarried.src}
                 alt="Tennibot Mobile App Interface"
                 fetchpriority="high"
                 class="w-full h-full object-cover"
@@ -213,7 +276,7 @@ const slides = [
     </section>
 
     <section
-      class="py-16 sm:py-20 bg-[url('/images/new/pickleball/pickleball-ai-partner.webp')] bg-cover bg-center lg:py-24"
+      class="py-16 sm:py-20 bg-[url('/images/new/tennis/tennis-tennibot.webp')] bg-cover bg-center lg:py-24"
       role="region"
       aria-label="AI Partner"
     >
@@ -413,7 +476,7 @@ const slides = [
                                 </div>
                                 <div>
                                     <h4 class="text-t-green font-avenirBold lg:text-lg md:text-base text-lg">Long battery life, fast recharge</h4>
-                                    <p class="text-t-off-white font-pluto mt-1 md:text-sm lg:text-base text-base">4-6 hours operation, quick charging system</p>
+                                    <p class="text-t-off-white font-pluto mt-1 md:text-sm lg:text-base text-base">4-5 hours operation, quick charging system</p>
                                 </div>
                             </div>
                         </div>
@@ -421,7 +484,7 @@ const slides = [
                     
                     <div class="relative sm:h-[586px] h-[386px]">
                         <img
-                            src={bucketmachin.src}
+                            src={tennibotRoverFolded.src}
                             class="w-full h-full object-cover rounded-lg opacity-100"
                             alt="Bucket Machine"
                         />
@@ -436,7 +499,7 @@ const slides = [
                 <div class="md:grid  flex flex-col-reverse md:grid-cols-2 gap-12 items-center">
                     <div class="relative w-full sm:h-[586px] h-[386px]">
                         <img
-                            src={picklebotIcon.src}
+                            src={tennibotPartnerWithPlayer.src}
                             class="w-full h-full object-cover rounded-lg opacity-100"
                             alt="Picklebot Icon"
                         />
@@ -451,7 +514,7 @@ const slides = [
                         </div>
                         
                         <p class="text-t-off-white text-base md:text-sm lg:text-base leading-relaxed font-pluto">
-                            Train. Shoot. Collect. Repeat. Combine Tennibot Rover with the Tennibot Partner ball machine to create a fully autonomous pickleball training system.
+                            Train. Shoot. Collect. Repeat. Combine Tennibot Rover with the Tennibot Partner ball machine to create a fully autonomous tennis training system.
                         </p>
                         
                         <!-- Features List -->
@@ -512,7 +575,7 @@ const slides = [
                     </Text> 
 
                     <Text tag="p" className="font-pluto text-t-off-white sm:text-base text-sm text-pretty mt-1 tracking-tight" >
-                        Exceptional ball retrievers stand out through thoughtful design. Look for a collection tray that holds 100+ balls to extend session length. Portability is key for multi-court facilities, and the level of automation determines how much hands-free convenience the system offers during use.
+                        Exceptional ball retrievers stand out through thoughtful design. Look for a collection tray that holds 90+ balls to extend session length. Portability is key for multi-court facilities, and the level of automation determines how much hands-free convenience the system offers during use.
                     </Text>
                 </div>
                 <div>
@@ -528,21 +591,24 @@ const slides = [
     <section class="py-16 sm:py-20 lg:py-24 bg-t-off-black" role="region" aria-label="Customer testimonials">
         <div>
             <div class="text-center max-w-[80%] mx-auto mb-12 sm:mb-16 lg:mb-20">
-              <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-avenirBold mb-4 sm:mb-6 leading-tight text-t-off-white uppercase">What <span class="text-t-green">players & coaches</span><br class="hidden sm:block"/> say about tennibot</h2>
+              <h2 class="text-2xl sm:text-3xl md:text-4xl font-avenirBold mb-4 sm:mb-6 leading-tight text-t-off-white uppercase">What <span class="text-t-green">players & coaches</span> say about<br class="hidden sm:block"/> our Tennis Ball Collector</h2>
             </div>
-            <DraggableSlider client:load className="gap-10" >
-                <TestimonialItem client:load quote={`"It's fantastic for drilling, practice points, and even doubles drills. I really enjoyed it."`} name="Sylvana Jordyn" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406658" className="bg-[url('/images/partner/testimonial-one.png')]" />
-                <TestimonialItem client:load quote={`"I worked on rapid-fire volleys, reflexes, and range at the net—it's perfect for sharpening your skills."`} name="Logan West" location="Washington, DC" videoSource="https://player.vimeo.com/video/1031406854" className="bg-[url('/images/partner/testimonial-two.png')]" />
-                <TestimonialItem client:load quote={`"What surprised me the most was how much I had to move and anticipate—it felt just like a real hitting session."`} name="Alex Chan" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406731" className="bg-[url('/images/partner/testimonial-three.png')]" />
-                <TestimonialItem client:load quote={`"The Tennibot Partner is an amazing ball machine—it moves, evolves, and offers an experience unlike any other ball machine I've played with before."`} name="Mo Eldemerdash" location="Auburn, AL" videoSource="https://player.vimeo.com/video/1031426621" className="bg-[url('/images/partner/testimonial-four.png')]" />
-            </DraggableSlider>
+            <div class="relative flex h-full w-full flex-col text-t-off-white items-center justify-center overflow-hidden" >
+              <Marquee pauseOnHover className="[--duration:100s]" >
+                {MARQUEE_CONTENT.map((item, index) => {
+                  return (
+                    <CustomerReview key={index} review={item.review} author={item.author} />
+                  )
+                })}
+              </Marquee>
+            </div>
         </div>
     </section>
     <section class="py-16 sm:py-20 lg:py-24 bg-[#262424]" role="region" aria-label="Frequently asked questions">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
             <div>
-              <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-avenirBold text-white mb-4 sm:mb-6 leading-tight">
+              <h2 class="text-2xl sm:text-3xl uppercase md:text-4xl lg:text-4xl font-avenirBold text-white mb-4 sm:mb-6 leading-tight">
                 Frequently asked<br class="hidden lg:block" />
                 questions about<br class="hidden lg:block" />
                 <span class="text-t-green">Tennibot Tennis gear</span>
@@ -564,7 +630,7 @@ const slides = [
     </section>
     <section class="relative py-16 sm:py-20 lg:py-24 overflow-hidden" role="region" aria-label="Call to action">
         <img 
-          src={smarterAi.src} 
+          src={tennibotOnCourt.src} 
           alt="Tennibot Station and Rover tennis ball machines on the court" 
           class="absolute bottom-0 left-0 w-full h-full object-cover object-bottom pointer-events-none z-10" 
         />
@@ -574,10 +640,11 @@ const slides = [
           </h2>
           
           <div class="flex flex-col w-full sm:flex-row justify-center gap-4 max-w-md sm:max-w-none mx-auto">
-            <a href="/compare" class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">
+            <!-- TODO: Add link to checkout -->
+            <a href="/tennis/ball-machine" class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">
               SHOP NOW
             </a>
-            <a href="/compare" class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">
+            <a href="https://calendly.com/haithameletrabi/30-minute-meeting-tennibot-demo" target="_blank" class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">
               BOOK A DEMO
             </a>
           </div>

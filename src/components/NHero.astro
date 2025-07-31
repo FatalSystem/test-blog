@@ -21,16 +21,21 @@ const { heroStyle = `bg-[url('/images/new/home/home-hero.webp')]`, primaryCta, s
             <div
             class="hidden sm:flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center animate-fade-in-up delay-400 max-w-md sm:max-w-none mx-auto"
             >
+                {primaryCta && (
                     <a 
                     href={primaryCtaLink} 
                     class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">
                         {primaryCta}
                     </a>
+                )}
+                {secondaryCta && (
                     <a 
                     href={secondaryCtaLink} 
                     class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">
                         {secondaryCta}
                     </a>
+                    
+                )}
             </div>
         </div>
 

@@ -1,11 +1,8 @@
 ---
 import NHero from "@components/NHero.astro";
 import Layout from "layouts/Layout.astro";
-import pickleballBallMachine from '@assets/new/pickleball/ballmachine.webp';
-import pickleballBallCollector from '@assets/new/pickleball/collector.webp';
 
 import SaveupIcon from "@assets/newdesignimages/SaveupIcon.png";
-import BuiltforIcon from "@assets/newdesignimages/BuiltforIcon.png";
 import AutomateIcon from "@assets/newdesignimages/AutomateIcon.png";
 
 import Text from "@components/core/Text.astro"
@@ -19,7 +16,11 @@ import DraggableSlider from "@components/DraggableSlider";
 import TestimonialItem from "@components/TestimonialItem";
 import NewFAQ from "@components/NewFAQ";
 
-import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
+import TennibotPartner from '@assets/new/tennis/tennis-tennibot-partner-ball-machine.webp'
+import TennibotRover from '@assets/new/tennis/tennis-tennibot-rover-ball-collector.webp'
+import RustedbyIcon from "@assets/newdesignimages/rustedbyIcon.png";
+
+import tennisPartnerBg from '@assets/new/tennis/tennibot-partner-bg.webp'
 
 ---
 <Layout title="Tennibot | Tennis Ball Machines">
@@ -52,7 +53,7 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
             <div class="flex flex-col sm:justify-center sm:flex-row sm:flex-nowrap sm:[&::-webkit-scrollbar]:hidden gap-6 sm:gap-5 md:gap-8">
                 <article id="pickleball-ball-machine" class="relative sm:min-w-[285px] rounded-2xl lg:h-full h-[45vh] sm:h-full overflow-hidden">
                     <img     
-                        src={pickleballBallMachine.src}
+                        src={TennibotPartner.src}
                         alt="Tennibot Partner - AI-powered tennis ball machine with programmable drills"     
                         fetchpriority="high"     
                         class="w-full h-full object-cover"
@@ -71,7 +72,7 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
 
                 <article id="pickleball-ball-collector" class="relative sm:min-w-[285px] rounded-2xl lg:h-full h-[45vh] sm:h-full overflow-hidden">
                     <img     
-                        src={pickleballBallCollector.src}
+                        src={TennibotRover.src}
                         alt="Tennibot Rover - Automatic tennis ball collector and retriever"     
                         fetchpriority="high"     
                         class="w-full h-full object-cover"
@@ -80,7 +81,7 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
                     <div class="absolute flex flex-col justify-end bottom-0 top-0 left-0 right-0 p-6 sm:p-8 bg-gradient-to-t from-black/60 via-black/40 to-transparent">
                         <h3 class="text-xl uppercase sm:text-2xl font-avenirBold mb-2 text-white"><span class="font-plutoLight" >Tennis<br /></span> Ball Collector</h3>
                         <p class="text-sm sm:text-base font-pluto text-gray-200 mb-4 sm:mb-6 leading-relaxed">
-                            Automate ball retrieval with the Tennibot Rover – a smart, portable collector built for tennis courts
+                            Automate ball retrieval with the Tennibot Rover – a smart, portable collector built for every tennis court (hard, clay, grass, & artificial turf).
                         </p>
                         <a href="/tennis/ball-collector" class={`w-full text-sm sm:text-base rounded-full py-3 px-8 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>
                             Shop now
@@ -92,7 +93,7 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
     </section>
 
     <section
-      class="py-16 sm:py-20 bg-[url('/images/new/pickleball/pickleball-ai-partner.webp')] bg-cover bg-center lg:py-24"
+      class="py-16 sm:py-20 bg-[url('/images/new/tennis/tennis-tennibot.webp')] bg-cover bg-center lg:py-24"
       role="region"
       aria-label="AI Partner"
     >
@@ -123,12 +124,12 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
 
             <div class="flex items-center gap-3 sm:gap-4">
               <img
-                src={SaveupIcon.src}
+                src={RustedbyIcon.src}
                 alt="Save court time icon"
                 class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
               />
               <p class="text-sm sm:text-base font-pluto text-t-off-white">
-                Perfect for players, coaches and clubs
+                Perfect for clubs, coaches, and individual players
               </p>
             </div>
 
@@ -155,7 +156,7 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
                 Build Your Smart tennis<br class="hidden sm:block"/> Court With <span class="text-t-green">Tennibot</span>
             </h2>
             <p class="mobilel:text-base text-sm mt-3 font-plutoLight text-center text-t-off-white px-4">
-                Use Tennibot gear individually or as an integrated system.<br class="hidden sm:block" /> Automate drills and collect balls hands-free – all powered by AI.
+                Use Tennibot gear individually or as an integrated system. <br class="hidden sm:block" />Automate drills and collect balls hands-free - all powered by AI.
             </p>
         </div>
 
@@ -181,7 +182,7 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
                         <Image src={courtsIcon.src} alt="Tennibot mobile app interface for controlling tennis ball machines and collectors" class="size-full" />
                     </div>
                     <div>
-                        <Text tag="p" className="font-avenirBold text-base text-pretty tracking-tight" >Works with all standard pickleball courts</Text> 
+                        <Text tag="p" className="font-avenirBold text-base text-pretty tracking-tight" >Works with all standard tennis courts</Text> 
                         <Text tag="p" className="font-pluto text-sm text-pretty mt-1 tracking-tight" >Easy setup on any court surface or configuration</Text>
                     </div>
                 </div>
@@ -195,8 +196,8 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
                     </div>
                 </div>
                 <div class="justify-center flex md:block" >
-                    <a class="w-full px-10 cursor-pointer text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black" >
-                        Learn how it works
+                    <a href="https://calendly.com/haithameletrabi/30-minute-meeting-tennibot-demo" target="_blank" class="w-full px-10 cursor-pointer text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black" >
+                        Book a demo
                     </a>
                 </div>
             </div>
@@ -213,12 +214,11 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
                 <div>
                     <Text tag="p" className="font-avenirBold text-base mobilel:text-lg md:text-xl text-t-green text-pretty tracking-tight" >
-                      Growing Popularity
+                      An Iconic Sport for the Modern Player
                     </Text> 
 
                     <Text tag="p" className="font-pluto text-t-off-white sm:text-base text-sm text-pretty mt-1 tracking-tight" >
-                        Tennis has exploded in popularity, becoming America's fastest-growing sport. With this growth comes an increasing demand for professional-grade training tools and equipment that can keep up with players' evolving needs. <br />
-                        <br />Traditional training methods often fall short, requiring constant ball collection, subjective line calls, and limited drill variety.
+                      Tennis stands apart as a timeless game, respected for its history and revered for its discipline. But today’s players are faster, smarter, and more strategic than ever. With this evolution comes a need for tools that match their pace. Tennibot brings AI-powered automation to the court, giving athletes and coaches a smarter way to train, play, and improve.
                     </Text>
                 </div>
                 <div>
@@ -227,8 +227,8 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
                     </Text> 
 
                     <Text tag="p" className="font-pluto text-t-off-white sm:text-base text-sm text-pretty mt-1 tracking-tight" >
-                        The pain points are clear: manual ball collection interrupts training flow, disputed line calls disrupt games, and inconsistent ball feeds limit skill development. 
-                        <br /><br />Players waste valuable court time on maintenance tasks instead of focusing on improvement. Coaches struggle to provide consistent, high-quality training experiences for multiple skill levels simultaneously.
+                      One of the biggest hurdles in tennis training isn’t your technique, it’s timing. Finding a hitting partner who matches your level and your schedule can be next to impossible. Manual ball collection disrupts rhythm and cuts valuable time from actual training.
+                      Players lose momentum chasing balls instead of refining their skills. For coaches, delivering consistent instruction across multiple skill levels becomes a logistical challenge.
                     </Text>
                 </div>
                 <div>
@@ -237,8 +237,7 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
                     </Text> 
 
                     <Text tag="p" className="font-pluto text-t-off-white sm:text-base text-sm text-pretty mt-1 tracking-tight" >
-                        Tennibot’s AI-powered gear tackles key training challenges with precision. The ball machine offers programmable feeds tailored to skill level, the robotic collector cleans up without stopping play, and the AI referee ensures accurate, unbiased calls. 
-                        <br /><br />Designed for players and coaches alike, Tennibot helps you train more effectively and focus on performance.
+                      Tennibot’s AI-powered gear tackles key training challenges with precision. The ball machine offers programmable feeds tailored to skill level and the robotic collector cleans up without stopping play.
                     </Text>
                 </div>
             </div>
@@ -251,6 +250,7 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
               <h2 class="text-2xl sm:text-3xl md:text-4xl font-avenirBold mb-4 sm:mb-6 leading-tight text-t-off-white uppercase">What <span class="text-t-green">players & coaches</span><br class="hidden sm:block"/> say about tennibot</h2>
             </div>
             <DraggableSlider client:load className="gap-10" >
+                <TestimonialItem client:load quote={`"“This is really impressive, any of the tennis ball machines I used in the past don’t compare to this... they’re highly predicable, this ones not as predictable.”`} name="Charlie" location="Auburn, AL" videoSource="https://player.vimeo.com/video/1106005248" className="bg-[url('/images/new/home/charlie-testimonial.webp')]" />
                 <TestimonialItem client:load quote={`"It's fantastic for drilling, practice points, and even doubles drills. I really enjoyed it."`} name="Sylvana Jordyn" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406658" className="bg-[url('/images/partner/testimonial-one.png')]" />
                 <TestimonialItem client:load quote={`"I worked on rapid-fire volleys, reflexes, and range at the net—it's perfect for sharpening your skills."`} name="Logan West" location="Washington, DC" videoSource="https://player.vimeo.com/video/1031406854" className="bg-[url('/images/partner/testimonial-two.png')]" />
                 <TestimonialItem client:load quote={`"What surprised me the most was how much I had to move and anticipate—it felt just like a real hitting session."`} name="Alex Chan" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406731" className="bg-[url('/images/partner/testimonial-three.png')]" />
@@ -263,15 +263,11 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
             <div>
-              <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-avenirBold text-white mb-4 sm:mb-6 leading-tight">
-                FREQUENTLY ASKED<br class="hidden lg:block" />
-                QUESTIONS ABOUT<br class="hidden lg:block" />
-                <span class="text-t-green">TENNIBOT</span>
+              <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-avenirBold text-white mb-4 sm:mb-6 uppercase leading-tight">
+                Common Questions<br class="hidden lg:block" /> About <span class="text-t-green">Tennibot <br class="hidden lg:block" />Tennis Gear</span>
               </h2>
               <p class="text-sm sm:text-base lg:text-lg font-pluto text-t-off-white opacity-95 mb-6 sm:mb-8">
-                Join the revolution in tennis training. Bring<br class="hidden md:block" />
-                AI-powered coaching to your program and<br class="hidden md:block" />
-                watch your players excel.
+                Join the revolution in tennis training today!
               </p>
               <p class="text-xs sm:text-sm lg:text-base font-pluto text-t-off-white">
                 Got more questions? Give us a ring at<br class="hidden md:block" />
@@ -286,7 +282,7 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
 
       <section class="relative py-16 sm:py-20 lg:py-24 overflow-hidden" role="region" aria-label="Call to action">
         <img 
-          src={pickleballBg.src} 
+          src={tennisPartnerBg.src} 
           alt="Tennibot Station and Rover tennis ball machines on the court" 
           class="absolute bottom-0 left-0 w-full h-full object-cover object-bottom pointer-events-none z-10" 
         />
@@ -297,10 +293,11 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
           </h2>
           
           <div class="flex flex-col w-full sm:flex-row justify-center gap-4 max-w-md sm:max-w-none mx-auto">
-            <a href="/compare" class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">
+            <!-- TODO: Add link to bundle checkout -->
+            <a href="/tennis/ball-machine" class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">
               SHOP NOW
             </a>
-            <a href="/compare" class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">
+            <a href="https://calendly.com/haithameletrabi/30-minute-meeting-tennibot-demo" target="_blank" class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">
               BOOK A DEMO
             </a>
           </div>

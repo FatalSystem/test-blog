@@ -30,9 +30,9 @@ const FAQ: Array<{ question: string, answer: string | JSX.Element }> = [
   }
 ]
 
-const NewFAQItem = ({ idx, selected, onClick, item }: { idx: number, selected: boolean, onClick: () => void, item: { question: string, answer: string | JSX.Element } }): JSX.Element => {
+const NewFAQItem = ({ idx, selected, onClick, item, isLast }: { idx: number, selected: boolean, onClick: () => void, item: { question: string, answer: string | JSX.Element }, isLast: boolean }): JSX.Element => {
   return (
-    <button onClick={onClick} className={`w-full border-b-2 border-t-off-white overflow-hidden ${idx === 4 ? 'border-opacity-0' : 'border-opacity-60'} pb-4 mb-4`} aria-expanded="false" aria-controls="faq-1">
+    <button onClick={onClick} className={`w-full border-b-2 border-t-off-white overflow-hidden ${isLast ? 'border-opacity-0' : 'border-opacity-60'} pb-4 mb-4`} aria-expanded="false" aria-controls="faq-1">
       <div className="w-full flex justify-between text-left ">
         <span className="text-t-off-white font-plutoBold text-lg">{item.question}</span>
         <svg className={`w-5 h-5 text-t-off-white transition-all ease-in-out duration-500 ${selected ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -46,12 +46,17 @@ const NewFAQItem = ({ idx, selected, onClick, item }: { idx: number, selected: b
   )
 }
 
-const NewFAQ = (): JSX.Element => {
+interface IFAQ {
+  faq?: Array<{ question: string, answer: string | JSX.Element }>
+}
+
+const NewFAQ = ({ faq }: IFAQ): JSX.Element => {
   const [selected, setSelected] = useState<number>(-1)
+  const currentFAQ = faq ?? FAQ
   return (
     <div>
-      {FAQ.map((item, index) => (
-        <NewFAQItem key={index} idx={index} selected={index === selected} onClick={() => {
+      {currentFAQ.map((item, index) => (
+        <NewFAQItem key={index} idx={index} isLast={index === currentFAQ.length - 1} selected={index === selected} onClick={() => {
           if (index === selected) {
             setSelected(-1)
           } else {
