@@ -120,7 +120,7 @@ const slides = [
                         <a
                         href="/NewDesigns/PickleballCollector"
                         class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">
-                            Reserve now for $99
+                            Reserve for $99
                         </a>
                         <!-- <a
                         href="/NewDesigns/PickleballCollector"
@@ -208,13 +208,19 @@ const slides = [
               </p>
             </div>
             
-            <div class="h-[50vh] md:h-[60vh] lg:h-full overflow-hidden rounded-lg">
-               <img
+            <div class="h-[50vh] relative md:h-[60vh] lg:h-full overflow-hidden rounded-lg">
+               <!-- <img
                 src={TennibotMachine.src}
                 alt="Tennibot Mobile App Interface"
                 fetchpriority="high"
                 class="w-full h-full object-cover"
-              />
+              /> -->
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen" >
+                <video class="w-full h-full object-cover bg-[url('/images/cover-img2.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
+                    <source src='https://d21pdw38fc8384.cloudfront.net/picklebot-reel.mp4' type="video/mp4" />
+                    {'Your browser doesn\'t support the video tag.'}
+                </video>
+              </div>
             </div>
           </div>
         </div>

@@ -276,12 +276,18 @@ const slides = [
     </section>
 
     <section
-      class="py-16 sm:py-20 bg-[url('/images/new/tennis/tennis-tennibot.webp')] bg-cover bg-center lg:py-24"
+      class="py-16 sm:py-20 relative overflow-hidden bg-cover bg-center lg:py-24"
       role="region"
       aria-label="AI Partner"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 min-h-[55vh] flex flex-col justify-between relative z-10">
-        <div class="mb-8 sm:mb-12">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen" >
+          <video class="w-full h-full object-cover bg-[url('/images/cover-img2.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
+              <source src='https://d21pdw38fc8384.cloudfront.net/tennis-tennibot-rover-bg-video.mp4' type="video/mp4" />
+              {'Your browser doesn\'t support the video tag.'}
+          </video>
+        </div>
+        <div class="mb-8 z-10 sm:mb-12">
             <h2
               class="text-2xl uppercase mobilem:text-2xl sm:text-4xl md:text-4xl lg:text-5xl text-center font-avenirBold leading-tight text-white"
             >
@@ -289,7 +295,7 @@ const slides = [
             </h2>
         </div>
 
-        <div class="max-w-6xl mx-auto">
+        <div class="max-w-6xl z-10 mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div class="flex items-center gap-4">
                 <img

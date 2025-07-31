@@ -19,10 +19,25 @@ import TestimonialItem from "@components/TestimonialItem";
 import NewFAQ from "@components/NewFAQ";
 
 import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
+import VideoHero from "@components/VideoHero";
 
 ---
 <Layout title="Tennibot | Pickleball Ball Machines">
-    <NHero heroStyle="bg-[url('/images/new/pickleball/pickleball-hero.webp')]" primaryCta="Ball machine" secondaryCta="Ball collector" primaryCtaLink="/pickleball/ball-machine" secondaryCtaLink="/pickleball/ball-collector" >
+  <VideoHero 
+        client:only="react" 
+        title="Explore AI-Powered <span class='text-t-green drop-shadow-lg font-avenirBold'>Pickleball Gear</span><br class='hidden sm:block'/> That’s Changing the game"
+        description="Discover the most advanced AI pickleball machine and the <br class='hidden sm:block'/>only autonomous ball collector in the world"
+        primaryCta={{
+            text: "Ball Machine",
+            href: "/pickleball/ball-machine"
+        }}
+        secondaryCta={{
+            text: "Ball Collector", 
+            href: "/pickleball/ball-collector"
+        }}
+        videoSource="https://d21pdw38fc8384.cloudfront.net/pickleball-hero-bg.mp4"
+    />
+    <!-- <NHero heroStyle="bg-[url('/images/new/pickleball/pickleball-hero.webp')]" primaryCta="Ball machine" secondaryCta="Ball collector" primaryCtaLink="/pickleball/ball-machine" secondaryCtaLink="/pickleball/ball-collector" >
         <h1
         slot="title"
         class="text-xl uppercase mobilem:text-2xl mobilel:text-3xl font-avenirBold sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-3 sm:mb-5 leading-tight animate-fade-in-up text-white"
@@ -35,7 +50,7 @@ import pickleballBg from '@assets/new/pickleball/pickleball-demo-bg.webp'
         >
           Discover the most advanced AI pickleball machine and the <br class="hidden sm:block"/>only autonomous ball collector in the world
         </p>
-    </NHero>
+    </NHero> -->
 
     <section id="products" class="py-16 sm:py-20 lg:py-24 bg-[#191A16] relative z-10" role="region" aria-label="Product showcase">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">

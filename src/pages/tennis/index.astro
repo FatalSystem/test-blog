@@ -1,5 +1,4 @@
 ---
-import NHero from "@components/NHero.astro";
 import Layout from "layouts/Layout.astro";
 
 import SaveupIcon from "@assets/newdesignimages/SaveupIcon.png";
@@ -21,23 +20,24 @@ import TennibotRover from '@assets/new/tennis/tennis-tennibot-rover-ball-collect
 import RustedbyIcon from "@assets/newdesignimages/rustedbyIcon.png";
 
 import tennisPartnerBg from '@assets/new/tennis/tennibot-partner-bg.webp'
+import VideoHero from "@components/VideoHero";
 
 ---
 <Layout title="Tennibot | Tennis Ball Machines">
-    <NHero heroStyle="bg-[url('/images/new/pickleball/pickleball-hero.webp')]" primaryCta="Ball machine" secondaryCta="Ball collector" primaryCtaLink="/tennis/ball-machine" secondaryCtaLink="/tennis/ball-collector" >
-        <h1
-        slot="title"
-        class="text-xl uppercase mobilem:text-2xl drop-shadow-lg mobilel:text-3xl font-avenirBold sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-3 sm:mb-5 leading-tight animate-fade-in-up text-white"
-        >
-            AI-Powered Robots to take <span class="text-t-green drop-shadow-lg font-avenirBold ">your tennis</span><br class="hidden sm:block"/> to the next level
-        </h1>
-        <p
-        slot="description"
-        class="text-sm drop-shadow-lg font-plutoLight sm:text-base md:text-lg mb-6 sm:mb-8 opacity-90 leading-relaxed animate-fade-in-up delay-200 text-white max-w-2xl mx-auto"
-        >
-            Discover the most advanced tennis ball machine, and the <br class="hidden sm:block"/>only <span class="text-t-green" >autonomous ball collector</span> - powered by AI
-        </p>
-    </NHero>
+    <VideoHero 
+        client:only="react" 
+        title="AI-Powered Robots to take <span class='text-t-green drop-shadow-lg font-avenirBold'>your tennis</span><br class='hidden sm:block'/> to the next level"
+        description="Discover the most advanced tennis ball machine, and the <br class='hidden sm:block'/>only <span class='text-t-green'>autonomous ball collector</span> - powered by AI"
+        primaryCta={{
+            text: "Ball Machine",
+            href: "/tennis/ball-machine"
+        }}
+        secondaryCta={{
+            text: "Ball Collector", 
+            href: "/tennis/ball-collector"
+        }}
+        videoSource="https://d21pdw38fc8384.cloudfront.net/tennis-bg-video.mp4"
+    />
 
     <section id="products" class="py-16 sm:py-20 lg:py-24 bg-[#191A16] relative z-10" role="region" aria-label="Product showcase">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
