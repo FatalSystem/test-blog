@@ -6,8 +6,8 @@ const FAQ: Array<{ question: string, answer: string | JSX.Element }> = [
     answer: 'The Rover and Station can last up to 5 hours on a full charge.'
   },
   {
-    question: 'Is the collector safe for clay courts?',
-    answer: 'Yes, the collector is safe for clay courts.'
+    question: 'Can I use the Partner or Rover on clay??',
+    answer: 'Yes!'
   },
   {
     question: 'Can I use these products indoors?',
@@ -20,12 +20,7 @@ const FAQ: Array<{ question: string, answer: string | JSX.Element }> = [
   {
     question: 'What is the warranty period?',
     answer: <>
-    <p>When you purchase a Tennibot, it comes with a comprehensive 2-year warranty. This warranty ensures that any malfunctions or defects will be repaired free of charge. Please note that the warranty does not cover losses due to theft, intentional damage, or neglect.</p>
-    <p className='font-plutoBold mt-5 mb-2'>Eligibility:</p>
-    <ul className='list-disc list-inside'>
-      <li>The warranty is included with every outright purchase of a Tennibot.</li>
-      <li>Customers on an active rent-to-own plan are also covered under this warranty.</li>
-    </ul>
+    <p>When you purchase a Tennibot, it comes with a comprehensive 3-year warranty. This warranty ensures that any malfunctions or defects will be repaired free of charge. Please note that the warranty does not cover losses due to theft, intentional damage, or neglect.</p>
     </>
   }
 ]

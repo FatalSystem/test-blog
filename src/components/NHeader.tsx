@@ -14,21 +14,6 @@ const roverLinks = [
   { label: 'Padel', href: '/padel/ball-collector' }
 ]
 
-const tennisLinks = [
-  { label: 'Ball Machine', href: '/tennis/ball-machine' },
-  { label: 'Ball Collector', href: '/tennis/ball-collector' }
-]
-
-const pickleballLinks = [
-  { label: 'Ball Machine', href: '/pickleball/ball-machine' },
-  { label: 'Ball Collector', href: '/pickleball/ball-collector' }
-]
-
-const padelLinks = [
-  { label: 'Ball Machine', href: '/padel/ball-machine' },
-  { label: 'Ball Collector', href: '/padel/ball-collector' }
-]
-
 const howItWorksLinks = [
   { label: 'Tennis', href: '/tennis' },
   { label: 'Pickleball', href: '/pickleball' },
@@ -153,46 +138,19 @@ export default function NHeader (): React.JSX.Element {
                       >
                         <a
                         href="/tennis"
-                        className={'text-lg sm:block rounded-full pt-2 pb-1 px-5 text-t-off-white hover:text-t-green my-auto font-avenir uppercase transform transition duration-500 ease-in-out'}>
+                        className={'text-lg sm:block rounded-full py-3 px-5 text-t-off-white hover:text-t-green my-auto font-avenirBold uppercase transform transition duration-500 ease-in-out'}>
                             Tennis
                         </a>
-                        {tennisLinks.map((link, index) => (
-                          <a
-                            key={index}
-                            href={link.href}
-                            className='block pl-10 py-3 text-t-off-white hover:text-t-green hover:bg-black/20 transition-colors duration-200 font-avenirBold uppercase text-sm'
-                          >
-                            {link.label}
-                          </a>
-                        ))}
                         <a
                         href="/pickleball"
-                        className={'text-lg sm:block hover:text-t-green rounded-full pt-2 pb-1 px-5 text-t-off-white h my-auto font-avenir uppercase transform transition duration-500 ease-in-out'}>
+                        className={'text-lg sm:block hover:text-t-green rounded-full py-3 px-5 text-t-off-white my-auto font-avenirBold uppercase transform transition duration-500 ease-in-out'}>
                             Pickleball
                         </a>
-                        {pickleballLinks.map((link, index) => (
-                          <a
-                            key={index}
-                            href={link.href}
-                            className='block pl-10 py-3 text-t-off-white hover:text-t-green hover:bg-black/20 transition-colors duration-200 font-avenirBold uppercase text-sm'
-                          >
-                            {link.label}
-                          </a>
-                        ))}
                         <a
                         href="/padel"
-                        className={'text-lg sm:block hover:text-t-green rounded-full pt-2 pb-1 px-5 text-t-off-white my-auto font-avenir uppercase transform transition duration-500 ease-in-out'}>
+                        className={'text-lg sm:block hover:text-t-green rounded-full py-3 px-5 text-t-off-white my-auto font-avenirBold uppercase transform transition duration-500 ease-in-out'}>
                             Padel
                         </a>
-                        {padelLinks.map((link, index) => (
-                          <a
-                            key={index}
-                            href={link.href}
-                            className='block pl-10 py-3 text-t-off-white hover:text-t-green hover:bg-black/20 transition-colors duration-200 font-avenirBold uppercase text-sm'
-                          >
-                            {link.label}
-                          </a>
-                        ))}
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -320,12 +278,7 @@ export default function NHeader (): React.JSX.Element {
                         transition={{ duration: 0.2, ease: 'easeOut' }}
                         className='overflow-hidden pb-20'
                       >
-                        <div className="pl-4">
-                          <a
-                          className={'text-lg sm:block rounded-full pt-2 px-5 text-t-off-white my-auto font-avenirBold uppercase transform transition duration-500 ease-in-out'}>
-                              <span className='font-avenir'>How it</span> works<br />
-                              <p className="text-sm font-avenir opacity-60 ml-5 mb-[-20px]" >By sport</p>
-                          </a>
+                        <div>
                           {howItWorksLinks.map((link, index) => (
                             <a
                               key={index}

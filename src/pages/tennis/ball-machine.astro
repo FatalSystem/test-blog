@@ -12,20 +12,14 @@ import DraggableSlider from "@components/DraggableSlider";
 import TestimonialItem from "@components/TestimonialItem";
 import NewFAQ from "@components/NewFAQ";
 
-import MoneyBackIcon from "@assets/newdesignimages/MoneyBackIcon.png";
-import TruckIcon from "@assets/newdesignimages/TruckIcon.png";
-import protectIcon from "@assets/newdesignimages/protectIcon.png";
-
-import smarterAi from '@assets/new/pickleball/smarter-ai.webp'
 import { TSliderTwo } from "@components/TSliderTwo";
 
 import tennibotPartnerWithPerson from '@assets/new/tennis/tennibot-partner-person.webp'
 import tennibotRoverOnCourt from '@assets/new/tennis/tennibot-rover-on-court.webp'
 
 import tennisTennibotPartner from '@assets/new/tennis/tennis-tennibot-partner.webp'
-import flagIcon from '@assets/icons/flag.svg'
-import cashbackIcon from '@assets/icons/cashback.svg'
 import Perks from "@components/Perks.astro";
+import tennisPartnerBg from '@assets/new/tennis/tennibot-partner-bg.webp'
 
 const slides = [
   {
@@ -575,7 +569,7 @@ const slides = [
               <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-avenirBold mb-4 sm:mb-6 leading-tight text-t-off-white uppercase">What <span class="text-t-green">players & coaches</span><br class="hidden sm:block"/> say about tennibot</h2>
             </div>
             <DraggableSlider client:load className="gap-10" >
-                <TestimonialItem client:load quote={`"“This is really impressive, any of the tennis ball machines I used in the past don’t compare to this... they’re highly predicable, this ones not as predictable.”`} name="Charlie" location="Auburn, AL" videoSource="https://player.vimeo.com/video/1106005248" className="bg-[url('/images/new/home/charlie-testimonial.webp')]" />
+                <TestimonialItem client:load quote={`"“This is really impressive, any of the tennis ball machines I used in the past don’t compare to this... they’re highly predicable, this ones not as predictable.”`} name="Charlie Harrison" location="Auburn, AL" videoSource="https://player.vimeo.com/video/1106005248" className="bg-[url('/images/new/home/charlie-testimonial.webp')]" />
                 <TestimonialItem client:load quote={`"It's fantastic for drilling, practice points, and even doubles drills. I really enjoyed it."`} name="Sylvana Jordyn" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406658" className="bg-[url('/images/partner/testimonial-one.png')]" />
                 <TestimonialItem client:load quote={`"I worked on rapid-fire volleys, reflexes, and range at the net—it's perfect for sharpening your skills."`} name="Logan West" location="Washington, DC" videoSource="https://player.vimeo.com/video/1031406854" className="bg-[url('/images/partner/testimonial-two.png')]" />
                 <TestimonialItem client:load quote={`"What surprised me the most was how much I had to move and anticipate—it felt just like a real hitting session."`} name="Alex Chan" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406731" className="bg-[url('/images/partner/testimonial-three.png')]" />
@@ -607,7 +601,7 @@ const slides = [
     </section>
     <section class="relative py-16 sm:py-20 lg:py-24 overflow-hidden" role="region" aria-label="Call to action">
         <img 
-          src={smarterAi.src} 
+          src={tennisPartnerBg.src} 
           alt="Tennibot Station and Rover tennis ball machines on the court" 
           class="absolute bottom-0 left-0 w-full h-full object-cover object-bottom pointer-events-none z-10" 
         />
