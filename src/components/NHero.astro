@@ -1,0 +1,123 @@
+---
+import bbcimg from "@assets/newdesignimages/head/bbc.png";
+import timeImg from "@assets/newdesignimages/head/timeVector.png";
+import digitalTraends from "@assets/newdesignimages/head/digital-trends.png";
+import laTimes from "@assets/newdesignimages/head/latimes.png";
+import mashhable from "../assets/newdesignimages/head/mashable.png";
+
+const { heroStyle = `bg-[url('/images/new/home/home-hero.webp')]`, primaryCta, secondaryCta, primaryCtaLink, secondaryCtaLink } = Astro.props
+
+---
+
+<section
+    class={`min-h-screen mt-[-100px] bg-cover bg-center relative ${heroStyle}`}
+    role="banner"
+    aria-label="Hero section"
+>
+    <div class="w-full h-full min-h-screen flex flex-col justify-between">
+        <div class="text-center pt-4 mt-36 px-4">
+            <slot name="title" />
+            <slot name="description" />
+            <div
+            class="hidden sm:flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center animate-fade-in-up delay-400 max-w-md sm:max-w-none mx-auto"
+            >
+                {primaryCta && (
+                    <a 
+                    href={primaryCtaLink} 
+                    class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">
+                        {primaryCta}
+                    </a>
+                )}
+                {secondaryCta && (
+                    <a 
+                    href={secondaryCtaLink} 
+                    class="w-full sm:w-48 lg:w-64 text-sm sm:text-base lg:text-lg rounded-full py-3 sm:py-2 lg:py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">
+                        {secondaryCta}
+                    </a>
+                    
+                )}
+            </div>
+        </div>
+
+        <!-- Mobile-only bottom section -->
+        <div class="sm:hidden px-4 pb-8">
+            <div
+            class="flex flex-wrap gap-4 justify-center items-center mb-6"
+            aria-label="Featured in major publications"
+            >
+                <img
+                    src={timeImg.src}
+                    alt="Featured in TIME Magazine"
+                    class="h-6 hover:opacity-100 transition-opacity duration-300"
+                />
+                <img
+                    src={bbcimg.src}
+                    alt="Featured in BBC News"
+                    class="h-6 hover:opacity-100 transition-opacity duration-300"
+                />
+                <img
+                    src={laTimes.src}
+                    alt="Featured in Los Angeles Times"
+                    class="h-6 hover:opacity-100 transition-opacity duration-300"
+                />
+                <img
+                    src={mashhable.src}
+                    alt="Featured in Mashable"
+                    class="h-6 hover:opacity-100 transition-opacity duration-300"
+                />
+                <img
+                    src={digitalTraends.src}
+                    alt="Featured in Digital Trends"
+                    class="h-6 hover:opacity-100 transition-opacity duration-300"
+                />
+            </div>
+            
+            <div
+            class="flex flex-col gap-3 justify-center items-center animate-fade-in-up delay-400 max-w-md mx-auto mb-20"
+            >
+                {primaryCta && (
+                    <a href={primaryCtaLink} class="w-full text-sm rounded-full py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">
+                        {primaryCta}
+                    </a>
+                )}
+                {secondaryCta && (
+                    <a href={secondaryCtaLink} class="w-full text-sm rounded-full py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">
+                        {secondaryCta}
+                    </a>
+                )}
+            </div>
+        </div>
+
+        <!-- Desktop/tablet bottom section (original layout) -->
+        <div
+            class="hidden sm:flex flex-wrap gap-4 sm:gap-4 lg:gap-6 justify-center items-center px-4 mb-8 sm:mb-20 lg:mb-24 xl:mb-34"
+            aria-label="Featured in major publications"
+        >
+            <img
+            src={timeImg.src}
+            alt="Featured in TIME Magazine"
+            class="h-6 hover:opacity-100 transition-opacity duration-300"
+            />
+            <img
+            src={bbcimg.src}
+            alt="Featured in BBC News"
+            class="h-6 hover:opacity-100 transition-opacity duration-300"
+            />
+            <img
+            src={laTimes.src}
+            alt="Featured in Los Angeles Times"
+            class="h-6 hover:opacity-100 transition-opacity duration-300"
+            />
+            <img
+            src={mashhable.src}
+            alt="Featured in Mashable"
+            class="h-6 hover:opacity-100 transition-opacity duration-300"
+            />
+            <img
+            src={digitalTraends.src}
+            alt="Featured in Digital Trends"
+            class="h-6 hover:opacity-100 transition-opacity duration-300"
+            />
+        </div>
+    </div>
+</section>

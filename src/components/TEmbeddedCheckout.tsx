@@ -209,10 +209,11 @@ export default function TEmbeddedCheckout(): JSX.Element {
   }
 
   const options = useMemo(() => {
-    if (checkoutType === 'partner') {
+    // This weird if is in case we want to bring back subscriptions
+    if (checkoutType?.includes('partner')) {
       return { fetchClientSecret, onShippingDetailsChange }
     }
-    if (checkoutType === 'onetime') {
+    if (checkoutType === 'onetime' || checkoutType === 'tennisbundle' || checkoutType === 'picklebotreservation' || checkoutType === 'padelbotreservation') {
       return { fetchClientSecret, onShippingDetailsChange }
     }
     return { fetchClientSecret }

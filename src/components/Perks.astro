@@ -1,0 +1,33 @@
+---
+import TruckIcon from "@assets/newdesignimages/TruckIcon.png";
+import protectIcon from "@assets/newdesignimages/protectIcon.png";
+import flagIcon from '@assets/icons/flag.svg'
+import cashbackIcon from '@assets/icons/cashback.svg'
+---
+
+<div class="flex flex-col sm:grid sm:grid-cols-2 sm:items-center gap-y-5 sm:gap-y-5 py-6 gap-x-5">
+    <div class="flex flex-row items-center gap-x-3">
+        <div class="size-[3rem] p-3 rounded-lg bg-[#262424] flex items-center justify-center">
+            <img src={TruckIcon.src} alt="Shipping" class="size-full" />
+        </div>
+        <p class="text-sm font-pluto text-t-off-white">Free shipping in the US</p>
+    </div>
+    <div class="flex flex-row items-center gap-x-3">
+        <div class="size-[3rem] p-3 rounded-lg bg-[#262424] flex items-center justify-center">
+            <img src={cashbackIcon.src} alt="Shipping" class="size-full" />
+        </div>
+        <p class="text-sm font-pluto text-t-off-white">60 day money-back guarantee</p>
+    </div>
+    <div class="flex flex-row items-center gap-x-3">
+        <div class="size-[3rem] p-3 rounded-lg bg-[#262424] flex items-center justify-center">
+            <img src={protectIcon.src} alt="Shipping" class="size-full" />
+        </div>
+        <p class="text-sm font-pluto text-t-off-white">3 Year Warranty</p>
+    </div>
+    <div class="flex flex-row items-center gap-x-3">
+        <div class="size-[3rem] p-3 rounded-lg bg-[#262424] flex items-center justify-center">
+            <img src={flagIcon.src} alt="Shipping" class="size-full" />
+        </div>
+        <p class="text-sm font-pluto text-t-off-white">Made in the USA</p>
+    </div>
+  </div>

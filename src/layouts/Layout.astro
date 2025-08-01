@@ -7,7 +7,10 @@ import Banner from "@components/Banner"
 import PartnerHeader from "@components/PartnerHeader"
 import SecondaryPartnerHeader from "@components/SecondaryPartnerHeader"
 import { Pages } from "@utils"
+import NFooter from "@components/NFooter.astro"
+import NHeader from "@components/NHeader"
 import TrackPageView from "@components/TrackPageView.astro"
+
 export interface Props {
   title: string
   showHeader?: boolean
@@ -38,7 +41,7 @@ const { title, showHeader = true, showFooter = true, showPartnerHeader = false, 
 	  <meta property="og:site_name" content="Tennibot" />
 	  <meta property="og:determiner" content="the" />
 	  <meta property="og:type" content="website" />
-    <meta property="og:description" content="Tennibot | The world's first robotic tennis ball collector. Play more, pick up less.">
+    <meta property="og:description" content="Autonomous robot collects tennis balls and feeds shots, saving practice time and boosting performance—train smarter with Tennibot.">
 	  <meta name="description" content="Tennibot | The world's first robotic tennis ball collector. Play more, pick up less.">
     <meta name="keywords" content="tennis ball machine, tennis ball collector, tennis ball hopper, ball hopper, tennis ball mower, tennis robot, tennis ball picker upper, tennis ball pickup machine, tennis ball collector robot, tennis ball collector machine, automatic tennis ball collector, automated tennis ball collector">
     <meta name="viewport" content="width=device-width" />
@@ -133,10 +136,11 @@ const { title, showHeader = true, showFooter = true, showPartnerHeader = false, 
       edgetag('tag', 'PageView' )
     </script>
     <!-- <Popup client:only="react" /> -->
-    {showHeader && <Header client:load />}
+    <!-- {showHeader && <Header client:load />}
     {showPartnerHeader && <PartnerHeader client:load />}
-    {showSecondaryHeader && <SecondaryPartnerHeader showSecondaryMenu={showSecondaryMenu} client:load />}
+    {showSecondaryHeader && <SecondaryPartnerHeader showSecondaryMenu={showSecondaryMenu} client:load />} -->
+    {showHeader && <NHeader client:load />}
     <slot />
-    {showFooter && <Footer />}
+    {showFooter && <NFooter />}
   </body>
 </html>

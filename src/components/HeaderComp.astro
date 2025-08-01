@@ -1,0 +1,94 @@
+---
+import LogoGreen from '../assets/newdesignimages/LogoGreen.png';
+import '../../public/styles/global.css'
+---
+
+<nav class="fixed top-0 w-full px-6 lg:px-12 py-4 flex justify-between items-center bg-[#191A16] z-50 transition-all duration-300">
+  <!-- Logo -->
+  <div class="flex items-center">
+    <div class="w-10 h-10 rounded-full flex items-center justify-center">
+      <img     
+        id="background"     
+        src={LogoGreen.src}     
+        alt="Tennibot Logo"     
+        class="w-10 h-10 rounded-full object-cover pointer-events-none z-0"   
+      />
+    </div>
+  </div>
+
+<div class="flex items-center">
+<div class="hidden md:flex items-center gap-0">
+  <a href="#products" class="text-white font-medium text-lg uppercase tracking-wider hover:text-lime-400 transition-colors duration-300 px-4 py-2">Products</a>
+  <span class="text-gray-400 text-lg">|</span>
+  <a href="#how-it-works" class="text-white font-medium text-lg uppercase tracking-wider hover:text-lime-400 transition-colors duration-300 px-4 py-2">How It Works</a>
+  <span class="text-gray-400 text-lg">|</span>
+  <a href="#who-its-for" class="text-white font-medium text-lg uppercase tracking-wider hover:text-lime-400 transition-colors duration-300 px-4 py-2">Who It's For</a>
+  <span class="text-gray-400 text-lg">|</span>
+  <a href="#about" class="text-white font-medium text-lg uppercase tracking-wider hover:text-lime-400 transition-colors duration-300 px-4 py-2">About</a>
+  <span class="text-gray-400 text-lg">|</span>
+  <a href="#support" class="text-white font-medium text-lg uppercase tracking-wider hover:text-lime-400 transition-colors duration-300 px-4 py-2">Support</a>
+</div>
+
+
+  <!-- CTA Button -->
+<div class="hidden md:block">
+  <a
+    href="#book-demo"
+    class="bg-[#2b2e17] border-2 border-lime-400 text-white px-5 py-3 rounded-full font-bold text-base uppercase tracking-wider hover:bg-lime-400 hover:text-black transition-all duration-300"
+  >
+    Book Demo
+  </a>
+</div>
+
+</div>
+
+  <!-- Mobile Menu Button -->
+  <div class="md:hidden flex flex-col gap-1 cursor-pointer hamburger-menu" id="hamburger">
+    <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+    <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+    <span class="w-6 h-0.5 bg-white transition-all duration-300"></span>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="md:hidden fixed top-0 left-0 w-full h-full bg-black z-40 flex flex-col justify-center items-center gap-8 hidden transition-all duration-300" id="mobile-menu">
+    <a href="#products" class="text-white text-xl font-medium hover:text-lime-400 transition-colors duration-300 mobile-nav-link">PRODUCTS</a>
+    <a href="#how-it-works" class="text-white text-xl font-medium hover:text-lime-400 transition-colors duration-300 mobile-nav-link">HOW IT WORKS</a>
+    <a href="#who-its-for" class="text-white text-xl font-medium hover:text-lime-400 transition-colors duration-300 mobile-nav-link">WHO IT'S FOR</a>
+    <a href="#about" class="text-white text-xl font-medium hover:text-lime-400 transition-colors duration-300 mobile-nav-link">ABOUT</a>
+    <a href="#support" class="text-white text-xl font-medium hover:text-lime-400 transition-colors duration-300 mobile-nav-link">SUPPORT</a>
+    <a href="#book-demo" class="border-2 border-lime-400 text-lime-400 px-6 py-2 rounded-full font-medium text-sm uppercase tracking-wider hover:bg-lime-400 hover:text-black transition-all duration-300">
+      Book Demo
+    </a>
+    <div class="absolute top-6 right-6 text-white text-3xl cursor-pointer" id="close-menu">&times;</div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu functionality
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeMenu = document.getElementById('close-menu');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+  hamburger?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  closeMenu?.addEventListener('click', () => {
+    mobileMenu?.classList.add('hidden');
+  });
+
+  // Close mobile menu when clicking on nav links
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+
+  // Close mobile menu when clicking outside
+  mobileMenu?.addEventListener('click', (e) => {
+    if (e.target === mobileMenu) {
+      mobileMenu.classList.add('hidden');
+    }
+  });
+</script>

@@ -86,7 +86,7 @@ export default function PartnerFooterForm ({ formClassName, inputClassName, butt
             render={({ field }) => (
                 <FormItem className='w-full' >
                     <FormControl>
-                        <Input {...field} style={{ borderRadius: formSent ? '0.35rem 0.35rem 0.35rem 0.35rem' : '0.35rem 0 0 0.35rem', width: '100%' }}
+                        <Input {...field} /* style={{ borderRadius: formSent ? '0.35rem 0.35rem 0.35rem 0.35rem' : '0.35rem 0 0 0.35rem', width: '100%' }} */
                             placeholder='Email Address'
                             type="email"
                             value={formSent ? 'Thank you!' : field.value}
@@ -100,8 +100,8 @@ export default function PartnerFooterForm ({ formClassName, inputClassName, butt
             {!formSent && (
                 <Button disabled={form.formState.disabled || !form.formState.isValid || form.formState.isSubmitting || (form.formState.isSubmitSuccessful && !errorSubmitting)} className={buttonClassName} >
                         {form.formState.isSubmitting && <Loader2 className="size-5 animate-spin absolute inset-0 m-auto" />}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="16" viewBox="0 0 45 26" className={`${form.formState.isSubmitting ? 'opacity-0' : 'opacity-100'}`} fill="none">
-                            <path opacity="0.5" d="M0 13H43M43 13L30.4146 25M43 13L30.4146 1" strokeWidth="3"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="16" viewBox="0 0 45 26" className={`${form.formState.isSubmitting ? 'opacity-0' : 'opacity-100'}`} fill="none">
+                            <path opacity="1" d="M0 13H43M43 13L30.4146 25M43 13L30.4146 1" strokeWidth="3"/>
                         </svg>
                 </Button>
             )}
