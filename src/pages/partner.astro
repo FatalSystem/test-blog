@@ -17,6 +17,7 @@ import { Pages } from "@utils"
 import PartnerHowItWorksSlider from "@components/PartnerHowItWorksSlider"
 import DraggableSlider from "@components/DraggableSlider"
 import DraggablePartnerAction from "@components/DraggablePartnerAction"
+import CTAButton from "@components/CTAButton"
 ---
 <Layout title="Partner | Tennibot" showFooter={false} showHeader={false} showPartnerHeader={true} showSecondaryHeader={true} >
     <main class="w-full bg-t-off-black text-t-off-white" >
@@ -118,7 +119,14 @@ import DraggablePartnerAction from "@components/DraggablePartnerAction"
                 </p>
                 <a href='/compare' class={`tablet:w-64 w-full 2xl:w-80 text-xl 2xl:text-2xl 2xl: 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>Compare</a>
             </div> -->
-            <a href='/compare' class={`tablet:w-64 w-full 2xl:w-80 text-xl 2xl:text-2xl 2xl: 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>Compare</a>
+            <CTAButton
+                href='/compare'
+                ctaText="Compare"
+                ctaType="compare"
+                className=`tablet:w-64 w-full 2xl:w-80 text-xl 2xl:text-2xl 2xl: 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`
+                client:load
+            />
+            <!-- <a href='/compare' class={`tablet:w-64 w-full 2xl:w-80 text-xl 2xl:text-2xl 2xl: 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black`}>Compare</a> -->
         </div>
 
         <div class="w-[80%] 2xl:w-[65%] mx-auto flex flex-row justify-center gap-10 pt-5 pb-16" >
@@ -207,6 +215,13 @@ import DraggablePartnerAction from "@components/DraggablePartnerAction"
 <PartnerFooter />
 <div class="sticky lg:hidden bottom-0 z-50">
     <div class="bg-[#262424] px-5 py-4 flex flex-row w-full justify-between items-center z-20">
-        <a href='/buy-partner' class={'w-full mx-auto tablet:w-52 2xl:w-80 text-md 2xl:text-xl 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black'}>Buy</a>
+        <CTAButton
+            href="/buy-partner"
+            ctaText="Buy"
+            ctaType="checkout"
+            className='w-full mx-auto tablet:w-52 2xl:w-80 text-md 2xl:text-xl 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black'
+            client:load
+            />
+        <!-- <a href='/buy-partner' class={'w-full mx-auto tablet:w-52 2xl:w-80 text-md 2xl:text-xl 2xl:py-3 rounded-full py-2 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black'}>Buy</a> -->
     </div>
 </div>

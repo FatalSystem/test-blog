@@ -8,6 +8,7 @@ import { Button } from './Button'
 import { Info, Loader2 } from 'lucide-react'
 import { Checkbox } from './Checkbox'
 import PhoneForm from './PhoneForm'
+import { trackProductInterestSubmitted } from '@utils'
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -41,6 +42,13 @@ export default function SportForm ({ from, sport }: { from: string, sport: strin
   const [showPhoneForm, setShowPhoneForm] = useState<boolean>(false)
   const [currentEmail, setCurrentEmail] = useState<string>('')
 
+  const [urlParams, setUrlParams] = useState<URLSearchParams>()
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setUrlParams(new URLSearchParams(window.location.search))
+    }
+  }, [])
+
   const onSubmit = async (values: z.infer<typeof formSchema>): Promise<void> => {
     try {
       if (errorSubmitting) setErrorSubmitting(false)
@@ -71,6 +79,18 @@ export default function SportForm ({ from, sport }: { from: string, sport: strin
     } catch (error) {
       setErrorSubmitting(true)
       console.error(error)
+    } finally {
+      trackProductInterestSubmitted({
+        $email: values.email,
+        $user_id: values.email,
+        page_name: `/${sport}`,
+        name: values.name,
+        utm_campaign: urlParams?.get('utm_campaign') ?? '',
+        utm_source: urlParams?.get('utm_source') ?? '',
+        utm_content: urlParams?.get('utm_content') ?? '',
+        utm_medium: urlParams?.get('utm_medium') ?? '',
+        utm_term: urlParams?.get('utm_term') ?? ''
+      })
     }
   }
 

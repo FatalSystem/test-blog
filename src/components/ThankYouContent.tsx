@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { CircleCheck, AlertCircle, Loader2 } from 'lucide-react'
 import tennibotLogo from '../assets/tennibot-logo-green.svg'
-import { Pages } from '@utils'
+import { Pages, trackPurchaseCompleted } from '@utils'
 import PostPurchaseForm from './PostPurchaseForm'
 
 interface SessionData {
@@ -28,8 +28,40 @@ export default function ThankYouContent (): JSX.Element {
         setError('No session ID found')
         setIsLoading(false)
         return
+        } else {
+        // call api for data layer start
+        await fetch('/.netlify/functions/completed-payment', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            sessionId
+          })
+        }).then(async (res) => {
+          const resp = await res.json()
+
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'payment_completed',
+            ecommerce: {
+              currency: resp.currency,
+              transaction_id: resp.paymentIntentId,
+              name: resp.customerName,
+              phone: resp.customerPhone,
+              value: resp.value,
+              email: resp.customerEmail,
+              items: resp.products // Assuming backend includes product details
+            }
+          });
+
+          console.log(resp)
+        })
       }
 
+        // call api for data layer end
+
+        
       const MAX_RETRIES = 3
       const TIMEOUT_MS = 10000 // 10 seconds
 
@@ -61,6 +93,30 @@ export default function ThankYouContent (): JSX.Element {
           //   transaction_id: sessionId
           // })
           setSessionData(data)
+          trackPurchaseCompleted({
+            $email: data.email,
+            $user_id: data.email,
+            page_name: '/thank-you',
+            // payment_method: 'credit_card', // TODO
+            // shipping_country: 'US', // TODO
+            cart: [{
+              brand: 'Tennibot',
+              category: 'ROVER',
+              product_name: productType === 'rover' ? 'Autonomous Ball Collector' : 'Smart Ball Machine',
+              // item_id: 11111, // TODO
+              price: data.value,
+              quantity: data.quantity,
+              currency: data.currency
+            }],
+            subtotal: data.value,
+            total_due: data.value,
+            utm_campaign: urlParams?.get('utm_campaign') ?? '',
+            utm_source: urlParams?.get('utm_source') ?? '',
+            utm_content: urlParams?.get('utm_content') ?? '',
+            utm_medium: urlParams?.get('utm_medium') ?? '',
+            utm_term: urlParams?.get('utm_term') ?? ''
+          })
+
           edgetag('tag', 'Purchase', {
             currency: data.currency,
             value: data.value,

@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'usehooks-ts'
 import { motion } from 'framer-motion'
+import { derivePageMetadata, trackProductViewed } from '@utils'
 
 const tabItemStyle = 'text-nowrap cursor-pointer text-lg pl-4 transition-all duration-200 ease-in'
 
@@ -21,6 +22,34 @@ export default function VerticalTab (): JSX.Element {
         return 'https://d21pdw38fc8384.cloudfront.net/ball-collection.mp4'
     }
   }
+
+  const [urlParams, setUrlParams] = useState<URLSearchParams>()
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setUrlParams(new URLSearchParams(window.location.search))
+    }
+  }, [])
+
+  useEffect(() => {
+    trackProductViewed({
+      cart: [{
+        brand: 'Tennibot',
+        category: 'ROVER',
+        product_name: 'Rover and Station',
+        price: 2995,
+        quantity: 1,
+        currency: 'USD'
+      }],
+      page_type: derivePageMetadata(window.location.pathname).page_type,
+      page_slug: derivePageMetadata(window.location.pathname).page_slug,
+      page_name: derivePageMetadata(window.location.pathname).page_name,
+      utm_campaign: urlParams?.get('utm_campaign') ?? '',
+      utm_source: urlParams?.get('utm_source') ?? '',
+      utm_content: urlParams?.get('utm_content') ?? '',
+      utm_medium: urlParams?.get('utm_medium') ?? '',
+      utm_term: urlParams?.get('utm_term') ?? ''
+    })
+  }, [])
 
   return (
     <div className='md:flex hidden flex-row mt-20 mb-48' >

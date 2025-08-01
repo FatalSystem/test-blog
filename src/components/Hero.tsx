@@ -1,11 +1,31 @@
-import { Pages } from '@utils'
-import { useState } from 'react'
+import { Pages, trackProductViewed } from '@utils'
+import { useEffect, useState } from 'react'
 // import { useMediaQuery } from 'usehooks-ts'
 import VideoPlayer from './VideoPlayer'
 
 export default function Herot (): JSX.Element {
   // const isTablet = useMediaQuery('(max-width: 720px)')
   const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [urlParams, setUrlParams] = useState<URLSearchParams>()
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setUrlParams(new URLSearchParams(window.location.search))
+    }
+  }, [])
+
+  useEffect(() => {
+    // trackProductViewed({
+    //   $email: 'email@email.com', // TODO
+    //   $user_id: 'user_id',
+    //   page_name: '/tennis',
+    //   cart: [{ product_name: 'Partner', price: 2995 }],
+    //   utm_campaign: urlParams.get('utm_campaign') ?? '',
+    //   utm_source: urlParams.get('utm_source') ?? '',
+    //   utm_content: urlParams.get('utm_content') ?? '',
+    //   utm_medium: urlParams.get('utm_medium') ?? '',
+    //   utm_term: urlParams.get('utm_term') ?? ''
+    // })
+  }, [])
 
   // const videoSource = isTablet ? 'https://d21pdw38fc8384.cloudfront.net/tennibot-preview-tablet.mp4' : 'https://d21pdw38fc8384.cloudfront.net/tennibot-preview.mp4'
   const videoSource = 'https://d21pdw38fc8384.cloudfront.net/tennibot-preview-2.webm'

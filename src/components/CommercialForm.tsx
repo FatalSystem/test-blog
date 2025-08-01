@@ -6,7 +6,7 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from './Button'
 import { Info, Loader2 } from 'lucide-react'
-import { encode } from '@utils'
+import { encode, trackLeadFormSubmitted } from '@utils'
 import { Checkbox } from './Checkbox'
 
 const inputStyle = 'bg-transparent border-2 p-2.5 border-t-off-white rounded-md sm:p-1.5 focus:outline-none focus:ring-indigo-500 focus:border-t-green'
@@ -51,6 +51,13 @@ export default function CommercialForm (): JSX.Element {
   const [sent, setSent] = useState<boolean>(false)
 
   const [errorSubmitting, setErrorSubmitting] = useState<boolean>(false)
+
+  const [urlParams, setUrlParams] = useState<URLSearchParams>()
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setUrlParams(new URLSearchParams(window.location.search))
+    }
+  }, [])
 
   const subscribeToNewsletter = async (email: string, fname: string, lname: string, phone: string): Promise<void> => {
     try {
@@ -100,6 +107,23 @@ export default function CommercialForm (): JSX.Element {
     } catch (error) {
       setErrorSubmitting(true)
       console.error(error)
+    } finally {
+      trackLeadFormSubmitted({
+        $email: values.email,
+        $user_id: values.email,
+        page_name: '/clubs-and-coaches',
+        name: values.name,
+        phoneNumber: values.phone,
+        facility_name: values.facility,
+        zip_code: values.zipcode,
+        about_us: values.about,
+        lead_type: 'Commercial',
+        utm_campaign: urlParams?.get('utm_campaign') ?? '',
+        utm_source: urlParams?.get('utm_source') ?? '',
+        utm_content: urlParams?.get('utm_content') ?? '',
+        utm_medium: urlParams?.get('utm_medium') ?? '',
+        utm_term: urlParams?.get('utm_term') ?? ''
+      })
     }
   }
 

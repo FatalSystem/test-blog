@@ -10,7 +10,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
 
   try {
     const data = await event.json()
-    const { distinctId, checkoutType } = data
+    const { distinctId, checkoutType, email } = data
 
     const handleSubscriptionPrice = (): string => {
       if (checkoutType === 'annual') {
@@ -37,8 +37,9 @@ export default async (event: Request, context: Context): Promise<Response> => {
         // ...(data.utmParams?.content && { utm_content: data.utmParams.content }),
         // ...(data.utmParams?.id && { utm_id: data.utmParams.id }),
         // ...(data.utmParams?.medium && { utm_medium: data.utmParams.medium }),
-        ...(data.utmParams?.source && { utm_source: data.utmParams.source })
+        ...(data.utmParams?.source && { utm_source: data.utmParams.source }),
         // ...(data.utmParams?.term && { utm_term: data.utmParams.term })
+        email // Added here
       }
     }
 
@@ -222,6 +223,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
     const tennisPartnerCheckoutOptions: Stripe.Checkout.SessionCreateParams = {
       ...defaultCheckoutOptions,
       return_url: 'https://www.tennibot.com/thank-you?session={CHECKOUT_SESSION_ID}',
+      customer_email: email,
       permissions: {
         update_shipping_details: 'server_only'
       },
@@ -399,6 +401,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
     const oneTimeCheckoutOptions: Stripe.Checkout.SessionCreateParams = {
       ...defaultCheckoutOptions,
       return_url: 'https://www.tennibot.com/thank-you?session={CHECKOUT_SESSION_ID}&type=rover',
+      customer_email: email,
       permissions: {
         update_shipping_details: 'server_only'
       },
@@ -437,6 +440,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
     const subscriptionCheckoutOptions: Stripe.Checkout.SessionCreateParams = {
       ...defaultCheckoutOptions,
       return_url: 'https://www.tennibot.com/thank-you?session={CHECKOUT_SESSION_ID}&type=rover',
+      customer_email: email,
       line_items: [
         {
           price: handleSubscriptionPrice(),
