@@ -75,8 +75,7 @@ export default function TEmbeddedCheckout (): JSX.Element {
     //   term: urlParams.get('utm_term'),
       source: urlParams.get('utm_source')
     }
-    // return await fetch('/.netlify/functions/create-embedded-checkout', {
-    return await fetch('https://deploy-preview-67--chic-pithivier-13b636.netlify.app/.netlify/functions/create-embedded-checkout', {
+    return await fetch('/.netlify/functions/create-embedded-checkout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
