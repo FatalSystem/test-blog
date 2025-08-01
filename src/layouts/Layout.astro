@@ -136,7 +136,7 @@ const { title, showHeader = true, showFooter = true, showPartnerHeader = false, 
     <!-- {showHeader && <Header client:load />}
     {showPartnerHeader && <PartnerHeader client:load />}
     {showSecondaryHeader && <SecondaryPartnerHeader showSecondaryMenu={showSecondaryMenu} client:load />} -->
-    <NHeader client:load />
+    {showHeader && <NHeader client:load />}
     <slot />
     {showFooter && <NFooter />}
   </body>
