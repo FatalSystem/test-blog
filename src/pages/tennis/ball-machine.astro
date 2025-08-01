@@ -23,7 +23,9 @@ import tennibotPartnerWithPerson from '@assets/new/tennis/tennibot-partner-perso
 import tennibotRoverOnCourt from '@assets/new/tennis/tennibot-rover-on-court.webp'
 
 import tennisTennibotPartner from '@assets/new/tennis/tennis-tennibot-partner.webp'
-import AutomateIcon from "@assets/newdesignimages/AutomateIcon.png";
+import flagIcon from '@assets/icons/flag.svg'
+import cashbackIcon from '@assets/icons/cashback.svg'
+import Perks from "@components/Perks.astro";
 
 const slides = [
   {
@@ -127,7 +129,8 @@ const slides = [
                         BOOK A DEMO
                         </a>
                     </div>
-                    <div class="flex flex-col sm:grid sm:grid-cols-2 sm:items-center gap-y-5 sm:gap-y-5 py-6 gap-x-5">
+                    <Perks />
+                    <!-- <div class="flex flex-col sm:grid sm:grid-cols-2 sm:items-center gap-y-5 sm:gap-y-5 py-6 gap-x-5">
                       <div class="flex flex-row items-center gap-x-3">
                           <div class="size-[3rem] p-3 rounded-lg bg-[#262424] flex items-center justify-center">
                               <img src={TruckIcon.src} alt="Shipping" class="size-full" />
@@ -136,7 +139,7 @@ const slides = [
                       </div>
                       <div class="flex flex-row items-center gap-x-3">
                           <div class="size-[3rem] p-3 rounded-lg bg-[#262424] flex items-center justify-center">
-                              <img src={MoneyBackIcon.src} alt="Shipping" class="size-full" />
+                              <img src={cashbackIcon.src} alt="Shipping" class="size-full" />
                           </div>
                           <p class="text-sm font-pluto text-t-off-white">60 day money-back guarantee</p>
                       </div>
@@ -148,18 +151,18 @@ const slides = [
                       </div>
                       <div class="flex flex-row items-center gap-x-3">
                           <div class="size-[3rem] p-3 rounded-lg bg-[#262424] flex items-center justify-center">
-                              <img src={AutomateIcon.src} alt="Shipping" class="size-full" />
+                              <img src={flagIcon.src} alt="Shipping" class="size-full" />
                           </div>
                           <p class="text-sm font-pluto text-t-off-white">Made in the USA</p>
                       </div>
-                    </div>
+                    </div> -->
                 </div>
               
               
               <div class="border-2 border-t-green bg-[rgba(192,242,12,0.05)] rounded-lg sm:p-6 px-4 py-6 mt-5">
                 <div class="flex flex-col sm:flex-row items-center sm:space-x-4">
                     <h3 class="text-t-green font-avenirBold mb-3 uppercase sm:hidden text-xl">BUNDLE & SAVE!</h3>
-                    <div class="sm:w-[30%] w-full sm:h-40 h-28 bg-cover bg-center bg-[url('/images/new/tennis/tennis-bundle.webp')] bg-slate-600 rounded-lg overflow-hidden">
+                    <div class="sm:w-[30%] w-full h-40 bg-cover bg-center bg-[url('/images/new/tennis/tennis-bundle.webp')] bg-slate-600 rounded-lg overflow-hidden">
                     </div>
                     <div class="flex-1">
                         <h3 class="text-t-green font-avenirBold mb-2 uppercase hidden sm:block">BUNDLE & SAVE!</h3>

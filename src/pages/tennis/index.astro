@@ -10,7 +10,6 @@ import roverApp from '@assets/rover/roverapp.webp'
 
 import phoneIcon from '@assets/new/pickleball/phone.svg'
 import courtsIcon from '@assets/new/pickleball/courts.svg'
-import resistantIcon from '@assets/new/pickleball/resistant.svg'
 import DraggableSlider from "@components/DraggableSlider";
 import TestimonialItem from "@components/TestimonialItem";
 import NewFAQ from "@components/NewFAQ";
@@ -21,6 +20,8 @@ import RustedbyIcon from "@assets/newdesignimages/rustedbyIcon.png";
 
 import tennisPartnerBg from '@assets/new/tennis/tennibot-partner-bg.webp'
 import VideoHero from "@components/VideoHero";
+
+import gearIcon from '@assets/icons/gear.svg'
 
 ---
 <Layout title="Tennibot | Tennis Ball Machines">
@@ -151,12 +152,12 @@ import VideoHero from "@components/VideoHero";
     <section class="py-16 sm:py-20 lg:py-24 bg-t-off-black flex flex-col justify-center min-[550px]:items-center text-t-off-white" role="region" aria-label="Mobile app control">
         <div class="mb-8 sm:mb-12">
             <h2
-              class="text-2xl uppercase mobilem:text-3xl  sm:text-3xl md:text-4xl lg:text-5xl text-center font-avenirBold leading-tight text-white"
+              class="text-2xl uppercase md:w-full w-[95%] mx-auto mobilem:text-3xl  sm:text-3xl md:text-4xl lg:text-5xl text-center font-avenirBold leading-tight text-white"
             >
                 Build Your Smart tennis<br class="hidden sm:block"/> Court With <span class="text-t-green">Tennibot</span>
             </h2>
             <p class="mobilel:text-base text-sm mt-3 font-plutoLight text-center text-t-off-white px-4">
-                Use Tennibot gear individually or as an integrated system. <br class="hidden sm:block" />Automate drills and collect balls hands-free - all powered by AI.
+                Use Tennibot gear individually or as an integrated system. <br class="hidden sm:block " />Automate drills and collect balls hands-free - all powered by AI.
             </p>
         </div>
 
@@ -167,7 +168,7 @@ import VideoHero from "@components/VideoHero";
                     <Image src={roverApp} class="mx-auto w-full max-w-sm sm:max-w-md lg:max-w-lg" alt="Tennibot mobile app interface for controlling tennis ball machines and collectors" />
                 </picture>
             </div>
-            <div class="md:w-[50%] md:mb-0 mb-14 ml-10" >
+            <div class="md:w-[50%] md:mb-0 mb-14 md:ml-10" >
                 <div class="flex flex-row items-center gap-3 sm:gap-4 mb-10">
                     <div class="bg-[#262424] rounded-lg p-3 size-12 flex items-center justify-center" >
                         <Image src={phoneIcon.src} alt="Tennibot mobile app interface for controlling tennis ball machines and collectors" class="size-full" />
@@ -187,12 +188,12 @@ import VideoHero from "@components/VideoHero";
                     </div>
                 </div>
                 <div class="flex flex-row items-center gap-3 sm:gap-4 mb-10">
-                    <div class="bg-[#262424] rounded-lg p-3 size-12 flex items-center justify-center" >
-                        <Image src={resistantIcon.src} alt="Tennibot mobile app interface for controlling tennis ball machines and collectors" class="size-full" />
+                    <div class="bg-[#262424] rounded-lg p-3 min-[500px]:size-12 size-14 flex items-center justify-center" >
+                        <Image src={gearIcon.src} alt="Tennibot mobile app interface for controlling tennis ball machines and collectors" class="size-full" />
                     </div>
                     <div>
                         <Text tag="p" className="font-avenirBold text-base text-pretty tracking-tight" >Built for All Courts and Conditions</Text> 
-                        <Text tag="p" className="font-pluto text-sm text-pretty mt-1 tracking-tight" >Engineered to perform indoors or outdoors,<br class="hidden sm:block"/> with a durable design that stands up to the elements.</Text>
+                        <Text tag="p" className="font-pluto text-sm text-pretty mt-1 tracking-tight" >Engineered to perform indoors or outdoors,<br class="hidden sm:block"/> with a durable design.</Text>
                     </div>
                 </div>
                 <div class="justify-center flex md:block" >

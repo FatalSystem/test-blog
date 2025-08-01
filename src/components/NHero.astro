@@ -75,12 +75,16 @@ const { heroStyle = `bg-[url('/images/new/home/home-hero.webp')]`, primaryCta, s
             <div
             class="flex flex-col gap-3 justify-center items-center animate-fade-in-up delay-400 max-w-md mx-auto mb-20"
             >
-                <a href={primaryCtaLink} class="w-full text-sm rounded-full py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">
-                    {primaryCta}
-                </a>
-                <a href={secondaryCtaLink} class="w-full text-sm rounded-full py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">
-                    {secondaryCta}
-                </a>
+                {primaryCta && (
+                    <a href={primaryCtaLink} class="w-full text-sm rounded-full py-3 font-avenir uppercase border-2 transition duration-300 text-center bg-t-green border-t-green text-t-off-black hover:bg-opacity-90">
+                        {primaryCta}
+                    </a>
+                )}
+                {secondaryCta && (
+                    <a href={secondaryCtaLink} class="w-full text-sm rounded-full py-3 font-avenir uppercase text-t-green border-2 transition duration-300 text-center bg-[rgba(192,242,12,0.10)] border-t-green hover:bg-t-green hover:text-t-off-black">
+                        {secondaryCta}
+                    </a>
+                )}
             </div>
         </div>
 

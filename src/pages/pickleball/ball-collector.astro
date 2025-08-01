@@ -23,6 +23,7 @@ import picklebotOnCourt from "@assets/new/pickleball/picklebot-on-court.webp";
 import picklebotOnCourtBg from "@assets/new/pickleball/pickleball-on-court-bg.webp";
 
 import AutomateIcon from "@assets/newdesignimages/AutomateIcon.png";
+import Perks from "@components/Perks.astro";
 
 const slides = [
   {
@@ -128,7 +129,8 @@ const slides = [
                             Book a demo
                         </a> -->
                     </div>
-                    <div class="flex flex-col sm:grid sm:grid-cols-2 sm:items-center gap-y-5 sm:gap-y-5 py-6 gap-x-5">
+                    <Perks />
+                    <!-- <div class="flex flex-col sm:grid sm:grid-cols-2 sm:items-center gap-y-5 sm:gap-y-5 py-6 gap-x-5">
                       <div class="flex flex-row items-center gap-x-3">
                           <div class="size-[3rem] p-3 rounded-lg bg-[#262424] flex items-center justify-center">
                               <img src={TruckIcon.src} alt="Shipping" class="size-full" />
@@ -153,7 +155,7 @@ const slides = [
                           </div>
                           <p class="text-sm font-pluto text-t-off-white">Made in the USA</p>
                       </div>
-                    </div>
+                    </div> -->
                 </div>
               
               
@@ -208,15 +210,15 @@ const slides = [
               </p>
             </div>
             
-            <div class="h-[50vh] relative md:h-[60vh] lg:h-full overflow-hidden rounded-lg">
+            <div class="h-[50vh] relative md:h-[60vh] overflow-hidden lg:h-full rounded-lg">
                <!-- <img
                 src={TennibotMachine.src}
                 alt="Tennibot Mobile App Interface"
                 fetchpriority="high"
                 class="w-full h-full object-cover"
               /> -->
-              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen" >
-                <video class="w-full h-full object-cover bg-[url('/images/cover-img2.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full" >
+                <video class="w-full h-full object-cover bg-[url('/images/cover-img2.webp')] bg-cover bg-center" autoplay loop muted playsInline>
                     <source src='https://d21pdw38fc8384.cloudfront.net/picklebot-reel.mp4' type="video/mp4" />
                     {'Your browser doesn\'t support the video tag.'}
                 </video>

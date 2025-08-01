@@ -8,8 +8,7 @@ import AccurateIcon from "@assets/newdesignimages/AccurateIcon.png";
 
 import Layout from "layouts/Layout.astro";
 import Text from "@components/core/Text.astro"
-import DraggableSlider from "@components/DraggableSlider";
-import TestimonialItem from "@components/TestimonialItem";
+
 import NewFAQ from "@components/NewFAQ";
 
 import MoneyBackIcon from "@assets/newdesignimages/MoneyBackIcon.png";
@@ -17,14 +16,12 @@ import TruckIcon from "@assets/newdesignimages/TruckIcon.png";
 import protectIcon from "@assets/newdesignimages/protectIcon.png";
 
 import { TSliderTwo } from "@components/TSliderTwo";
-
-import pickleballMachine from "@assets/newdesignimages/bucketmachin.png";
-
 import padelTennibotPartner from "@assets/new/padel/padel-tennibot-partner.webp";
 
 import tennibotPadelbot from '@assets/new/padel/tennibot-padelbot.webp'
 import tennibotPadelbotOnCourt from '@assets/new/padel/tennibot-padelbot-on-court.webp'
 import AutomateIcon from "@assets/newdesignimages/AutomateIcon.png";
+import Perks from "@components/Perks.astro";
 
 const slides = [
   {
@@ -130,7 +127,8 @@ const slides = [
                             Book a demo
                         </a> -->
                     </div>
-                    <div class="flex flex-col sm:grid sm:grid-cols-2 sm:items-center gap-y-5 sm:gap-y-5 py-6 gap-x-5">
+                    <Perks />
+                    <!-- <div class="flex flex-col sm:grid sm:grid-cols-2 sm:items-center gap-y-5 sm:gap-y-5 py-6 gap-x-5">
                       <div class="flex flex-row items-center gap-x-3">
                           <div class="size-[3rem] p-3 rounded-lg bg-[#262424] flex items-center justify-center">
                               <img src={TruckIcon.src} alt="Shipping" class="size-full" />
@@ -155,7 +153,7 @@ const slides = [
                           </div>
                           <p class="text-sm font-pluto text-t-off-white">Made in the USA</p>
                       </div>
-                    </div>
+                    </div> -->
                 </div>
               
               

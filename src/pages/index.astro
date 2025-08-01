@@ -225,9 +225,9 @@ import pickleballPlayer from '@assets/new/home/pickleball-player.webp';
         
         <div class=" absolute flex flex-col justify-end bottom-0 top-0 left-0 right-0 p-6 sm:p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
           <h3 class="text-xl sm:text-2xl font-avenirBold mb-2 text-white uppercase">Tennis</h3>
-          <p class="text-sm sm:text-base font-pluto text-gray-200 mb-5 leading-relaxed">
+          <!-- <p class="text-sm sm:text-base font-pluto text-gray-200 mb-5 leading-relaxed">
             Launch precision shots with programmable drills.
-          </p>
+          </p> -->
             <a href="/tennis/ball-machine" class={`w-full text-sm sm:text-base rounded-full py-3 px-8 font-avenir uppercase text-t-off-black border-2 transition duration-300 text-center bg-t-green border-t-green hover:opacity-80 `}>
               Ball Machine
             </a>
@@ -250,7 +250,7 @@ import pickleballPlayer from '@assets/new/home/pickleball-player.webp';
         </div> -->
         </button>
     
-      <article id="rover" class="cursor-pointer bg-[url('/images/new/home/pickle-bg.webp')] bg-cover bg-center text-left relative sm:min-w-[350px] rounded-2xl md:h-[550px] h-[50vh] overflow-hidden">
+      <button onclick="window.location.href='/pickleball'" class="cursor-pointer bg-[url('/images/new/pickleball/ballmachine.webp')] bg-cover bg-center text-left relative sm:min-w-[350px] rounded-2xl md:h-[550px] h-[50vh] overflow-hidden">
         <!-- <img     
           src={pickleballBg.src}
           alt="Tennibot Rover - Automatic tennis ball collector and retriever"     
@@ -260,9 +260,9 @@ import pickleballPlayer from '@assets/new/home/pickleball-player.webp';
         
         <div class="absolute flex flex-col justify-end bottom-0 top-0 left-0 right-0 p-6 sm:p-8 bg-gradient-to-t from-black/60 via-black/40 to-transparent">
           <h3 class="text-xl sm:text-2xl font-avenirBold mb-2 sm:mb-3 text-white uppercase" >Pickleball</h3>
-          <p class="text-sm sm:text-base font-pluto text-gray-200 mb-5 leading-relaxed">
+          <!-- <p class="text-sm sm:text-base font-pluto text-gray-200 mb-5 leading-relaxed">
             Pick up balls in seconds, hands-free.
-          </p>
+          </p> -->
           <a href="/pickleball/ball-machine" class={`w-full text-sm sm:text-base rounded-full py-3 px-8 font-avenir uppercase text-t-off-black border-2 transition duration-300 text-center bg-t-green border-t-green hover:opacity-80 `}>
             Ball Machine
           </a>
@@ -283,9 +283,9 @@ import pickleballPlayer from '@assets/new/home/pickleball-player.webp';
             Padel
           </a>
         </div> -->
-      </article>
+      </button>
       
-      <article id="rover" class="cursor-pointer bg-[url('/images/new/home/padel-bg.webp')] bg-cover bg-center text-left relative sm:min-w-[350px] rounded-2xl md:h-[550px] h-[50vh] overflow-hidden">
+      <button onclick="window.location.href='/padel'" class="cursor-pointer bg-[url('/images/new/padel/padel-partner-on-court.webp')] bg-cover bg-center text-left relative sm:min-w-[350px] rounded-2xl md:h-[550px] h-[50vh] overflow-hidden">
         <!-- <img     
           src={padelBg.src}
           alt="Tennibot Rover - Automatic tennis ball collector and retriever"     
@@ -295,9 +295,9 @@ import pickleballPlayer from '@assets/new/home/pickleball-player.webp';
         
         <div class="absolute flex flex-col justify-end bottom-0 top-0 left-0 right-0 p-6 sm:p-8 bg-gradient-to-t from-black/60 via-black/40 to-transparent">
           <h3 class="text-xl sm:text-2xl font-avenirBold mb-2 sm:mb-3 text-white uppercase" >Padel</h3>
-          <p class="text-sm sm:text-base font-pluto text-gray-200 mb-5 leading-relaxed">
+          <!-- <p class="text-sm sm:text-base font-pluto text-gray-200 mb-5 leading-relaxed">
             Pick up balls in seconds, hands-free.
-          </p>
+          </p> -->
           <a href="/padel/ball-machine" class={`w-full text-sm sm:text-base rounded-full py-3 px-8 font-avenir uppercase text-t-off-black border-2 transition duration-300 text-center bg-t-green border-t-green hover:opacity-80 `}>
             Ball Machine
           </a>
@@ -318,7 +318,7 @@ import pickleballPlayer from '@assets/new/home/pickleball-player.webp';
             Padel
           </a>
         </div> -->
-      </article>
+      </button>
         </div>
       </div>
     </section>
@@ -450,7 +450,7 @@ import pickleballPlayer from '@assets/new/home/pickleball-player.webp';
     <section class="py-16 sm:py-20 lg:py-24 bg-t-off-black flex justify-center min-[550px]:items-center text-t-off-white" role="region" aria-label="Mobile app control">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 flex min-[550px]:flex-row flex-col items-center justify-center" >
           <div class="min-[550px]:w-[50%] min-[550px]:mb-0 mb-14" >
-              <Text tag="h2" className="font-avenir text-pretty text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-left uppercase"  >Take <span class="font-avenirBold text-t-green" >control</span></Text>
+              <Text tag="h2" className="font-avenir text-pretty text-3xl sm:text-3xl md:text-4xl lg:text-5xl text-left uppercase"  >Take <span class="font-avenirBold text-t-green" >control</span></Text>
               <Text tag="p" className="font-plutoLight text-sm sm:text-base lg:text-lg xl:text-xl text-pretty my-7 tracking-tight" >The Tennibot app gives you full control over the experience. From court selection to drill modification.</Text>
               <div class="flex flex-row gap-3 sm:gap-5 lg:pr-10 min-[550px]:pl-0 pr-8" >
                   <a href="https://apps.apple.com/us/app/tennibot/id1438424530" target="_blank" class="cursor-pointer" aria-label="Download Tennibot app for iOS"  ><Image src={downloadIOS}  alt="Download Tennibot on iOS" class="w-28 sm:w-32 lg:w-36" /></a>

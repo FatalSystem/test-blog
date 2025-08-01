@@ -21,6 +21,7 @@ import { CustomerReview, Marquee } from "@components/Marquee";
 import tennibotOnCourt from "@assets/new/tennis/tennibot-rover-carried-on-court.webp";
 import tennibotRoverFolded from "@assets/new/tennis/tennis-tennibot-rover-folded.webp";
 import tennibotPartnerWithPlayer from "@assets/new/tennis/tennis-tennibot-partner-with-player.webp";
+import Perks from "@components/Perks.astro";
 
 const MARQUEE_CONTENT = [
   {
@@ -183,7 +184,8 @@ const slides = [
                             Book a demo
                         </a>
                     </div>
-                    <div class="flex flex-col sm:grid sm:grid-cols-2 sm:items-center gap-y-5 sm:gap-y-5 py-6 gap-x-5">
+                    <Perks />
+                    <!-- <div class="flex flex-col sm:grid sm:grid-cols-2 sm:items-center gap-y-5 sm:gap-y-5 py-6 gap-x-5">
                       <div class="flex flex-row items-center gap-x-3">
                           <div class="size-[3rem] p-3 rounded-lg bg-[#262424] flex items-center justify-center">
                               <img src={TruckIcon.src} alt="Shipping" class="size-full" />
@@ -208,14 +210,14 @@ const slides = [
                           </div>
                           <p class="text-sm font-pluto text-t-off-white">Made in the USA</p>
                       </div>
-                    </div>
+                    </div> -->
                 </div>
               
               
               <div class="border-2 border-t-green bg-[rgba(192,242,12,0.05)] rounded-lg sm:p-6 px-4 py-6 mt-5">
                 <div class="flex flex-col sm:flex-row items-center sm:space-x-4">
                     <h3 class="text-t-green font-avenirBold mb-3 uppercase sm:hidden text-xl">BUNDLE & SAVE!</h3>
-                    <div class="sm:w-[30%] w-full sm:h-40 h-28 bg-cover bg-center bg-[url('/images/new/tennis/tennis-bundle.webp')] bg-slate-600 rounded-lg overflow-hidden">
+                    <div class="sm:w-[30%] w-full h-40 bg-cover bg-center bg-[url('/images/new/tennis/tennis-bundle.webp')] bg-slate-600 rounded-lg overflow-hidden">
                     </div>
                     <div class="flex-1">
                         <h3 class="text-t-green font-avenirBold mb-2 uppercase hidden sm:block">BUNDLE & SAVE!</h3>
@@ -268,7 +270,7 @@ const slides = [
                 src={tennibotRoverCarried.src}
                 alt="Tennibot Mobile App Interface"
                 fetchpriority="high"
-                class="w-full h-full object-cover"
+                class="w-full h-full object-cover object-bottom"
               />
             </div>
           </div>
@@ -280,13 +282,13 @@ const slides = [
       role="region"
       aria-label="AI Partner"
     >
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full" >
+      <video class="w-full h-full object-cover bg-[url('/images/cover-img2.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
+          <source src='https://d21pdw38fc8384.cloudfront.net/tennis-tennibot-rover-bg-video.mp4' type="video/mp4" />
+          {'Your browser doesn\'t support the video tag.'}
+      </video>
+    </div>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 min-h-[55vh] flex flex-col justify-between relative z-10">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen" >
-          <video class="w-full h-full object-cover bg-[url('/images/cover-img2.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
-              <source src='https://d21pdw38fc8384.cloudfront.net/tennis-tennibot-rover-bg-video.mp4' type="video/mp4" />
-              {'Your browser doesn\'t support the video tag.'}
-          </video>
-        </div>
         <div class="mb-8 z-10 sm:mb-12">
             <h2
               class="text-2xl uppercase mobilem:text-2xl sm:text-4xl md:text-4xl lg:text-5xl text-center font-avenirBold leading-tight text-white"

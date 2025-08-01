@@ -17,6 +17,7 @@ import TestimonialItem from "@components/TestimonialItem";
 import NewFAQ from "@components/NewFAQ";
 import padelPartnerBg from '@assets/new/padel/tennibot-padel-partner-side-court.webp'
 import VideoHero from "@components/VideoHero";
+import gearIcon from '@assets/icons/gear.svg'
 
 const padelFAQ: Array<{ question: string, answer: string }> = [
   {
@@ -188,7 +189,7 @@ const padelFAQ: Array<{ question: string, answer: string }> = [
     <section class="py-16 sm:py-20 lg:py-24 bg-t-off-black flex flex-col justify-center min-[550px]:items-center text-t-off-white" role="region" aria-label="Mobile app control">
         <div class="mb-8 sm:mb-12">
             <h2
-              class="text-2xl uppercase mobilem:text-3xl  sm:text-3xl md:text-4xl lg:text-5xl text-center font-avenirBold leading-tight text-white"
+              class="text-2xl uppercase md:w-full w-[95%] mx-auto mobilem:text-3xl  sm:text-3xl md:text-4xl lg:text-5xl text-center font-avenirBold leading-tight text-white"
             >
                 Build Your Smart Padel<br class="hidden sm:block"/> Court With <span class="text-t-green">Tennibot</span>
             </h2>
@@ -198,13 +199,13 @@ const padelFAQ: Array<{ question: string, answer: string }> = [
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 flex md:flex-row flex-col-reverse items-center justify-center" >
-            <div class="md:w-[50%] lg:ml-20 min-[550px]:ml-10" >
+          <div class="md:w-[50%] md:mb-0 mb-14 md:ml-10" >
                 <picture>
                     <!-- <source srcset={lineJudgingMobile.src} media="(max-width: 425px)" /> -->
                     <Image src={roverApp} class="mx-auto w-full max-w-sm sm:max-w-md lg:max-w-lg" alt="Tennibot mobile app interface for controlling padel ball machines and collectors" />
                 </picture>
             </div>
-            <div class="md:w-[50%] md:mb-0 mb-14 ml-10" >
+            <div class="md:w-[50%] md:mb-0 mb-14 md:ml-10" >
                 <div class="flex flex-row items-center gap-3 sm:gap-4 mb-10">
                     <div class="bg-[#262424] rounded-lg p-3 size-12 flex items-center justify-center" >
                         <Image src={phoneIcon.src} alt="Tennibot mobile app interface for controlling padel ball machines and collectors" class="size-full" />
@@ -224,12 +225,12 @@ const padelFAQ: Array<{ question: string, answer: string }> = [
                     </div>
                 </div>
                 <div class="flex flex-row items-center gap-3 sm:gap-4 mb-10">
-                    <div class="bg-[#262424] rounded-lg p-3 size-12 flex items-center justify-center" >
-                        <Image src={resistantIcon.src} alt="Tennibot mobile app interface for controlling padel ball machines and collectors" class="size-full" />
-                    </div>
+                  <div class="bg-[#262424] rounded-lg p-3 min-[500px]:size-12 size-14 flex items-center justify-center" >
+                    <Image src={gearIcon.src} alt="Tennibot mobile app interface for controlling tennis ball machines and collectors" class="size-full" />
+                  </div>
                     <div>
                         <Text tag="p" className="font-avenirBold text-base text-pretty tracking-tight" >Built for All Courts and Conditions</Text> 
-                        <Text tag="p" className="font-pluto text-sm text-pretty mt-1 tracking-tight" >Engineered to perform indoors or outdoors,<br class="hidden sm:block"/> with a durable design that stands up to the elements.</Text>
+                        <Text tag="p" className="font-pluto text-sm text-pretty mt-1 tracking-tight" >Engineered to perform indoors or outdoors,<br class="hidden sm:block"/> with a durable design.</Text>
                     </div>
                 </div>
                 <div class="justify-center flex md:block" >

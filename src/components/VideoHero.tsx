@@ -22,6 +22,7 @@ interface VideoHeroProps {
 export default function VideoHero ({ title, description, primaryCta, secondaryCta, videoSource }: VideoHeroProps): JSX.Element {
   return (
     <section className="h-screen mt-[-110px] relative overflow-hidden" >
+        <div className="absolute bg-black/50 z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen" >
           <video className="w-full h-full object-cover bg-[url('/images/cover-img2.webp')] bg-cover bg-center" autoPlay loop muted playsInline>
               <source src={videoSource} type="video/mp4" />
