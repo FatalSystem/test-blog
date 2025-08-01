@@ -11,11 +11,6 @@ import Text from "@components/core/Text.astro"
 import DraggableSlider from "@components/DraggableSlider";
 import TestimonialItem from "@components/TestimonialItem";
 import NewFAQ from "@components/NewFAQ";
-
-import MoneyBackIcon from "@assets/newdesignimages/MoneyBackIcon.png";
-import TruckIcon from "@assets/newdesignimages/TruckIcon.png";
-import protectIcon from "@assets/newdesignimages/protectIcon.png";
-
 import smarterAi from '@assets/new/pickleball/smarter-ai.webp'
 import { TSliderTwo } from "@components/TSliderTwo";
 
@@ -23,10 +18,30 @@ import TennibotMachine from "@assets/newdesignimages/TennibotMachine.png";
 
 import bucketmachin from "@assets/newdesignimages/bucketmachin.png";
 import picklebotIcon from "@assets/newdesignimages/picklebotIcon.png";
-
-import AutomateIcon from "@assets/newdesignimages/AutomateIcon.png";
 import Perks from "@components/Perks.astro";
 
+const picklePartnerFAQ = [
+  {
+    question: 'What makes The Partner different from other pickleball machines?',
+    answer: 'The Partner is the first AI-powered pickleball machine that actively moves and responds to your court position in real time. Unlike stationary machines, it tracks your location and delivers shots that simulate playing against a real partner.'
+  },
+  {
+    question: 'How does The Partner detect players and adjust shots?',
+    answer: 'Using a combination of AI, advanced sensors, and computer vision, The Partner tracks your movement, the court lines, and the pickleball itself. This allows it to auto-calibrate and dynamically adjust shots for a realistic training experience.'
+  },
+  {
+    question: 'Is The Partner safe to use on a pickleball court?',
+    answer: 'Absolutely. It includes intelligent safety sensors that detect people and obstacles, pausing operation if someone is nearby.'
+  },
+  {
+    question: 'How fast can The Partner shoot pickleballs?',
+    answer: 'The Partner supports a wide range of adjustable shot speeds suitable for all skill levels. It can shoot up to 65 miles per hour.'
+  },
+  {
+    question: 'When will I receive my Partner if I order today?',
+    answer: 'Your unit will be shipped 6–7 weeks after the order is placed.'
+  }
+]
 const slides = [
   {
     style: "bg-[url('/images/new/pickleball/pickleball-tennibot-partner-ball-machine-front-close.webp')] sm:h-[70vh] h-[45vh]",
@@ -615,7 +630,7 @@ const slides = [
             </p>
           </div>
           
-            <NewFAQ client:only="react" />
+            <NewFAQ faq={picklePartnerFAQ} client:only="react" />
         </div>
       </div>
     </section>

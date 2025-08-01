@@ -23,6 +23,29 @@ import tennibotPadelbotOnCourt from '@assets/new/padel/tennibot-padelbot-on-cour
 import AutomateIcon from "@assets/newdesignimages/AutomateIcon.png";
 import Perks from "@components/Perks.astro";
 
+const padelbotFAQ = [
+  {
+    question: 'Can the Tennibot Rover be used on Padel courts?',
+    answer: 'Yes. The Rover is fully compatible with Padel courts and intelligently navigates different surfaces to collect balls automatically while you train.'
+  },
+  {
+    question: 'When will the Rover for Padel be available?',
+    answer: 'The Padel Rover is coming Q1 2026.'
+  },
+  {
+    question: 'Is there a warranty on The Rover?',
+    answer: 'Yes. Every Rover unit includes a three-year warranty that covers manufacturing defects.'
+  },
+  {
+    question: 'How long does the Rover battery last?',
+    answer: 'The Rover runs for up to 5 hours on a full charge, giving you plenty of autonomous cleanup time during and after your padel sessions.'
+  },
+  {
+    question: 'What is the ball capacity of The Rover for Padel?',
+    answer: 'The Rover holds up to 80 Padel balls, giving you extended, uninterrupted training sessions without constant reloading.'
+  }
+]
+
 const slides = [
   {
     style: "bg-[url('/images/new/padel/padelbot-front.webp')] sm:h-[70vh] h-[45vh]",
@@ -549,7 +572,7 @@ const slides = [
             </p>
           </div>
           
-            <NewFAQ client:only="react" />
+            <NewFAQ faq={padelbotFAQ} client:only="react" />
         </div>
       </div>
     </section>

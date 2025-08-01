@@ -25,6 +25,29 @@ import padelPartnerBg from '@assets/new/padel/tennibot-padel-partner-side-court.
 import AutomateIcon from "@assets/newdesignimages/AutomateIcon.png";
 import Perks from "@components/Perks.astro";
 
+const padelFAQ: Array<{ question: string, answer: string }> = [
+  {
+    question: 'What makes The Partner different from other padel machines?',
+    answer: 'The Partner is the first AI-powered padel machine that moves and responds to your position on the court in real time. Unlike traditional machines, it tracks your movement and delivers shots that replicate the feel of a real opponent.'
+  },
+  {
+    question: 'How does The Partner detect players and adjust shots?',
+    answer: 'The Partner uses advanced sensors, AI, and computer vision to detect player positioning, court boundaries, and the ball. It automatically calibrates and adjusts its shots dynamically for realistic, match-like play.'
+  },
+  {
+    question: 'Is The Partner safe to use on a padel court?',
+    answer: 'Yes. The Partner features intelligent safety systems that detect humans and obstacles, pausing operation if anything gets too close.'
+  },
+  {
+    question: 'How fast can The Partner shoot padel balls?',
+    answer: 'The Partner offers adjustable shot speeds for all skill levels and can shoot balls at up to 70 miles per hour.'
+  },
+  {
+    question: 'When will I receive my Partner if I order today?',
+    answer: 'Your Partner will be shipped 6–7 weeks after your order is placed.'
+  }
+]
+
 const slides = [
   {
     style: "bg-[url('/images/new/padel/padel-tennibot-partner-on-t.webp')] bg-left sm:h-[70vh] h-[45vh]",
@@ -46,33 +69,6 @@ const slides = [
     style: "bg-[url('/images/new/padel/padel-tennibot-partner-wheels.webp')] bg-left sm:h-[70vh] h-[45vh]",
     thumbnail: "/images/new/padel/padel-tennibot-partner-wheels.webp"
   }
-]
-
-const padelFAQ: Array<{ question: string, answer: string }> = [
-  {
-    question: 'What makes The Partner different from other padel machines?',
-    answer: 'The Partner is the first AI-powered padel machine that moves and responds to your position on the court in real time. Unlike traditional machines, it tracks your movement and delivers shots that replicate the feel of a real opponent.'
-  },
-  {
-    question: 'How does The Partner detect players and adjust shots?',
-    answer: 'The Partner uses advanced sensors, AI, and computer vision to detect player positioning, court boundaries, and the ball. It automatically calibrates and adjusts its shots dynamically for realistic, match-like play.'
-  },
-  {
-    question: 'Is The Partner safe to use on a padel court?',
-    answer: 'Yes. The Partner features intelligent safety systems that detect humans and obstacles, pausing operation if anything gets too close.'
-  },
-  {
-    question: 'When will I receive my Partner if I order today?',
-    answer: 'Your Partner will be shipped 6–7 weeks after your order is placed.'
-  },
-  {
-    question: 'Is there a warranty on The Partner?',
-    answer: 'Yes. Every Partner unit includes a three-year warranty that covers manufacturing defects.'
-  },
-  {
-    question: 'Where is The Partner made?',
-    answer: 'The Partner is proudly designed and assembled in the USA with high-quality craftsmanship.'
-  },
 ]
 
 ---

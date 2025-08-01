@@ -25,6 +25,29 @@ import picklebotOnCourtBg from "@assets/new/pickleball/pickleball-on-court-bg.we
 import AutomateIcon from "@assets/newdesignimages/AutomateIcon.png";
 import Perks from "@components/Perks.astro";
 
+const pickleballRoverFAQ = [
+  {
+    question: 'What is the ball capacity of The Rover for Pickleball?',
+    answer: 'The Rover holds up to 80 Pickleballs, giving you extended, uninterrupted training sessions without constant reloading.'
+  },
+  {
+    question: 'Does the Rover work with other ball types?',
+    answer: 'The Rover is designed for a dedicated sport and is not cross-sport compatible. We offer Rovers for Pickleball, Tennis, and Padel.'
+  },
+  {
+    question: 'How long does the Rover battery last?',
+    answer: 'The Rover runs for up to 5 hours on a full charge, giving you plenty of autonomous cleanup time during and after your Pickelball sessions.'
+  },
+  {
+    question: 'When will the Rover for Pickleball be available?',
+    answer: 'The Pickleball Rover is coming Q1 2026.'
+  },
+  {
+    question: 'Is there a warranty on The Rover?',
+    answer: 'Yes. Every Rover unit includes a three-year warranty that covers manufacturing defects.'
+  }
+]
+
 const slides = [
   {
     style: "bg-[url('/images/new/pickleball/picklebot.webp')] sm:h-[70vh] h-[45vh]",
@@ -557,7 +580,7 @@ const slides = [
             </p>
           </div>
           
-            <NewFAQ client:only="react" />
+            <NewFAQ faq={pickleballRoverFAQ} client:only="react" />
         </div>
       </div>
     </section>
