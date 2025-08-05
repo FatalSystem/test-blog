@@ -29,7 +29,9 @@ export default defineConfig({
     '/racketx': '/',
     '/partner-unbox': 'https://m.youtube.com/watch?v=aztB2Ba18Es&feature=youtu.be',
     '/setup': 'https://www.youtube.com/shorts/nLEld7vUvtw',
-    '/buy-partner': '/tennis/ball-machine'
+    '/buy-partner': '/tennis/ball-machine',
+    '/partner': '/tennis/ball-machine',
+    '/buy': '/tennis/ball-machine'
   },
   integrations: [tailwind(), sitemap(), react({
     experimentalReactChildren: true
