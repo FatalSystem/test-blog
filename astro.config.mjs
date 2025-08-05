@@ -28,8 +28,8 @@ export default defineConfig({
     '/onboarding': 'https://calendly.com/haithameletrabi/onboarding',
     '/racketx': '/',
     '/partner-unbox': 'https://m.youtube.com/watch?v=aztB2Ba18Es&feature=youtu.be',
-    '/setup': 'https://www.youtube.com/shorts/nLEld7vUvtw'
-
+    '/setup': 'https://www.youtube.com/shorts/nLEld7vUvtw',
+    '/buy-partner': '/tennis/ball-machine'
   },
   integrations: [tailwind(), sitemap(), react({
     experimentalReactChildren: true
