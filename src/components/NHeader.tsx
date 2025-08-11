@@ -17,7 +17,8 @@ const roverLinks = [
 const howItWorksLinks = [
   { label: 'Tennis', href: '/tennis' },
   { label: 'Pickleball', href: '/pickleball' },
-  { label: 'Padel', href: '/padel' }
+  { label: 'Padel', href: '/padel' },
+  { label: 'Tennibot vs Others', href: '/compare' }
 ]
 
 export default function NHeader (): React.JSX.Element {
@@ -151,6 +152,11 @@ export default function NHeader (): React.JSX.Element {
                         className={'text-lg sm:block hover:text-t-green rounded-full py-3 px-5 text-t-off-white my-auto font-avenirBold uppercase transform transition duration-500 ease-in-out'}>
                             Padel
                         </a>
+                        <a
+                        href="/compare"
+                        className={'text-lg sm:block hover:text-t-green rounded-full py-3 px-5 text-t-off-white my-auto font-avenirBold uppercase transform transition duration-500 ease-in-out'}>
+                            Tennibot vs Others
+                        </a>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -188,7 +194,7 @@ export default function NHeader (): React.JSX.Element {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -10, scale: 0.95 }}
                 transition={{ duration: 0.2, ease: 'easeOut' }}
-                className='absolute top-full left-[10%] w-[80%] mt-[-20px] pt-[40px] h-[600px] overflow-y-scroll pb-2 mx-auto bg-black rounded-b-lg shadow-lg min-w-[200px] z-50'
+                className='absolute top-full left-[10%] w-[80%] mt-[-20px] custom-scrollbar pt-[40px] h-[600px] overflow-y-scroll pb-2 mx-auto bg-black rounded-b-lg shadow-lg min-w-[200px] z-50'
               >
                 {/* Product Section */}
                 <div className="mb-4">

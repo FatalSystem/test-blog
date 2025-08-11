@@ -6,11 +6,11 @@ import PartnerFooter from "@components/PartnerFooter.astro"
 import CTAButton from "@components/CTAButton"
 ---
 
-<Layout title="Compare | Tennibot" showFooter={false} showHeader={false} showPartnerHeader={true} showSecondaryHeader={false} showSecondaryMenu={false}>
-    <main class="bg-t-off-black overflow-hidden text-t-off-white" >
+<Layout title="Compare | Tennibot" showFooter={true} showHeader={true}>
+    <main class="bg-t-off-black mt-[-110px] overflow-hidden text-t-off-white" >
         <section class="bg-cover bg-center h-[90vh] bg-[url('/images/compare/partner-compare-hero.webp')] min-[450px]:bg-[url('/images/compare/partner-compare-hero.webp')] min-[800px]:bg-[url('/images/compare/partner-compare-hero.webp')] xl:bg-[url('/images/compare/partner-compare-hero.webp')] " >
-            <div class="flex flex-col items-center h-full lg:items-start lg:justify-end" >
-                <Text tag="h1" className="z-[1] font-avenir mt-[25%] sm:mt-[15%] lg:mt-[5%] lg:ml-[15%] 2xl:ml-[11%] text-t-off-white uppercase text-xl mobilem:text-2xl sm:text-4xl 2xl:text-5xl px-3 tablet:px-0 text-center lg:text-left" ><span class="font-avenirBold" >The partner vs. the rest:<br />You be the judge.</Text>
+            <div class="flex flex-col mb-[-110px] items-center h-full lg:items-start lg:justify-end" >
+                <Text tag="h1" className="z-[1] font-avenir mt-[45%] sm:mt-[25%] lg:mt-[5%] lg:ml-[15%] 2xl:ml-[11%] text-t-off-white uppercase text-xl mobilem:text-2xl sm:text-4xl 2xl:text-5xl px-3 tablet:px-0 text-center lg:text-left" ><span class="font-avenirBold" >The partner vs. the rest:<br />You be the judge.</Text>
                 <Text tag="p" className="z-[1] mb-[50%] font-avenir mt-[2%] text-t-off-white uppercase text-base sm:text-lg px-3 tablet:px-0 text-center lg:text-left" >See how the partner stacks up against others</Text>
                 <!-- <div class="z-[1] mx-auto min-[520px]:flex-row justify-center gap-5 flex flex-col lg:items-start items-center lg:w-fit  w-[80%] max-tablet:w-[80%] mt-5 lg:ml-[15%] 2xl:ml-[11%]" >
                     <Button href={Pages.BUY} theme="green" className="tablet:w-64 w-full " >Buy now</Button>
