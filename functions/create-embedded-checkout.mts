@@ -20,6 +20,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
     }
 
     const defaultCheckoutOptions = {
+      client_reference_id: distinctId,
       ui_mode: 'embedded',
       allow_promotion_codes: true,
       phone_number_collection: {
@@ -101,7 +102,7 @@ export default async (event: Request, context: Context): Promise<Response> => {
       // ],
       mode: 'payment'
     }
- 
+
     const padelPartnerCheckoutOptions: Stripe.Checkout.SessionCreateParams = {
       ...defaultCheckoutOptions,
       return_url: 'https://www.tennibot.com/thank-you?session={CHECKOUT_SESSION_ID}',

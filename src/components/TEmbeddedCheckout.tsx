@@ -8,7 +8,7 @@ const stripePromise = loadStripe('pk_live_51POCzIRqXimb7JbceMZQnSwe4vG9cnnYTvf6y
 const urlParams = new URLSearchParams(window.location.search)
 const MAX_RETRIES = 4 // Maximum number of retries
 const checkoutType = urlParams.get('type')
-export default function TEmbeddedCheckout(): JSX.Element {
+export default function TEmbeddedCheckout (): JSX.Element {
   const [sessionId, setSessionId] = useState<string | null>(null)
   const [metadataUpdated, setMetadataUpdated] = useState<boolean>(false)
 
@@ -76,10 +76,16 @@ export default function TEmbeddedCheckout(): JSX.Element {
       source: urlParams.get('utm_source')
     }
 
-    // added begin checkout datalayer 
+    // Get Rewardful referral if available
+    let rewardfulReferral: string | undefined
+    if (typeof window !== 'undefined' && window.Rewardful && window.Rewardful.referral) {
+      rewardfulReferral = window.Rewardful.referral
+    }
+
+    // added begin checkout datalayer
     try {
-      window.dataLayer = window.dataLayer || [];
-      if (checkoutType == "onetime") {
+      window.dataLayer = window.dataLayer || []
+      if (checkoutType == 'onetime') {
         window.dataLayer.push({
           event: 'begin_checkout',
           ecommerce: {
@@ -95,7 +101,7 @@ export default function TEmbeddedCheckout(): JSX.Element {
             }]
           }
         })
-      } else if (checkoutType == "partner") {
+      } else if (checkoutType == 'partner') {
         window.dataLayer.push({
           event: 'begin_checkout',
           ecommerce: {
@@ -112,13 +118,10 @@ export default function TEmbeddedCheckout(): JSX.Element {
           }
         })
       }
-
-
     } catch (error) {
-      console.log("datalayer error: ", error)
+      console.log('datalayer error: ', error)
     }
-    //checkout begin add datalayer add end
-
+    // checkout begin add datalayer add end
 
     return await fetch('/.netlify/functions/create-embedded-checkout', {
       method: 'POST',
@@ -126,7 +129,7 @@ export default function TEmbeddedCheckout(): JSX.Element {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        // distinctId,
+        distinctId: rewardfulReferral,
         checkoutType,
         utmParams
       })
@@ -146,12 +149,11 @@ export default function TEmbeddedCheckout(): JSX.Element {
     }
     const { checkoutSessionId, shippingDetails } = shippingDetailsChangeEvent
 
-
     // add dataLayer start
     try {
-      window.dataLayer = window.dataLayer || [];
+      window.dataLayer = window.dataLayer || []
 
-      if (checkoutType == "onetime") {
+      if (checkoutType == 'onetime') {
         window.dataLayer.push({
           event: 'add_shipping_info',
           ecommerce: {
@@ -163,12 +165,12 @@ export default function TEmbeddedCheckout(): JSX.Element {
               price: 2999,
               currency: 'USD',
               quantity: 1,
-              item_category: 'Tennis Robots',
+              item_category: 'Tennis Robots'
             }],
             ...shippingDetails
           }
-        });
-      } else if (checkoutType == "partner") {
+        })
+      } else if (checkoutType == 'partner') {
         window.dataLayer.push({
           event: 'add_shipping_info',
           ecommerce: {
@@ -180,14 +182,14 @@ export default function TEmbeddedCheckout(): JSX.Element {
               price: 2195,
               currency: 'USD',
               quantity: 1,
-              item_category: 'Tennis Robots',
+              item_category: 'Tennis Robots'
             }],
             ...shippingDetails
           }
-        });
+        })
       }
     } catch (error) {
-      console.log("add_shipping_info: ", error)
+      console.log('add_shipping_info: ', error)
     }
 
     // add dataLayer end
