@@ -133,9 +133,9 @@ const { title, showHeader = true, showFooter = true, showPartnerHeader = false, 
       // Debug Rewardful loading
       window.addEventListener('load', function() {
         console.log('Rewardful script loaded');
-        console.log('window.Rewardful:', window.Rewardful);
-        if (window.Rewardful && window.Rewardful.referral) {
-          console.log('Rewardful referral found:', window.Rewardful.referral);
+        console.log('window.Rewardful:', window.rewardful);
+        if (window.rewardful && window.rewardful.referral) {
+          console.log('Rewardful referral found:', window.rewardful.referral);
         } else {
           console.log('No Rewardful referral found');
         }
