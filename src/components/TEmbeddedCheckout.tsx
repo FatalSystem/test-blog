@@ -63,6 +63,8 @@ export default function TEmbeddedCheckout (): JSX.Element {
     }
   }, [sessionId, metadataUpdated]) // Remove retryCount from dependencies
 
+  console.log('rewardfulReferral fn outer: ', window.Rewardful.referral)
+
   const fetchClientSecret = useCallback(async () => {
     // Create a Checkout Session
     // const distinctId = getDistinctId()
