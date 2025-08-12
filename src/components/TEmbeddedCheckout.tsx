@@ -80,7 +80,9 @@ export default function TEmbeddedCheckout (): JSX.Element {
     let rewardfulReferral: string | undefined
     if (typeof window !== 'undefined' && window.Rewardful && window.Rewardful.referral) {
       rewardfulReferral = window.Rewardful.referral
+      console.log('rewardfulReferral inner: ', rewardfulReferral)
     }
+    console.log('rewardfulReferral outer: ', rewardfulReferral)
 
     // added begin checkout datalayer
     try {
