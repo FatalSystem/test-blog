@@ -78,9 +78,14 @@ export default function TEmbeddedCheckout (): JSX.Element {
 
     // Get Rewardful referral if available
     let rewardfulReferral: string | undefined
+    console.log('Checking for Rewardful referral...')
+    console.log('window.Rewardful:', window.Rewardful)
+    
     if (typeof window !== 'undefined' && window.Rewardful && window.Rewardful.referral) {
       rewardfulReferral = window.Rewardful.referral
-      console.log('rewardfulReferral: ', window.Rewardful.referral)
+      console.log('✅ Rewardful referral found:', window.Rewardful.referral)
+    } else {
+      console.log('❌ No Rewardful referral found')
     }
 
     // added begin checkout datalayer
@@ -124,16 +129,20 @@ export default function TEmbeddedCheckout (): JSX.Element {
     }
     // checkout begin add datalayer add end
 
+    const requestBody = {
+      distinctId: rewardfulReferral,
+      checkoutType,
+      utmParams
+    }
+    
+    console.log('Sending to create-embedded-checkout:', requestBody)
+    
     return await fetch('/.netlify/functions/create-embedded-checkout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        distinctId: rewardfulReferral,
-        checkoutType,
-        utmParams
-      })
+      body: JSON.stringify(requestBody)
     }).then(async (res) => {
       const resp = await res.json()
       return resp
