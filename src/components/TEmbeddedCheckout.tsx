@@ -8,7 +8,6 @@ const stripePromise = loadStripe('pk_live_51POCzIRqXimb7JbceMZQnSwe4vG9cnnYTvf6y
 const urlParams = new URLSearchParams(window.location.search)
 const MAX_RETRIES = 4 // Maximum number of retries
 const checkoutType = urlParams.get('type')
-console.log('rewardfulReferral fn outer: ', window.Rewardful.referral)
 export default function TEmbeddedCheckout (): JSX.Element {
   const [sessionId, setSessionId] = useState<string | null>(null)
   const [metadataUpdated, setMetadataUpdated] = useState<boolean>(false)
@@ -81,7 +80,6 @@ export default function TEmbeddedCheckout (): JSX.Element {
     let rewardfulReferral: string | undefined
     if (typeof window !== 'undefined' && window.Rewardful && window.Rewardful.referral) {
       rewardfulReferral = window.Rewardful.referral
-      console.log('rewardfulReferral inner: ', rewardfulReferral)
     }
 
     // added begin checkout datalayer
