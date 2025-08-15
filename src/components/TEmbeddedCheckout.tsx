@@ -78,9 +78,7 @@ export default function TEmbeddedCheckout (): JSX.Element {
 
     // Get Rewardful referral if available
     let rewardfulReferral: string | undefined
-    console.log('Checking for Rewardful referral...')
-    console.log('window.Rewardful:', window.Rewardful)
-    
+
     if (typeof window !== 'undefined' && window.Rewardful && window.Rewardful.referral) {
       rewardfulReferral = window.Rewardful.referral
       console.log('✅ Rewardful referral found:', window.Rewardful.referral)

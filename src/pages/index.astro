@@ -43,165 +43,18 @@ import pickleballPlayer from '@assets/new/home/pickleball-player.webp';
     <NHero>
       <h1
       slot="title"
-      class="text-2xl mobilem:text-3xl mobilel:text-4xl font-avenirBold sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-5 leading-tight animate-fade-in-up text-white"
+      class="uppercase text-left lg:ml-[5%] md:ml-[5%] 2xl:ml-[15%] text-2xl mobilem:text-3xl mobilel:text-4xl font-avenirBold sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-5 leading-tight animate-fade-in-up text-white"
       >
-          ELEVATE YOUR<br /> <span class="text-t-green drop-shadow-lg font-avenirBold ">TENNIS TRAINING</span>
+        <span class="text-t-green drop-shadow-lg font-avenirBold ">Ball Machines &<br /> Ball Collectors</span><br />
+        For Tennis, Padel<br /> and Pickleball
       </h1>
       <p
       slot="description"
-      class="text-sm font-plutoLight sm:text-base md:text-lg mb-6 sm:mb-8 opacity-90 leading-relaxed animate-fade-in-up delay-200 text-white max-w-2xl mx-auto"
+      class="text-sm lg:ml-[5%] md:ml-[5%] 2xl:ml-[15%] text-left font-plutoLight sm:text-base md:text-lg mb-6 sm:mb-8 opacity-90 leading-relaxed animate-fade-in-up delay-200 text-white max-w-2xl"
       >
-          AI-powered ball machines and automated ball collectors<br class="hidden sm:block"/>
-          designed to maximize your performance with minimal effort.
+        Train smarter and longer with AI technology<br class="block"/> trusted by coaches, clubs, and players worldwide.
       </p>
     </NHero>
-
-    <section class="py-16 sm:py-20 lg:py-24 bg-[#191A16]" role="region" aria-label="Shop by sport">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-        <div class="text-center mb-12 sm:mb-16 lg:mb-20">
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-avenirBold mb-4 sm:mb-6 leading-tight text-white">SHOP BY SPORT</h2>
-        </div>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-          <a href="/tennis" class="relative group cursor-pointer">
-            <div class="relative overflow-hidden rounded-lg">
-              <img src={tennis.src} alt="Tennis ball machines and equipment for tennis training" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-105 transition-transform duration-500"/>
-              <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-              <div class="absolute bottom-4 left-4">
-                <h3 class="text-lg sm:text-xl lg:text-2xl font-avenirBold text-t-off-white">TENNIS</h3>
-              </div>
-              <div class="absolute bottom-4 right-4">
-                <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center">
-                  <svg class="w-5 h-5 sm:w-6 sm:h-6 text-t-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </a>
-          
-          <a href="/pickleball" class="relative group cursor-pointer">
-            <div class="relative overflow-hidden rounded-lg">
-              <img src={pickleballPlayer.src} alt="Pickleball ball machines and equipment for pickleball training" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-105 transition-transform duration-500"/>
-              <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-              <div class="absolute bottom-4 left-4">
-                <h3 class="text-lg sm:text-xl lg:text-2xl font-avenirBold text-t-off-white">PICKLEBALL</h3>
-              </div>
-              <div class="absolute bottom-4 right-4">
-                <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center">
-                  <svg class="w-5 h-5 sm:w-6 sm:h-6 text-t-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </a>
-          
-          <a href="/padel" class="relative group cursor-pointer sm:col-span-2 lg:col-span-1">
-            <div class="relative overflow-hidden rounded-lg">
-              <img src={padel.src} alt="Padel ball machines and equipment for padel training" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-105 transition-transform duration-500"/>
-              <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-              <div class="absolute bottom-4 left-4">
-                <h3 class="text-lg sm:text-xl lg:text-2xl font-avenirBold text-t-off-white">PADEL</h3>
-              </div>
-              <div class="absolute bottom-4 right-4">
-                <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center">
-                  <svg class="w-5 h-5 sm:w-6 sm:h-6 text-t-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section
-      class="py-16 sm:py-20 bg-[url('/images/new/home/why-bg.webp')] bg-cover bg-center lg:py-24"
-      role="region"
-      aria-label="Why choose Tennibot"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 min-h-[55vh] flex flex-col justify-between relative z-10">
-        
-        <h2
-          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-avenirBold mb-8 sm:mb-12 leading-tight text-white"
-        >
-          WHY <span class="text-t-green">CHOOSE</span> OUR BALL MACHINES<br class="hidden sm:block" />
-          <span class="text-t-off-white">AND BALL COLLECTORS?</span>
-        </h2>
-
-        <div class="max-w-6xl mx-auto">
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <div class="flex items-center gap-3 sm:gap-4">
-              <img
-                src={AutomateIcon.src}
-                alt="Automate training sessions icon"
-                class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
-              />
-              <p class="text-sm sm:text-base font-pluto text-t-off-white">
-                Light years ahead of other products in the market
-              </p>
-            </div>
-
-            <div class="flex items-center gap-3 sm:gap-4">
-              <img
-                src={SaveupIcon.src}
-                alt="Save court time icon"
-                class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
-              />
-              <p class="text-sm sm:text-base font-pluto text-t-off-white">
-                Realistic play experience with no down time
-              </p>
-            </div>
-
-            <div class="flex items-center gap-3 sm:gap-4">
-              <img
-                src={BuiltforIcon.src}
-                alt="Built for all surfaces icon"
-                class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
-              />
-              <p class="text-sm sm:text-base font-pluto text-t-off-white">
-                Built for all surfaces (hard, clay, grass, & artificial turf)
-              </p>
-            </div>
-
-            <div class="flex items-center gap-3 sm:gap-4">
-              <img
-                src={LightweightIcon.src}
-                alt="Lightweight portable equipment icon"
-                class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
-              />
-              <p class="text-sm sm:text-base font-pluto text-t-off-white">
-                Lightweight, portable, powerful
-              </p>
-            </div>
-
-            <div class="flex items-center gap-3 sm:gap-4">
-              <img
-                src={RustedbyIcon.src}
-                alt="Trusted by coaches icon"
-                class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
-              />
-              <p class="text-sm sm:text-base font-pluto text-t-off-white">
-                Trusted by coaches and clubs worldwide
-              </p>
-            </div>
-
-            <div class="flex items-center gap-3 sm:gap-4">
-              <img
-                src={NomanualIcon.src}
-                alt="No manual collection needed icon"
-                class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
-              />
-              <p class="text-sm sm:text-base font-pluto text-t-off-white">
-                No manual chasing or collecting needed
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section id="products" class="py-16 sm:py-20 lg:py-24 bg-[#191A16] relative z-10" role="region" aria-label="Product showcase">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
@@ -322,6 +175,153 @@ import pickleballPlayer from '@assets/new/home/pickleball-player.webp';
         </div>
       </div>
     </section>
+
+    <section
+      class="py-16 sm:py-20 bg-[url('/images/new/home/why-bg.webp')] bg-cover bg-center lg:py-24"
+      role="region"
+      aria-label="Why choose Tennibot"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 min-h-[55vh] flex flex-col justify-between relative z-10">
+        
+        <h2
+          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-avenirBold mb-8 sm:mb-12 leading-tight text-white"
+        >
+          WHY <span class="text-t-green">CHOOSE</span> OUR BALL MACHINES<br class="hidden sm:block" />
+          <span class="text-t-off-white">AND BALL COLLECTORS?</span>
+        </h2>
+
+        <div class="max-w-6xl mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div class="flex items-center gap-3 sm:gap-4">
+              <img
+                src={AutomateIcon.src}
+                alt="Automate training sessions icon"
+                class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
+              />
+              <p class="text-sm sm:text-base font-pluto text-t-off-white">
+                Light years ahead of other products in the market
+              </p>
+            </div>
+
+            <div class="flex items-center gap-3 sm:gap-4">
+              <img
+                src={SaveupIcon.src}
+                alt="Save court time icon"
+                class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
+              />
+              <p class="text-sm sm:text-base font-pluto text-t-off-white">
+                Realistic play experience with no down time
+              </p>
+            </div>
+
+            <div class="flex items-center gap-3 sm:gap-4">
+              <img
+                src={BuiltforIcon.src}
+                alt="Built for all surfaces icon"
+                class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
+              />
+              <p class="text-sm sm:text-base font-pluto text-t-off-white">
+                Built for all surfaces (hard, clay, grass, & artificial turf)
+              </p>
+            </div>
+
+            <div class="flex items-center gap-3 sm:gap-4">
+              <img
+                src={LightweightIcon.src}
+                alt="Lightweight portable equipment icon"
+                class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
+              />
+              <p class="text-sm sm:text-base font-pluto text-t-off-white">
+                Lightweight, portable, powerful
+              </p>
+            </div>
+
+            <div class="flex items-center gap-3 sm:gap-4">
+              <img
+                src={RustedbyIcon.src}
+                alt="Trusted by coaches icon"
+                class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
+              />
+              <p class="text-sm sm:text-base font-pluto text-t-off-white">
+                Trusted by coaches and clubs worldwide
+              </p>
+            </div>
+
+            <div class="flex items-center gap-3 sm:gap-4">
+              <img
+                src={NomanualIcon.src}
+                alt="No manual collection needed icon"
+                class="w-5 h-5 sm:w-6 sm:h-6 object-contain flex-shrink-0"
+              />
+              <p class="text-sm sm:text-base font-pluto text-t-off-white">
+                No manual chasing or collecting needed
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 sm:py-20 lg:py-24 bg-[#191A16]" role="region" aria-label="Shop by sport">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+        <div class="text-center mb-12 sm:mb-16 lg:mb-20">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-avenirBold mb-4 sm:mb-6 leading-tight text-white">SHOP BY SPORT</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+          <a href="/tennis" class="relative group cursor-pointer">
+            <div class="relative overflow-hidden rounded-lg">
+              <img src={tennis.src} alt="Tennis ball machines and equipment for tennis training" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-105 transition-transform duration-500"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4">
+                <h3 class="text-lg sm:text-xl lg:text-2xl font-avenirBold text-t-off-white">TENNIS</h3>
+              </div>
+              <div class="absolute bottom-4 right-4">
+                <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center">
+                  <svg class="w-5 h-5 sm:w-6 sm:h-6 text-t-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </a>
+          
+          <a href="/pickleball" class="relative group cursor-pointer">
+            <div class="relative overflow-hidden rounded-lg">
+              <img src={pickleballPlayer.src} alt="Pickleball ball machines and equipment for pickleball training" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-105 transition-transform duration-500"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4">
+                <h3 class="text-lg sm:text-xl lg:text-2xl font-avenirBold text-t-off-white">PICKLEBALL</h3>
+              </div>
+              <div class="absolute bottom-4 right-4">
+                <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center">
+                  <svg class="w-5 h-5 sm:w-6 sm:h-6 text-t-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </a>
+          
+          <a href="/padel" class="relative group cursor-pointer sm:col-span-2 lg:col-span-1">
+            <div class="relative overflow-hidden rounded-lg">
+              <img src={padel.src} alt="Padel ball machines and equipment for padel training" class="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-105 transition-transform duration-500"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4">
+                <h3 class="text-lg sm:text-xl lg:text-2xl font-avenirBold text-t-off-white">PADEL</h3>
+              </div>
+              <div class="absolute bottom-4 right-4">
+                <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center">
+                  <svg class="w-5 h-5 sm:w-6 sm:h-6 text-t-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
   
     <section class="relative bg-[#191A16] min-h-screen flex items-center overflow-hidden" role="region" aria-label="Innovative tennis equipment">
       <div class="absolute right-0 md:top-0 bottom-0 md:w-1/2 w-[60%] lg:flex items-center justify-center">
@@ -438,7 +438,7 @@ import pickleballPlayer from '@assets/new/home/pickleball-player.webp';
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-avenirBold mb-4 sm:mb-6 leading-tight text-t-off-white uppercase">What <span class="text-t-green">players & coaches</span><br class="hidden sm:block"/> say about tennibot</h2>
           </div>
           <DraggableSlider client:load className="gap-10" >
-              <TestimonialItem client:load quote={`"“This is really impressive, any of the tennis ball machines I used in the past don’t compare to this... they’re highly predicable, this ones not as predictable.”`} name="Charlie Harrison " location="Auburn, AL" videoSource="https://player.vimeo.com/video/1106005248" className="bg-[url('/images/new/home/charlie-testimonial.webp')]" />
+              <TestimonialItem client:load quote={`"This is really impressive, any of the tennis ball machines I used in the past don’t compare to this... they’re highly predicable, this ones not as predictable.”`} name="Charlie Harrison " location="Auburn, AL" videoSource="https://player.vimeo.com/video/1106005248" className="bg-[url('/images/new/home/charlie-testimonial.webp')]" />
               <TestimonialItem client:load quote={`"It's fantastic for drilling, practice points, and even doubles drills. I really enjoyed it."`} name="Sylvana Jordyn" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406658" className="bg-[url('/images/partner/testimonial-one.png')]" />
               <TestimonialItem client:load quote={`"I worked on rapid-fire volleys, reflexes, and range at the net—it's perfect for sharpening your skills."`} name="Logan West" location="Washington, DC" videoSource="https://player.vimeo.com/video/1031406854" className="bg-[url('/images/partner/testimonial-two.png')]" />
               <TestimonialItem client:load quote={`"What surprised me the most was how much I had to move and anticipate—it felt just like a real hitting session."`} name="Alex Chan" location="Rockville, MD" videoSource="https://player.vimeo.com/video/1031406731" className="bg-[url('/images/partner/testimonial-three.png')]" />
