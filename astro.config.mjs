@@ -6,8 +6,8 @@ import { sanityIntegration } from '@sanity/astro'
 import 'dotenv/config'
 import netlify from '@astrojs/netlify'
 import sitemap from '@astrojs/sitemap'
-const sanityProjectId = process.env.SANITY_PROJECT_ID
-const sanityDataset = process.env.SANITY_DATASET
+const sanityProjectId = process.env.SANITY_PROJECT_ID || 'brwxydjw'
+const sanityDataset = process.env.SANITY_DATASET || 'production'
 
 // https://astro.build/config
 export default defineConfig({

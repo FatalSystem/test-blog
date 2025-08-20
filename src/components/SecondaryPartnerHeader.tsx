@@ -11,7 +11,7 @@ import CTAButton from './CTAButton'
 
 const links = [
   { label: 'Detailed Specs', href: '/specs' },
-  { label: 'Tennibot vs. Others', href: '/compare' }
+  { label: 'Tennibot vs. Others', href: '/compare' },
   // { label: 'How It Works', href: 'how-it-works' },
   // { label: 'Testimonials', href: 'testimonials' },
   // { label: 'Sports', href: 'sports' },

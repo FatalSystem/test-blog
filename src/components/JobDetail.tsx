@@ -17,12 +17,14 @@ interface IJobDetails {
 }
 
 export const client = createClient({
-  projectId: '3nx5ege4', // Replace with your actual Sanity project ID
+  // projectId: '3nx5ege4', // Replace with your actual Sanity project ID
+  projectId:'brwxydjw',
+  // projectId: process.env.PUBLIC_SANITY_PROJECT_ID!,
   dataset: 'production', // Replace with your actual dataset name
   apiVersion: '2023-08-25', // Use current date in YYYY-MM-DD format
   useCdn: true,
   token: import.meta.env.SANITY_TOKEN,
-  withCredentials: true
+  // withCredentials: true
 });
 
 const ProgressBar = (): JSX.Element => {
@@ -71,7 +73,8 @@ export default function JobDetail (): JSX.Element {
     try {
       const params = new URLSearchParams(window.location.search)
       const title = params.get('title')
-      window.document.title = `Tennibot - ${title}` ?? 'Tennibot - Job Details'
+      // window.document.title =`Tennibot - ${title}` ?? 'Tennibot - Job Details'
+      window.document.title = title ? `Tennibot - ${title}` : 'Tennibot - Job Details';
       const id = params.get('id')
       if (id) {
         console.log(id)

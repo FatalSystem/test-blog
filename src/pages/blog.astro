@@ -1,0 +1,130 @@
+---
+import Layout from "../layouts/Layout.astro"
+---
+
+<Layout title="Blog | Tennibot">
+  <main class="bg-t-off-black mt-[-110px] overflow-hidden text-t-off-white">
+    <section class="w-[90%] md:w-[80%] 2xl:max-w-[1133px] mx-auto pt-[150px] pb-20">
+      <h1 class="uppercase font-avenirBold text-3xl lg:text-4xl 2xl:text-6xl text-center">BLOG</h1>
+
+      <div class="mt-20 rounded-2xl overflow-hidden grid grid-cols-1 md:[grid-template-columns:65%_35%] shadow-2xl shadow-black/50 ring-1 ring-white/10 bg-[#262424]">
+            <div class="relative p-6 sm:p-10 flex flex-col justify-end bg-gradient-to-r from-black/100 via-black/0 to-transparent min-w-0">
+
+          <span class="absolute top-6 left-6 font-avenir text-[20px] leading-[20px] font-normal text-gray-200">Partnership</span>
+          <h3 class="font-avenirBold font-extrabold uppercase text-[48px] leading-[28px] mb-2 mt-16 sm:mt-20">TENNIBOT x PYC</h3>
+          <p class="max-w-[300px] pt-2 font-plutoLight text-[20px] leading-[20px] text-gray-300">We are now the official ball machine of PlayYourCourt</p>
+        </div>
+
+        <div class="relative min-h-[260px] md:min-h-full min-w-0">
+          <img
+            src="/images/blog/big-news.jpg"
+            alt="Blog image"
+            class="object-cover w-full h-full"
+          />
+          <a href="#" aria-label="Next" class="absolute bottom-7 right-6">
+            <img src="/images/blog/arrow.svg" alt="" class="w-14 h-14 drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]" />
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-12 flex items-center gap-2">
+        <h2 class="uppercase font-avenirBold text-[24px] leading-[40px] text-gray-200">CATEGORY</h2>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 5L16 12L8 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-gray-300" />
+        </svg>
+      </div>
+
+      <div class="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <a href="#" class="group relative rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl bg-neutral-900/60">
+          <img src="/images/blog/category-1.jpg" alt="Category 1" class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90"></div>
+          <div class="relative p-5 h-[540px] flex flex-col justify-end">
+            <div class="max-w-[300px] pr-16 flex flex-col gap-1">
+              <span class="font-plutoLight text-[14px] leading-[20px] text-gray-200">Article</span>
+              <h3 class="font-avenirBold font-extrabold uppercase text-[20px] leading-[28px] text-white">THE ROBOT REPORT</h3>
+              <p class="font-plutoLight text-[14px] leading-[20px] text-gray-300">“Setting a new standard for training technology”</p>
+            </div>
+            <span class="absolute bottom-6 right-5">
+              <img src="/images/blog/arrow.svg" alt="" class="w-12 h-12 drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]" />
+            </span>
+          </div>
+        </a>
+
+        <a href="#" class="group relative rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl bg-neutral-900/60">
+          <img src="/images/blog/category-2.jpg" alt="Category 2" class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90"></div>
+          <div class="relative p-5 h-[540px] flex flex-col justify-end">
+            <div class="max-w-[300px] pr-16 flex flex-col gap-1">
+              <span class="font-plutoLight text-[14px] leading-[20px] text-gray-200">Article</span>
+              <h3 class="font-avenirBold font-extrabold uppercase text-[20px] leading-[28px] text-white">TENNIS NERD</h3>
+              <p class="font-plutoLight text-[14px] leading-[20px] text-gray-300">“Really stands out with its autonomous mobility”</p>
+            </div>
+            <span class="absolute bottom-6 right-5">
+              <img src="/images/blog/arrow.svg" alt="" class="w-12 h-12 drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]" />
+            </span>
+          </div>
+        </a>
+
+        <a href="#" class="group relative rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl">
+          <img src="/images/blog/category-3.jpg" alt="Category 3" class="absolute inset-0 w-full h-auto px-2 py-10 object-contain" />
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90"></div>
+          <div class="relative p-5 h-[540px] flex flex-col justify-end">
+            <div class="max-w-[300px] pr-16 flex flex-col gap-1">
+              <span class="font-plutoLight text-[14px] leading-[20px] text-gray-200">Podcast</span>
+              <h3 class="font-avenirBold font-extrabold uppercase text-[20px] leading-[28px] text-white">MONOCLE RADIO</h3>
+              <p class="font-plutoLight text-[14px] leading-[20px] text-gray-300">World’s first autonomous tennis assistant</p>
+            </div>
+            <span class="absolute bottom-6 right-5">
+              <img src="/images/blog/arrow.svg" alt="" class="w-12 h-12 drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]" />
+            </span>
+          </div>
+        </a>
+
+        <a href="#" class="group relative rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl">
+          <img src="/images/blog/category-4.png" alt="Category 4" class="absolute inset-0 w-full px-[25px] h-auto" />
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/0 to-black/100"></div>
+          <div class="relative p-5 h-[540px] flex flex-col justify-end">
+            <div class="pr-16 flex flex-col gap-1">
+              <span class="font-plutoLight text-[14px] leading-[20px] text-gray-200">Article</span>
+              <h3 class="font-avenirBold font-extrabold uppercase text-[20px] leading-[28px] text-white">TENNIS CHANNEL</h3>
+              <p class="max-w-[250px] font-plutoLight text-[14px] leading-[20px] text-gray-300">Partner ball machine uses robotics to revolutionize tennis training</p>
+            </div>
+            <span class="absolute bottom-5 right-5">
+              <img src="/images/blog/arrow.svg" alt="" class="w-12 h-12 drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]" />
+            </span>
+          </div>
+        </a>
+
+        <a href="#" class="group relative rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl">
+          <img src="/images/blog/category-5.png" alt="Category 5" class="absolute inset-0 w-full h-auto px-2 py-10 object-contain" />
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/0 to-black/100"></div>
+          <div class="relative p-5 h-[540px] flex flex-col justify-end">
+            <div class="pr-16 flex flex-col gap-1 bg-gradient-to-b from-black/0 via-black/100 to-transparent">
+              <span class="font-plutoLight text-[14px] leading-[20px] text-gray-200">Article</span>
+              <h3 class="font-avenirBold font-extrabold uppercase text-[20px] leading-[28px] text-white">TECHCRUNCH</h3>
+              <p class="max-w-[180px] font-plutoLight text-[14px] leading-[20px] text-gray-300">Meet Tennibot, the tennis ball Roomba</p>
+            </div>
+            <span class="absolute bottom-6 right-5">
+              <img src="/images/blog/arrow.svg" alt="" class="w-12 h-12 drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]" />
+            </span>
+          </div>
+        </a>
+
+        <a href="#" class="group relative rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl">
+          <img src="/images/blog/category-6.jpg" alt="Category 6" class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90"></div>
+          <div class="relative p-5 h-[540px] flex flex-col justify-end">
+            <div class="max-w-[300px] pr-16 flex flex-col gap-1">
+              <span class="font-plutoLight text-[14px] leading-[20px] text-gray-200">Podcast</span>
+              <h3 class="font-avenirBold font-extrabold uppercase text-[20px] leading-[28px] text-white">THE ULTIMATE FUN…</h3>
+              <p class="max-w-[180px] font-plutoLight text-[14px] leading-[20px] text-gray-300">Build Robots with Haitham Eletrabi</p>
+            </div>
+            <span class="absolute bottom-6 right-5">
+              <img src="/images/blog/arrow.svg" alt="" class="w-12 h-12 drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]" />
+            </span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>

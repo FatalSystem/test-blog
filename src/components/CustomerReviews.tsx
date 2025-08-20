@@ -124,7 +124,7 @@ export function TSlider ({ contentContainerStyle, slides, arrowsStyle }): JSX.El
       <h3 className="w-[75%] mx-auto font-avenir text-pretty font-black text-2xl mb-5" >Customer Reviews</h3>
         <div className="overflow-hidden" ref={emblaRef} >
             <div className="flex touch-pan-y">
-                {slides.map((slide, index) => {
+                {slides.map((slide:any, index:any) => {
                   return (
                     <TSlide className={`${slide.style}`} key={index} index={index} selectedIndex={selectedIndex} containerStyle={contentContainerStyle} >
                         {slide.content}

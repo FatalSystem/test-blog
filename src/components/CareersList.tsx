@@ -17,12 +17,14 @@ interface CareerItemProps {
 
 
 export const client = createClient({
-  projectId: '3nx5ege4', // Replace with your actual Sanity project ID
+  // projectId: '3nx5ege4', // Replace with your actual Sanity project ID
+  projectId:'brwxydjw',
+  // projectId: process.env.PUBLIC_SANITY_PROJECT_ID!,
   dataset: 'production', // Replace with your actual dataset name
   apiVersion: '2023-08-25', // Use current date in YYYY-MM-DD format
   useCdn: true,
   token: import.meta.env.SANITY_TOKEN,
-  withCredentials: true
+  // withCredentials: true
 });
 
 const CareerItem = ({ job, index }: CareerItemProps): JSX.Element => {
@@ -51,7 +53,7 @@ const CareerItem = ({ job, index }: CareerItemProps): JSX.Element => {
             <p className="mb-5 mt-3 font-avenir text-lg xl:text-xl" ><span className="capitalize" >{`${job.city.toLowerCase()},`}</span>{` ${job.state_code ?? 'AL'}, United States`}</p>
         </div>
         <div className="text-center flex" >
-            <a href={`/job?id=${job._id}&title=${job.title}`} className="w-full tablet:w-64 mobilem:px-16 cursor-pointer text-t-off-white border-t-off-white md:text-t-off-white md:bg-transparent hover:bg-t-off-white hover:text-t-off-black 2xl:w-80 text-lg 2xl:text-2xl 2xl: 2xl:py-3 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-center" >See details</a>
+            <a href={`/job?id=${job.id}&title=${job.title}`} className="w-full tablet:w-64 mobilem:px-16 cursor-pointer text-t-off-white border-t-off-white md:text-t-off-white md:bg-transparent hover:bg-t-off-white hover:text-t-off-black 2xl:w-80 text-lg 2xl:text-2xl 2xl: 2xl:py-3 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-center" >See details</a>
             {/* <a href={`/job/${job.id}`} className="w-full tablet:w-64 mobilem:px-16 cursor-pointer text-t-off-white border-t-off-white md:text-t-off-white md:bg-transparent hover:bg-t-off-white hover:text-t-off-black 2xl:w-80 text-lg 2xl:text-2xl 2xl: 2xl:py-3 font-thin rounded-full py-2 font-avenir uppercase border-2 transition duration-300 text-center" >See details</a> */}
         </div>
     </motion.div>

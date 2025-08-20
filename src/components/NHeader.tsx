@@ -161,6 +161,15 @@ export default function NHeader (): React.JSX.Element {
                     )}
                   </AnimatePresence>
                 </div>
+
+                <div>
+                  <a
+                    href="/blog"
+                    className='text-lg hidden sm:block rounded-full py-2 px-5 text-t-off-white my-auto font-avenirBold uppercase transform cursor-pointer hover:text-t-green transition duration-500 ease-in-out'
+                  >
+                    BOOK DEMO
+                  </a>
+                </div>
             </div>
           </div>
           <div className="relative sm:hidden my-auto flex flex-row">
