@@ -73,7 +73,7 @@ export default function PartnerForm ({ from, listId }: { from: string, listId: s
         // setSent(true)
         setShowSportSelector(true)
         setCurrentEmail(values.email)
-        edgetag('tag', 'Complete registration new')
+        // edgetag('tag', 'Complete registration new')
       }
     } catch (error) {
       setErrorSubmitting(true)

@@ -117,12 +117,12 @@ export default function ThankYouContent (): JSX.Element {
             utm_term: urlParams?.get('utm_term') ?? ''
           })
 
-          edgetag('tag', 'Purchase', {
-            currency: data.currency,
-            value: data.value,
-            quantity: data.quantity,
-            email: data.email
-          })
+          // edgetag('tag', 'Purchase', {
+          //   currency: data.currency,
+          //   value: data.value,
+          //   quantity: data.quantity,
+          //   email: data.email
+          // })
           console.log('Purchase tag sent')
           setIsLoading(false)
           return // Success! Exit the retry loop

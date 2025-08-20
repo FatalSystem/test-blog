@@ -74,7 +74,7 @@ export default function SportForm ({ from, sport }: { from: string, sport: strin
         // setSent(true)
         setShowPhoneForm(true)
         setCurrentEmail(values.email)
-        edgetag('tag', 'Complete registration new')
+        // edgetag('tag', 'Complete registration new')
       }
     } catch (error) {
       setErrorSubmitting(true)

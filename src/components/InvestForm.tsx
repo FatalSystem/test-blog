@@ -83,7 +83,7 @@ export default function InvestForm ({ from, listId }: { from: string, listId: st
         setSent(true)
         // setShowSportSelector(true)
         setCurrentEmail(values.email)
-        edgetag('tag', 'Complete registration new')
+        // edgetag('tag', 'Complete registration new')
       }
     } catch (error) {
       setErrorSubmitting(true)

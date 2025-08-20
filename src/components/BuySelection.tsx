@@ -70,19 +70,19 @@ export default function BuySelection (): JSX.Element {
 
         })
 
-        edgetag('tag', 'initiateCheckout', {
-          currency: 'USD',
-          value: 995,
-          checkoutUrl: 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyNzQ0MjI0MzUsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2ODc5NTIzLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDA3MzMxfV19&store_id=190268',
-          contents: [
-            {
-              id: '8318008819875',
-              quantity: 1,
-              item_price: 995,
-              title: 'Annual Plan'
-            }
-          ]
-        })
+        // edgetag('tag', 'initiateCheckout', {
+        //   currency: 'USD',
+        //   value: 995,
+        //   checkoutUrl: 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyNzQ0MjI0MzUsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2ODc5NTIzLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDA3MzMxfV19&store_id=190268',
+        //   contents: [
+        //     {
+        //       id: '8318008819875',
+        //       quantity: 1,
+        //       item_price: 995,
+        //       title: 'Annual Plan'
+        //     }
+        //   ]
+        // })
         // window.location.href = 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyNzQ0MjI0MzUsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2ODc5NTIzLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDA3MzMxfV19&store_id=190268'
         window.location.href = '/checkout?type=annual'
         return
@@ -117,19 +117,19 @@ export default function BuySelection (): JSX.Element {
         utm_term: urlParams?.get('utm_term') ?? ''
       })
 
-      edgetag('tag', 'initiateCheckout', {
-        currency: 'USD',
-        value: 95,
-        checkoutUrl: 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyOTExNjY4ODMsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2OTEyMjkxLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDQwMDk5fV19&store_id=190268',
-        contents: [
-          {
-            id: '8318017011875',
-            quantity: 1,
-            item_price: 95,
-            title: 'Monthly Plan'
-          }
-        ]
-      })
+      // edgetag('tag', 'initiateCheckout', {
+      //   currency: 'USD',
+      //   value: 95,
+      //   checkoutUrl: 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyOTExNjY4ODMsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2OTEyMjkxLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDQwMDk5fV19&store_id=190268',
+      //   contents: [
+      //     {
+      //       id: '8318017011875',
+      //       quantity: 1,
+      //       item_price: 95,
+      //       title: 'Monthly Plan'
+      //     }
+      //   ]
+      // })
       // window.location.href = 'https://store.tennibot.com/tools/recurring/checkout_link?magic=eyJpdGVtcyI6IFt7ImlkIjogNDQzMTEyOTExNjY4ODMsICJxdWFudGl0eSI6IDEsICJzZWxsaW5nX3BsYW4iOiAxNzE2OTEyMjkxLCAic2VsbGluZ19wbGFuX2dyb3VwX2lkIjogODg2NDQwMDk5fV19&store_id=190268'
       window.location.href = '/checkout?type=monthly'
       return
@@ -180,19 +180,19 @@ export default function BuySelection (): JSX.Element {
         utm_medium: urlParams?.get('utm_medium') ?? '',
         utm_term: urlParams?.get('utm_term') ?? ''
       })
-      edgetag('tag', 'initiateCheckout', {
-        currency: 'USD',
-        value: 2995,
-        checkoutUrl: 'https://store.tennibot.com/cart/44311234936995:1?channel=buy_button',
-        contents: [
-          {
-            id: '8317998170275',
-            quantity: 1,
-            item_price: 2995,
-            title: 'One Time Purchase'
-          }
-        ]
-      })
+      // edgetag('tag', 'initiateCheckout', {
+      //   currency: 'USD',
+      //   value: 2995,
+      //   checkoutUrl: 'https://store.tennibot.com/cart/44311234936995:1?channel=buy_button',
+      //   contents: [
+      //     {
+      //       id: '8317998170275',
+      //       quantity: 1,
+      //       item_price: 2995,
+      //       title: 'One Time Purchase'
+      //     }
+      //   ]
+      // })
       // window.location.href = 'https://store.tennibot.com/cart/44311234936995:1?channel=buy_button'
       window.location.href = '/checkout?type=onetime'
     }
