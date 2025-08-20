@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "@fontsource/dm-sans/400.css";
+@import "@fontsource/dm-sans/800.css";
+
 @layer base {
   @font-face {
     font-family: 'AvenirNLPRegular';
@@ -61,6 +64,21 @@
     line-height: normal;
     font-display: swap;
     src: url(/fonts/PlutoSansBold.woff2) format('woff2');
+  }
+
+  @font-face {
+    font-family: "HvDTrial Pluto Sans";
+    src: url("/fonts/pluto/HvDTrialPlutoSans-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "HvDTrial Pluto Sans";
+    src: url("/fonts/pluto/HvDTrialPlutoSans-ExtraBold.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
   }
 }
 
