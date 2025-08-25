@@ -155,7 +155,7 @@ React.HTMLAttributes<HTMLParagraphElement>
     <p
       ref={ref}
       id={formMessageId}
-      className={cn('text-sm font-medium text-destructive', className)}
+      className={cn('text-sm font-medium text-red-500 mt-1', className)}
       {...props}
     >
       {body}

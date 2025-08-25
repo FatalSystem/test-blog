@@ -1,0 +1,47 @@
+---
+import Layout from "../layouts/Layout.astro"
+import ContactForm from "../components/ContactForm.tsx"
+---
+
+<Layout title="Contact | Tennibot">
+  <main class="bg-t-off-black font-pluto">
+
+    <!-- Main Content -->
+    <section class="w-full md:w-[80%] 2xl:max-w-[1133px] mx-auto py-[27px]">
+      <!-- Page Title -->
+      <div class="text-left mb-5 max-w-[380px]">
+        <span class="text-[#F6F7F2] font-avenir text-base">Contact us</span>
+        <h1 class="uppercase font-dm font-extrabold text-4xl text-t-off-white">GET IN TOUCH</h1>
+        <p class="text-[#F6F7F2] text-base mt-1 font-plutoLight">
+          Fill out the form below and our team will get back to you shortly.
+        </p>
+      </div>
+
+      <!-- Content Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+        <!-- Contact Form -->
+        <ContactForm client:load />
+
+        <!-- Contact Information -->
+          <div class="ml-[100px]">
+            <h2 class="uppercase font-dm font-extrabold text-2xl lg:text-4xl text-t-off-white mb-4">TALK WITH US</h2>
+            <div class="space-y-2">
+              <div>
+                <p class="text-t-off-white font-avenirBold text-lg">Give us a ring at</p>
+                <p class="text-t-green font-plutoLight text-2xl lg:text-xl">251-277-8022</p>
+              </div>
+              <div>
+                <p class="text-t-off-white font-avenirBold text-lg">Or email us at</p>
+                <a href="mailto:info@tennibot.com" class="text-t-green font-plutoLight text-xl lg:text-xl hover:text-t-green/80 transition-colors duration-200">
+                  info@tennibot.com
+                </a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- <NFooter /> -->
+  </main>
+</Layout>
