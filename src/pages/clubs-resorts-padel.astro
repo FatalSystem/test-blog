@@ -1,0 +1,337 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Swiper from "../components/Swiper";
+import FacilityForm from '../components/FacilityForm'
+
+const testimonials = [
+{
+    name: "SYLVANA JORDYN",
+    location: "ROCKVILLE, MD",
+    quote: "It's fantastic for drilling, practice points, and even doubles drills. I really enjoyed it.",
+    videoUrl: "#",
+    image: "/public/images/player-tennis/swiper/swiper1.jpg"
+  },
+  {
+    name: "LOGAN WEST",
+    location: "WASHINGTON, DC",
+    quote: "I worked on rapid-fire volleys, reflexes, and range at the net—it's perfect for sharpening your skills.",
+    videoUrl: "#",
+    image: "/public/images/player-tennis/swiper/swiper2.jpg"
+  },
+  {
+    name: "ALEX CHEN",
+    location: "ROCKVILLE, MD",
+    quote: "With so much variety, I felt like I was just rallying with a partner.",
+    videoUrl: "#",
+    image: "/public/images/player-tennis/swiper/swiper3.jpg"
+  },
+  {
+    name: "LOGAN WEST",
+    location: "WASHINGTON, DC",
+    quote: "I worked on rapid-fire volleys, reflexes, and range at the net—it's perfect for sharpening your skills.",
+    videoUrl: "#",
+    image: "/public/images/player-tennis/swiper/swiper2.jpg"
+  },
+];
+---
+
+<Layout title="AI Solutions | Tennibot">
+<main class="bg-t-off-black font-pluto mt-5">
+<section class="w-full text-t-off-white">
+
+    <!-- 1 -->
+    <div
+      class="relative w-full h-[900px] flex flex-col justify-between bg-cover bg-center"
+      style="background-image: url('/images/clubs-resorts-padel/block1.jpg');"
+    >
+      <img class="absolute w-full h-full top-0 left-0" src="/images/player-tennis/hero_gradient.png" />
+
+      <div class="relative z-10 flex flex-col justify-between h-full w-[90%] md:w-[70%] 2xl:max-w-[1133px] mx-auto">
+        <div class="flex-1 flex flex-col items-center pt-20">
+          <h2 class="text-5xl md:text-6xl font-dm font-bold uppercase mb-2 text-white mt-6">
+            ELEVATE YOUR
+          </h2>
+          <h2 class="text-5xl md:text-6xl font-dm font-bold uppercase mb-6 text-[#C0F20C]">
+            CLUB TODAY
+          </h2>
+          <p class="text-lg font-plutoLight text-white text-center">
+           Give Your Players the Competitive Edge with AI-Driven Training
+          </p>
+          <button class="mt-8 text-[20px] font-bold px-20 py-2 border-2 bg-[#C0F20C]/10 border-[#C0F20C] text-[#C0F20C] rounded-full hover:bg-[#C0F20C] hover:text-black transition">
+           INQUIRE NOW
+          </button>
+        </div>
+
+        <div class="flex justify-center flex-wrap gap-[50px] pb-10">
+          <img src="/images/block_logo/logo_1.png" alt="logo-1" class="h-8 md:h-10"/>
+          <img src="/images/block_logo/logo_2.png" alt="logo-2" class="h-8 md:h-10"/>
+          <img src="/images/block_logo/logo_3.png" alt="logo-3" class="h-8 md:h-10"/>
+          <img src="/images/block_logo/logo_4.png" alt="logo-4" class="h-8 md:h-10"/>
+          <img src="/images/block_logo/logo_5.png" alt="logo-5" class="h-8 md:h-10"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="relative w-full flex flex-col items-center justify-start py-16 mt-10">
+      <div class="text-center mb-12 mt-9">
+        <h2 class="font-dm uppercase mb-6 text-[40px] font-extrabold leading-[40px]">
+          AI-Powered Training Solutions
+        </h2>
+        <p class="text-lg text-[16px] font-normal leading-[24px] font-plutoLight max-w-2xl mx-auto w-[90%]">
+          For maximum efficiency, seamless sessions, and exclusive savings. Built for high-performance programs.
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl">
+        <a href="#" class="group relative rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl bg-neutral-900/60">
+          <img src="/public/images/clubs-resorts-padel/block2_1.jpg" alt="Category 1" class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90"></div>
+          <div class="relative p-5 h-[540px] flex flex-col justify-end">
+            <div class="max-w-[300px] pr-16 flex flex-col gap-1">
+              <span class="font-dm text-xl text-gray-200 uppercase mb-2 text-[20px] font-extrabold leading-[28px]">THE partner</span>
+              <p class="font-plutoLight text-gray-300 text-[14px] font-normal leading-[20px] max-w-[120px]">AI-powered training robot</p>
+            </div>
+            <span class="absolute bottom-6 right-5">
+            <button class="mt-8 px-5 py-2 border-2 border-[#C0F20C] text-[#C0F20C] rounded-full hover:bg-[#C0F20C] hover:text-black transition uppercase">Buy now</button>
+            </span>
+          </div>
+        </a>
+
+        <a href="#" class="group relative rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl bg-neutral-900/60">
+          <img src="/public/images/clubs-resorts-padel/block2_2.jpg" alt="Category 1" class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90"></div>
+          <div class="relative p-5 h-[540px] flex flex-col justify-end">
+            <div class="max-w-[300px] pr-16 flex flex-col gap-1">
+              <span class="font-dm text-gray-200 text-[20px] font-extrabold leading-[28px]">THE ROVER</span>
+              <p class="font-plutoLight text-gray-300 text-[14px] font-normal leading-[20px] max-w-[150px]">Autonomous ball collection system</p>
+            </div>
+            <span class="absolute bottom-6 right-5">
+              <button class="mt-8 px-5 py-2 border-2 border-[#C0F20C] text-[#C0F20C] rounded-full hover:bg-[#C0F20C] hover:text-black transition uppercase">Buy now</button>
+            </span>
+          </div>
+        </a>
+
+        <a href="#" class="group relative rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl bg-neutral-900/60">
+          <img src="/public/images/clubs-resorts-padel/block2_3.jpg" alt="Category 1" class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/90"></div>
+           <span
+                class="absolute top-8 left-4 px-4 py-1 rounded-full bg-[#C0F20C] text-black text-[14px] font-normal leading-[24px]">
+                RECOMMENDED
+            </span>
+          <div class="relative p-5 h-[540px] flex flex-col justify-end">
+            <div class="max-w-[300px] pr-16 flex flex-col gap-1">
+              <span class="font-dm text-gray-200 text-[20px] font-extrabold leading-[28px]">THE BUNDLE</span>
+              <p class="font-plutoLight text-gray-300 text-[14px] font-normal leading-[20px] max-w-[170px]">PARTNER + ROVER Complete AI training solution</p>
+            </div>
+            <span class="absolute bottom-6 right-5">
+              <button class="mt-8 px-5 py-2 border-2 border-[#C0F20C] text-[#C0F20C] rounded-full hover:bg-[#C0F20C] hover:text-black transition uppercase">Buy now</button>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div
+      class="relative w-full h-[800px] flex flex-col bg-cover bg-bottom py-[72px]"
+      style="background-image: url('/images/players-pickleball/block3.jpg');"
+    >
+    <img class="absolute w-full h-full top-0 left-0" src="/images/player-tennis/hero_gradient.png" />
+    <div class="w-full relative z-[10] h-full flex flex-col justify-between">
+      <div>
+        <h2 class="text-center text-4xl font-dm uppercase mb-1 text-[36px] font-extrabold leading-[40px]">Why clubs Choose</h2>
+        <h2 class="text-center text-4xl font-dm uppercase text-[#C0F20C] text-[36px] font-extrabold leading-[40px]">THE partner</h2>
+      </div>
+      <div class="relative z-10 grid grid-cols-3 gap-x-[88px] gap-y-[50px] justify-between w-[95%] md:w-[80%] 2xl:max-w-[1200px] mx-auto text-[14px] font-normal leading-[20px]">
+        <div class="flex gap-3 items-start font-pluto">
+          <img src="/images/block3_icon/icon_1.svg" class="stretch-1">
+          Train multiple players at once with precision.
+        </div>
+        <div class="flex gap-3 items-start font-pluto">
+          <img src="/images/block3_icon/icon_2.svg" class="stretch-1">
+          Automate repetitive drills and focus on real coaching.
+        </div>
+        <div class="flex gap-3 items-start font-pluto">
+          <img src="/images/block3_icon/icon_3.svg" class="stretch-1">
+          Adapt to every level with Match My Level mode.
+        </div>
+        <div class="flex gap-3 items-start font-pluto">
+          <img src="/images/block3_icon/icon_4.svg" class="stretch-1">
+          Maximize court efficiency with auto-calibration.
+        </div>
+        <div class="flex gap-3 items-start font-pluto">
+          <img src="/images/block3_icon/icon_5.svg" class="stretch-1">
+          Cut down wasted shots compared to traditional ball machines.
+        </div>
+        <div class="flex gap-3 items-start font-pluto">
+          <img src="/images/block3_icon/icon_6.svg" class="stretch-1">
+          Follow Me Mode for effortless movement between courts.
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div
+      class="relative w-full h-[800px] flex flex-col bg-cover bg-bottom py-[72px]"
+      style="background-image: url('/images/clubs-resorts-padel/block4.jpg');"
+    >
+    <img class="absolute w-full h-full top-0 left-0" src="/images/player-tennis/hero_gradient.png" />
+    <div class="w-full relative z-[10] h-full flex flex-col justify-between">
+      <div>
+        <h2 class="text-center text-4xl font-dm uppercase mb-1 text-[36px] font-extrabold leading-[40px]">Why school</h2>
+        <h2 class="text-center text-4xl font-dm uppercase text-[#C0F20C] text-[36px] font-extrabold leading-[40px]">choose THE rover</h2>
+      </div>
+       <div class="relative z-10 grid grid-cols-3 gap-x-[88px] gap-y-[50px] justify-between w-[95%] md:w-[80%] 2xl:max-w-[1200px] mx-auto">
+        <div class="flex gap-3 items-start font-pluto">
+          <img src="/images/players-padel/block4_1.png" class="stretch-1">
+            Save time on every session. Players and coaches can focus on training.
+        </div>
+        <div class="flex gap-3 items-start font-pluto">
+          <img src="/images/players-padel/block4_2.png" class="stretch-1">
+            Speed up court turnover. Get the next session started faster.
+        </div>
+        <div class="flex gap-3 items-start font-pluto">
+          <img src="/images/players-padel/block4_3.png" class="stretch-1">
+            Clay court sweeping. Saves your team time and effort.
+        </div>
+        <div class="flex gap-3 items-start font-pluto">
+          <img src="/images/players-padel/block4_4.png" class="stretch-1">
+            Lightweight & easy to move. Suitcase-style tilt-and-roll design.
+        </div>
+        <div class="flex gap-3 items-start font-pluto">
+          <img src="/images/players-padel/block4_5.png" class="stretch-1">
+            App-controlled for simple operation.
+        </div>
+        <div class="flex gap-3 items-start font-pluto">
+          <img src="/images/players-padel/block4_6.png" class="stretch-1">
+            No manual chasing or collecting needed.
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- 5 swiper -->
+    <div class="mt-20">
+      <h2 class="text-center mb-12 text-[36px] font-extrabold leading-[40px]">
+        BUT DON'T TAKE OUR WORD FOR IT!
+      </h2>
+
+      <Swiper items={testimonials} client:load />
+    </div>
+
+    <!-- 6 -->
+    <div class="relative w-full bg-[#0A0A0A] py-20 flex flex-col items-center">
+
+      <div class="text-center mb-16">
+        <p class="text-[#C0F20C] font-plutoLight mb-3 text-[18px] font-normal leading-[28px]">Why Tennibot Is Worth It</p>
+        <h2 class="text-4xl md:text-5xl font-dm uppercase text-white text-[36px] font-extrabold leading-[40px]">
+          THE ROI FOR <span class="text-[#C0F20C]">Clubs</span>
+        </h2>
+      </div>
+
+      <div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto justify-items-center">
+
+        <div class="bg-[#1A1A1A] rounded-2xl p-6 shadow-lg w-full">
+          <img src="/public/images/player-tennis/block6/icon_first.png" alt="Efficiency" class="w-10 h-10 mb-6 text-[#C0F20C]" />
+          <h3 class="text-white text-[20px] font-extrabold mb-6 uppercase w-[200px]">MAXIMIZE EFFICIENCY</h3>
+          <ul class="space-y-3 text-gray-300 text-sm leading-[22px] w-[100%]">
+            <li class="flex gap-2 items-start text-[14px] font-normal mb-5">
+              <span class="block w-2 h-2 bg-[#C0F20C] rounded-full mt-1 shrink-0"></span>
+              Train more players per hour — without burning out your coaching team.
+            </li>
+            <li class="flex gap-2 items-start text-[14px] font-normal mb-5">
+            <span class="block w-2 h-2 bg-[#C0F20C] rounded-full mt-1 shrink-0"></span>
+              The Partner feeds balls so coaches can stay fresh and focus on coaching.
+            </li>
+            <li class="flex gap-2 items-start text-[14px] font-normal mb-5">
+              <span class="block w-2 h-2 bg-[#C0F20C] rounded-full mt-1 shrink-0"></span>
+              Rover collects balls automatically.
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-[#1A1A1A] rounded-2xl p-6 shadow-lg w-full">
+          <img src="/public/images/player-tennis/block6/icon_fourth.png" alt="AI Program" class="w-10 h-10 mb-6 text-[#C0F20C]" />
+          <h3 class="text-white text-xl font-bold mb-6 uppercase w-[200px]">REVENUE GENERATION</h3>
+          <ul class="space-y-3 text-gray-300 text-sm leading-[22px] w-[235px]">
+            <li class="flex gap-2 items-start text-[14px] font-normal mb-5">
+              <span class="block w-2 h-2 bg-[#C0F20C] rounded-full mt-1 shrink-0"></span>
+              Create premium training packages featuring The Partner.
+            </li>
+            <li class="flex gap-2 items-start text-[14px] font-normal mb-5">
+              <span class="block w-2 h-2 bg-[#C0F20C] rounded-full mt-1 shrink-0"></span>
+              From personalized ball drills to high-intensity elite sessions.
+            </li>
+            <li class="flex gap-2 items-start text-[14px] font-normal mb-5">
+              <span class="block w-2 h-2 bg-[#C0F20C] rounded-full mt-1 shrink-0"></span>
+                Increase client value per session.
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-[#1A1A1A] rounded-2xl p-6 shadow-lg w-full">
+          <img src="/public/images/player-tennis/block6/icon_second.png" alt="AI Program" class="w-10 h-10 mb-6 text-[#C0F20C]" />
+          <h3 class="text-white text-xl font-bold mb-6 uppercase w-[200px]">DIFFERENTIATE YOUR PROGRAM</h3>
+          <ul class="space-y-3 text-gray-300 text-sm leading-[22px] w-[235px]">
+            <li class="flex gap-2 items-start text-[14px] font-normal mb-5">
+              <span class="block w-2 h-2 bg-[#C0F20C] rounded-full mt-1 shrink-0"></span>
+              Stand out with AI-driven training.
+            </li>
+            <li class="flex gap-2 items-start text-[14px] font-normal mb-5">
+              <span class="block w-2 h-2 bg-[#C0F20C] rounded-full mt-1 shrink-0"></span>
+              Attract elite players, new members, and sponsors.
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-[#1A1A1A] rounded-2xl p-6 shadow-lg w-full">
+          <img src="/public/images/player-tennis/block6/icon_third.png" alt="Warranty" class="w-10 h-10 mb-6 text-[#C0F20C]" />
+          <h3 class="text-white text-xl font-bold mb-6 uppercase">DURABILITY AND WARRANTY</h3>
+          <ul class="space-y-3 text-gray-300 text-sm leading-[22px] w-[235px]">
+            <li class="flex gap-2 items-start text-[14px] font-normal mb-5">
+              <span class="block w-2 h-2 bg-[#C0F20C] rounded-full mt-1 shrink-0"></span>
+              Proudly built in the USA.
+            </li>
+            <li class="flex gap-2 items-start">
+              <span class="block w-2 h-2 bg-[#C0F20C] rounded-full mt-1 shrink-0"></span>
+              Engineered for durability.
+            </li>
+            <li class="flex gap-2 items-start text-[14px] font-normal mb-5">
+              <span class="block w-2 h-2 bg-[#C0F20C] rounded-full mt-1 shrink-0"></span>
+              Backed by a best-in-class 3-year warranty — unmatched peace of mind.
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="relative w-full py-20 bg-[#262424]">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+
+            <div class="w-full">
+                <h2 class="text-4xl font-dm uppercase mb-1 text-[36px] font-extrabold leading-[40px]">READY TO TRANSFORM</h2>
+                <h2 class="text-4xl font-dm uppercase text-[#C0F20C] text-[36px] font-extrabold leading-[40px]">YOUR COURTS?</h2>
+
+                <p class="text-lg font-pluto text-[16px] text-[#F6F7F2] font-normal leading-[24px] w-[357px] pt-8">
+                    Join the revolution in tennis training. Bring AI-powered coaching to your program
+                    and watch your players excel.
+                </p>
+
+                <p class="text-white text-[16px] font-bold leading-[24px] pt-10 font-pluto">Questions? Give us a ring at</p>
+                <a href="tel:2512778022" class="text-[#C0F20C] font-pluto text-[16px] font-normal leading-[24px]">251-277-8022</a>
+            </div>
+
+            <div>
+                <FacilityForm client:load />
+            </div>
+        </div>
+    </div>
+
+</section>
+</main>
+
+</Layout>
